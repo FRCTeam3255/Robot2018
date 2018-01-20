@@ -16,6 +16,7 @@ public class Telemetry extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Left Encoder Count", Robot.drivetrain.getLeftEncoderCount());
 		SmartDashboard.putNumber("Right Encoder Count", Robot.drivetrain.getRightEncoderCount());
+		SmartDashboard.putNumber("Collector Encoder Count", Robot.collector.getEncoderCount());
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

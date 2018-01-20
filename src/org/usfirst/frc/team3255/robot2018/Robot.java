@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3255.robot2018.subsystems.Climber;
 import org.usfirst.frc.team3255.robot2018.subsystems.Collector;
 import org.usfirst.frc.team3255.robot2018.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot2018.subsystems.Telemetry;
@@ -25,9 +26,11 @@ import org.usfirst.frc.team3255.robot2018.subsystems.Telemetry;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static OI oi;
+	
 	public static Drivetrain drivetrain = null;
 	public static Collector collector = null;
+	public static Climber climber = null;
+	public static OI oi;
 	public static Telemetry telemetry = null;
 
 	Command m_autonomousCommand;
@@ -39,9 +42,10 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		oi = new OI();
 		drivetrain = new Drivetrain();
 		collector = new Collector();
+		climber = new Climber();
+		oi = new OI();
 		telemetry = new Telemetry();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);

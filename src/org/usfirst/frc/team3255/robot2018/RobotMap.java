@@ -25,20 +25,38 @@ public class RobotMap {
 	public static final int COLLECTOR_RIGHT_TALON = 6;
 	public static final int COLLECTOR_LEFT_LIFT_TALON = 7;
 	public static final int COLLECTOR_RIGHT_LIFT_TALON = 8;
+
+	public static final int CLIMBER_LEFT_CLIMB_TALON = 9;
+	public static final int CLIMBER_LEFT_LIFT_TALON = 10;
+	public static final int CLIMBER_RIGHT_CLIMB_TALON = 11;
+	public static final int CLIMBER_RIGHT_LIFT_TALON = 12;
 	
 	//Joysticks
 	public static final int JOYSTICK_DRIVER = 0;
+	public static final int JOYSTICK_MANIPULATOR = 1;
 	
-	public static final int DRIVER_MOVE_AXIS = 1;
-	public static final int DRIVER_ROTATE_AXIS = 2;
+	public static final int DRIVER_MOVE_AXIS = 2;
+	public static final int DRIVER_ROTATE_AXIS = 3;
 	
 	//Switches
 	public static final int COLLECTOR_TOP_SWITCH = 0;
 	public static final int COLLECTOR_BOTTOM_SWITCH = 1;
+	public static final int CLIMBER_TOP_SWITCH = 2;
+	
+	//Encoder
+	public static final int DRIVETRAIN_LEFT_ENCODER_A = 4;
+	public static final int DRIVETRAIN_LEFT_ENCODER_B = 5;
+	public static final int DRIVETRAIN_RIGHT_ENCODER_A = 6;
+	public static final int DRIVETRAIN_RIGHT_ENCODER_B = 7;
+	public static final int COLLECTOR_ENCODER_A = 8;
+	public static final int COLLECTOR_ENCODER_B = 9;
+	
+	//Solenoid
+	public static final int CLIMBER_SOLENOID_RETRACT = 0;
+	public static final int CLIMBER_SOLENOID_EXTEND = 1;
+	
 
-
-
-
+	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;

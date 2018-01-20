@@ -6,6 +6,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -20,6 +21,8 @@ public class Collector extends Subsystem {
 	private WPI_TalonSRX leftLiftTalon = null;
 	private WPI_TalonSRX rightLiftTalon = null;
 	
+	private Encoder encoder = null;
+	
 	private DigitalInput topSwitch = null;
 	private DigitalInput bottomSwitch = null;
 	
@@ -28,6 +31,8 @@ public class Collector extends Subsystem {
 		rightCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_RIGHT_TALON);
 		leftLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_LEFT_LIFT_TALON);
 		rightLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_RIGHT_LIFT_TALON);
+		
+		encoder = new Encoder(RobotMap.COLLECTOR_ENCODER_A, RobotMap.COLLECTOR_ENCODER_B);
 		
 		topSwitch = new DigitalInput(RobotMap.COLLECTOR_TOP_SWITCH);
 		bottomSwitch = new DigitalInput(RobotMap.COLLECTOR_BOTTOM_SWITCH);
@@ -52,7 +57,29 @@ public class Collector extends Subsystem {
 		leftCollectorTalon.set(-1.0);
 		rightCollectorTalon.set(1.0);
 	}
+	
+	public void lift() {
+		leftLiftTalon.set(1.0);
+		rightLiftTalon.set(1.0);
+	}
+	
+	public void decend() {
+		leftLiftTalon.set(-1.0);
+		rightLiftTalon.set(-1.0);
+	}
+	
+	public double getEncoderCount() {
+		return encoder.get(); 
+	}
 
+	public boolean isTopSwitchClosed() {
+		return !topSwitch.get();
+	}
+	
+	public boolean isBottomSwitchClosed() {
+		return !bottomSwitch.get();
+	}
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

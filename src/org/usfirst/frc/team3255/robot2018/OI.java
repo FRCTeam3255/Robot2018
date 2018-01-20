@@ -7,7 +7,14 @@
 
 package org.usfirst.frc.team3255.robot2018;
 
+import org.usfirst.frc.team3255.robot2018.commands.ClimberClimb;
+import org.usfirst.frc.team3255.robot2018.commands.ClimberExtend;
+import org.usfirst.frc.team3255.robot2018.commands.ClimberRetract;
+import org.usfirst.frc.team3255.robot2018.commands.ClimberStop;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -16,6 +23,7 @@ import edu.wpi.first.wpilibj.Joystick;
 public class OI {
 	
 	public Joystick driverStick = new Joystick(RobotMap.JOYSTICK_DRIVER);
+	public Joystick manipulatorStick = new Joystick(RobotMap.JOYSTICK_MANIPULATOR);
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
@@ -43,4 +51,23 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	Button M1 = new JoystickButton(manipulatorStick, 1);
+	Button M2 = new JoystickButton(manipulatorStick, 2);
+	Button M3 = new JoystickButton(manipulatorStick, 3);
+	Button M4 = new JoystickButton(manipulatorStick, 4);
+	Button M5 = new JoystickButton(manipulatorStick, 5);
+	Button M6 = new JoystickButton(manipulatorStick, 6);
+	Button M7 = new JoystickButton(manipulatorStick, 7);
+	Button M8 = new JoystickButton(manipulatorStick, 8);
+	Button M9 = new JoystickButton(manipulatorStick, 9);
+	Button M10 = new JoystickButton(manipulatorStick, 10);
+	Button M11 = new JoystickButton(manipulatorStick, 11);
+	Button M12 = new JoystickButton(manipulatorStick, 12);
+	
+	public OI() {
+		M11.whenPressed(new ClimberClimb());
+		M9.whenPressed(new ClimberRetract());
+		M10.whenPressed(new ClimberExtend());
+		M7.whenPressed(new ClimberStop());
+	}
 }

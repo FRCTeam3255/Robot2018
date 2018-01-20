@@ -6,6 +6,7 @@ import org.usfirst.frc.team3255.robot2018.commands.DriveArcade;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -21,6 +22,9 @@ public class Drivetrain extends Subsystem {
 	private WPI_TalonSRX rightFrontTalon = null;
 	private WPI_TalonSRX rightBackTalon = null;
 	
+	private Encoder leftEncoder = null;
+	private Encoder rightEncoder = null;
+	
 	private DifferentialDrive differentialDrive = null;
  
 	public Drivetrain() {
@@ -28,6 +32,9 @@ public class Drivetrain extends Subsystem {
 		leftBackTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
 		rightFrontTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
 		rightBackTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
+		
+		leftEncoder = new Encoder(RobotMap.DRIVETRAIN_LEFT_ENCODER_A, RobotMap.DRIVETRAIN_LEFT_ENCODER_B);
+		rightEncoder = new Encoder(RobotMap.DRIVETRAIN_RIGHT_ENCODER_A, RobotMap.DRIVETRAIN_RIGHT_ENCODER_B);
 		
 		leftFrontTalon.setSafetyEnabled(false);
 		leftBackTalon.setSafetyEnabled(false);
@@ -50,11 +57,11 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public double getLeftEncoderCount() {
-		return 	leftFrontTalon.getSelectedSensorPosition(0);
+		return leftEncoder.get();
 	}
 	
 	public double getRightEncoderCount() {
-		return 	rightFrontTalon.getSelectedSensorPosition(0);
+		return  rightEncoder.get();
 	}
 	
     public void initDefaultCommand() {
