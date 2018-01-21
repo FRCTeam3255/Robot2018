@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3255.robot2018.subsystems.Climber;
 import org.usfirst.frc.team3255.robot2018.subsystems.Collector;
+import org.usfirst.frc.team3255.robot2018.subsystems.CollectorPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot2018.subsystems.Telemetry;
 
@@ -30,6 +31,7 @@ public class Robot extends TimedRobot {
 	public static Drivetrain drivetrain = null;
 	public static Collector collector = null;
 	public static Climber climber = null;
+	public static CollectorPID collectorPID = null;
 	public static OI oi;
 	public static Telemetry telemetry = null;
 
@@ -45,6 +47,7 @@ public class Robot extends TimedRobot {
 		drivetrain = new Drivetrain();
 		collector = new Collector();
 		climber = new Climber();
+		collectorPID = new CollectorPID();
 		oi = new OI();
 		telemetry = new Telemetry();
 		// chooser.addObject("My Auto", new MyAutoCommand());

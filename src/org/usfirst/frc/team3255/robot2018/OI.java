@@ -11,6 +11,9 @@ import org.usfirst.frc.team3255.robot2018.commands.ClimberClimb;
 import org.usfirst.frc.team3255.robot2018.commands.ClimberExtend;
 import org.usfirst.frc.team3255.robot2018.commands.ClimberRetract;
 import org.usfirst.frc.team3255.robot2018.commands.ClimberStop;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorCollect;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorEject;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorStopCollecting;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -65,6 +68,9 @@ public class OI {
 	Button M12 = new JoystickButton(manipulatorStick, 12);
 	
 	public OI() {
+		M1.whenPressed(new CollectorEject());
+		M2.whenPressed(new CollectorCollect());
+		M3.whenPressed(new CollectorStopCollecting());
 		M11.whenPressed(new ClimberClimb());
 		M9.whenPressed(new ClimberRetract());
 		M10.whenPressed(new ClimberExtend());

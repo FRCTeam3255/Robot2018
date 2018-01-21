@@ -1,6 +1,9 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
+import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotMap;
+import org.usfirst.frc.team3255.robot2018.RobotPreferences;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorArcade;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -8,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  *
@@ -25,6 +29,9 @@ public class Collector extends Subsystem {
 	
 	private DigitalInput topSwitch = null;
 	private DigitalInput bottomSwitch = null;
+	private DigitalInput intakeSwitch = null;
+	
+	private DifferentialDrive differentialDrive = null;
 	
 	public Collector() {
 		leftCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_LEFT_TALON);
@@ -36,6 +43,7 @@ public class Collector extends Subsystem {
 		
 		topSwitch = new DigitalInput(RobotMap.COLLECTOR_TOP_SWITCH);
 		bottomSwitch = new DigitalInput(RobotMap.COLLECTOR_BOTTOM_SWITCH);
+		intakeSwitch = new DigitalInput(RobotMap.COLLECTOR_INTAKE_SWITCH);
 		
 		leftCollectorTalon.setSafetyEnabled(false);
 		rightCollectorTalon.setSafetyEnabled(false);
@@ -46,11 +54,18 @@ public class Collector extends Subsystem {
 		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		leftLiftTalon.setNeutralMode(NeutralMode.Brake);
 		rightLiftTalon.setNeutralMode(NeutralMode.Brake);
+		
+		differentialDrive = new DifferentialDrive(leftCollectorTalon, rightCollectorTalon);
 	}
 	
 	public void collect() {
-		leftCollectorTalon.set(1.0);
-		rightCollectorTalon.set(-1.0);
+		leftCollectorTalon.set(0.5);
+		rightCollectorTalon.set(-0.5);
+	}
+	
+	public void collectorStop() {
+		leftCollectorTalon.set(0.0);
+		rightCollectorTalon.set(0.0);
 	}
 	
 	public void eject() {
@@ -58,14 +73,9 @@ public class Collector extends Subsystem {
 		rightCollectorTalon.set(1.0);
 	}
 	
-	public void lift() {
-		leftLiftTalon.set(1.0);
-		rightLiftTalon.set(1.0);
-	}
-	
-	public void decend() {
-		leftLiftTalon.set(-1.0);
-		rightLiftTalon.set(-1.0);
+	public void setLiftSpeed(double speed) {
+		leftLiftTalon.set(speed);
+		rightLiftTalon.set(speed);
 	}
 	
 	public double getEncoderCount() {
@@ -80,9 +90,19 @@ public class Collector extends Subsystem {
 		return !bottomSwitch.get();
 	}
 	
+	public boolean isCubeCollected() {
+		return intakeSwitch.get();
+	}
+	
+	public void arcadeDrive() {
+		differentialDrive.arcadeDrive((RobotPreferences.collectorIntakeSpeed() * Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS)), 
+				(RobotPreferences.collectorIntakeSpeed() * Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_ROTATE_AXIS)));
+	}
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new CollectorArcade());
     }
 }
 

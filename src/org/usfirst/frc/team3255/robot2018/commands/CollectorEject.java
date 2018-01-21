@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ClimberRetract extends Command {
+public class CollectorEject extends Command {
 
-    public ClimberRetract() {
+    public CollectorEject() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.climber);
+    	requires(Robot.collector);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class ClimberRetract extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climber.rungRetract();
+    	Robot.collector.eject();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,6 +31,7 @@ public class ClimberRetract extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.collector.collectorStop();
     }
 
     // Called when another command which requires one or more of the same
