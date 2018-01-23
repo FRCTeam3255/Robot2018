@@ -56,9 +56,9 @@ public class RobotPreferences {
 		return 0;
 	}
 
-	public static int collectorIntakeSpeed() {
+	public static double collectorIntakeSpeed() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1.0;
 	}
 	
 	

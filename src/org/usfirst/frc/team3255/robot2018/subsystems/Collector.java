@@ -9,6 +9,8 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -31,6 +33,9 @@ public class Collector extends Subsystem {
 	private DigitalInput bottomSwitch = null;
 	private DigitalInput intakeSwitch = null;
 	
+	private DoubleSolenoid clampSolenoid = null;
+	private DoubleSolenoid deploySolenoid = null;
+	
 	private DifferentialDrive differentialDrive = null;
 	
 	public Collector() {
@@ -44,6 +49,9 @@ public class Collector extends Subsystem {
 		topSwitch = new DigitalInput(RobotMap.COLLECTOR_TOP_SWITCH);
 		bottomSwitch = new DigitalInput(RobotMap.COLLECTOR_BOTTOM_SWITCH);
 		intakeSwitch = new DigitalInput(RobotMap.COLLECTOR_INTAKE_SWITCH);
+		
+		clampSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_CLAMP_SOLENOID_CLAMP, RobotMap.COLLECTOR_CLAMP_SOLENOID_RELEASE);
+		deploySolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_DEPLOY_SOLENOID_DEPLOY, RobotMap.COLLECTOR_DEPLOY_SOLENOID_RETRACT);
 		
 		leftCollectorTalon.setSafetyEnabled(false);
 		rightCollectorTalon.setSafetyEnabled(false);
@@ -59,8 +67,8 @@ public class Collector extends Subsystem {
 	}
 	
 	public void collect() {
-		leftCollectorTalon.set(0.5);
-		rightCollectorTalon.set(-0.5);
+		leftCollectorTalon.set(RobotPreferences.collectorIntakeSpeed());
+		rightCollectorTalon.set(-RobotPreferences.collectorIntakeSpeed());
 	}
 	
 	public void collectorStop() {
@@ -92,6 +100,22 @@ public class Collector extends Subsystem {
 	
 	public boolean isCubeCollected() {
 		return intakeSwitch.get();
+	}
+	
+	public void clampCollector() {
+		clampSolenoid.set(Value.kForward);
+	}
+	
+	public void releaseCollector() {
+		clampSolenoid.set(Value.kReverse);
+	}
+	
+	public void deployCollector() {
+		deploySolenoid.set(Value.kForward);
+	}
+	
+	public void retractCollector() {
+		deploySolenoid.set(Value.kReverse);
 	}
 	
 	public void arcadeDrive() {

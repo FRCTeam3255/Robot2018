@@ -59,6 +59,11 @@ public class RobotMap {
 	public static final int CLIMBER_SOLENOID_RETRACT = 0;
 	public static final int CLIMBER_SOLENOID_EXTEND = 1;
 	
+	public static final int COLLECTOR_CLAMP_SOLENOID_CLAMP = 2;
+	public static final int COLLECTOR_CLAMP_SOLENOID_RELEASE = 3;
+	public static final int COLLECTOR_DEPLOY_SOLENOID_DEPLOY = 4;
+	public static final int COLLECTOR_DEPLOY_SOLENOID_RETRACT = 5;
+	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;

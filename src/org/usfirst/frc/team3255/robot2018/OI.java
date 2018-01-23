@@ -12,7 +12,9 @@ import org.usfirst.frc.team3255.robot2018.commands.ClimberExtend;
 import org.usfirst.frc.team3255.robot2018.commands.ClimberRetract;
 import org.usfirst.frc.team3255.robot2018.commands.ClimberStop;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorCollect;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorDeploy;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorEject;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorRetract;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorStopCollecting;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -54,6 +56,10 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	Button D5 = new JoystickButton(driverStick, 5);
+	Button D6 = new JoystickButton(driverStick, 6);
+	
+	
 	Button M1 = new JoystickButton(manipulatorStick, 1);
 	Button M2 = new JoystickButton(manipulatorStick, 2);
 	Button M3 = new JoystickButton(manipulatorStick, 3);
@@ -75,5 +81,8 @@ public class OI {
 		M9.whenPressed(new ClimberRetract());
 		M10.whenPressed(new ClimberExtend());
 		M7.whenPressed(new ClimberStop());
+		
+		D5.whenPressed(new CollectorRetract());
+		D6.whenPressed(new CollectorDeploy());
 	}
 }

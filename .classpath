@@ -14,5 +14,6 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Robot2018/libraries/docs/CTRE_Phoenix-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="var" path="USERLIBS_DIR/CTRLib.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
