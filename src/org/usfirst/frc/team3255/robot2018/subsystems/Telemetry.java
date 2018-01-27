@@ -14,11 +14,8 @@ public class Telemetry extends Subsystem {
 	}
 	*/
 	public void update() {
-		SmartDashboard.putNumber("Avg Encoder Distance", Robot.drivetrain.getAverageEncoderDistance());
-		SmartDashboard.putNumber("Right Encoder Count", Robot.drivetrain.getRightEncoderCount());
-		SmartDashboard.putNumber("Left Encoder Count", Robot.drivetrain.getLeftEncoderCount());
-		SmartDashboard.putNumber("Right Encoder Distance", Robot.drivetrain.getRightEncoderDistance());
-		SmartDashboard.putNumber("Left Encoder Distance", Robot.drivetrain.getLeftEncoderDistance());
+		SmartDashboard.putNumber("Drive Encoder Distance", Robot.drivetrain.getEncoderDistance());
+		SmartDashboard.putNumber("Drive Encoder Count", Robot.drivetrain.getEncoderCount());
 
 		SmartDashboard.putNumber("Collector Encoder Count", Robot.collector.getEncoderCount());
 		SmartDashboard.putNumber("Collector Encoder Distance", Robot.collector.getEncoderDistance());

@@ -26,10 +26,8 @@ public class RobotMap {
 	public static final int COLLECTOR_LEFT_LIFT_TALON = 7;
 	public static final int COLLECTOR_RIGHT_LIFT_TALON = 8;
 
-	public static final int CLIMBER_LEFT_WINCH_TALON = 9;
-	public static final int CLIMBER_RIGHT_WINCH_TALON = 10;
-	public static final int CLIMBER_LEFT_CASCADE_TALON = 11;
-	public static final int CLIMBER_RIGHT_CASCADE_TALON = 12;
+	public static final int CLIMBER_LEFT_TALON = 9;
+	public static final int CLIMBER_RIGHT_TALON = 10;
 	
 	//Joysticks
 	public static final int JOYSTICK_DRIVER = 0;
@@ -38,7 +36,7 @@ public class RobotMap {
 	public static final int DRIVER_MOVE_AXIS = 2;
 	public static final int DRIVER_ROTATE_AXIS = 3;
 	
-	public static final int COLLECTOR_MOVE_AXIS = 0;
+	public static final int COLLECTOR_MOVE_AXIS = 1;
 	public static final int COLLECTOR_ROTATE_AXIS = 0;
 	
 	//Switches
@@ -46,14 +44,13 @@ public class RobotMap {
 	public static final int COLLECTOR_BOTTOM_SWITCH = 1;
 	public static final int COLLECTOR_INTAKE_SWITCH = 2;
 	public static final int CLIMBER_TOP_SWITCH = 3;
+	public static final int CLIMBER_BOTTOM_SWITCH = 4;
 	
 	//Encoder
-	public static final int DRIVETRAIN_LEFT_ENCODER_A = 4;
-	public static final int DRIVETRAIN_LEFT_ENCODER_B = 5;
-	public static final int DRIVETRAIN_RIGHT_ENCODER_A = 6;
-	public static final int DRIVETRAIN_RIGHT_ENCODER_B = 7;
-	public static final int COLLECTOR_ENCODER_A = 8;
-	public static final int COLLECTOR_ENCODER_B = 9;
+	public static final int DRIVETRAIN_ENCODER_A = 5;
+	public static final int DRIVETRAIN_ENCODER_B = 6;
+	public static final int COLLECTOR_ENCODER_A = 9;
+	public static final int COLLECTOR_ENCODER_B = 10;
 	
 	//Solenoid
 	public static final int CLIMBER_SOLENOID_RETRACT = 0;

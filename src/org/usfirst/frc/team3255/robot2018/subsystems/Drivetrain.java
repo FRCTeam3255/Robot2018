@@ -23,8 +23,7 @@ public class Drivetrain extends Subsystem {
 	private WPI_TalonSRX rightFrontTalon = null;
 	private WPI_TalonSRX rightBackTalon = null;
 	
-	private Encoder leftEncoder = null;
-	private Encoder rightEncoder = null;
+	private Encoder encoder = null;
 	
 	private DifferentialDrive differentialDrive = null;
  
@@ -34,8 +33,7 @@ public class Drivetrain extends Subsystem {
 		rightFrontTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
 		rightBackTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
 		
-		leftEncoder = new Encoder(RobotMap.DRIVETRAIN_LEFT_ENCODER_A, RobotMap.DRIVETRAIN_LEFT_ENCODER_B);
-		rightEncoder = new Encoder(RobotMap.DRIVETRAIN_RIGHT_ENCODER_A, RobotMap.DRIVETRAIN_RIGHT_ENCODER_B);
+		encoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_A, RobotMap.DRIVETRAIN_ENCODER_B);
 		
 		leftFrontTalon.setSafetyEnabled(false);
 		leftBackTalon.setSafetyEnabled(false);
@@ -51,30 +49,19 @@ public class Drivetrain extends Subsystem {
 		rightBackTalon.follow(rightFrontTalon);
 	
 		differentialDrive = new DifferentialDrive(leftFrontTalon, rightFrontTalon);
+		differentialDrive.setSafetyEnabled(false);
 	}
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed) {
 		differentialDrive.arcadeDrive(-moveSpeed, rotateSpeed);
 	}
 	
-	public double getAverageEncoderDistance() {
-		return (getLeftEncoderDistance() + getRightEncoderDistance()) / 2;
+	public double getEncoderCount() {
+		return  encoder.get();
 	}
 	
-	public double getLeftEncoderCount() {
-		return  leftEncoder.get();
-	}
-	
-	public double getLeftEncoderDistance() {
-		return leftEncoder.get() / RobotPreferences.drivetrainPulsePerFoot();	
-	}
-	
-	public double getRightEncoderCount() {
-		return  rightEncoder.get();
-	}
-	
-	public double getRightEncoderDistance() {
-		return rightEncoder.get() / RobotPreferences.drivetrainPulsePerFoot();
+	public double getEncoderDistance() {
+		return encoder.get() / RobotPreferences.drivetrainPulsePerFoot();	
 	}
 	
     public void initDefaultCommand() {

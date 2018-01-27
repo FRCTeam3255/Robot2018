@@ -27,7 +27,7 @@ public class Collector extends Subsystem {
 	private WPI_TalonSRX leftLiftTalon = null;
 	private WPI_TalonSRX rightLiftTalon = null;
 	
-	private Encoder encoder = null;
+	private Encoder liftEncoder = null;
 	
 	private DigitalInput topSwitch = null;
 	private DigitalInput bottomSwitch = null;
@@ -44,7 +44,17 @@ public class Collector extends Subsystem {
 		leftLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_LEFT_LIFT_TALON);
 		rightLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_RIGHT_LIFT_TALON);
 		
-		encoder = new Encoder(RobotMap.COLLECTOR_ENCODER_A, RobotMap.COLLECTOR_ENCODER_B);
+		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
+		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
+		leftLiftTalon.setNeutralMode(NeutralMode.Brake);
+		rightLiftTalon.setNeutralMode(NeutralMode.Brake);
+		
+		leftCollectorTalon.setSafetyEnabled(false);
+		rightCollectorTalon.setSafetyEnabled(false);
+		leftLiftTalon.setSafetyEnabled(false);
+		rightLiftTalon.setSafetyEnabled(false);
+		
+		liftEncoder = new Encoder(RobotMap.COLLECTOR_ENCODER_A, RobotMap.COLLECTOR_ENCODER_B);
 		
 		topSwitch = new DigitalInput(RobotMap.COLLECTOR_TOP_SWITCH);
 		bottomSwitch = new DigitalInput(RobotMap.COLLECTOR_BOTTOM_SWITCH);
@@ -53,17 +63,8 @@ public class Collector extends Subsystem {
 		clampSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_CLAMP_SOLENOID_CLAMP, RobotMap.COLLECTOR_CLAMP_SOLENOID_RELEASE);
 		deploySolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_DEPLOY_SOLENOID_DEPLOY, RobotMap.COLLECTOR_DEPLOY_SOLENOID_RETRACT);
 		
-		leftCollectorTalon.setSafetyEnabled(false);
-		rightCollectorTalon.setSafetyEnabled(false);
-		leftLiftTalon.setSafetyEnabled(false);
-		rightLiftTalon.setSafetyEnabled(false);
-		
-		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
-		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
-		leftLiftTalon.setNeutralMode(NeutralMode.Brake);
-		rightLiftTalon.setNeutralMode(NeutralMode.Brake);
-		
 		differentialDrive = new DifferentialDrive(leftCollectorTalon, rightCollectorTalon);
+		differentialDrive.setSafetyEnabled(false);
 	}
 	
 	public void collect() {
@@ -87,11 +88,11 @@ public class Collector extends Subsystem {
 	}
 	
 	public double getEncoderCount() {
-		return encoder.get(); 
+		return liftEncoder.get(); 
 	}
 	
 	public double getEncoderDistance() {
-		return encoder.get() / RobotPreferences.collectorPulsesPerFoot();
+		return liftEncoder.get() / RobotPreferences.collectorPulsesPerFoot();
 	}
 
 	public boolean isTopSwitchClosed() {

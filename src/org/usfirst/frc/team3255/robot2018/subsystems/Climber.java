@@ -1,7 +1,9 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
 import org.usfirst.frc.team3255.robot2018.RobotMap;
+import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -16,36 +18,48 @@ public class Climber extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	private WPI_TalonSRX leftWinchTalon = null;
-	private WPI_TalonSRX rightWinchTalon = null;
-	private WPI_TalonSRX leftCascadeTalon = null;
-	private WPI_TalonSRX rightCascadeTalon = null;
+	private WPI_TalonSRX leftTalon = null;
+	private WPI_TalonSRX rightTalon = null;
 	
 	private DigitalInput topSwitch = null;
+	private DigitalInput bottomSwitch = null;
 	
 	private DoubleSolenoid climberSolenoid = null;
 	
 	public Climber() {
-		leftWinchTalon = new WPI_TalonSRX(RobotMap.CLIMBER_LEFT_WINCH_TALON);
-		rightWinchTalon = new WPI_TalonSRX(RobotMap.CLIMBER_RIGHT_WINCH_TALON);
-		leftCascadeTalon = new WPI_TalonSRX(RobotMap.CLIMBER_LEFT_CASCADE_TALON);
-		rightCascadeTalon = new WPI_TalonSRX(RobotMap.CLIMBER_RIGHT_CASCADE_TALON);
-		
+		leftTalon = new WPI_TalonSRX(RobotMap.CLIMBER_LEFT_TALON);
+		rightTalon = new WPI_TalonSRX(RobotMap.CLIMBER_RIGHT_TALON);
+
+		leftTalon.setNeutralMode(NeutralMode.Brake);
+		rightTalon.setNeutralMode(NeutralMode.Brake);
+
+		leftTalon.setSafetyEnabled(false);
+		rightTalon.setSafetyEnabled(false);
+
 		climberSolenoid = new DoubleSolenoid(RobotMap.CLIMBER_SOLENOID_RETRACT, RobotMap.CLIMBER_SOLENOID_EXTEND);
 		
 		topSwitch = new DigitalInput(RobotMap.CLIMBER_TOP_SWITCH);
+		bottomSwitch = new DigitalInput(RobotMap.CLIMBER_BOTTOM_SWITCH);
+	}
+
+	//Cascade
+	public void extend() {
+		double speed = RobotPreferences.climberExtendSpeed();
+		
+		leftTalon.set(speed);
+		rightTalon.set(speed);
 	}
 	
-	// Winch
-	public void robotClimb() {
-		leftWinchTalon.set(1.0);
-		rightWinchTalon.set(1.0);
+	public void retract() {
+		double speed = RobotPreferences.climberRetractSpeed();
+		
+		leftTalon.set(speed);
+		rightTalon.set(speed);
 	}
 	
-	// Cascade Lift
-	public void cascadeLift() {
-		leftCascadeTalon.set(1.0);
-		rightCascadeTalon.set(1.0);
+	public void stop() {
+		leftTalon.set(0.0);
+		rightTalon.set(0.0);
 	}
 	
 	//Triple Threat
@@ -57,13 +71,12 @@ public class Climber extends Subsystem {
 		climberSolenoid.set(Value.kForward);
 	}
 	
-	public void climbStop() {
-		leftWinchTalon.set(0.0);
-		rightWinchTalon.set(0.0);
-	}
-	
 	public boolean isTopSwitchClosed() {
 		return !topSwitch.get();
+	}
+	
+	public boolean isBottomSwitchClosed() {
+		return !bottomSwitch.get();
 	}
 	
     public void initDefaultCommand() {

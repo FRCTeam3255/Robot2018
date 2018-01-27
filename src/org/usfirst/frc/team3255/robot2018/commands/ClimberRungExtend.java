@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ClimberStop extends Command {
+public class ClimberRungExtend extends Command {
 
-    public ClimberStop() {
+    public ClimberRungExtend() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.climber);
@@ -17,7 +17,7 @@ public class ClimberStop extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.climber.stop();
+    	Robot.climber.rungExtend();
     }
 
     // Called repeatedly when this Command is scheduled to run

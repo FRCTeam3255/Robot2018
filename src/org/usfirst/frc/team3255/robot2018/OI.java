@@ -7,9 +7,9 @@
 
 package org.usfirst.frc.team3255.robot2018;
 
-import org.usfirst.frc.team3255.robot2018.commands.ClimberClimb;
-import org.usfirst.frc.team3255.robot2018.commands.ClimberExtend;
 import org.usfirst.frc.team3255.robot2018.commands.ClimberRetract;
+import org.usfirst.frc.team3255.robot2018.commands.ClimberRungExtend;
+import org.usfirst.frc.team3255.robot2018.commands.ClimberRungRetract;
 import org.usfirst.frc.team3255.robot2018.commands.ClimberStop;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorCollect;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorDeploy;
@@ -77,9 +77,9 @@ public class OI {
 		M1.whenPressed(new CollectorEject());
 		M2.whenPressed(new CollectorCollect());
 		M3.whenPressed(new CollectorStopCollecting());
-		M11.whenPressed(new ClimberClimb());
-		M9.whenPressed(new ClimberRetract());
-		M10.whenPressed(new ClimberExtend());
+		M11.whenPressed(new ClimberRetract());
+		M9.whenPressed(new ClimberRungRetract());
+		M10.whenPressed(new ClimberRungExtend());
 		M7.whenPressed(new ClimberStop());
 		
 		D5.whenPressed(new CollectorRetract());

@@ -48,7 +48,7 @@ public class NavDistancePID extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-       return Robot.drivetrain.getAverageEncoderDistance();
+       return Robot.drivetrain.getEncoderCount();
     }
 
     protected void usePIDOutput(double output) {
@@ -71,7 +71,7 @@ public class NavDistancePID extends PIDSubsystem {
     }
     
     public boolean onRawTolerance() {
-    	if (Math.abs(getPIDController().getSetpoint() - Robot.drivetrain.getAverageEncoderDistance()) < tolerance) {
+    	if (Math.abs(getPIDController().getSetpoint() - Robot.drivetrain.getEncoderDistance()) < tolerance) {
     		targetCounter = targetCounter + 1;
     	}
     	else {

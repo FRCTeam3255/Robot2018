@@ -129,6 +129,16 @@ public class RobotPreferences {
 		return 0;
 	}
 
+	public static double climberExtendSpeed() {
+		// TODO Auto-generated method stub
+		return 1.0;
+	}
+
+	public static double climberRetractSpeed() {
+		// TODO Auto-generated method stub
+		return -1.0;
+	}
+
 	
 	
 	
