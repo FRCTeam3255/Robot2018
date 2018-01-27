@@ -64,6 +64,8 @@ public class Collector extends Subsystem {
 		rightLiftTalon.setNeutralMode(NeutralMode.Brake);
 		
 		differentialDrive = new DifferentialDrive(leftCollectorTalon, rightCollectorTalon);
+		
+		differentialDrive.setSafetyEnabled(false);
 	}
 	
 	public void collect() {

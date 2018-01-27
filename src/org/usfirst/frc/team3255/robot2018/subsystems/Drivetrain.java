@@ -51,6 +51,8 @@ public class Drivetrain extends Subsystem {
 		rightBackTalon.follow(rightFrontTalon);
 	
 		differentialDrive = new DifferentialDrive(leftFrontTalon, rightFrontTalon);
+		
+		differentialDrive.setSafetyEnabled(false);
 	}
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed) {
