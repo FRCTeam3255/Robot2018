@@ -72,14 +72,35 @@ public class Navigation extends Subsystem {
 	
 	public char getAllianceSwitchPos() {
 		return getFieldData().charAt(0);
+		String s = getFieldData();
+		
+		if((s != null) && (s.length() > 0)) {
+			return getFieldData().charAt(0);
+		}
+		
+		return 'X';
 	}
 	
 	public char getScalePos() {
 		return getFieldData().charAt(1);
+		String s = getFieldData();
+		
+		if((s != null) && (s.length() > 1)) {
+			return getFieldData().charAt(1);
+		}
+		
+		return 'X';
 	}
 	
 	public char getOppenentSwitchPos() {
 		return getFieldData().charAt(2);
+		String s = getFieldData();
+		
+		if((s != null) && (s.length() > 2)) {
+			return getFieldData().charAt(2);
+		}
+		
+		return 'X';
 	}
 	
 	// Vision
