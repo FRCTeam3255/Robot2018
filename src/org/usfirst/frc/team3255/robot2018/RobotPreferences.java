@@ -3,7 +3,6 @@ package org.usfirst.frc.team3255.robot2018;
 public class RobotPreferences {
 
 	public static double drivetrainMaxSpeed() {
-		return 0;
 		return 1.0;
 	}
 
@@ -127,7 +126,6 @@ public class RobotPreferences {
 
 	public static int collectorPulsesPerFoot() {
 		// TODO Auto-generated method stub
-		return 0;
 		return 1;
 	}
 
