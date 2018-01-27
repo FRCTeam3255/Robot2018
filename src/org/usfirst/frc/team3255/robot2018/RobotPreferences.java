@@ -79,6 +79,56 @@ public class RobotPreferences {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public static int drivetrainTargetCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double yawTolerance() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double navYawP() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double nawYawI() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double nawYawD() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double maxYawSpeed() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public static double minYawSpeed() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public static double yawTargetCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double drivetrainPulsePerFoot() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static int collectorPulsesPerFoot() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 	
 	

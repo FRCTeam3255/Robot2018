@@ -17,6 +17,9 @@ import org.usfirst.frc.team3255.robot2018.subsystems.Climber;
 import org.usfirst.frc.team3255.robot2018.subsystems.Collector;
 import org.usfirst.frc.team3255.robot2018.subsystems.CollectorPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Drivetrain;
+import org.usfirst.frc.team3255.robot2018.subsystems.NavDistancePID;
+import org.usfirst.frc.team3255.robot2018.subsystems.NavYawPID;
+import org.usfirst.frc.team3255.robot2018.subsystems.Navigation;
 import org.usfirst.frc.team3255.robot2018.subsystems.Telemetry;
 
 /**
@@ -31,9 +34,13 @@ public class Robot extends TimedRobot {
 	public static Drivetrain drivetrain = null;
 	public static Collector collector = null;
 	public static Climber climber = null;
+	public static Navigation navigation = null; 
 	public static CollectorPID collectorPID = null;
+	public static NavDistancePID navDistancePID = null;
+	public static NavYawPID navYawPID = null;
 	public static OI oi;
 	public static Telemetry telemetry = null;
+	
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -47,7 +54,10 @@ public class Robot extends TimedRobot {
 		drivetrain = new Drivetrain();
 		collector = new Collector();
 		climber = new Climber();
+		navigation = new Navigation();
 		collectorPID = new CollectorPID();
+		navDistancePID = new NavDistancePID();
+		navYawPID = new NavYawPID();
 		oi = new OI();
 		telemetry = new Telemetry();
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -83,6 +93,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		telemetry.update();
 		m_autonomousCommand = m_chooser.getSelected();
 
 		/*

@@ -31,6 +31,8 @@ public class CollectorPID extends PIDSubsystem {
     			RobotPreferences.collectorI(),
     			RobotPreferences.collectorD());
     	
+    	this.setOutputRange(-maxSpeed, maxSpeed);
+    	
     	outputValid = false;
     	
     	super.enable();
@@ -68,7 +70,7 @@ public class CollectorPID extends PIDSubsystem {
     
     public boolean onRawTarget() {
     	if (Math.abs(getPIDController().getSetpoint() - Robot.collector.getEncoderCount()) < tolerance) {
-    		targetCounter = targetCounter +1;
+    		targetCounter = targetCounter + 1;
     	}
     	else {
     		targetCounter = 0;

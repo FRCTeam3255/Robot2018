@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
 import org.usfirst.frc.team3255.robot2018.RobotMap;
+import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 import org.usfirst.frc.team3255.robot2018.commands.DriveArcade;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -56,12 +57,24 @@ public class Drivetrain extends Subsystem {
 		differentialDrive.arcadeDrive(-moveSpeed, rotateSpeed);
 	}
 	
+	public double getAverageEncoderDistance() {
+		return (getLeftEncoderDistance() + getRightEncoderDistance()) / 2;
+	}
+	
 	public double getLeftEncoderCount() {
-		return leftEncoder.get();
+		return  leftEncoder.get();
+	}
+	
+	public double getLeftEncoderDistance() {
+		return leftEncoder.get() / RobotPreferences.drivetrainPulsePerFoot();	
 	}
 	
 	public double getRightEncoderCount() {
 		return  rightEncoder.get();
+	}
+	
+	public double getRightEncoderDistance() {
+		return rightEncoder.get() / RobotPreferences.drivetrainPulsePerFoot();
 	}
 	
     public void initDefaultCommand() {

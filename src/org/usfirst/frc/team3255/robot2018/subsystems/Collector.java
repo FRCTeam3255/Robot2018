@@ -89,6 +89,10 @@ public class Collector extends Subsystem {
 	public double getEncoderCount() {
 		return encoder.get(); 
 	}
+	
+	public double getEncoderDistance() {
+		return encoder.get() / RobotPreferences.collectorPulsesPerFoot();
+	}
 
 	public boolean isTopSwitchClosed() {
 		return !topSwitch.get();
