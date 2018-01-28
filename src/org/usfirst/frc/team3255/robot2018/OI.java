@@ -7,14 +7,11 @@
 
 package org.usfirst.frc.team3255.robot2018;
 
-import org.usfirst.frc.team3255.robot2018.commands.ClimberRetract;
-import org.usfirst.frc.team3255.robot2018.commands.ClimberRungExtend;
-import org.usfirst.frc.team3255.robot2018.commands.ClimberRungRetract;
-import org.usfirst.frc.team3255.robot2018.commands.ClimberStop;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorArcade;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorCollect;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorDeploy;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorEject;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorRetract;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorLift;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorRelease;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorStopCollecting;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -74,15 +71,11 @@ public class OI {
 	Button M12 = new JoystickButton(manipulatorStick, 12);
 	
 	public OI() {
-		M1.whenPressed(new CollectorEject());
+		M1.whileHeld(new CollectorEject());
 		M2.whenPressed(new CollectorCollect());
 		M3.whenPressed(new CollectorStopCollecting());
-		M11.whenPressed(new ClimberRetract());
-		M9.whenPressed(new ClimberRungRetract());
-		M10.whenPressed(new ClimberRungExtend());
-		M7.whenPressed(new ClimberStop());
-		
-		D5.whenPressed(new CollectorRetract());
-		D6.whenPressed(new CollectorDeploy());
+		M4.whenPressed(new CollectorRelease());
+		M11.whileHeld(new CollectorLift());
+		M12.whileHeld(new CollectorArcade());
 	}
 }

@@ -46,7 +46,7 @@ public class CollectorPID extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return Robot.collector.getEncoderCount();
+        return Robot.collector.getEncoderDistance();
     }
 
     protected void usePIDOutput(double output) {
@@ -69,7 +69,7 @@ public class CollectorPID extends PIDSubsystem {
     }
     
     public boolean onRawTarget() {
-    	if (Math.abs(getPIDController().getSetpoint() - Robot.collector.getEncoderCount()) < tolerance) {
+    	if (Math.abs(getPIDController().getSetpoint() - Robot.collector.getEncoderDistance()) < tolerance) {
     		targetCounter = targetCounter + 1;
     	}
     	else {

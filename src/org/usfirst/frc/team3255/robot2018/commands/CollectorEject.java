@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3255.robot2018.commands;
 
 import org.usfirst.frc.team3255.robot2018.Robot;
+import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -17,11 +18,14 @@ public class CollectorEject extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.collector.clampCollector();
+
+    	double speed = RobotPreferences.collectorEjectSpeed();
+    	Robot.collector.setCollectorSpeed(speed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.eject();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,7 +35,7 @@ public class CollectorEject extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.collector.collectorStop();
+    	Robot.collector.setCollectorSpeed(0.0);
     }
 
     // Called when another command which requires one or more of the same

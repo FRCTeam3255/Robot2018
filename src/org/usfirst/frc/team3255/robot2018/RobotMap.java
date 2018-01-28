@@ -32,6 +32,7 @@ public class RobotMap {
 	//Joysticks
 	public static final int JOYSTICK_DRIVER = 0;
 	public static final int JOYSTICK_MANIPULATOR = 1;
+	public static final int JOYSTICK_PREFERENCES = 2;
 	
 	public static final int DRIVER_MOVE_AXIS = 1;
 	public static final int DRIVER_ROTATE_AXIS = 2;
@@ -40,17 +41,19 @@ public class RobotMap {
 	public static final int COLLECTOR_ROTATE_AXIS = 0;
 	
 	//Switches
-	public static final int COLLECTOR_TOP_SWITCH = 0;
-	public static final int COLLECTOR_BOTTOM_SWITCH = 1;
+	public static final int COLLECTOR_TOP_SWITCH = 4;
+	public static final int COLLECTOR_BOTTOM_SWITCH = 3;
 	public static final int COLLECTOR_INTAKE_SWITCH = 2;
-	public static final int CLIMBER_TOP_SWITCH = 3;
-	public static final int CLIMBER_BOTTOM_SWITCH = 4;
+	
+	public static final int CLIMBER_TOP_SWITCH = 6;
+	public static final int CLIMBER_BOTTOM_SWITCH = 5;
 	
 	//Encoder
-	public static final int DRIVETRAIN_ENCODER_A = 5;
-	public static final int DRIVETRAIN_ENCODER_B = 6;
-	public static final int COLLECTOR_ENCODER_A = 9;
-	public static final int COLLECTOR_ENCODER_B = 10;
+	public static final int DRIVETRAIN_ENCODER_A = 7;
+	public static final int DRIVETRAIN_ENCODER_B = 8;
+	
+	public static final int COLLECTOR_ENCODER_A = 0;
+	public static final int COLLECTOR_ENCODER_B = 1;
 	
 	//Solenoid
 	public static final int CLIMBER_SOLENOID_RETRACT = 0;
@@ -60,7 +63,7 @@ public class RobotMap {
 	public static final int COLLECTOR_CLAMP_SOLENOID_RELEASE = 3;
 	public static final int COLLECTOR_DEPLOY_SOLENOID_DEPLOY = 4;
 	public static final int COLLECTOR_DEPLOY_SOLENOID_RETRACT = 5;
-	
+
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;

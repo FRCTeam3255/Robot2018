@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3255.robot2018.commands;
 
 import org.usfirst.frc.team3255.robot2018.Robot;
-
+import org.usfirst.frc.team3255.robot2018.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -21,7 +21,10 @@ public class CollectorArcade extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.arcadeDrive();
+		double moveSpeed = Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS);
+		double rotateSpeed = Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_ROTATE_AXIS);
+		
+    	Robot.collector.arcadeCollect(moveSpeed, rotateSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,7 +34,7 @@ public class CollectorArcade extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.collector.collectorStop();
+    	Robot.collector.setCollectorSpeed(0.0);
     }
 
     // Called when another command which requires one or more of the same

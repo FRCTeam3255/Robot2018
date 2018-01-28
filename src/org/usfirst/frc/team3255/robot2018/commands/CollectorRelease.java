@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CollectorStopCollecting extends Command {
+public class CollectorRelease extends Command {
 
-    public CollectorStopCollecting() {
+    public CollectorRelease() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.collector);
@@ -17,8 +17,7 @@ public class CollectorStopCollecting extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.collector.clampCollector();
-    	Robot.collector.setCollectorSpeed(0.0);
+    	Robot.collector.releaseCollector();
     }
 
     // Called repeatedly when this Command is scheduled to run

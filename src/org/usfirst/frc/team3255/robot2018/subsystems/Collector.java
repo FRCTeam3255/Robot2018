@@ -1,10 +1,7 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
-import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotMap;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorArcade;
-
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -67,22 +64,19 @@ public class Collector extends Subsystem {
 		differentialDrive.setSafetyEnabled(false);
 	}
 	
-	public void collect() {
-		leftCollectorTalon.set(RobotPreferences.collectorIntakeSpeed());
-		rightCollectorTalon.set(-RobotPreferences.collectorIntakeSpeed());
-	}
-	
-	public void collectorStop() {
-		leftCollectorTalon.set(0.0);
-		rightCollectorTalon.set(0.0);
-	}
-	
-	public void eject() {
-		leftCollectorTalon.set(-1.0);
-		rightCollectorTalon.set(1.0);
+	public void setCollectorSpeed(double speed) {
+		leftCollectorTalon.set(speed);
+		rightCollectorTalon.set(-speed);
 	}
 	
 	public void setLiftSpeed(double speed) {
+		if((speed > 0) && isTopSwitchClosed()) {
+			speed = 0;
+		}
+		else if((speed < 0) && isBottomSwitchClosed()) {
+			speed = 0;
+		}
+		
 		leftLiftTalon.set(speed);
 		rightLiftTalon.set(speed);
 	}
@@ -94,13 +88,17 @@ public class Collector extends Subsystem {
 	public double getEncoderDistance() {
 		return liftEncoder.get() / RobotPreferences.collectorPulsesPerFoot();
 	}
+	
+	public void resetEncoder() {
+		liftEncoder.reset();
+	}
 
 	public boolean isTopSwitchClosed() {
-		return !topSwitch.get();
+		return topSwitch.get();
 	}
 	
 	public boolean isBottomSwitchClosed() {
-		return !bottomSwitch.get();
+		return bottomSwitch.get();
 	}
 	
 	public boolean isCubeCollected() {
@@ -123,15 +121,13 @@ public class Collector extends Subsystem {
 		deploySolenoid.set(Value.kReverse);
 	}
 	
-	public void arcadeDrive() {
-		differentialDrive.arcadeDrive((RobotPreferences.collectorIntakeSpeed() * Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS)), 
-				(RobotPreferences.collectorIntakeSpeed() * Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_ROTATE_AXIS)));
+	public void arcadeCollect(double moveSpeed, double rotateSpeed) {
+		differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
 	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new CollectorArcade());
     }
 }
 

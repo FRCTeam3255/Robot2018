@@ -29,8 +29,8 @@ public class NavYawPID extends PIDSubsystem {
     public void enable() {
     	this.getPIDController().setPID(
     			RobotPreferences.navYawP(),
-    			RobotPreferences.nawYawI(),
-    			RobotPreferences.nawYawD());
+    			RobotPreferences.navYawI(),
+    			RobotPreferences.navYawD());
     	
     	setAbsoluteTolerance(RobotPreferences.yawTolerance());
     	

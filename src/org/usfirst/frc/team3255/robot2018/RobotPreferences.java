@@ -1,146 +1,210 @@
 package org.usfirst.frc.team3255.robot2018;
 
+import edu.wpi.first.wpilibj.Preferences;
+
 public class RobotPreferences {
 
 	public static double drivetrainMaxSpeed() {
-		return 1.0;
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainMaxSpeed", 1.0);
 	}
 
 	public static double collectorP() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorP", 1.0);
 	}
 
 	public static double collectorI() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorI", 0.0);
 	}
 
 	public static double collectorD() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorD", 0.0);
 	}
 
 	public static double collectorMaxSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorMaxSpeed", 1.0);
 	}
 
 	public static int collectorTargetCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0;
+		}
+		return Preferences.getInstance().getInt("CollectorTargetCount", 0);
 	}
 
 	public static double collectorTolerance() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		
+		return Preferences.getInstance().getDouble("CollectorTolerance", 1.0);
 	}
 
+	public static double collectorBottomSetpoint() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorBottomSetpoint", 0.0);
+	}
+	
 	public static double collectorSwitchSetpoint() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 10.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorSwitchSetpoint", 10.0);
 	}
 
 	public static double collectorLowScaleSetpoint() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 20.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorLowScaleSetpoint", 20.0);
 	}
 
 	public static double collectorMedScaleSetpoint() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 30.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorMedScaleSetpoint", 30.0);
 	}
 
-	public static double collectorMoveToBottomSetpoint() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	public static double collectorMoveToHighScaleSetpoint() {
-		return 0;
+	public static double collectorHighScaleSetpoint() {
+		if(AutoPreferences.isDebug() == false) {
+			return 40.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorHighScaleSetpoint", 40.0);
 	}
 
-	public static double collectorIntakeSpeed() {
-		// TODO Auto-generated method stub
-		return 1.0;
+	public static double collectorCollectSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorCollectSpeed", 1.0);
+	}
+
+	public static double collectorEjectSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return -1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorEjectSpeed", -1.0);
 	}
 
 	public static double drivetrainP() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainP", 1.0);
 	}
 
 	public static double drivetrainI() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainI", 0.0);
 	}
 
 	public static double drivetrainD() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainD", 0.0);
 	}
 
 	public static int drivetrainTargetCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0;
+		}
+		return Preferences.getInstance().getInt("DrivetrainTargetCount", 0);
 	}
 
 	public static double yawTolerance() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 5.0;
+		}
+		return Preferences.getInstance().getDouble("YawTolerance", 5.0);
 	}
 
 	public static double navYawP() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("NavYawP", 1.0);
 	}
 
-	public static double nawYawI() {
-		// TODO Auto-generated method stub
-		return 0;
+	public static double navYawI() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("NavYawI", 0.0);
 	}
 
-	public static double nawYawD() {
-		// TODO Auto-generated method stub
-		return 0;
+	public static double navYawD() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("NavYawD", 0.0);
 	}
 
 	public static double maxYawSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	public static double minYawSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("MaxYawSpeed", 1.0);
 	}
 	
-	public static double yawTargetCount() {
-		// TODO Auto-generated method stub
-		return 0;
+	public static double minYawSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("MinYawSpeed", 0.0);
+	}
+	
+	public static int yawTargetCount() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0;
+		}
+		return Preferences.getInstance().getInt("YawTargetCount", 0);
 	}
 
-	public static double drivetrainPulsePerFoot() {
-		// TODO Auto-generated method stub
-		return 0;
+	public static int drivetrainPulsePerFoot() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1;
+		}
+		return Preferences.getInstance().getInt("DrivetrainPulsePerFoot", 1);
 	}
 
 	public static int collectorPulsesPerFoot() {
-		// TODO Auto-generated method stub
-		return 1;
+		if(AutoPreferences.isDebug() == false) {
+			return 1;
+		}
+		return Preferences.getInstance().getInt("CollectorPulsesPerFoot", 1);
 	}
 
 	public static double climberExtendSpeed() {
-		// TODO Auto-generated method stub
-		return 1.0;
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("ClimberExtendSpeed", 1.0);
 	}
 
 	public static double climberRetractSpeed() {
-		// TODO Auto-generated method stub
-		return -1.0;
+		if(AutoPreferences.isDebug() == false) {
+			return -1.0;
+		}
+		return Preferences.getInstance().getDouble("ClimberRetractSpeed", -1.0);
 	}
-
-	
-	
-	
-
 }

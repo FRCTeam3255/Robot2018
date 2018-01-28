@@ -7,18 +7,17 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CollectorStopCollecting extends Command {
+public class DrivetrainResetEncoder extends Command {
 
-    public CollectorStopCollecting() {
+    public DrivetrainResetEncoder() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.collector);
+    	requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.collector.clampCollector();
-    	Robot.collector.setCollectorSpeed(0.0);
+    	Robot.drivetrain.resetEncoder();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -33,17 +33,17 @@ public class Drivetrain extends Subsystem {
 		rightFrontTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
 		rightBackTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
 		
-		encoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_A, RobotMap.DRIVETRAIN_ENCODER_B);
+		leftFrontTalon.setNeutralMode(NeutralMode.Brake);
+		leftBackTalon.setNeutralMode(NeutralMode.Brake);
+		rightFrontTalon.setNeutralMode(NeutralMode.Brake);
+		rightBackTalon.setNeutralMode(NeutralMode.Brake);
 		
 		leftFrontTalon.setSafetyEnabled(false);
 		leftBackTalon.setSafetyEnabled(false);
 		rightFrontTalon.setSafetyEnabled(false);
 		rightBackTalon.setSafetyEnabled(false);
 		
-		leftFrontTalon.setNeutralMode(NeutralMode.Brake);
-		leftBackTalon.setNeutralMode(NeutralMode.Brake);
-		rightFrontTalon.setNeutralMode(NeutralMode.Brake);
-		rightBackTalon.setNeutralMode(NeutralMode.Brake);
+		encoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_A, RobotMap.DRIVETRAIN_ENCODER_B);
 		
 		leftBackTalon.follow(leftFrontTalon);
 		rightBackTalon.follow(rightFrontTalon);
@@ -62,6 +62,10 @@ public class Drivetrain extends Subsystem {
 	
 	public double getEncoderDistance() {
 		return encoder.get() / RobotPreferences.drivetrainPulsePerFoot();	
+	}
+	
+	public void resetEncoder() {
+		encoder.reset();
 	}
 	
     public void initDefaultCommand() {
