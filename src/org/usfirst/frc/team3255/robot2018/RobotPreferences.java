@@ -41,9 +41,9 @@ public class RobotPreferences {
 
 	public static int collectorTargetCount() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0;
+			return 1;
 		}
-		return Preferences.getInstance().getInt("CollectorTargetCount", 0);
+		return Preferences.getInstance().getInt("CollectorTargetCount", 1);
 	}
 
 	public static double collectorTolerance() {
@@ -126,9 +126,9 @@ public class RobotPreferences {
 
 	public static int drivetrainTargetCount() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0;
+			return 1;
 		}
-		return Preferences.getInstance().getInt("DrivetrainTargetCount", 0);
+		return Preferences.getInstance().getInt("DrivetrainTargetCount", 1);
 	}
 
 	public static double yawTolerance() {
@@ -175,9 +175,9 @@ public class RobotPreferences {
 	
 	public static int yawTargetCount() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0;
+			return 1;
 		}
-		return Preferences.getInstance().getInt("YawTargetCount", 0);
+		return Preferences.getInstance().getInt("YawTargetCount", 1);
 	}
 
 	public static int drivetrainPulsePerFoot() {
@@ -206,5 +206,33 @@ public class RobotPreferences {
 			return -1.0;
 		}
 		return Preferences.getInstance().getDouble("ClimberRetractSpeed", -1.0);
+	}
+
+	public static int visionTargetCount() {
+		if(AutoPreferences.isDebug() == false) {
+			return -1;
+		}
+		return Preferences.getInstance().getInt("VisionTargetCount", 1);
+	}
+
+	public static double visionDistanceP() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("VisionDistanceP", 1.0);
+	}
+
+	public static double visionDistanceI() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("VisionDistanceI", 0.0);
+	}
+
+	public static double visionDistanceD() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("VisionDistanceD", 0.0);
 	}
 }
