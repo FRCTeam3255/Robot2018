@@ -130,6 +130,13 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getInt("DrivetrainTargetCount", 1);
 	}
+	
+	public static double drivetrainTolerance() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return 1.0;
+	}
 
 	public static double yawTolerance() {
 		if(AutoPreferences.isDebug() == false) {
@@ -235,4 +242,32 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("VisionDistanceD", 0.0);
 	}
+
+	//Autonomous
+	
+	public static double autoSwitchD1() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double autoSwitchR1() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double autoSwitchD2() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double autoSwitchR2() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static double autoSwitchD3() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

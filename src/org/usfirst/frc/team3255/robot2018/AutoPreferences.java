@@ -18,4 +18,14 @@ public class AutoPreferences {
 		}
 		return false;
 	}
+
+	public static int getLane() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static boolean doSwitch() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -17,7 +17,7 @@ import org.usfirst.frc.team3255.robot2018.subsystems.Climber;
 import org.usfirst.frc.team3255.robot2018.subsystems.Collector;
 import org.usfirst.frc.team3255.robot2018.subsystems.CollectorPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Drivetrain;
-import org.usfirst.frc.team3255.robot2018.subsystems.NavDistancePID;
+import org.usfirst.frc.team3255.robot2018.subsystems.DriveDistancePID;
 import org.usfirst.frc.team3255.robot2018.subsystems.NavYawPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Navigation;
 import org.usfirst.frc.team3255.robot2018.subsystems.Telemetry;
@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
 	public static Climber climber = null;
 	public static Navigation navigation = null; 
 	public static CollectorPID collectorPID = null;
-	public static NavDistancePID navDistancePID = null;
+	public static DriveDistancePID driveDistancePID = null;
 	public static NavYawPID navYawPID = null;
 	public static OI oi;
 	public static Telemetry telemetry = null;
@@ -56,7 +56,7 @@ public class Robot extends TimedRobot {
 		climber = new Climber();
 		navigation = new Navigation();
 		collectorPID = new CollectorPID();
-		navDistancePID = new NavDistancePID();
+		driveDistancePID = new DriveDistancePID();
 		navYawPID = new NavYawPID();
 		oi = new OI();
 		telemetry = new Telemetry();

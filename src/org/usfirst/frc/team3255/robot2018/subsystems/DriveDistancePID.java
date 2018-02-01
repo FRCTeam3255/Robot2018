@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 /**
  *
  */
-public class NavDistancePID extends PIDSubsystem {
+public class DriveDistancePID extends PIDSubsystem {
 	
 	double output = 0.0;
 	boolean outputValid = false;
@@ -16,7 +16,7 @@ public class NavDistancePID extends PIDSubsystem {
 	int targetCounter = 0;
 
     // Initialize your subsystem here
-    public NavDistancePID() {
+    public DriveDistancePID() {
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
@@ -70,7 +70,7 @@ public class NavDistancePID extends PIDSubsystem {
     	this.tolerance = tolerance;
     }
     
-    public boolean onRawTolerance() {
+    public boolean onRawTarget() {
     	if (Math.abs(getPIDController().getSetpoint() - Robot.drivetrain.getEncoderDistance()) < tolerance) {
     		targetCounter = targetCounter + 1;
     	}
