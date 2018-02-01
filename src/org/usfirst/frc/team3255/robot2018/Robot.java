@@ -21,6 +21,8 @@ import org.usfirst.frc.team3255.robot2018.subsystems.DriveDistancePID;
 import org.usfirst.frc.team3255.robot2018.subsystems.NavYawPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Navigation;
 import org.usfirst.frc.team3255.robot2018.subsystems.Telemetry;
+import org.usfirst.frc.team3255.robot2018.subsystems.VisionDistancePID;
+import org.usfirst.frc.team3255.robot2018.subsystems.VisionOffsetPID;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -38,6 +40,8 @@ public class Robot extends TimedRobot {
 	public static CollectorPID collectorPID = null;
 	public static DriveDistancePID driveDistancePID = null;
 	public static NavYawPID navYawPID = null;
+	public static VisionDistancePID visionDistancePID = null;
+	public static VisionOffsetPID visionOffsetPID = null;
 	public static OI oi;
 	public static Telemetry telemetry = null;
 	
@@ -58,6 +62,8 @@ public class Robot extends TimedRobot {
 		collectorPID = new CollectorPID();
 		driveDistancePID = new DriveDistancePID();
 		navYawPID = new NavYawPID();
+		visionDistancePID = new VisionDistancePID();
+		visionOffsetPID = new VisionOffsetPID();
 		oi = new OI();
 		telemetry = new Telemetry();
 		// chooser.addObject("My Auto", new MyAutoCommand());

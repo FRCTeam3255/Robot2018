@@ -243,31 +243,62 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("VisionDistanceD", 0.0);
 	}
 
+	public static double visionOffsetP() {
+		if(AutoPreferences.isDebug() == false) {
+		return 1.0;
+		}
+		return Preferences.getInstance().getDouble("VisionOffsetP", 1.0);
+	}
+
+	public static double visionOffsetI() {
+		if(AutoPreferences.isDebug() == false) {
+		return 0.0;
+		}
+		return Preferences.getInstance().getDouble("VisionOffsetI", 0.0);
+	}
+
+	public static double visionOffsetD() {
+		if(AutoPreferences.isDebug() == false) {
+		return 0.0;
+		}
+		return Preferences.getInstance().getDouble("VisionOffsetD", 0.0);
+	}
+
 	//Autonomous
 	
 	public static double autoSwitchD1() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+			}
+			return Preferences.getInstance().getDouble("AutoSwitchD1", 0.0);
 	}
 
 	public static double autoSwitchR1() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+			}
+			return Preferences.getInstance().getDouble("AutoSwitchR1", 0.0);
 	}
 
 	public static double autoSwitchD2() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+			}
+			return Preferences.getInstance().getDouble("AutoSwitchD2", 0.0);	
 	}
 
 	public static double autoSwitchR2() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+			}
+			return Preferences.getInstance().getDouble("AutoSwitchR2", 0.0);	
 	}
 
 	public static double autoSwitchD3() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+			}
+			return Preferences.getInstance().getDouble("AutoSwitchD3", 0.0);	
 	}
 
 }
