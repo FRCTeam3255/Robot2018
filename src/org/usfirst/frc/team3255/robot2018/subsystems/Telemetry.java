@@ -13,6 +13,7 @@ import org.usfirst.frc.team3255.robot2018.commands.CollectorRetract;
 import org.usfirst.frc.team3255.robot2018.commands.DrivetrainResetEncoder;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.hal.PDPJNI;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -32,6 +33,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Move to Low Scale", new CollectorMoveToLowScale());
 		SmartDashboard.putData("Move to Switch", new CollectorMoveToSwitch());
 		SmartDashboard.putData("Move to Bottom", new CollectorMoveToBottom());
+		
+		SmartDashboard.putString("Autonomous Status", "No Auto Running");
 	}
 	
 	public void update() {
@@ -55,8 +58,13 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putString("Opponent Switch Pos", String.valueOf(Robot.navigation.getOppenentSwitchPos()));
 		
 		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());
+		
+		SmartDashboard.putNumber("PDP Channel Current", PDPJNI.getPDPChannelCurrent((byte) 0, 0));
 	}
 	
+	public void setAutonomousStatus(String statusText) {
+		SmartDashboard.putString("Autonomous Status", statusText);
+	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

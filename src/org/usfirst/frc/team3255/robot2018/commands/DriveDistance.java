@@ -23,6 +23,7 @@ public class DriveDistance extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + distance);
     	Robot.drivetrain.resetEncoder();
     	
     	Robot.driveDistancePID.setSetpoint(distance);
@@ -32,17 +33,19 @@ public class DriveDistance extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.telemetry.setAutonomousStatus("Running " + commandName + ": " + distance);
     	Robot.drivetrain.arcadeDrive(Robot.driveDistancePID.getOutput(), 0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.driveDistancePID.onRawTarget();
+    	return Robot.driveDistancePID.onRawTarget();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveDistancePID.disable();
+    	Robot.telemetry.setAutonomousStatus("Finishing " + commandName + ": " + distance);
+        Robot.driveDistancePID.disable();
     	Robot.drivetrain.arcadeDrive(0.0, 0.0);
     }
 

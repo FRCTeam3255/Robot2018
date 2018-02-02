@@ -207,6 +207,10 @@ public class AutoPlaceSwitch extends CommandGroup {
 	}
 	
 	public AutoPlaceSwitch() {
-        
+        new DriveDistance("PlaceSwitchD1", autoSwitchD1());
+        new DriveRotate("PlaceSwitchR1", autoSwitchR1());
+        new DriveDistance("PlaceSwitchD2", autoSwitchD2());
+        new DriveRotate("PlaceSwitchR2", autoSwitchR2());
+        new DriveDistance("PlaceSwitchD3", autoSwitchD3());
     }
 }
