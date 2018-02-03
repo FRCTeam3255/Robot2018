@@ -31,7 +31,7 @@ public class DriveDistance extends Command {
     	Robot.driveDistancePID.setRawTolerance(RobotPreferences.drivetrainTolerance());
     	Robot.driveDistancePID.enable();
     	
-    	expireTime = timeSinceInitialized();
+    	expireTime = timeSinceInitialized() + (RobotPreferences.timeOut());
     }
 
     // Called repeatedly when this Command is scheduled to run

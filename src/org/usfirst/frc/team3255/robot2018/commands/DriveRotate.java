@@ -33,7 +33,7 @@ public class DriveRotate extends Command {
     	Robot.navYawPID.setAbsoluteTolerance(RobotPreferences.yawTolerance());
     	Robot.navYawPID.enable();
     	
-    	expireTime = timeSinceInitialized();
+    	expireTime = timeSinceInitialized() + RobotPreferences.timeOut();
     }
 
     // Called repeatedly when this Command is scheduled to run

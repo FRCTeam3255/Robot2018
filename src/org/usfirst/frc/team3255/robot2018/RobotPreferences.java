@@ -328,4 +328,9 @@ public class RobotPreferences {
 			}
 			return Preferences.getInstance().getDouble("AutoSwitchD3", 100.0);	
 	}
+
+	public static double timeOut() {
+		// TODO Auto-generated method stub
+		return 5.0;
+	}
 }

@@ -27,7 +27,7 @@ public class CollectorMove extends Command {
     	Robot.collectorPID.setRawTolerance(RobotPreferences.collectorTolerance());
     	Robot.collectorPID.enable();
     	
-    	expireTime = timeSinceInitialized();
+    	expireTime = timeSinceInitialized() + RobotPreferences.timeOut();
     }
 
     // Called repeatedly when this Command is scheduled to run

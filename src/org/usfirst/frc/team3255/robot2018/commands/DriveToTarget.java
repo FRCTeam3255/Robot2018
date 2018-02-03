@@ -36,7 +36,7 @@ public class DriveToTarget extends Command {
     	Robot.visionOffsetPID.setRawTolerance(RobotPreferences.visionOffsetTolerance());
     	Robot.visionOffsetPID.enable();
     	
-    	expireTime = timeSinceInitialized();
+    	expireTime = timeSinceInitialized() + RobotPreferences.timeOut();
     }
 
     // Called repeatedly when this Command is scheduled to run

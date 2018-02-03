@@ -13,6 +13,15 @@ public class Lighting extends Subsystem {
 	
 	Spark statusLighting = null;
 	
+	public static final double CUBE_COLLECTED = 0.0;
+	public static final double CUBE_IDENTIFIED = 0.0;
+	public static final double SWITCH_IDENTIFIED = 0.0;
+	public static final double CUBE_ALIGNED = 0.0;
+	public static final double SWITCH_ALIGNED = 0.0;
+	public static final double SWITCH_ONTARGET = 0.0;
+	//public static f
+	
+	
 	public Lighting(){
 		statusLighting = new Spark(RobotMap.LIGHTING_STATUSLIGHTING);
 	}
