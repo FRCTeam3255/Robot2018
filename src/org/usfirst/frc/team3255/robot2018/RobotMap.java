@@ -29,6 +29,9 @@ public class RobotMap {
 	public static final int CLIMBER_LEFT_TALON = 9;
 	public static final int CLIMBER_RIGHT_TALON = 10;
 	
+	//Lighting
+	public static final int LIGHTING_STATUSLIGHTING = 0;
+	
 	//Joysticks
 	public static final int JOYSTICK_DRIVER = 0;
 	public static final int JOYSTICK_MANIPULATOR = 1;

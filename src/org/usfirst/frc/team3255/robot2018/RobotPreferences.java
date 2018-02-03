@@ -4,13 +4,57 @@ import edu.wpi.first.wpilibj.Preferences;
 
 public class RobotPreferences {
 
+	//Drivetrain
 	public static double drivetrainMaxSpeed() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
 		}
 		return Preferences.getInstance().getDouble("DrivetrainMaxSpeed", 1.0);
 	}
+	
+	public static double drivetrainP() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.1;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainP", 0.1);
+	}
 
+	public static double drivetrainI() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainI", 0.0);
+	}
+
+	public static double drivetrainD() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainD", 0.0);
+	}
+
+	public static int drivetrainTargetCount() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1;
+		}
+		return Preferences.getInstance().getInt("DrivetrainTargetCount", 1);
+	}
+	
+	public static double drivetrainTolerance() {
+		if(AutoPreferences.isDebug() == false) {
+			return 15.0;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainTolerance", 15.0);
+	}
+	
+	public static int drivetrainPulsePerFoot() {
+		if(AutoPreferences.isDebug() == false) {
+			return 300;
+		}
+		return Preferences.getInstance().getInt("DrivetrainPulsePerFoot", 300);
+	}
+
+	//Collector
 	public static double collectorP() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
@@ -102,42 +146,16 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("CollectorEjectSpeed", -1.0);
 	}
-
-	public static double drivetrainP() {
-		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
-		}
-		return Preferences.getInstance().getDouble("DrivetrainP", 1.0);
-	}
-
-	public static double drivetrainI() {
-		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
-		}
-		return Preferences.getInstance().getDouble("DrivetrainI", 0.0);
-	}
-
-	public static double drivetrainD() {
-		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
-		}
-		return Preferences.getInstance().getDouble("DrivetrainD", 0.0);
-	}
-
-	public static int drivetrainTargetCount() {
+	
+	public static int collectorPulsesPerFoot() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1;
 		}
-		return Preferences.getInstance().getInt("DrivetrainTargetCount", 1);
-	}
-	
-	public static double drivetrainTolerance() {
-		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
-		}
-		return 1.0;
+		return Preferences.getInstance().getInt("CollectorPulsesPerFoot", 1);
 	}
 
+	
+	//Navigation
 	public static double yawTolerance() {
 		if(AutoPreferences.isDebug() == false) {
 			return 5.0;
@@ -187,20 +205,7 @@ public class RobotPreferences {
 		return Preferences.getInstance().getInt("YawTargetCount", 1);
 	}
 
-	public static int drivetrainPulsePerFoot() {
-		if(AutoPreferences.isDebug() == false) {
-			return 1;
-		}
-		return Preferences.getInstance().getInt("DrivetrainPulsePerFoot", 1);
-	}
-
-	public static int collectorPulsesPerFoot() {
-		if(AutoPreferences.isDebug() == false) {
-			return 1;
-		}
-		return Preferences.getInstance().getInt("CollectorPulsesPerFoot", 1);
-	}
-
+	//CLimber
 	public static double climberExtendSpeed() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
@@ -215,13 +220,14 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("ClimberRetractSpeed", -1.0);
 	}
 
+	//Vision
 	public static int visionTargetCount() {
 		if(AutoPreferences.isDebug() == false) {
-			return -1;
+			return 1;
 		}
 		return Preferences.getInstance().getInt("VisionTargetCount", 1);
 	}
-
+	//Vision Distance
 	public static double visionDistanceP() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
@@ -242,7 +248,15 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("VisionDistanceD", 0.0);
 	}
+	
+	public static double visionDistanceTolerance() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("VisionDistanceTolerance", 1.0);
+	}
 
+	//Vision Offset
 	public static double visionOffsetP() {
 		if(AutoPreferences.isDebug() == false) {
 		return 1.0;
@@ -264,41 +278,54 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("VisionOffsetD", 0.0);
 	}
 
-	//Autonomous
+	public static double visionOffsetTolerance() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("VisionOffsetTolerance", 1.0);
+	}
 	
+	//Lighting
+	public static double lightingFrequency() {
+		if(AutoPreferences.isDebug() == false) {
+			return -0.99;
+		}
+		return Preferences.getInstance().getDouble("LightingFrequency", -0.99);
+	}
+	
+	//Autonomous
 	public static double autoSwitchD1() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 100.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchD1", 0.0);
+			return Preferences.getInstance().getDouble("AutoSwitchD1", 100.0);
 	}
 
 	public static double autoSwitchR1() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 90.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchR1", 0.0);
+			return Preferences.getInstance().getDouble("AutoSwitchR1", 90.0);
 	}
 
 	public static double autoSwitchD2() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 100.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchD2", 0.0);	
+			return Preferences.getInstance().getDouble("AutoSwitchD2", 100.0);	
 	}
 
 	public static double autoSwitchR2() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return -90.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchR2", 0.0);	
+			return Preferences.getInstance().getDouble("AutoSwitchR2", -90.0);	
 	}
 
 	public static double autoSwitchD3() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 100.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchD3", 0.0);	
+			return Preferences.getInstance().getDouble("AutoSwitchD3", 100.0);	
 	}
-
 }

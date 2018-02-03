@@ -11,9 +11,12 @@ import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToSwitch;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorResetEncoder;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorRetract;
 import org.usfirst.frc.team3255.robot2018.commands.DrivetrainResetEncoder;
+import org.usfirst.frc.team3255.robot2018.commands.NavResetVisionDistance;
+import org.usfirst.frc.team3255.robot2018.commands.NavResetVisionOffset;
+import org.usfirst.frc.team3255.robot2018.commands.NavResetYaw;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.hal.PDPJNI;
+//import edu.wpi.first.wpilibj.hal.PDPJNI;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -34,11 +37,15 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Move to Switch", new CollectorMoveToSwitch());
 		SmartDashboard.putData("Move to Bottom", new CollectorMoveToBottom());
 		
+		SmartDashboard.putData("Reset Yaw", new NavResetYaw());
+		SmartDashboard.putData("Reset Vision Distance", new NavResetVisionDistance());
+		SmartDashboard.putData("Reset Vision Distance", new NavResetVisionOffset());
+		
 		SmartDashboard.putString("Autonomous Status", "No Auto Running");
 	}
 	
 	public void update() {
-		SmartDashboard.putNumber("Drive Encoder Distance", Robot.drivetrain.getEncoderDistance());
+		SmartDashboard.putNumber("Drive Encoder Distance, Inches", Robot.drivetrain.getEncoderDistance());
 		SmartDashboard.putNumber("Drive Encoder Count", Robot.drivetrain.getEncoderCount());
 
 		SmartDashboard.putNumber("Collector Encoder Count", Robot.collector.getEncoderCount());
@@ -59,7 +66,17 @@ public class Telemetry extends Subsystem {
 		
 		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());
 		
-		SmartDashboard.putNumber("PDP Channel Current", PDPJNI.getPDPChannelCurrent((byte) 0, 0));
+//		SmartDashboard.putNumber("PDP Channel Current", PDPJNI.getPDPChannelCurrent((byte) 0, 0));
+		
+		SmartDashboard.putNumber("Vision Distance", Robot.navigation.getTargetDistance());
+		SmartDashboard.putNumber("Vision Offset", Robot.navigation.getTargetOffset());
+		SmartDashboard.putNumber("Vision Angle", Robot.navigation.getTargetAngle());
+		
+		SmartDashboard.putNumber("Nav Yaw", Robot.navigation.getYaw());
+		SmartDashboard.putNumber("Nav Pitch", Robot.navigation.getPitch());
+
+		
+		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
 	}
 	
 	public void setAutonomousStatus(String statusText) {

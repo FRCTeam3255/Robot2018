@@ -8,28 +8,33 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveDistance extends Command {
+public class DriveToTarget extends Command {
 
-	double distance;
 	String commandName;
+	double distance;
 	private double expireTime;
 	
-    public DriveDistance(String name, double inches) {
-        requires(Robot.drivetrain);
-        requires(Robot.driveDistancePID);
-        
-    	distance = inches;
+    public DriveToTarget(String name, double distance) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.drivetrain);
+    	requires(Robot.visionDistancePID);
+    	requires(Robot.visionOffsetPID);
+    	
+    	this.distance = distance;
     	commandName = name;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + distance);
-    	Robot.drivetrain.resetEncoder();
+    	Robot.visionDistancePID.setSetpoint(distance);
+    	Robot.visionDistancePID.setRawTolerance(RobotPreferences.visionDistanceTolerance());
+    	Robot.visionDistancePID.enable();
     	
-    	Robot.driveDistancePID.setSetpoint(distance);
-    	Robot.driveDistancePID.setRawTolerance(RobotPreferences.drivetrainTolerance());
-    	Robot.driveDistancePID.enable();
+    	Robot.visionOffsetPID.setSetpoint(0.0);
+    	Robot.visionOffsetPID.setRawTolerance(RobotPreferences.visionOffsetTolerance());
+    	Robot.visionOffsetPID.enable();
     	
     	expireTime = timeSinceInitialized();
     }
@@ -37,22 +42,24 @@ public class DriveDistance extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.telemetry.setAutonomousStatus("Running " + commandName + ": " + distance);
-    	Robot.drivetrain.arcadeDrive(Robot.driveDistancePID.getOutput(), 0.0);
+    	Robot.drivetrain.arcadeDrive(Robot.visionDistancePID.getOutput(), Robot.visionOffsetPID.getOutput());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	boolean distanceTarget = Robot.driveDistancePID.onRawTarget();
+    	boolean distanceTarget = Robot.visionDistancePID.onRawTarget();
+    	boolean offsetTarget = Robot.visionOffsetPID.onRawTarget();
     	
     	double timeNow = timeSinceInitialized();
     	
-    	return (distanceTarget || (timeNow >= expireTime));
+    	return((distanceTarget && offsetTarget) || (timeNow >= expireTime));
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.telemetry.setAutonomousStatus("Finishing " + commandName + ": " + distance);
-        Robot.driveDistancePID.disable();
+    	Robot.visionDistancePID.disable();
+    	Robot.visionOffsetPID.disable();
     	Robot.drivetrain.arcadeDrive(0.0, 0.0);
     }
 

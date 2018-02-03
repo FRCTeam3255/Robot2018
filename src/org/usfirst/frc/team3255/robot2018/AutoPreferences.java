@@ -12,6 +12,10 @@ public class AutoPreferences {
 		return preferencesStick.getRawButton(5);
 	}
 	
+	public static boolean doSwitch() {
+		return preferencesStick.getRawButton(10);
+	}
+	
 	public static boolean isRedAlliance() {
 		if(DriverStation.getInstance().getAlliance() == Alliance.Red) {
 			return true;
@@ -20,12 +24,18 @@ public class AutoPreferences {
 	}
 
 	public static int getLane() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public static boolean doSwitch() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		int lane = 0;
+		
+		if(preferencesStick.getRawButton(1)) {
+			lane = 1;
+		}
+		else if(preferencesStick.getRawButton(2)) {
+			lane = 2;
+		}
+		else if(preferencesStick.getRawButton(3)) {
+			lane = 3;
+		}
+		
+		return lane;
+	}	
 }

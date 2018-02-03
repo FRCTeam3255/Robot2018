@@ -56,7 +56,7 @@ public class VisionOffsetPID extends PIDSubsystem {
     	outputValid = true;
     }
     
-    public double getPIDOutput() {
+    public double getOutput() {
     	if(this.getPIDController().isEnabled() == false || outputValid == false) {
     		return 0.0;
     	}

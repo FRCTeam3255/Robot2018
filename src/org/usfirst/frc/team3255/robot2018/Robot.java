@@ -13,10 +13,12 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3255.robot2018.commands.Autonomous;
 import org.usfirst.frc.team3255.robot2018.subsystems.Climber;
 import org.usfirst.frc.team3255.robot2018.subsystems.Collector;
 import org.usfirst.frc.team3255.robot2018.subsystems.CollectorPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Drivetrain;
+import org.usfirst.frc.team3255.robot2018.subsystems.Lighting;
 import org.usfirst.frc.team3255.robot2018.subsystems.DriveDistancePID;
 import org.usfirst.frc.team3255.robot2018.subsystems.NavYawPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Navigation;
@@ -36,7 +38,8 @@ public class Robot extends TimedRobot {
 	public static Drivetrain drivetrain = null;
 	public static Collector collector = null;
 	public static Climber climber = null;
-	public static Navigation navigation = null; 
+	public static Navigation navigation = null;
+	public static Lighting lighting = null;
 	public static CollectorPID collectorPID = null;
 	public static DriveDistancePID driveDistancePID = null;
 	public static NavYawPID navYawPID = null;
@@ -59,6 +62,7 @@ public class Robot extends TimedRobot {
 		collector = new Collector();
 		climber = new Climber();
 		navigation = new Navigation();
+		lighting = new Lighting();
 		collectorPID = new CollectorPID();
 		driveDistancePID = new DriveDistancePID();
 		navYawPID = new NavYawPID();
@@ -77,7 +81,10 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit() {
-
+		if (m_autonomousCommand != null) {
+			m_autonomousCommand.cancel();
+			m_autonomousCommand = null;
+		}
 	}
 
 	@Override
@@ -100,14 +107,9 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		telemetry.update();
-		m_autonomousCommand = m_chooser.getSelected();
+//		m_autonomousCommand = m_chooser.getSelected();
 
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
+		m_autonomousCommand = new Autonomous();
 
 		// schedule the autonomous command (example)
 		if (m_autonomousCommand != null) {
@@ -132,6 +134,7 @@ public class Robot extends TimedRobot {
 		// this line or comment it out.
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
+			m_autonomousCommand = null;
 		}
 	}
 

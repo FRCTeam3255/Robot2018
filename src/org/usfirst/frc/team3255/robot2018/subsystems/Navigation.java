@@ -5,7 +5,7 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -24,7 +24,7 @@ public class Navigation extends Subsystem {
 	public Navigation() {
 		// NavX
 		try {
-			ahrs = new AHRS(SPI.Port.kMXP);
+			ahrs = new AHRS(SerialPort.Port.kUSB);
 		} catch (RuntimeException ex) {
 			DriverStation.reportError("Error instantiating navX MXP: " + ex.getMessage(), true);
 		}
@@ -111,6 +111,14 @@ public class Navigation extends Subsystem {
 	
 	public double getTargetAngle() {
 		 return visionData.getEntry("Angle").getDouble(-99.9);
+	}
+	
+	public void resetTargetDistance() {
+		visionData.getEntry("ResetTargetDistance").setDouble(0.0);
+	}
+	
+	public void resetTargetOffset() {
+		visionData.getEntry("ResetTargetOffset").setDouble(0.0);
 	}
 	
     public void initDefaultCommand() {

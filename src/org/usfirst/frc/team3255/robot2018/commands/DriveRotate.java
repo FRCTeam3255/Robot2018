@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveRotate extends Command {
 	String commandName;
 	double angle;
+	private double expireTime; 
 
     public DriveRotate(String name, double degrees) {
         // Use requires() here to declare subsystem dependencies
@@ -31,6 +32,8 @@ public class DriveRotate extends Command {
     	Robot.navYawPID.setSetpoint(angle);
     	Robot.navYawPID.setAbsoluteTolerance(RobotPreferences.yawTolerance());
     	Robot.navYawPID.enable();
+    	
+    	expireTime = timeSinceInitialized();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -41,7 +44,11 @@ public class DriveRotate extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.navYawPID.onRawTarget();
+    	boolean yawPID = Robot.navYawPID.onRawTarget();
+    	
+    	double timeNow = timeSinceInitialized();
+    	
+    	return (yawPID || (timeNow >= expireTime));
     }
 
     // Called once after isFinished returns true
