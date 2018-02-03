@@ -9,13 +9,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveToTarget extends Command {
-
+public class VisionMoveToCube extends Command {
+	
 	String commandName;
 	double distance;
 	private double expireTime;
-	
-    public DriveToTarget(String name, double distance) {
+
+    public VisionMoveToCube(String name, double distance) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivetrain);
@@ -24,11 +24,12 @@ public class DriveToTarget extends Command {
     	
     	this.distance = distance;
     	commandName = name;
+
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + distance);
+    	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + distance );
     	Robot.visionDistancePID.setSetpoint(distance);
     	Robot.visionDistancePID.setRawTolerance(RobotPreferences.visionDistanceTolerance());
     	Robot.visionDistancePID.enable();
@@ -48,19 +49,19 @@ public class DriveToTarget extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	boolean distanceTarget = Robot.visionDistancePID.onRawTarget();
-    	boolean offsetTarget = Robot.visionOffsetPID.onRawTarget();
-    	
-    	double timeNow = timeSinceInitialized();
-
-    	if(offsetTarget) {
-    		Robot.lighting.setLighting(Lighting.SWITCH_ALIGNED);
-    	}
-    	else if(Robot.navigation.isTargetFound()) {
-    		Robot.lighting.setLighting(Lighting.SWITCH_IDENTIFIED);
-    	}
-    	
-    	return((distanceTarget && offsetTarget) || (timeNow >= expireTime));
+        boolean distanceTarget = Robot.visionDistancePID.onRawTarget();
+        boolean offsetTarget = Robot.visionOffsetPID.onRawTarget();
+        
+        double timeNow = timeSinceInitialized();
+        
+        if(offsetTarget) {
+        	Robot.lighting.setLighting(Lighting.CUBE_ALIGNED);
+        }
+        else if(Robot.navigation.isTargetFound()) {
+        	Robot.lighting.setLighting(Lighting.CUBE_IDENTIFIED);
+        }
+        
+        return((distanceTarget && offsetTarget) || (timeNow >= expireTime));
     }
 
     // Called once after isFinished returns true
@@ -69,7 +70,6 @@ public class DriveToTarget extends Command {
     	Robot.visionDistancePID.disable();
     	Robot.visionOffsetPID.disable();
     	Robot.drivetrain.arcadeDrive(0.0, 0.0);
-    	Robot.lighting.setLighting(Lighting.SWITCH_ON_TARGET);
     }
 
     // Called when another command which requires one or more of the same

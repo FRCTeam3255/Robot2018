@@ -330,7 +330,9 @@ public class RobotPreferences {
 	}
 
 	public static double timeOut() {
-		// TODO Auto-generated method stub
-		return 5.0;
+		if(AutoPreferences.isDebug() == false) {
+			return 5.0;
+		}
+		return Preferences.getInstance().getDouble("TimeOut", 5.0);
 	}
 }

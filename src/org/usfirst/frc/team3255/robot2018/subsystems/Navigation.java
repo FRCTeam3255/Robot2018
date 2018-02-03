@@ -101,6 +101,18 @@ public class Navigation extends Subsystem {
 	}
 	
 	// Vision
+	public double getCubeDistance() {
+		return visionData.getEntry("CubeDistance").getDouble(-99.9);
+	}
+	
+	public double getCubeOffset() {
+		return visionData.getEntry("CubeOffset").getDouble(-99.9);
+	}
+	
+	public double getCubeAngle() {
+		return visionData.getEntry("CubeAngle").getDouble(-99.9);
+	}
+	
 	public double getTargetDistance() {
 		return visionData.getEntry("Distance").getDouble(-99.9);
 	}

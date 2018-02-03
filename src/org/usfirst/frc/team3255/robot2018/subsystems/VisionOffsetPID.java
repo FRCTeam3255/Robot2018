@@ -53,7 +53,7 @@ public class VisionOffsetPID extends PIDSubsystem {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
     	this.output = output;
-    	outputValid = true;
+    	outputValid = Robot.navigation.isTargetFound();
     }
     
     public double getOutput() {
