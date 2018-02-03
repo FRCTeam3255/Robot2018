@@ -11,8 +11,6 @@ import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToSwitch;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorResetEncoder;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorRetract;
 import org.usfirst.frc.team3255.robot2018.commands.DrivetrainResetEncoder;
-import org.usfirst.frc.team3255.robot2018.commands.NavResetVisionDistance;
-import org.usfirst.frc.team3255.robot2018.commands.NavResetVisionOffset;
 import org.usfirst.frc.team3255.robot2018.commands.NavResetYaw;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -38,8 +36,6 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Move to Bottom", new CollectorMoveToBottom());
 		
 		SmartDashboard.putData("Reset Yaw", new NavResetYaw());
-		SmartDashboard.putData("Reset Vision Distance", new NavResetVisionDistance());
-		SmartDashboard.putData("Reset Vision Distance", new NavResetVisionOffset());
 		
 		SmartDashboard.putString("Autonomous Status", "No Auto Running");
 	}
@@ -71,6 +67,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Vision Distance", Robot.navigation.getTargetDistance());
 		SmartDashboard.putNumber("Vision Offset", Robot.navigation.getTargetOffset());
 		SmartDashboard.putNumber("Vision Angle", Robot.navigation.getTargetAngle());
+		SmartDashboard.putBoolean("Vision Target Found", Robot.navigation.isTargetFound());
 		
 		SmartDashboard.putNumber("Nav Yaw", Robot.navigation.getYaw());
 		SmartDashboard.putNumber("Nav Pitch", Robot.navigation.getPitch());

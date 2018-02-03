@@ -113,12 +113,27 @@ public class Navigation extends Subsystem {
 		 return visionData.getEntry("Angle").getDouble(-99.9);
 	}
 	
-	public void resetTargetDistance() {
-		visionData.getEntry("ResetTargetDistance").setDouble(0.0);
+	public boolean isTargetFound() {
+		return visionData.getEntry("TargetFound").getBoolean(false);
 	}
 	
-	public void resetTargetOffset() {
-		visionData.getEntry("ResetTargetOffset").setDouble(0.0);
+	public void setHue(int hueLow, int hueHigh) {
+		Number[] hue = {hueLow, hueHigh};
+		visionData.getEntry("Hue").setNumberArray(hue);
+	}
+	
+	public void setSaturation(int satLow, int satHigh) {
+		Number[] sat = {satLow, satHigh};
+		visionData.getEntry("Saturation").setNumberArray(sat);
+	}
+	
+	public void setLuminance(int lumLow, int lumHigh) {
+		Number[] lum = {lumLow, lumHigh};
+		visionData.getEntry("Luminance").setNumberArray(lum);
+	}
+	
+	public void setShowRaw(boolean showRaw) {
+		visionData.getEntry("showRaw").setBoolean(showRaw);
 	}
 	
     public void initDefaultCommand() {
