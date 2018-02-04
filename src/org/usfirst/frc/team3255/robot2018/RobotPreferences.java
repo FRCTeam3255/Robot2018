@@ -5,11 +5,18 @@ import edu.wpi.first.wpilibj.Preferences;
 public class RobotPreferences {
 
 	//Drivetrain
-	public static double drivetrainMaxSpeed() {
+	public static double distancePIDMin() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainMaxSpeed", 1.0);
+		return Preferences.getInstance().getDouble("DrivetrainPIDMinSpeed", 1.0);
+	}
+	
+	public static double distancePIDMax() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainPIDMaxSpeed", 1.0);
 	}
 	
 	public static double drivetrainP() {
@@ -335,4 +342,5 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("TimeOut", 5.0);
 	}
+
 }

@@ -10,6 +10,7 @@ import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToMedScale;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToSwitch;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorResetEncoder;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorRetract;
+import org.usfirst.frc.team3255.robot2018.commands.DriveDistance;
 import org.usfirst.frc.team3255.robot2018.commands.DrivetrainResetEncoder;
 import org.usfirst.frc.team3255.robot2018.commands.NavResetYaw;
 
@@ -38,6 +39,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Reset Yaw", new NavResetYaw());
 		
 		SmartDashboard.putString("Autonomous Status", "No Auto Running");
+
+		SmartDashboard.putData("Drive 5 Feet", new DriveDistance("Drive 5 Feet", 60.0));
 	}
 	
 	public void update() {
@@ -74,6 +77,8 @@ public class Telemetry extends Subsystem {
 
 		
 		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
+		
+		SmartDashboard.putNumber("Get Drivetrain Speed", Robot.drivetrain.getSpeed());
 	}
 	
 	public void setAutonomousStatus(String statusText) {

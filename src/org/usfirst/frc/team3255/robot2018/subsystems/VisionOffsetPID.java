@@ -25,23 +25,17 @@ public class VisionOffsetPID extends PIDSubsystem {
     	this.setSetpoint(0.0);
     }
     
-    public void enable(double maxspeed) {
+    public void enable() {
     	this.getPIDController().setPID(
     			RobotPreferences.visionOffsetP(),
     			RobotPreferences.visionOffsetI(),
     			RobotPreferences.visionOffsetD());
-    	
-    	this.setOutputRange(-maxspeed, maxspeed);
     	
     	outputValid = false;
     	
     	super.enable();
     }
     
-    public void enable() {
-    	enable(RobotPreferences.drivetrainMaxSpeed());
-    }
-
     protected double returnPIDInput() {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:

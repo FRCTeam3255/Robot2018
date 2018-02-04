@@ -68,6 +68,10 @@ public class Drivetrain extends Subsystem {
 		encoder.reset();
 	}
 	
+	public double getSpeed() {
+		return leftFrontTalon.get();
+	}
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

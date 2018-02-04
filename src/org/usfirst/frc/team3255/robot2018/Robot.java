@@ -19,11 +19,11 @@ import org.usfirst.frc.team3255.robot2018.subsystems.Collector;
 import org.usfirst.frc.team3255.robot2018.subsystems.CollectorPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Drivetrain;
 import org.usfirst.frc.team3255.robot2018.subsystems.Lighting;
-import org.usfirst.frc.team3255.robot2018.subsystems.DriveDistancePID;
+import org.usfirst.frc.team3255.robot2018.subsystems.DriveDistanceEncoderPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.NavYawPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Navigation;
 import org.usfirst.frc.team3255.robot2018.subsystems.Telemetry;
-import org.usfirst.frc.team3255.robot2018.subsystems.VisionDistancePID;
+import org.usfirst.frc.team3255.robot2018.subsystems.DrivetrainDistanceVisionPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.VisionOffsetPID;
 
 /**
@@ -41,9 +41,9 @@ public class Robot extends TimedRobot {
 	public static Navigation navigation = null;
 	public static Lighting lighting = null;
 	public static CollectorPID collectorPID = null;
-	public static DriveDistancePID driveDistancePID = null;
+	public static DriveDistanceEncoderPID driveDistancePID = null;
 	public static NavYawPID navYawPID = null;
-	public static VisionDistancePID visionDistancePID = null;
+	public static DrivetrainDistanceVisionPID visionDistancePID = null;
 	public static VisionOffsetPID visionOffsetPID = null;
 	public static OI oi;
 	public static Telemetry telemetry = null;
@@ -64,9 +64,9 @@ public class Robot extends TimedRobot {
 		navigation = new Navigation();
 		lighting = new Lighting();
 		collectorPID = new CollectorPID();
-		driveDistancePID = new DriveDistancePID();
+		driveDistancePID = new DriveDistanceEncoderPID();
 		navYawPID = new NavYawPID();
-		visionDistancePID = new VisionDistancePID();
+		visionDistancePID = new DrivetrainDistanceVisionPID();
 		visionOffsetPID = new VisionOffsetPID();
 		oi = new OI();
 		telemetry = new Telemetry();

@@ -1,6 +1,5 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
-import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -8,12 +7,15 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 /**
  *
  */
-public class DriveDistancePID extends PIDSubsystem {
+public abstract class DriveDistancePID extends PIDSubsystem {
 	
-	double output = 0.0;
-	boolean outputValid = false;
-	double tolerance = 0.0;
-	int targetCounter = 0;
+	protected double output = 0.0;
+	protected boolean outputValid = false;
+	protected double tolerance = 0.0;
+	protected int targetCounter = 0;
+	
+	protected double minPIDSpeed = 0;
+	protected double maxPIDSpeed = 1;
 
     // Initialize your subsystem here
     public DriveDistancePID() {
@@ -25,35 +27,41 @@ public class DriveDistancePID extends PIDSubsystem {
     	this.setSetpoint(0.0);
     }
     
-    public void enable(double maxspeed) {
+    public void enable() {
     	this.getPIDController().setPID(
     		RobotPreferences.drivetrainP(),
     		RobotPreferences.drivetrainI(),
     		RobotPreferences.drivetrainD());
     	
-    	this.setOutputRange(-maxspeed, maxspeed);
+    	minPIDSpeed = RobotPreferences.distancePIDMin();
+    	maxPIDSpeed = RobotPreferences.distancePIDMax();
  
     	outputValid = false;
     	
-    	super.enable();
-    		
-    }
-    
-    public void enable() {
-    	enable(RobotPreferences.drivetrainMaxSpeed());
-    }
-    
-
-    protected double returnPIDInput() {
-        // Return your input value for the PID loop
-        // e.g. a sensor, like a potentiometer:
-        // yourPot.getAverageVoltage() / kYourMaxVoltage;
-       return Robot.drivetrain.getEncoderDistance();
+    	super.enable();	
     }
 
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
+    	
+    	if(output > 0) {
+    		if(output < minPIDSpeed) {
+    			output = minPIDSpeed;
+    		}
+    		else if(output > maxPIDSpeed) {
+    			output = maxPIDSpeed;
+    		}
+    	}
+    	else if(output < 0) {
+    		if(output > -minPIDSpeed) {
+    			output = -minPIDSpeed;
+    		}
+    		else if(output < -maxPIDSpeed) {
+    			output = -maxPIDSpeed;
+    		}
+    	}
+    	
     	this.output = output;
     	outputValid = true;
     }
@@ -71,7 +79,7 @@ public class DriveDistancePID extends PIDSubsystem {
     }
     
     public boolean onRawTarget() {
-    	if (Math.abs(getPIDController().getSetpoint() - Robot.drivetrain.getEncoderDistance()) < tolerance) {
+    	if (Math.abs(getPIDController().getSetpoint() - returnPIDInput()) < tolerance) {
     		targetCounter = targetCounter + 1;
     	}
     	else {
