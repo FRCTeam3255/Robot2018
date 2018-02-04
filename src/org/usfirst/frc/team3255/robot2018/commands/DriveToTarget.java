@@ -43,7 +43,7 @@ public class DriveToTarget extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.telemetry.setAutonomousStatus("Running " + commandName + ": " + distance);
-    	Robot.drivetrain.arcadeDrive(Robot.visionDistancePID.getOutput(), Robot.visionOffsetPID.getOutput());
+    	Robot.drivetrain.arcadeDrive(-Robot.visionDistancePID.getOutput(), Robot.visionOffsetPID.getOutput());
     }
 
     // Make this return true when this Command no longer needs to run execute()

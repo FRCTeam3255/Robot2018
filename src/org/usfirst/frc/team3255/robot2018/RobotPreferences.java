@@ -54,11 +54,11 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("DrivetrainTolerance", 15.0);
 	}
 	
-	public static int drivetrainPulsePerFoot() {
+	public static double drivetrainPulsePerFoot() {
 		if(AutoPreferences.isDebug() == false) {
 			return 300;
 		}
-		return Preferences.getInstance().getInt("DrivetrainPulsePerFoot", 300);
+		return Preferences.getInstance().getDouble("DrivetrainPulsePerFoot", 300);
 	}
 
 	//Collector
