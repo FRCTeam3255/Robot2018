@@ -11,6 +11,8 @@ import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToSwitch;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorResetEncoder;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorRetract;
 import org.usfirst.frc.team3255.robot2018.commands.DriveDistance;
+import org.usfirst.frc.team3255.robot2018.commands.DriveRotate;
+import org.usfirst.frc.team3255.robot2018.commands.DriveToTarget;
 import org.usfirst.frc.team3255.robot2018.commands.DrivetrainResetEncoder;
 import org.usfirst.frc.team3255.robot2018.commands.NavResetYaw;
 
@@ -41,11 +43,15 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putString("Autonomous Status", "No Auto Running");
 
 		SmartDashboard.putData("Drive 5 Feet", new DriveDistance("Drive 5 Feet", 60.0));
+		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 15.0));
+		SmartDashboard.putData("Rotate 90", new DriveRotate("Rotate 90", 90.0));
 	}
 	
 	public void update() {
 		SmartDashboard.putNumber("Drive Encoder Distance, Inches", Robot.drivetrain.getEncoderDistance());
 		SmartDashboard.putNumber("Drive Encoder Count", Robot.drivetrain.getEncoderCount());
+		
+		SmartDashboard.putNumber("Drive to Target Distance", Robot.navigation.getTargetDistance());
 
 		SmartDashboard.putNumber("Collector Encoder Count", Robot.collector.getEncoderCount());
 		SmartDashboard.putNumber("Collector Encoder Distance", Robot.collector.getEncoderDistance());
