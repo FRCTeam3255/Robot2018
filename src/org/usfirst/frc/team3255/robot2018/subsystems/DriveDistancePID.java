@@ -13,9 +13,11 @@ public abstract class DriveDistancePID extends PIDSubsystem {
 	protected boolean outputValid = false;
 	protected double tolerance = 0.0;
 	protected int targetCounter = 0;
+	protected double outputMaxChange = 1.0;
+	protected double previousOutput = 0.0;
 	
-	protected double minPIDSpeed = 0;
-	protected double maxPIDSpeed = 1;
+	protected double minPIDSpeed = 0.0;
+	protected double maxPIDSpeed = 1.0;
 
     // Initialize your subsystem here
     public DriveDistancePID() {
@@ -35,6 +37,10 @@ public abstract class DriveDistancePID extends PIDSubsystem {
     	
     	minPIDSpeed = RobotPreferences.distancePIDMin();
     	maxPIDSpeed = RobotPreferences.distancePIDMax();
+    	
+    	outputMaxChange = RobotPreferences.movePIDMaxChange();
+    	
+    	previousOutput = 0.0;
  
     	outputValid = false;
     	
@@ -42,8 +48,10 @@ public abstract class DriveDistancePID extends PIDSubsystem {
     }
 
     protected void usePIDOutput(double output) {
-        // Use output to drive your system, like a motor
-        // e.g. yourMotor.set(output);
+    	// don't let the PID loop change the motor output more than a certain threshold (outputMaxChange)
+    	if(Math.abs(output - previousOutput) > outputMaxChange) {
+    		output = output - previousOutput > 0 ? previousOutput + outputMaxChange : previousOutput - outputMaxChange;
+    	}
     	
     	if(output > 0) {
     		if(output < minPIDSpeed) {
@@ -62,6 +70,8 @@ public abstract class DriveDistancePID extends PIDSubsystem {
     		}
     	}
     	
+    	previousOutput = output;
+
     	this.output = output;
     	outputValid = true;
     }

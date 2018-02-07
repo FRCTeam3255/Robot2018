@@ -19,7 +19,7 @@ public class VisionMoveToCube extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivetrain);
-    	requires(Robot.visionDistancePID);
+    	requires(Robot.drivetrainDistanceVisionPID);
     	requires(Robot.visionOffsetPID);
     	
     	this.distance = distance;
@@ -30,9 +30,9 @@ public class VisionMoveToCube extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + distance );
-    	Robot.visionDistancePID.setSetpoint(distance);
-    	Robot.visionDistancePID.setRawTolerance(RobotPreferences.visionDistanceTolerance());
-    	Robot.visionDistancePID.enable();
+    	Robot.drivetrainDistanceVisionPID.setSetpoint(distance);
+    	Robot.drivetrainDistanceVisionPID.setRawTolerance(RobotPreferences.visionDistanceTolerance());
+    	Robot.drivetrainDistanceVisionPID.enable();
     	
     	Robot.visionOffsetPID.setSetpoint(0.0);
     	Robot.visionOffsetPID.setRawTolerance(RobotPreferences.visionOffsetTolerance());
@@ -44,12 +44,12 @@ public class VisionMoveToCube extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.telemetry.setAutonomousStatus("Running " + commandName + ": " + distance);
-    	Robot.drivetrain.arcadeDrive(Robot.visionDistancePID.getOutput(), Robot.visionOffsetPID.getOutput());
+    	Robot.drivetrain.arcadeDrive(Robot.drivetrainDistanceVisionPID.getOutput(), Robot.visionOffsetPID.getOutput());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        boolean distanceTarget = Robot.visionDistancePID.onRawTarget();
+        boolean distanceTarget = Robot.drivetrainDistanceVisionPID.onRawTarget();
         boolean offsetTarget = Robot.visionOffsetPID.onRawTarget();
         
         double timeNow = timeSinceInitialized();
@@ -67,7 +67,7 @@ public class VisionMoveToCube extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.telemetry.setAutonomousStatus("Finishing " + commandName + ": " + distance);
-    	Robot.visionDistancePID.disable();
+    	Robot.drivetrainDistanceVisionPID.disable();
     	Robot.visionOffsetPID.disable();
     	Robot.drivetrain.arcadeDrive(0.0, 0.0);
     }

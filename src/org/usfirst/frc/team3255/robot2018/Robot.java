@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
 	public static CollectorPID collectorPID = null;
 	public static DriveDistanceEncoderPID driveDistancePID = null;
 	public static NavYawPID navYawPID = null;
-	public static DrivetrainDistanceVisionPID visionDistancePID = null;
+	public static DrivetrainDistanceVisionPID drivetrainDistanceVisionPID = null;
 	public static VisionOffsetPID visionOffsetPID = null;
 	public static OI oi;
 	public static Telemetry telemetry = null;
@@ -66,7 +66,7 @@ public class Robot extends TimedRobot {
 		collectorPID = new CollectorPID();
 		driveDistancePID = new DriveDistanceEncoderPID();
 		navYawPID = new NavYawPID();
-		visionDistancePID = new DrivetrainDistanceVisionPID();
+		drivetrainDistanceVisionPID = new DrivetrainDistanceVisionPID();
 		visionOffsetPID = new VisionOffsetPID();
 		oi = new OI();
 		telemetry = new Telemetry();

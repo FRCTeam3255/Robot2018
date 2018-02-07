@@ -37,5 +37,13 @@ public class AutoPreferences {
 		}
 		
 		return lane;
+	}
+
+	public static boolean doScale() {
+		return preferencesStick.getRawButton(4);
+	}
+
+	public static boolean doExchange() {
+		return preferencesStick.getRawButton(6);
 	}	
 }

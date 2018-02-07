@@ -5,6 +5,13 @@ import edu.wpi.first.wpilibj.Preferences;
 public class RobotPreferences {
 
 	//Drivetrain
+	public static double movePIDMaxChange() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("MovePIDMaxChange", 1.0);
+	}
+
 	public static double distancePIDMin() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
@@ -163,6 +170,27 @@ public class RobotPreferences {
 
 	
 	//Navigation
+	public static double rotatePIDMaxChange() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("RotatePIDMaxChange", 1.0);
+	}
+	
+	public static double yawPIDMin() {
+		if(AutoPreferences.isDebug() == false) {
+		return 1.0;
+		}
+		return Preferences.getInstance().getDouble("YawPIDMin", 1.0);
+	}
+
+	public static double yawPIDMax() {
+		if(AutoPreferences.isDebug() == false) {
+		return 1.0;
+		}
+		return Preferences.getInstance().getDouble("YawPIDMax", 1.0);
+	}
+
 	public static double yawTolerance() {
 		if(AutoPreferences.isDebug() == false) {
 			return 5.0;
@@ -266,21 +294,21 @@ public class RobotPreferences {
 	//Vision Offset
 	public static double visionOffsetP() {
 		if(AutoPreferences.isDebug() == false) {
-		return 1.0;
+			return 1.0;
 		}
 		return Preferences.getInstance().getDouble("VisionOffsetP", 1.0);
 	}
 
 	public static double visionOffsetI() {
 		if(AutoPreferences.isDebug() == false) {
-		return 0.0;
+			return 0.0;
 		}
 		return Preferences.getInstance().getDouble("VisionOffsetI", 0.0);
 	}
 
 	public static double visionOffsetD() {
 		if(AutoPreferences.isDebug() == false) {
-		return 0.0;
+			return 0.0;
 		}
 		return Preferences.getInstance().getDouble("VisionOffsetD", 0.0);
 	}
@@ -342,5 +370,81 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("TimeOut", 5.0);
 	}
+	
+	public static double autoScaleD1() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+			}
+			return Preferences.getInstance().getDouble("AutoScaleD1", 100.0);
+	}
+	
+	public static double autoScaleR1() {
+		if(AutoPreferences.isDebug() == false) {
+			return 90.0;
+			}
+			return Preferences.getInstance().getDouble("AutoScaleR1", 90.0);
+	}
 
+	public static double autoScaleD2() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoScaleD2", 100.0);
+	}
+
+	public static double autoScaleR2() {
+		if(AutoPreferences.isDebug() == false) {
+			return 90.0;
+		}
+		return Preferences.getInstance().getDouble("AutoScaleR2", 90.0);
+	}
+
+	public static double autoScaleD3() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoScaleD3", 100.0);
+	}
+
+	public static double autoExchangeD1() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoExchangeD1", 100.0);
+	}
+	
+	public static double autoExchangeD2() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoExchangeD2", 100.0);
+	}
+	
+	public static double autoExchangeD3() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoExchangeD3", 100.0);
+	}
+
+	public static double autoExchangeR1() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoExchangeR1", 90.0);
+	}
+
+	public static double autoExchangeR2() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoExchangeR2", 90.0);
+	}
+
+	public static double collectorPIDMaxChange() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorPIDMaxChange", 1.0);
+	}
 }

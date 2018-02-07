@@ -14,6 +14,11 @@ public class NavYawPID extends PIDSubsystem {
 	boolean outputValid = false;
 	int targetCounter = 0;
 	double tolerance = 0.0;
+	double outputMaxChange = 1.0;
+	double previousOutput = 0.0;
+	
+	double minPIDSpeed = 0.0;
+	double maxPIDSpeed = 1.0;
 
     // Initialize your subsystem here
     public NavYawPID() {
@@ -32,10 +37,12 @@ public class NavYawPID extends PIDSubsystem {
     			RobotPreferences.navYawI(),
     			RobotPreferences.navYawD());
     	
-    	setAbsoluteTolerance(RobotPreferences.yawTolerance());
+    	minPIDSpeed = RobotPreferences.yawPIDMin();
+    	maxPIDSpeed = RobotPreferences.yawPIDMax();
     	
-    	double maxSpeed = RobotPreferences.maxYawSpeed();
-    	this.setOutputRange(-maxSpeed, maxSpeed);
+    	outputMaxChange = RobotPreferences.rotatePIDMaxChange();
+    	
+    	previousOutput = 0.0;
     	
     	outputValid = false;
     	
@@ -56,8 +63,29 @@ public class NavYawPID extends PIDSubsystem {
     }
     
     protected void usePIDOutput(double output) {
-    	//Use output to drive to drive your system, like a motor
-    	// e.g yourMotor.set(output);
+    	if(Math.abs(output - previousOutput) > outputMaxChange) {
+    		output = output - previousOutput > 0 ? previousOutput + outputMaxChange : previousOutput - outputMaxChange;
+    	}
+    	
+    	if(output > 0) {
+    		if(output < minPIDSpeed) {
+    			output = minPIDSpeed;
+    		}
+    		else if(output > maxPIDSpeed) {
+    			output = maxPIDSpeed;
+    		}
+    	}
+    	else if(output < 0) {
+    		if(output > -minPIDSpeed) {
+    			output = -minPIDSpeed;
+    		}
+    		else if(output < -maxPIDSpeed) {
+    			output = -maxPIDSpeed;
+    		}
+    	}
+    	
+    	previousOutput = output;
+    	
     	this.output = output;
     	outputValid = true;
     }
@@ -67,19 +95,9 @@ public class NavYawPID extends PIDSubsystem {
     		return 0.0;
     	}
     	
-    	double minYaw = RobotPreferences.minYawSpeed();
-    	
-    	if(Math.abs(output) < minYaw) {
-    		if(output< 0) {
-    			output = -minYaw;
-    		}
-    		else {
-    			output = minYaw;
-    		}
-    	}
-    	
     	return output;
     }
+    
     public void setRawTolerance(double tolerance) {
     	this.tolerance = tolerance;
     }

@@ -14,6 +14,12 @@ public class CollectorPID extends PIDSubsystem {
 	boolean outputValid = false;
 	double tolerance = 0.0;
 	int targetCounter = 0;
+	double outputMaxChange = 1.0;
+	double previousOutput = 0.0;
+	
+	double minPIDSpeed = 0.0;
+	double maxPIDSpeed = 1.0;
+	
 
     // Initialize your subsystem here
     public CollectorPID() {
@@ -31,7 +37,12 @@ public class CollectorPID extends PIDSubsystem {
     			RobotPreferences.collectorI(),
     			RobotPreferences.collectorD());
     	
-    	this.setOutputRange(-maxSpeed, maxSpeed);
+    	minPIDSpeed = RobotPreferences.distancePIDMin();
+    	maxPIDSpeed = RobotPreferences.distancePIDMax();
+    	
+    	outputMaxChange = RobotPreferences.collectorPIDMaxChange();
+    	
+    	previousOutput = 0.0;
     	
     	outputValid = false;
     	
@@ -52,6 +63,30 @@ public class CollectorPID extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
+    	
+    	if(Math.abs(output - previousOutput) > outputMaxChange) {
+    		output = output - previousOutput > 0 ? previousOutput + outputMaxChange : previousOutput - outputMaxChange;
+    	}
+    	
+    	if(output > 0) {
+    		if(output < minPIDSpeed) {
+    			output = minPIDSpeed;
+    		}
+    		else if(output > maxPIDSpeed) {
+    			output = maxPIDSpeed;
+    		}
+    	}
+    	else if(output < 0) {
+    		if(output > -minPIDSpeed) {
+    			output = -minPIDSpeed;
+    		}
+    		else if(output < -maxPIDSpeed) {
+    			output = -maxPIDSpeed;
+    		}
+    	}
+    	
+    	previousOutput = output;
+    	
     	this.output = output;
     	outputValid = true;
     }
