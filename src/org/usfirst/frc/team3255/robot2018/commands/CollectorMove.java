@@ -23,6 +23,7 @@ public class CollectorMove extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	System.out.println("Starting Collector Command");
+    	Robot.collector.unlockLift();
     	Robot.collectorPID.setSetpoint(setPoint);
     	Robot.collectorPID.setRawTolerance(RobotPreferences.collectorTolerance());
     	Robot.collectorPID.enable();
@@ -50,6 +51,7 @@ public class CollectorMove extends Command {
     	System.out.println("Ending Collector Command");
     	Robot.collectorPID.disable();
     	Robot.collector.setLiftSpeed(0.0);
+    	Robot.collector.lockLift();
     }
 
     // Called when another command which requires one or more of the same

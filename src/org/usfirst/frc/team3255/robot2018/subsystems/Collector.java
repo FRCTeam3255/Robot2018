@@ -23,6 +23,7 @@ public class Collector extends Subsystem {
 	private WPI_TalonSRX rightCollectorTalon = null;
 	private WPI_TalonSRX leftLiftTalon = null;
 	private WPI_TalonSRX rightLiftTalon = null;
+	private WPI_TalonSRX climbTalon = null; 
 	
 	private Encoder liftEncoder = null;
 	
@@ -32,24 +33,28 @@ public class Collector extends Subsystem {
 	
 	private DoubleSolenoid clampSolenoid = null;
 	private DoubleSolenoid deploySolenoid = null;
+	private DoubleSolenoid liftSolenoid = null;
 	
 	private DifferentialDrive differentialDrive = null;
 	
 	public Collector() {
-		leftCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_LEFT_TALON);
-		rightCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_RIGHT_TALON);
+		leftCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_LEFT_TALON);
+		rightCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_RIGHT_TALON);
 		leftLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_LEFT_LIFT_TALON);
 		rightLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_RIGHT_LIFT_TALON);
+		climbTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_CLIMB_TALON);
 		
 		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		leftLiftTalon.setNeutralMode(NeutralMode.Brake);
 		rightLiftTalon.setNeutralMode(NeutralMode.Brake);
+		climbTalon.setNeutralMode(NeutralMode.Brake);
 		
 		leftCollectorTalon.setSafetyEnabled(false);
 		rightCollectorTalon.setSafetyEnabled(false);
 		leftLiftTalon.setSafetyEnabled(false);
 		rightLiftTalon.setSafetyEnabled(false);
+		climbTalon.setSafetyEnabled(false);
 		
 		liftEncoder = new Encoder(RobotMap.COLLECTOR_ENCODER_A, RobotMap.COLLECTOR_ENCODER_B);
 		
@@ -59,9 +64,14 @@ public class Collector extends Subsystem {
 		
 		clampSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_CLAMP_SOLENOID_CLAMP, RobotMap.COLLECTOR_CLAMP_SOLENOID_RELEASE);
 		deploySolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_DEPLOY_SOLENOID_DEPLOY, RobotMap.COLLECTOR_DEPLOY_SOLENOID_RETRACT);
+		liftSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_LIFT_SOLENOID_A, RobotMap.COLLECTOR_LIFT_SOLENOID_B);
 		
 		differentialDrive = new DifferentialDrive(leftCollectorTalon, rightCollectorTalon);
 		differentialDrive.setSafetyEnabled(false);
+	}
+	
+	public void setClimberSpeed(double speed) {
+		climbTalon.set(speed);
 	}
 	
 	public void setCollectorSpeed(double speed) {
@@ -119,6 +129,14 @@ public class Collector extends Subsystem {
 	
 	public void retractCollector() {
 		deploySolenoid.set(Value.kReverse);
+	}
+	
+	public void lockLift() {
+		liftSolenoid.set(Value.kForward);
+	}
+	
+	public void unlockLift() {
+		liftSolenoid.set(Value.kReverse);
 	}
 	
 	public void arcadeCollect(double moveSpeed, double rotateSpeed) {

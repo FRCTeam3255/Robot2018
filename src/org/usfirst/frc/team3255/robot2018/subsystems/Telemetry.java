@@ -60,9 +60,6 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Collector Is Top", Robot.collector.isTopSwitchClosed());
 		SmartDashboard.putBoolean("Collector Is Bottom", Robot.collector.isBottomSwitchClosed());
 		
-		SmartDashboard.putBoolean("Climber Top Switch", Robot.climber.isTopSwitchClosed());
-		SmartDashboard.putBoolean("Climber Bottom Switch", Robot.climber.isBottomSwitchClosed());
-		
 		SmartDashboard.putBoolean("Red Alliance", AutoPreferences.isRedAlliance());
 		
 		SmartDashboard.putString("Alliance Switch Pos", String.valueOf(Robot.navigation.getAllianceSwitchPos()));
