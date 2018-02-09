@@ -12,7 +12,7 @@ import org.usfirst.frc.team3255.robot2018.commands.CollectorArcade;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorCollect;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorEject;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorLift;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToTop;
+import org.usfirst.frc.team3255.robot2018.commands.CollectorPrepClimber;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorRelease;
 import org.usfirst.frc.team3255.robot2018.commands.CollectorStopCollecting;
 
@@ -80,6 +80,6 @@ public class OI {
 		M11.whileHeld(new CollectorLift());
 		M12.whileHeld(new CollectorArcade());
 		M9.whileHeld(new CollectorClimb());
-		M10.whenPressed(new CollectorMoveToTop());
+		M10.whenPressed(new CollectorPrepClimber());
 	}
 }
