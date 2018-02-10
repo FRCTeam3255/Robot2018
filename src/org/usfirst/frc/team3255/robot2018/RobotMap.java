@@ -23,8 +23,8 @@ public class RobotMap {
 	
 	public static final int COLLECTOR_INTAKE_LEFT_TALON = 5;
 	public static final int COLLECTOR_INTAKE_RIGHT_TALON = 6;
-	public static final int COLLECTOR_LEFT_LIFT_TALON = 7;
-	public static final int COLLECTOR_RIGHT_LIFT_TALON = 8;
+	public static final int COLLECTOR_TOP_LIFT_TALON = 7;
+	public static final int COLLECTOR_BOTTOM_LIFT_TALON = 8;
 	public static final int COLLECTOR_CLIMB_TALON = 9;
 
 	
@@ -56,15 +56,12 @@ public class RobotMap {
 	public static final int COLLECTOR_ENCODER_B = 1;
 	
 	//Solenoid
-	public static final int CLIMBER_SOLENOID_RETRACT = 0;
-	public static final int CLIMBER_SOLENOID_EXTEND = 1;
-	
-	public static final int COLLECTOR_CLAMP_SOLENOID_CLAMP = 2;
-	public static final int COLLECTOR_CLAMP_SOLENOID_RELEASE = 3;
-	public static final int COLLECTOR_DEPLOY_SOLENOID_DEPLOY = 4;
-	public static final int COLLECTOR_DEPLOY_SOLENOID_RETRACT = 5;
-	public static final int COLLECTOR_LIFT_SOLENOID_A = 6;
-	public static final int COLLECTOR_LIFT_SOLENOID_B = 7;
+	public static final int COLLECTOR_CLAMP_SOLENOID_CLAMP = 0;
+	public static final int COLLECTOR_CLAMP_SOLENOID_RELEASE = 1;
+	public static final int COLLECTOR_DEPLOY_SOLENOID_DEPLOY = 2;
+	public static final int COLLECTOR_DEPLOY_SOLENOID_RETRACT = 3;
+	public static final int COLLECTOR_LIFT_SOLENOID_A = 4;
+	public static final int COLLECTOR_LIFT_SOLENOID_B = 5;
 
 
 	// If you are using multiple modules, make sure to define both the port

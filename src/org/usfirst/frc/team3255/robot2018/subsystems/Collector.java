@@ -21,8 +21,8 @@ public class Collector extends Subsystem {
     // here. Call these from Commands.
 	private WPI_TalonSRX leftCollectorTalon = null;
 	private WPI_TalonSRX rightCollectorTalon = null;
-	private WPI_TalonSRX leftLiftTalon = null;
-	private WPI_TalonSRX rightLiftTalon = null;
+	private WPI_TalonSRX topLiftTalon = null;
+	private WPI_TalonSRX bottomLiftTalon = null;
 	private WPI_TalonSRX climbTalon = null; 
 	
 	private Encoder liftEncoder = null;
@@ -40,20 +40,20 @@ public class Collector extends Subsystem {
 	public Collector() {
 		leftCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_LEFT_TALON);
 		rightCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_RIGHT_TALON);
-		leftLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_LEFT_LIFT_TALON);
-		rightLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_RIGHT_LIFT_TALON);
+		topLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_TOP_LIFT_TALON);
+		bottomLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_BOTTOM_LIFT_TALON);
 		climbTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_CLIMB_TALON);
 		
 		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
-		leftLiftTalon.setNeutralMode(NeutralMode.Brake);
-		rightLiftTalon.setNeutralMode(NeutralMode.Brake);
+		topLiftTalon.setNeutralMode(NeutralMode.Brake);
+		bottomLiftTalon.setNeutralMode(NeutralMode.Brake);
 		climbTalon.setNeutralMode(NeutralMode.Brake);
 		
 		leftCollectorTalon.setSafetyEnabled(false);
 		rightCollectorTalon.setSafetyEnabled(false);
-		leftLiftTalon.setSafetyEnabled(false);
-		rightLiftTalon.setSafetyEnabled(false);
+		topLiftTalon.setSafetyEnabled(false);
+		bottomLiftTalon.setSafetyEnabled(false);
 		climbTalon.setSafetyEnabled(false);
 		
 		liftEncoder = new Encoder(RobotMap.COLLECTOR_ENCODER_A, RobotMap.COLLECTOR_ENCODER_B);
@@ -87,8 +87,8 @@ public class Collector extends Subsystem {
 			speed = 0;
 		}
 		
-		leftLiftTalon.set(speed);
-		rightLiftTalon.set(speed);
+		topLiftTalon.set(speed);
+		bottomLiftTalon.set(speed);
 	}
 	
 	public double getEncoderCount() {
