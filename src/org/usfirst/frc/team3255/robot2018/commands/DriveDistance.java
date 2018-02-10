@@ -37,7 +37,7 @@ public class DriveDistance extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.telemetry.setAutonomousStatus("Running " + commandName + ": " + distance);
-    	Robot.drivetrain.arcadeDrive(Robot.driveDistancePID.getOutput(), 0.0);
+    	Robot.drivetrain.arcadeDrive(Robot.driveDistancePID.getOutput(), 0.0, false);
     }
 
     // Make this return true when this Command no longer needs to run execute()

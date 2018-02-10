@@ -53,7 +53,11 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-		differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+		arcadeDrive(moveSpeed, rotateSpeed, true);
+	}
+	
+	public void arcadeDrive(double moveSpeed, double rotateSpeed, boolean squaredInputs) {
+		differentialDrive.arcadeDrive(moveSpeed, rotateSpeed, squaredInputs);
 	}
 	
 	public double getEncoderCount() {
