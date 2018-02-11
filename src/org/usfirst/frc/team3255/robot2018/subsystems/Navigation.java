@@ -5,7 +5,8 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.SPI;
+//import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -24,7 +25,7 @@ public class Navigation extends Subsystem {
 	public Navigation() {
 		// NavX
 		try {
-			ahrs = new AHRS(SerialPort.Port.kUSB);
+			ahrs = new AHRS(SPI.Port.kMXP);
 		} catch (RuntimeException ex) {
 			DriverStation.reportError("Error instantiating navX MXP: " + ex.getMessage(), true);
 		}
@@ -37,8 +38,13 @@ public class Navigation extends Subsystem {
 	public double getYaw() {
 		return ahrs.getYaw();
 	}
+	
 	public double getPitch() {
 		return ahrs.getRoll();
+	}
+	
+	public double getRoll() {
+		return ahrs.getPitch();
 	}
 	
 	public void resetYaw() {
@@ -50,21 +56,20 @@ public class Navigation extends Subsystem {
 			Thread.sleep(250);
 		}
 		catch (InterruptedException e) {
-			
 		}
 	
 		//make the reset yaw position be the zero yaw position
 		ahrs.zeroYaw();
+	}
+	
+	public void resetPitch() {
+		ahrs.reset();
 	}
  
 	public boolean isCalibrating() {
 		return ahrs.isCalibrating();
 	}
 		
-	public double getAccel() {
-		return ahrs.getRawAccelX();
-	}
-	
 	// Field Data
 	private String getFieldData() {
 		return DriverStation.getInstance().getGameSpecificMessage();

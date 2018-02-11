@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
+import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotMap;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 import org.usfirst.frc.team3255.robot2018.commands.DriveArcade;
@@ -26,6 +27,9 @@ public class Drivetrain extends Subsystem {
 	private Encoder encoder = null;
 	
 	private DifferentialDrive differentialDrive = null;
+	
+	private boolean liftClampingEnabled = true;
+	private boolean pitchSafetyEnabled = true;
  
 	public Drivetrain() {
 		leftFrontTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
@@ -57,6 +61,37 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed, boolean squaredInputs) {
+		if(isLiftClampingEnabled() == true) {
+			double clampSpeed = (1.0 - (Robot.collector.getCollectorHeight() / RobotPreferences.drivetrainClampMaxHeight()));
+			
+			if(clampSpeed < 0) {
+				clampSpeed = 0;
+			}
+			else if(clampSpeed > 1) {
+				clampSpeed = 1;
+			}
+		
+			if(moveSpeed > 0) {
+				if(moveSpeed > clampSpeed) {
+					moveSpeed = clampSpeed;
+				}
+			}
+			else if(moveSpeed < 0) {
+				if(moveSpeed < -clampSpeed) {
+					moveSpeed = -clampSpeed;
+				}
+			}
+		}
+
+		if(isPitchSafetyEnabled() == true) {
+			double currentPitch = Robot.navigation.getPitch();
+			double maxPitch = RobotPreferences.drivetrainMaxPitch();
+			
+			if(currentPitch > maxPitch) {
+				moveSpeed = 0;
+			}
+		}
+
 		differentialDrive.arcadeDrive(moveSpeed, rotateSpeed, squaredInputs);
 	}
 	
@@ -64,8 +99,9 @@ public class Drivetrain extends Subsystem {
 		return  encoder.get();
 	}
 	
+	// returns drivetrain encoder distance in inches
 	public double getEncoderDistance() {
-		return (encoder.get() / RobotPreferences.drivetrainPulsePerFoot()) * 12;	
+		return (encoder.get() / (double) RobotPreferences.drivetrainPulsePerFoot()) * 12;	
 	}
 	
 	public void resetEncoder() {
@@ -74,6 +110,22 @@ public class Drivetrain extends Subsystem {
 	
 	public double getSpeed() {
 		return leftFrontTalon.get();
+	}
+	
+	public void setLiftClamping(boolean enabled) {
+		liftClampingEnabled = enabled;
+	}
+	
+	public boolean isLiftClampingEnabled() {
+		return liftClampingEnabled;
+	}
+		
+	public void setPitchSafety(boolean enabled) {
+		pitchSafetyEnabled = enabled;
+	}
+	
+	public boolean isPitchSafetyEnabled() {
+		return pitchSafetyEnabled;
 	}
 	
     public void initDefaultCommand() {

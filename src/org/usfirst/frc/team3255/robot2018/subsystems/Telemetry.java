@@ -14,6 +14,8 @@ import org.usfirst.frc.team3255.robot2018.commands.DriveDistance;
 import org.usfirst.frc.team3255.robot2018.commands.DriveRotate;
 import org.usfirst.frc.team3255.robot2018.commands.DriveToTarget;
 import org.usfirst.frc.team3255.robot2018.commands.DrivetrainResetEncoder;
+import org.usfirst.frc.team3255.robot2018.commands.NavResetMaxPitch;
+import org.usfirst.frc.team3255.robot2018.commands.NavResetPitch;
 import org.usfirst.frc.team3255.robot2018.commands.NavResetYaw;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -24,6 +26,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class Telemetry extends Subsystem {
+	
+	double maxPitch = 0;
 	
 	public Telemetry(){
 		SmartDashboard.putData("Reset Drive Encoder", new DrivetrainResetEncoder());
@@ -39,6 +43,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Move to Bottom", new CollectorMoveToBottom());
 		
 		SmartDashboard.putData("Reset Yaw", new NavResetYaw());
+		SmartDashboard.putData("Reset Max Pitch", new NavResetMaxPitch());
+		SmartDashboard.putData("Reset Pitch", new NavResetPitch());
 		
 		SmartDashboard.putString("Autonomous Status", "No Auto Running");
 
@@ -76,12 +82,23 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Vision Target Found", Robot.navigation.isTargetFound());
 		
 		SmartDashboard.putNumber("Nav Yaw", Robot.navigation.getYaw());
-		SmartDashboard.putNumber("Nav Pitch", Robot.navigation.getPitch());
-
+		SmartDashboard.putNumber("Nav Roll", Robot.navigation.getRoll());
+		
+		double pitch = Robot.navigation.getPitch();
+		SmartDashboard.putNumber("Nav Pitch", pitch);
+		
+		if(pitch > maxPitch) {
+			maxPitch = pitch;
+		}
+		SmartDashboard.putNumber("Max Pitch", maxPitch);
 		
 		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
 		
 		SmartDashboard.putNumber("Get Drivetrain Speed", Robot.drivetrain.getSpeed());
+	}
+	
+	public void resetMaxPitch() {
+		maxPitch = 0;
 	}
 	
 	public void setAutonomousStatus(String statusText) {

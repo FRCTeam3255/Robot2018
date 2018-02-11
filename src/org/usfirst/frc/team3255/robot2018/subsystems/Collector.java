@@ -44,6 +44,9 @@ public class Collector extends Subsystem {
 		bottomLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_BOTTOM_LIFT_TALON);
 		climbTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_CLIMB_TALON);
 		
+		leftCollectorTalon.setInverted(true);
+		rightCollectorTalon.setInverted(true);	
+		
 		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		topLiftTalon.setNeutralMode(NeutralMode.Brake);
@@ -95,8 +98,9 @@ public class Collector extends Subsystem {
 		return liftEncoder.get(); 
 	}
 	
+	// returns lift encoder distance in inches
 	public double getEncoderDistance() {
-		return liftEncoder.get() / RobotPreferences.collectorPulsesPerFoot();
+		return (liftEncoder.get() / (double) RobotPreferences.collectorPulsesPerFoot()) * 12;
 	}
 	
 	public void resetEncoder() {
@@ -137,6 +141,10 @@ public class Collector extends Subsystem {
 	
 	public void unlockLift() {
 		liftSolenoid.set(Value.kReverse);
+	}
+	
+	public double getCollectorHeight() {
+		return getEncoderDistance();
 	}
 	
 	public void arcadeCollect(double moveSpeed, double rotateSpeed) {

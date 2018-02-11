@@ -43,9 +43,8 @@ public class Robot extends TimedRobot {
 	public static NavYawPID navYawPID = null;
 	public static DrivetrainDistanceVisionPID drivetrainDistanceVisionPID = null;
 	public static VisionOffsetPID visionOffsetPID = null;
-	public static OI oi;
 	public static Telemetry telemetry = null;
-	
+	public static OI oi;	
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -65,8 +64,8 @@ public class Robot extends TimedRobot {
 		navYawPID = new NavYawPID();
 		drivetrainDistanceVisionPID = new DrivetrainDistanceVisionPID();
 		visionOffsetPID = new VisionOffsetPID();
-		oi = new OI();
 		telemetry = new Telemetry();
+		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}

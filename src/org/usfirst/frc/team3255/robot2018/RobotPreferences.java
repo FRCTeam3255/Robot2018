@@ -67,7 +67,21 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("DrivetrainPulsePerFoot", 300);
 	}
-
+	
+	public static double drivetrainMaxPitch() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("DrivetrainMaxPitch", 100.0);
+	}
+	
+	public static double drivetrainClampMaxHeight() {
+		if(AutoPreferences.isDebug() == false) {
+			return 60.0;	
+		}
+		return  Preferences.getInstance().getDouble("DrivetrainClampMaxHeight", 60.0);
+	}
+	
 	//Collector
 	public static double collectorP() {
 		if(AutoPreferences.isDebug() == false) {
