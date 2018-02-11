@@ -82,6 +82,13 @@ public class RobotPreferences {
 		return  Preferences.getInstance().getDouble("DrivetrainClampMaxHeight", 60.0);
 	}
 	
+	public static double drivetrainSlowSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;	
+		}
+		return  Preferences.getInstance().getDouble("DrivetrainSlowSpeed", 1.0);
+	}
+	
 	//Collector
 	public static double collectorP() {
 		if(AutoPreferences.isDebug() == false) {

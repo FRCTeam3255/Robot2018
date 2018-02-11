@@ -82,6 +82,10 @@ public class Drivetrain extends Subsystem {
 				}
 			}
 		}
+		
+		if(Robot.oi.driverStick.getRawButton(6)) {
+			moveSpeed = moveSpeed * RobotPreferences.drivetrainSlowSpeed();
+		}
 
 		if(isPitchSafetyEnabled() == true) {
 			double currentPitch = Robot.navigation.getPitch();
