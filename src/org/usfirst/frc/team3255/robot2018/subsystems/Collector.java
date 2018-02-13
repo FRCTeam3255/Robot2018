@@ -35,7 +35,7 @@ public class Collector extends Subsystem {
 	private DoubleSolenoid deploySolenoid = null;
 	private DoubleSolenoid liftSolenoid = null;
 	
-	private DifferentialDrive differentialDrive = null;
+	private DifferentialDrive collectorDrive = null;
 	
 	public Collector() {
 		leftCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_LEFT_TALON);
@@ -69,8 +69,8 @@ public class Collector extends Subsystem {
 		deploySolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_DEPLOY_SOLENOID_DEPLOY, RobotMap.COLLECTOR_DEPLOY_SOLENOID_RETRACT);
 		liftSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_LIFT_SOLENOID_A, RobotMap.COLLECTOR_LIFT_SOLENOID_B);
 		
-		differentialDrive = new DifferentialDrive(leftCollectorTalon, rightCollectorTalon);
-		differentialDrive.setSafetyEnabled(false);
+		collectorDrive = new DifferentialDrive(leftCollectorTalon, rightCollectorTalon);
+		collectorDrive.setSafetyEnabled(false);
 	}
 	
 	public void setClimberSpeed(double speed) {
@@ -156,7 +156,7 @@ public class Collector extends Subsystem {
 	}
 	
 	public void arcadeCollect(double moveSpeed, double rotateSpeed) {
-		differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+		collectorDrive.arcadeDrive(moveSpeed, rotateSpeed);
 	}
 	
     public void initDefaultCommand() {

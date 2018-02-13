@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CollectorClimberSetSpeed extends Command {
+public class CollectorClimberSetSpeedManual extends Command {
 
-    public CollectorClimberSetSpeed() {
+    public CollectorClimberSetSpeedManual() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.collector);
@@ -23,7 +23,8 @@ public class CollectorClimberSetSpeed extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.setClimberSpeed(RobotPreferences.climberExtendSpeed());
+//    	Robot.collector.setClimberSpeed(RobotPreferences.climberExtendSpeed());
+    	Robot.collector.setClimberSpeed(-Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS));
     }
 
     // Make this return true when this Command no longer needs to run execute()
