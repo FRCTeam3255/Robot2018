@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class CollectorCollectCube extends Command {
+	
+	int held = 0;
 
     public CollectorCollectCube() {
         // Use requires() here to declare subsystem dependencies
@@ -20,6 +22,8 @@ public class CollectorCollectCube extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	held = 0;
+    	
     	Robot.collector.clampCollector();
 
     	double speed = RobotPreferences.collectorCollectSpeed();
@@ -35,10 +39,14 @@ public class CollectorCollectCube extends Command {
     	boolean collected = Robot.collector.isCubeCollected();
     	
     	if(collected) {
+    		held = held + 1;
         	Robot.lighting.setLighting(Lighting.CUBE_COLLECTED);    		
     	}
+    	else {
+    		held = 0;
+    	}
     	
-        return collected;
+        return (held > RobotPreferences.collectorCubeDelay());
     }
 
     // Called once after isFinished returns true

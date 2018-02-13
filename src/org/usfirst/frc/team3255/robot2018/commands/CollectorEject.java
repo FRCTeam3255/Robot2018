@@ -21,7 +21,7 @@ public class CollectorEject extends Command {
     	Robot.collector.clampCollector();
 
     	double speed = RobotPreferences.collectorEjectSpeed();
-    	Robot.collector.setCollectorSpeed(speed);
+    	Robot.collector.setCollectorSpeed(-speed);
     }
 
     // Called repeatedly when this Command is scheduled to run

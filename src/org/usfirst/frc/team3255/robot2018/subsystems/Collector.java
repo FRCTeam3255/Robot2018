@@ -90,6 +90,14 @@ public class Collector extends Subsystem {
 			speed = 0;
 		}
 		
+		double maxSpeed = RobotPreferences.collectorLiftMaxSpeed();
+		
+		if(speed < 0) {
+			if (speed < -maxSpeed) {
+				speed = -maxSpeed;
+			}
+		}
+		
 		topLiftTalon.set(speed);
 		bottomLiftTalon.set(speed);
 	}

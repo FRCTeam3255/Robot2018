@@ -184,9 +184,9 @@ public class RobotPreferences {
 
 	public static double collectorEjectSpeed() {
 		if(AutoPreferences.isDebug() == false) {
-			return -1.0;
+			return 1.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorEjectSpeed", -1.0);
+		return Preferences.getInstance().getDouble("CollectorEjectSpeed", 1.0);
 	}
 	
 	public static int collectorPulsesPerFoot() {
@@ -194,6 +194,20 @@ public class RobotPreferences {
 			return 1;
 		}
 		return Preferences.getInstance().getInt("CollectorPulsesPerFoot", 1);
+	}
+	
+	public static double collectorLiftMaxSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorLiftMaxSpeed", 1.0);
+	}
+	
+	public static int collectorCubeDelay() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1;
+		}
+		return Preferences.getInstance().getInt("CollectorCubeDelay", 1);
 	}
 
 	
@@ -475,4 +489,5 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("CollectorPIDMaxChange", 1.0);
 	}
+
 }

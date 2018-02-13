@@ -72,8 +72,8 @@ public class OI {
 		M4.whenPressed(new CollectorRelease());
 		M11.whileHeld(new CollectorLift());
 		M12.whileHeld(new CollectorArcade());
-		//M9.whileHeld(new CollectorClimb());
-		//M10.whenPressed(new CollectorPrepClimber());
+		M7.whileHeld(new CollectorClimb());
+		M8.whenPressed(new CollectorPrepClimber());
 		M6.whenPressed(new CollectorClamp());
 		M9.whenPressed(new CollectorDeploy());
 		M10.whenPressed(new CollectorRetract());
