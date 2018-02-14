@@ -37,8 +37,8 @@ public class CollectorPID extends PIDSubsystem {
     			RobotPreferences.collectorI(),
     			RobotPreferences.collectorD());
     	
-    	minPIDSpeed = RobotPreferences.distancePIDMin();
-    	maxPIDSpeed = RobotPreferences.distancePIDMax();
+    	minPIDSpeed = RobotPreferences.collectorPIDMin();
+    	maxPIDSpeed = RobotPreferences.collectorPIDMax();
     	
     	outputMaxChange = RobotPreferences.collectorPIDMaxChange();
     	

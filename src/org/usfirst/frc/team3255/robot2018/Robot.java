@@ -44,7 +44,7 @@ public class Robot extends TimedRobot {
 	public static DrivetrainDistanceVisionPID drivetrainDistanceVisionPID = null;
 	public static VisionOffsetPID visionOffsetPID = null;
 	public static Telemetry telemetry = null;
-	public static OI oi;	
+	public static OI oi;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();

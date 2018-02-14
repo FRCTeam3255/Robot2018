@@ -110,6 +110,20 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("CollectorD", 0.0);
 	}
+	
+	public static double collectorPIDMin() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorPIDMinSpeed", 0.0);
+	}
+	
+	public static double collectorPIDMax() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorPIDMaxSpeed", 1.0);
+	}
 
 	public static double collectorMaxSpeed() {
 		if(AutoPreferences.isDebug() == false) {
@@ -375,35 +389,36 @@ public class RobotPreferences {
 		if(AutoPreferences.isDebug() == false) {
 			return 100.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchD1", 100.0);
+		return Preferences.getInstance().getDouble("AutoSwitchD1", 100.0);
 	}
 
 	public static double autoSwitchR1() {
 		if(AutoPreferences.isDebug() == false) {
 			return 90.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchR1", 90.0);
+			
+		return Preferences.getInstance().getDouble("AutoSwitchR1", 90.0);
 	}
 
 	public static double autoSwitchD2() {
 		if(AutoPreferences.isDebug() == false) {
 			return 100.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchD2", 100.0);	
+		return Preferences.getInstance().getDouble("AutoSwitchD2", 100.0);	
 	}
 
 	public static double autoSwitchR2() {
 		if(AutoPreferences.isDebug() == false) {
 			return -90.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchR2", -90.0);	
+		return Preferences.getInstance().getDouble("AutoSwitchR2", -90.0);	
 	}
 
 	public static double autoSwitchD3() {
 		if(AutoPreferences.isDebug() == false) {
 			return 100.0;
 			}
-			return Preferences.getInstance().getDouble("AutoSwitchD3", 100.0);	
+		return Preferences.getInstance().getDouble("AutoSwitchD3", 100.0);	
 	}
 
 	public static double timeOut() {
@@ -417,14 +432,14 @@ public class RobotPreferences {
 		if(AutoPreferences.isDebug() == false) {
 			return 100.0;
 			}
-			return Preferences.getInstance().getDouble("AutoScaleD1", 100.0);
+		return Preferences.getInstance().getDouble("AutoScaleD1", 100.0);
 	}
 	
 	public static double autoScaleR1() {
 		if(AutoPreferences.isDebug() == false) {
 			return 90.0;
 			}
-			return Preferences.getInstance().getDouble("AutoScaleR1", 90.0);
+		return Preferences.getInstance().getDouble("AutoScaleR1", 90.0);
 	}
 
 	public static double autoScaleD2() {
@@ -482,7 +497,43 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("AutoExchangeR2", 90.0);
 	}
+	
+	public static double autoSwitchAfterScaleR1() {
+		if(AutoPreferences.isDebug() == false) {
+			return 10.0;
+		}
+		return Preferences.getInstance().getDouble("AutoSwitchAfterScaleR1", 90.0);
+	}
 
+	public static double autoSwitchAfterScaleD1() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoSwitchAfterScaleD1", 100.0);
+	}
+	
+	public static double autoSwitchAfterScaleR2() {
+		if(AutoPreferences.isDebug() == false) {
+			return 90.0;
+		}
+		return Preferences.getInstance().getDouble("AutoSwitchAfterScaleR2", 90.0);
+	}
+
+	public static double autoSwitchAfterScaleD2() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoSwitchAfterScaleD2", 100.0);
+	}
+	
+
+	public static double autoSwitchAfterScaleD3() {
+		if(AutoPreferences.isDebug() == false) {
+			return 100.0;
+		}
+		return Preferences.getInstance().getDouble("AutoSwitchAfterScaleD3", 100.0);
+	}
+	
 	public static double collectorPIDMaxChange() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
