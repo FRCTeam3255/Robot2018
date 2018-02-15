@@ -541,4 +541,11 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CollectorPIDMaxChange", 1.0);
 	}
 
+	public static double collectorDeploySetpoint() {
+		if(AutoPreferences.isDebug() == false) {
+			return 10.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorDeploySetpoint", 10.0);
+	}
+
 }

@@ -50,7 +50,8 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	Button D5 = new JoystickButton(driverStick, 5);
 	Button D6 = new JoystickButton(driverStick, 6);
-	
+	Button D7 = new JoystickButton(driverStick, 7);
+	Button D8 = new JoystickButton(driverStick, 8);
 	
 	Button M1 = new JoystickButton(manipulatorStick, 1);
 	Button M2 = new JoystickButton(manipulatorStick, 2);
@@ -65,21 +66,30 @@ public class OI {
 	Button M11 = new JoystickButton(manipulatorStick, 11);
 	Button M12 = new JoystickButton(manipulatorStick, 12);
 	
-	public OI() {
+	public OI() {		
+		// Stick Manipulator
 		M1.whileHeld(new CollectorEject());
 		M2.whenPressed(new CollectorCollect());
-		M3.whenPressed(new CollectorStopCollecting());
-		M4.whenPressed(new CollectorRelease());
-		M11.whileHeld(new CollectorLift());
-		M12.whileHeld(new CollectorArcade());
-//		M7.whileHeld(new CollectorClimb());
-		M7.whileHeld(new CollectorClimberSetSpeedManual());
-		M8.whenPressed(new CollectorPrepClimber());
-		M6.whenPressed(new CollectorClamp());
-		M9.whenPressed(new CollectorDeploy());
-		M10.whenPressed(new CollectorRetract());
+		M3.whenPressed(new CollectorRelease());
+		M3.whenReleased(new CollectorClamp());
+		M4.whileHeld(new CollectorClimb());
+		M5.whileHeld(new CollectorArcade());
+		M6.whileHeld(new CollectorLift());
+		
+		// Top Row Manipulator
+		M8.whenPressed(new CollectorMoveToHighScale());
+		M10.whenPressed(new CollectorMoveToMedScale());
+		M12.whenPressed(new CollectorMoveToLowScale());
+		
+		// Bottom Row Manipulator
+		M7.whenPressed(new CollectorPrepClimber());
+		M9.whenPressed(new CollectorMoveToSwitch());
+		M11.whenPressed(new CollectorMoveToBottom());
+		
 		
 		D5.whenPressed(new DrivetrainSafetyDisable());
 		D5.whenReleased(new DrivetrainSafetyEnable());
+		D7.whenPressed(new CollectorRetract());
+		D8.whenPressed(new CollectorDeploy());
 	}
 }

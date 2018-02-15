@@ -81,10 +81,22 @@ public class Drivetrain extends Subsystem {
 					moveSpeed = -clampSpeed;
 				}
 			}
+			
+			if(rotateSpeed > 0) {
+				if(rotateSpeed > clampSpeed) {
+					rotateSpeed = clampSpeed;
+				}
+			}
+			else if(rotateSpeed < 0) {
+				if(rotateSpeed < -clampSpeed) {
+					rotateSpeed = -clampSpeed;
+				}
+			}
 		}
 		
 		if(Robot.oi.driverStick.getRawButton(6)) {
 			moveSpeed = moveSpeed * RobotPreferences.drivetrainSlowSpeed();
+			rotateSpeed = rotateSpeed * RobotPreferences.drivetrainSlowSpeed();
 		}
 
 		if(isPitchSafetyEnabled() == true) {

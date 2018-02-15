@@ -37,12 +37,12 @@ public class Robot extends TimedRobot {
 	public static Drivetrain drivetrain = null;
 	public static Collector collector = null;
 	public static Navigation navigation = null;
-	public static Lighting lighting = null;
 	public static CollectorPID collectorPID = null;
 	public static DriveDistanceEncoderPID driveDistancePID = null;
 	public static NavYawPID navYawPID = null;
 	public static DrivetrainDistanceVisionPID drivetrainDistanceVisionPID = null;
 	public static VisionOffsetPID visionOffsetPID = null;
+	public static Lighting lighting = null;
 	public static Telemetry telemetry = null;
 	public static OI oi;
 
@@ -58,12 +58,12 @@ public class Robot extends TimedRobot {
 		drivetrain = new Drivetrain();
 		collector = new Collector();
 		navigation = new Navigation();
-		lighting = new Lighting();
 		collectorPID = new CollectorPID();
 		driveDistancePID = new DriveDistanceEncoderPID();
 		navYawPID = new NavYawPID();
 		drivetrainDistanceVisionPID = new DrivetrainDistanceVisionPID();
 		visionOffsetPID = new VisionOffsetPID();
+		lighting = new Lighting();
 		telemetry = new Telemetry();
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -81,12 +81,21 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand.cancel();
 			m_autonomousCommand = null;
 		}
+		lighting.setLighting(Lighting.DISABLED);
 	}
 
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 		telemetry.update();
+		lighting.update();
+		
+		if(AutoPreferences.isReset()) {
+			drivetrain.resetEncoder();
+			collector.resetEncoder();
+			navigation.resetYaw();
+			navigation.resetPitch();
+		}
 	}
 
 	/**
@@ -103,6 +112,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		telemetry.update();
+		lighting.update();
 //		m_autonomousCommand = m_chooser.getSelected();
 
 		m_autonomousCommand = new Autonomous();
@@ -120,6 +130,7 @@ public class Robot extends TimedRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 		telemetry.update();
+		lighting.update();
 	}
 
 	@Override
@@ -132,6 +143,7 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand.cancel();
 			m_autonomousCommand = null;
 		}
+		lighting.update();
 	}
 
 	/**
@@ -141,6 +153,7 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		telemetry.update();
+		lighting.update();
 	}
 
 	/**

@@ -88,6 +88,7 @@ public class Collector extends Subsystem {
 		}
 		else if((speed < 0) && isBottomSwitchClosed()) {
 			speed = 0;
+			resetEncoder();
 		}
 		
 		double maxSpeed = RobotPreferences.collectorLiftMaxSpeed();

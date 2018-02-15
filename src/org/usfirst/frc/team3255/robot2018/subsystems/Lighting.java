@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
+import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotMap;
 import org.usfirst.frc.team3255.robot2018.commands.LightingFrequency;
 
@@ -25,6 +26,8 @@ public class Lighting extends Subsystem {
 	public static final double READY_RED = 0.61; // Solid Red
 	public static final double READY_BLUE = 0.87; // Solid Blue
 	public static final double FAULT = -0.11; //Strobe Red
+	public static final double DISABLED = 0.63; //Red Orange
+
 	
 	public Lighting(){
 		statusLighting = new Spark(RobotMap.LIGHTING_STATUSLIGHTING);
@@ -32,6 +35,20 @@ public class Lighting extends Subsystem {
 
 	public void setLighting(double frequency) {
 		statusLighting.set(frequency);
+	}
+	
+	public void update() {
+		if(Robot.collector.isCubeCollected()) {
+			setLighting(CUBE_COLLECTED);
+		}
+		else {
+			if(Robot.navigation.isRedAlliance()) {
+				setLighting(READY_RED);
+			}
+			else {
+				setLighting(READY_BLUE);
+			}
+		}
 	}
 
     // Put methods for controlling this subsystem

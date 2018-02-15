@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3255.robot2018;
 
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class AutoPreferences {
@@ -12,15 +10,16 @@ public class AutoPreferences {
 		return preferencesStick.getRawButton(5);
 	}
 	
+	public static boolean doScale() {
+		return preferencesStick.getRawButton(6);
+	}
+
 	public static boolean doSwitch() {
-		return preferencesStick.getRawButton(10);
+		return preferencesStick.getRawButton(7);
 	}
 	
-	public static boolean isRedAlliance() {
-		if(DriverStation.getInstance().getAlliance() == Alliance.Red) {
-			return true;
-		}
-		return false;
+	public static boolean doExchange() {
+		return preferencesStick.getRawButton(8);
 	}
 
 	public static int getLane() {
@@ -37,13 +36,9 @@ public class AutoPreferences {
 		}
 		
 		return lane;
-	}
-
-	public static boolean doScale() {
-		return preferencesStick.getRawButton(4);
-	}
-
-	public static boolean doExchange() {
-		return preferencesStick.getRawButton(6);
 	}	
+	
+	public static boolean isReset() {
+		return preferencesStick.getRawButton(10);
+	}
 }

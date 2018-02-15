@@ -6,6 +6,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 //import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -103,6 +104,13 @@ public class Navigation extends Subsystem {
 		}
 		
 		return 'X';
+	}
+	
+	public boolean isRedAlliance() {
+		if(DriverStation.getInstance().getAlliance() == Alliance.Red) {
+			return true;
+		}
+		return false;
 	}
 	
 	// Vision

@@ -43,7 +43,7 @@ public class CollectorMove extends Command {
     	
     	double timeNow = timeSinceInitialized();
     	
-        return (collectorTarget || (timeNow >= expireTime));
+        return (collectorTarget || (timeNow >= expireTime) || (Robot.collector.isTopSwitchClosed()) || (Robot.collector.isBottomSwitchClosed()));
     }
 
     // Called once after isFinished returns true
