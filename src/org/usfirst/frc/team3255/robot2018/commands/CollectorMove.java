@@ -43,7 +43,7 @@ public class CollectorMove extends Command {
     	
     	double timeNow = timeSinceInitialized();
     	
-        return (collectorTarget || (timeNow >= expireTime) || (Robot.collector.isTopSwitchClosed()) || (Robot.collector.isBottomSwitchClosed()));
+        return (collectorTarget || (timeNow >= expireTime) || (Robot.collector.isTopSwitchClosed()));
     }
 
     // Called once after isFinished returns true
@@ -51,7 +51,7 @@ public class CollectorMove extends Command {
     	System.out.println("Ending Collector Command");
     	Robot.collectorPID.disable();
     	Robot.collector.setLiftSpeed(0.0);
-    	Robot.collector.lockLift();
+//    	Robot.collector.lockLift();
     }
 
     // Called when another command which requires one or more of the same

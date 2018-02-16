@@ -38,9 +38,26 @@ public class Lighting extends Subsystem {
 	}
 	
 	public void update() {
+		
 		if(Robot.collector.isCubeCollected()) {
 			setLighting(CUBE_COLLECTED);
 		}
+		else if(Robot.navigation.isTargetFound()) {
+			setLighting(CUBE_IDENTIFIED);
+		}
+		else if(Robot.navigation.getCubeOffset() == 0) {
+			setLighting(CUBE_ALIGNED);
+		}
+		else if(Robot.navigation.isTargetFound()) {
+			setLighting(SWITCH_IDENTIFIED);
+		}
+		else if(Robot.navigation.getTargetOffset() == 0) {
+			setLighting(SWITCH_ALIGNED);
+		}
+		else if(Robot.drivetrainDistanceVisionPID.onRawTarget()) {
+			setLighting(SWITCH_ON_TARGET);
+		}
+		
 		else {
 			if(Robot.navigation.isRedAlliance()) {
 				setLighting(READY_RED);

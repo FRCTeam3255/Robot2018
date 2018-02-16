@@ -2,22 +2,7 @@ package org.usfirst.frc.team3255.robot2018.subsystems;
 
 import org.usfirst.frc.team3255.robot2018.AutoPreferences;
 import org.usfirst.frc.team3255.robot2018.Robot;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorDeploy;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToBottom;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToHighScale;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToLowScale;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToMedScale;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorMoveToSwitch;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorResetEncoder;
-import org.usfirst.frc.team3255.robot2018.commands.CollectorRetract;
-import org.usfirst.frc.team3255.robot2018.commands.DriveDistance;
-import org.usfirst.frc.team3255.robot2018.commands.DriveRotate;
-import org.usfirst.frc.team3255.robot2018.commands.DriveToTarget;
-import org.usfirst.frc.team3255.robot2018.commands.DrivetrainResetEncoder;
-import org.usfirst.frc.team3255.robot2018.commands.NavResetMaxPitch;
-import org.usfirst.frc.team3255.robot2018.commands.NavResetPitch;
-import org.usfirst.frc.team3255.robot2018.commands.NavResetYaw;
-
+import org.usfirst.frc.team3255.robot2018.commands.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 //import edu.wpi.first.wpilibj.hal.PDPJNI;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -41,6 +26,9 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Move to Low Scale", new CollectorMoveToLowScale());
 		SmartDashboard.putData("Move to Switch", new CollectorMoveToSwitch());
 		SmartDashboard.putData("Move to Bottom", new CollectorMoveToBottom());
+		SmartDashboard.putData("Collector Lift Unlock", new CollectorLiftUnlock());
+		SmartDashboard.putData("Collector Lift Lock", new CollectorLiftLock());
+		SmartDashboard.putData("Collector Unlock and Move Up", new CollectorUnlockAndMoveUp());
 		
 		SmartDashboard.putData("Reset Yaw", new NavResetYaw());
 		SmartDashboard.putData("Reset Max Pitch", new NavResetMaxPitch());

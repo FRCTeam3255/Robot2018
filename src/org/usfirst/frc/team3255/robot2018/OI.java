@@ -48,6 +48,7 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	Button D1 = new JoystickButton(driverStick, 1);
 	Button D5 = new JoystickButton(driverStick, 5);
 	Button D6 = new JoystickButton(driverStick, 6);
 	Button D7 = new JoystickButton(driverStick, 7);
@@ -72,9 +73,9 @@ public class OI {
 		M2.whenPressed(new CollectorCollect());
 		M3.whenPressed(new CollectorRelease());
 		M3.whenReleased(new CollectorClamp());
-		M4.whileHeld(new CollectorClimb());
+		M4.whileHeld(new CollectorLift());
 		M5.whileHeld(new CollectorArcade());
-		M6.whileHeld(new CollectorLift());
+		M6.whileHeld(new CollectorClimberSetSpeedManual());	
 		
 		// Top Row Manipulator
 		M8.whenPressed(new CollectorMoveToHighScale());
@@ -86,7 +87,7 @@ public class OI {
 		M9.whenPressed(new CollectorMoveToSwitch());
 		M11.whenPressed(new CollectorMoveToBottom());
 		
-		
+		D1.whenPressed(new CollectorUnlockAndMoveUp());
 		D5.whenPressed(new DrivetrainSafetyDisable());
 		D5.whenReleased(new DrivetrainSafetyEnable());
 		D7.whenPressed(new CollectorRetract());
