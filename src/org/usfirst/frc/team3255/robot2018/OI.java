@@ -79,11 +79,11 @@ public class OI {
 		
 		// Top Row Manipulator
 		M8.whenPressed(new CollectorMoveToHighScale());
-		M10.whenPressed(new CollectorMoveToMedScale());
+//		M10.whenPressed(new CollectorMoveToMedScale());
 		M12.whenPressed(new CollectorMoveToLowScale());
 		
 		// Bottom Row Manipulator
-		M7.whenPressed(new CollectorPrepClimber());
+		M7.whenPressed(new CollectorMoveToClimb());
 		M9.whenPressed(new CollectorMoveToSwitch());
 		M11.whenPressed(new CollectorMoveToBottom());
 		

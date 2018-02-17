@@ -1,8 +1,6 @@
 package org.usfirst.frc.team3255.robot2018.commands;
 
 import org.usfirst.frc.team3255.robot2018.Robot;
-import org.usfirst.frc.team3255.robot2018.RobotPreferences;
-
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 

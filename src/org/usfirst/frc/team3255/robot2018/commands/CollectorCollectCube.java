@@ -2,8 +2,6 @@ package org.usfirst.frc.team3255.robot2018.commands;
 
 import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
-import org.usfirst.frc.team3255.robot2018.subsystems.Lighting;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**

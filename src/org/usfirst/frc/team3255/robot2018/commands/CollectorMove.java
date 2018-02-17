@@ -3,7 +3,6 @@ package org.usfirst.frc.team3255.robot2018.commands;
 import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -25,11 +24,8 @@ public class CollectorMove extends Command {
     protected void initialize() {
     	System.out.println("Starting Collector Command");
     	Robot.collector.unlockLift();
-//    	Robot.collector.setLiftSpeed(0.3);
     	Robot.collectorPID.setSetpoint(setPoint);
     	Robot.collectorPID.setRawTolerance(RobotPreferences.collectorTolerance());
-//    	Timer.delay(0.1);
-//    	Robot.collector.setLiftSpeed(0.0);
     	Robot.collectorPID.enable();
     	
     	expireTime = timeSinceInitialized() + RobotPreferences.timeOut();

@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -75,6 +74,9 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setClimberSpeed(double speed) {
+		if(speed < 0) {
+			speed = 0;
+		}
 		climbTalon.set(speed);
 	}
 	
@@ -142,7 +144,14 @@ public class Collector extends Subsystem {
 	}
 	
 	public void retractCollector() {
-		unlockLift();
+		if(isBottomSwitchClosed()) {
+			for(int i = 0; i < 1000; i++) {
+				unlockLift();
+				setLiftSpeed(0.3);
+			}
+			setLiftSpeed(0.0);
+		}
+		
 		deploySolenoid.set(Value.kReverse);
 	}
 	
@@ -152,8 +161,10 @@ public class Collector extends Subsystem {
 	
 	public void unlockLift() {
 		liftSolenoid.set(Value.kReverse);
-		for(int i = 0; i <1000; i++) {
-			setLiftSpeed(0.3);	
+//		if(!isBottomSwitchClosed()) {
+			for(int i = 0; i <1000; i++) {
+				setLiftSpeed(0.3);	
+//			}
 		}
 //		Timer.delay(0.5);
 		setLiftSpeed(0.0);

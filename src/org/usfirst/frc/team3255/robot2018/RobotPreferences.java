@@ -182,11 +182,11 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CollectorHighScaleSetpoint", 40.0);
 	}
 	
-	public static double collectorTopSetpoint() {
+	public static double collectorClimberSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
 			return 50.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorTopScaleSetpoint", 50.0);
+		return Preferences.getInstance().getDouble("CollectorClimbSetpoint", 50.0);
 	}
 
 	public static double collectorCollectSpeed() {
