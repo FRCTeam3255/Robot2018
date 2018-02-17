@@ -70,9 +70,9 @@ public class OI {
 	public OI() {		
 		// Stick Manipulator
 		M1.whileHeld(new CollectorEject());
-		M2.whenPressed(new CollectorCollect());
-		M3.whenPressed(new CollectorRelease());
-		M3.whenReleased(new CollectorClamp());
+		M2.whenPressed(new CollectorRelease());
+		M2.whenReleased(new CollectorClamp());
+		M3.whenPressed(new CollectorCollect());
 		M4.whileHeld(new CollectorLift());
 		M5.whileHeld(new CollectorArcade());
 		M6.whileHeld(new CollectorClimberSetSpeedManual());	
@@ -87,10 +87,9 @@ public class OI {
 		M9.whenPressed(new CollectorMoveToSwitch());
 		M11.whenPressed(new CollectorMoveToBottom());
 		
-		D1.whenPressed(new CollectorUnlockAndMoveUp());
 		D5.whenPressed(new DrivetrainSafetyDisable());
 		D5.whenReleased(new DrivetrainSafetyEnable());
-		D7.whenPressed(new CollectorRetract());
-		D8.whenPressed(new CollectorDeploy());
+		D7.whenPressed(new CollectorRetractIntake());
+		D8.whenPressed(new CollectorDeployIntake());
 	}
 }

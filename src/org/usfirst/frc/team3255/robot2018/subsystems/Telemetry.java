@@ -26,9 +26,9 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Move to Low Scale", new CollectorMoveToLowScale());
 		SmartDashboard.putData("Move to Switch", new CollectorMoveToSwitch());
 		SmartDashboard.putData("Move to Bottom", new CollectorMoveToBottom());
-		SmartDashboard.putData("Collector Lift Unlock", new CollectorLiftUnlock());
-		SmartDashboard.putData("Collector Lift Lock", new CollectorLiftLock());
-		SmartDashboard.putData("Collector Unlock and Move Up", new CollectorUnlockAndMoveUp());
+		SmartDashboard.putData("Collector Dogtooth Unlock", new CollectorLiftUnlock());
+		SmartDashboard.putData("Collector Dogtooth Lock", new CollectorLiftLock());
+		SmartDashboard.putData("Test Dogtooth", new CollectorTestDogtooth());
 		
 		SmartDashboard.putData("Reset Yaw", new NavResetYaw());
 		SmartDashboard.putData("Reset Max Pitch", new NavResetMaxPitch());
@@ -39,6 +39,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive 5 Feet", new DriveDistance("Drive 5 Feet", 60.0));
 		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 15.0));
 		SmartDashboard.putData("Rotate 90", new DriveRotate("Rotate 90", 90.0));
+		
+		SmartDashboard.putData("Drive to Cube", new VisionMoveToCube("Drive To Cube", 40.0));
 	}
 	
 	public void update() {

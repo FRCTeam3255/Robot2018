@@ -2,32 +2,30 @@ package org.usfirst.frc.team3255.robot2018.commands;
 
 import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
-import org.usfirst.frc.team3255.robot2018.subsystems.Lighting;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class CollectorCollectCube extends Command {
-	
-	int held = 0;
+public class CollectorTestDogtooth extends Command {
 
-    public CollectorCollectCube() {
+	protected double setPoint = 0;
+	
+    public CollectorTestDogtooth() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.collector);
-    	requires(Robot.lighting);
+    	requires(Robot.collectorPID);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	held = 0;
-    	
-    	Robot.collector.clampCollector();
-
-    	double speed = RobotPreferences.collectorCollectSpeed();
-    	Robot.collector.setCollectorSpeed(speed);
+    	Robot.collector.unlockLift();
+    	Robot.collector.setLiftSpeed(0.3);
+    	Timer.delay(0.1);
+    	Robot.collector.setLiftSpeed(0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -36,21 +34,14 @@ public class CollectorCollectCube extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	boolean collected = Robot.collector.isCubeCollected();
-    	
-    	if(collected) {
-    		held = held + 1;
-    	}
-    	else {
-    		held = 0;
-    	}
-    	
-        return (held > RobotPreferences.collectorCubeDelay());
+    	return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.collector.setCollectorSpeed(0.0);
+    	System.out.println("YAY");
+    	Robot.collector.setLiftSpeed(0.0);
+//    	Robot.collectorPID.disable();
     }
 
     // Called when another command which requires one or more of the same

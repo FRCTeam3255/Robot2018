@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -88,7 +89,6 @@ public class Collector extends Subsystem {
 		}
 		else if((speed < 0) && isBottomSwitchClosed()) {
 			speed = 0;
-			resetEncoder();
 		}
 		
 		double maxSpeed = RobotPreferences.collectorLiftMaxSpeed();
@@ -137,10 +137,12 @@ public class Collector extends Subsystem {
 	}
 	
 	public void deployCollector() {
+		unlockLift();
 		deploySolenoid.set(Value.kForward);
 	}
 	
 	public void retractCollector() {
+		unlockLift();
 		deploySolenoid.set(Value.kReverse);
 	}
 	
@@ -150,6 +152,11 @@ public class Collector extends Subsystem {
 	
 	public void unlockLift() {
 		liftSolenoid.set(Value.kReverse);
+		for(int i = 0; i <1000; i++) {
+			setLiftSpeed(0.3);	
+		}
+//		Timer.delay(0.5);
+		setLiftSpeed(0.0);
 	}
 	
 	public double getCollectorHeight() {

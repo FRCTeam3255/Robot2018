@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
+import org.usfirst.frc.team3255.robot2018.RobotPreferences;
+
 import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.networktables.NetworkTable;
@@ -159,6 +161,13 @@ public class Navigation extends Subsystem {
 	
 	public void setShowRaw(boolean showRaw) {
 		visionData.getEntry("showRaw").setBoolean(showRaw);
+	}
+	
+	public void updateVisionSettings() {
+		setHue(RobotPreferences.lowHue(), RobotPreferences.highHue());
+		setSaturation(RobotPreferences.lowSat(), RobotPreferences.highSat());
+		setLuminance(RobotPreferences.lowLum(), RobotPreferences.highLum());
+		setShowRaw(RobotPreferences.showRaw());
 	}
 	
     public void initDefaultCommand() {

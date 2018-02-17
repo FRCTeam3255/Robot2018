@@ -3,6 +3,7 @@ package org.usfirst.frc.team3255.robot2018.commands;
 import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -24,8 +25,11 @@ public class CollectorMove extends Command {
     protected void initialize() {
     	System.out.println("Starting Collector Command");
     	Robot.collector.unlockLift();
+//    	Robot.collector.setLiftSpeed(0.3);
     	Robot.collectorPID.setSetpoint(setPoint);
     	Robot.collectorPID.setRawTolerance(RobotPreferences.collectorTolerance());
+//    	Timer.delay(0.1);
+//    	Robot.collector.setLiftSpeed(0.0);
     	Robot.collectorPID.enable();
     	
     	expireTime = timeSinceInitialized() + RobotPreferences.timeOut();
@@ -41,9 +45,18 @@ public class CollectorMove extends Command {
     protected boolean isFinished() {
     	boolean collectorTarget = Robot.collectorPID.onRawTarget();
     	
+    	double speed = Robot.collectorPID.getOutput();
+    	
     	double timeNow = timeSinceInitialized();
     	
-        return (collectorTarget || (timeNow >= expireTime) || (Robot.collector.isTopSwitchClosed()));
+    	if((speed >= 0) && (Robot.collector.isTopSwitchClosed())) {
+    		return true;
+    	}
+    	else if((speed <= 0) && (Robot.collector.isBottomSwitchClosed())) {
+    		return true;
+    	}
+    	
+        return (collectorTarget || (timeNow >= expireTime));
     }
 
     // Called once after isFinished returns true
@@ -51,7 +64,13 @@ public class CollectorMove extends Command {
     	System.out.println("Ending Collector Command");
     	Robot.collectorPID.disable();
     	Robot.collector.setLiftSpeed(0.0);
-//    	Robot.collector.lockLift();
+    	if(!Robot.collector.isTopSwitchClosed()) {
+    		Robot.collector.lockLift();
+    	}
+//    	if(Robot.collector.isBottomSwitchClosed()) {
+//    		Robot.collector.resetEncoder();
+//    	}
+    	
     }
 
     // Called when another command which requires one or more of the same

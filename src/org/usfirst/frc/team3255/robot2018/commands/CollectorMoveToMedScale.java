@@ -1,6 +1,5 @@
 package org.usfirst.frc.team3255.robot2018.commands;
 
-import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 
 /**
@@ -17,11 +16,5 @@ public class CollectorMoveToMedScale extends CollectorMove {
     	setPoint = RobotPreferences.collectorMedScaleSetpoint();
     	
     	super.initialize();
-    }
-    
-    protected void end() {
-    	super.end();
-    	
-    	Robot.collector.lockLift();
     }
 }

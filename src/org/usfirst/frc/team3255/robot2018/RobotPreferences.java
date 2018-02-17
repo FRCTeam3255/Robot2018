@@ -548,4 +548,53 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CollectorDeploySetpoint", 10.0);
 	}
 
+	//HSL values
+	public static int lowHue() {
+		if(AutoPreferences.isDebug() == false) {
+			return 37;
+		}
+		return Preferences.getInstance().getInt("LowHue", 37);	
+	}
+
+	public static int highHue() {
+		if(AutoPreferences.isDebug() == false) {
+			return 70;
+		}
+		return Preferences.getInstance().getInt("HighHue", 70);	
+	}
+
+	public static int lowSat() {
+		if(AutoPreferences.isDebug() == false) {
+			return 146;
+		}
+		return Preferences.getInstance().getInt("LowSat", 146);	
+	}
+
+	public static int highSat() {
+		if(AutoPreferences.isDebug() == false) {
+			return 181;
+		}
+		return Preferences.getInstance().getInt("HighSat", 181);	
+	}
+
+	public static int lowLum() {
+		if(AutoPreferences.isDebug() == false) {
+			return 133;
+		}
+		return Preferences.getInstance().getInt("LowLum", 133);	
+	}
+
+	public static int highLum() {
+		if(AutoPreferences.isDebug() == false) {
+			return 190;
+		}
+		return Preferences.getInstance().getInt("HighLum", 190);
+	}
+
+	public static boolean showRaw() {
+		if(AutoPreferences.isDebug() == false) {
+			return true;
+		}
+		return Preferences.getInstance().getBoolean("showRaw", true);
+	}
 }

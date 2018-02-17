@@ -88,6 +88,7 @@ public class Robot extends TimedRobot {
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 		telemetry.update();
+		navigation.updateVisionSettings();
 		lighting.update();
 		
 		if(AutoPreferences.isReset()) {

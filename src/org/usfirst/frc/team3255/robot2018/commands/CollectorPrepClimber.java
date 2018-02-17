@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class CollectorPrepClimber extends CommandGroup {
 
     public CollectorPrepClimber() {
-    	addSequential(new CollectorRetract());
+//    	addSequential(new CollectorRetract());
     	addSequential(new CollectorMoveToTop());
     }
 }
