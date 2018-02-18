@@ -79,16 +79,18 @@ public class OI {
 		
 		// Top Row Manipulator
 		M8.whenPressed(new CollectorMoveToHighScale());
-//		M10.whenPressed(new CollectorMoveToMedScale());
+		//M10 free
 		M12.whenPressed(new CollectorMoveToLowScale());
 		
 		// Bottom Row Manipulator
-		M7.whenPressed(new CollectorMoveToClimb());
+//		M7.whenPressed(new CollectorMoveToClimb());
+		M7.whenPressed(new CollectorPrepClimber());
 		M9.whenPressed(new CollectorMoveToSwitch());
 		M11.whenPressed(new CollectorMoveToBottom());
 		
 		D5.whenPressed(new DrivetrainSafetyDisable());
 		D5.whenReleased(new DrivetrainSafetyEnable());
+//		D6 multiply MoveSpeed and RotateSpeed by RobotPreferences.drivetrainSlowSpeed 
 		D7.whenPressed(new CollectorRetractIntake());
 		D8.whenPressed(new CollectorDeployIntake());
 	}

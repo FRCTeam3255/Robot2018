@@ -22,7 +22,6 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Deploy Collector", new CollectorDeploy());
 		
 		SmartDashboard.putData("Move to High Scale", new CollectorMoveToHighScale());
-		SmartDashboard.putData("Move to Med Scale", new CollectorMoveToMedScale());
 		SmartDashboard.putData("Move to Low Scale", new CollectorMoveToLowScale());
 		SmartDashboard.putData("Move to Switch", new CollectorMoveToSwitch());
 		SmartDashboard.putData("Move to Bottom", new CollectorMoveToBottom());

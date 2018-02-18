@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
+import org.usfirst.frc.team3255.robot2018.AutoPreferences;
 import org.usfirst.frc.team3255.robot2018.RobotMap;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -74,8 +75,10 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setClimberSpeed(double speed) {
-		if(speed < 0) {
-			speed = 0;
+		if(!AutoPreferences.isDebug()) {
+			if(speed < 0) {
+				speed = 0;
+			}
 		}
 		climbTalon.set(speed);
 	}
@@ -88,6 +91,7 @@ public class Collector extends Subsystem {
 	public void setLiftSpeed(double speed) {
 		if((speed > 0) && isTopSwitchClosed()) {
 			speed = 0;
+//			liftSolenoid.set(Value.kReverse);
 		}
 		else if((speed < 0) && isBottomSwitchClosed()) {
 			speed = 0;
@@ -144,14 +148,7 @@ public class Collector extends Subsystem {
 	}
 	
 	public void retractCollector() {
-		if(isBottomSwitchClosed()) {
-			for(int i = 0; i < 1000; i++) {
-				unlockLift();
-				setLiftSpeed(0.3);
-			}
-			setLiftSpeed(0.0);
-		}
-		
+		unlockLift();
 		deploySolenoid.set(Value.kReverse);
 	}
 	
@@ -161,10 +158,10 @@ public class Collector extends Subsystem {
 	
 	public void unlockLift() {
 		liftSolenoid.set(Value.kReverse);
-//		if(!isBottomSwitchClosed()) {
+		if(!isBottomSwitchClosed()) {
 			for(int i = 0; i <1000; i++) {
 				setLiftSpeed(0.3);	
-//			}
+			}
 		}
 //		Timer.delay(0.5);
 		setLiftSpeed(0.0);

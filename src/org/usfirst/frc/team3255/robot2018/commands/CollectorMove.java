@@ -48,7 +48,7 @@ public class CollectorMove extends Command {
     	if((speed >= 0) && (Robot.collector.isTopSwitchClosed())) {
     		return true;
     	}
-    	else if((speed <= 0) && (Robot.collector.isBottomSwitchClosed())) {
+    	else if((speed < 0) && (Robot.collector.isBottomSwitchClosed())) {
     		return true;
     	}
     	

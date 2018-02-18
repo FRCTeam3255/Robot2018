@@ -9,7 +9,8 @@ public class CollectorCollect extends CommandGroup {
 
     public CollectorCollect() {	
     	addSequential(new CollectorMoveToBottom());
+    	addSequential(new CollectorDeployIntake());
     	addSequential(new CollectorCollectCube());
-//    	addSequential(new CollectorResetEncoder());
+    	addSequential(new CollectorResetEncoder());
     }
 }

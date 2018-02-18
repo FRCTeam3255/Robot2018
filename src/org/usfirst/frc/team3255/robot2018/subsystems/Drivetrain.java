@@ -62,34 +62,35 @@ public class Drivetrain extends Subsystem {
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed, boolean squaredInputs) {
 		if(isLiftClampingEnabled() == true) {
-			double clampSpeed = (1.0 - (Robot.collector.getCollectorHeight() / RobotPreferences.drivetrainClampMaxHeight()));
+			double clampSpeedMove = (1.0 - (Robot.collector.getCollectorHeight() / RobotPreferences.drivetrainClampMaxHeightMove()));
+			double clampSpeedRotate = (1.0 - (Robot.collector.getCollectorHeight() / RobotPreferences.drivetrainClampMaxHeightRotate()));
 			
-			if(clampSpeed < 0) {
-				clampSpeed = 0;
+			if(clampSpeedMove < 0) {
+				clampSpeedMove = 0;
 			}
-			else if(clampSpeed > 1) {
-				clampSpeed = 1;
+			else if(clampSpeedMove > 1) {
+				clampSpeedMove = 1;
 			}
 		
 			if(moveSpeed > 0) {
-				if(moveSpeed > clampSpeed) {
-					moveSpeed = clampSpeed;
+				if(moveSpeed > clampSpeedMove) {
+					moveSpeed = clampSpeedMove;
 				}
 			}
 			else if(moveSpeed < 0) {
-				if(moveSpeed < -clampSpeed) {
-					moveSpeed = -clampSpeed;
+				if(moveSpeed < -clampSpeedMove) {
+					moveSpeed = -clampSpeedMove;
 				}
 			}
 			
 			if(rotateSpeed > 0) {
-				if(rotateSpeed > clampSpeed) {
-					rotateSpeed = clampSpeed;
+				if(rotateSpeed > clampSpeedRotate) {
+					rotateSpeed = clampSpeedRotate;
 				}
 			}
 			else if(rotateSpeed < 0) {
-				if(rotateSpeed < -clampSpeed) {
-					rotateSpeed = -clampSpeed;
+				if(rotateSpeed < -clampSpeedRotate) {
+					rotateSpeed = -clampSpeedRotate;
 				}
 			}
 		}
