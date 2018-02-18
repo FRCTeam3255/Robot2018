@@ -114,6 +114,9 @@ public class Lifter extends Subsystem {
 		return getEncoderDistance();
 	}
 	
+	public double getTalonCurrent() {
+		return topLiftTalon.getOutputCurrent();
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

@@ -25,6 +25,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Move to Low Scale", new CollectorMoveToLowScale());
 		SmartDashboard.putData("Move to Switch", new CollectorMoveToSwitch());
 		SmartDashboard.putData("Move to Bottom", new CollectorMoveToBottom());
+		
 		SmartDashboard.putData("Collector Dogtooth Unlock", new CollectorLiftUnlock());
 		SmartDashboard.putData("Collector Dogtooth Lock", new CollectorLiftLock());
 		SmartDashboard.putData("Test Dogtooth", new CollectorTestDogtooth());
@@ -38,32 +39,29 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive 5 Feet", new DriveDistance("Drive 5 Feet", 60.0));
 		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 15.0));
 		SmartDashboard.putData("Rotate 90", new DriveRotate("Rotate 90", 90.0));
-		
 		SmartDashboard.putData("Drive to Cube", new VisionMoveToCube("Drive To Cube", 40.0));
 	}
 	
 	public void update() {
 		SmartDashboard.putNumber("Drive Encoder Distance, Inches", Robot.drivetrain.getEncoderDistance());
 		SmartDashboard.putNumber("Drive Encoder Count", Robot.drivetrain.getEncoderCount());
+		SmartDashboard.putNumber("Get Drivetrain Speed", Robot.drivetrain.getSpeed());
+		SmartDashboard.putNumber("Drivetrain Current", Robot.drivetrain.getTalonCurrent());
 		
-		SmartDashboard.putNumber("Drive to Target Distance", Robot.navigation.getTargetDistance());
-
 		SmartDashboard.putNumber("Collector Encoder Count", Robot.lifter.getEncoderCount());
 		SmartDashboard.putNumber("Collector Encoder Distance", Robot.lifter.getEncoderDistance());
-		
-		SmartDashboard.putBoolean("Is Cube Collected", Robot.collector.isCubeCollected());
 		SmartDashboard.putBoolean("Collector Is Top", Robot.lifter.isTopSwitchClosed());
 		SmartDashboard.putBoolean("Collector Is Bottom", Robot.lifter.isBottomSwitchClosed());
+		SmartDashboard.putNumber("Lifter Current", Robot.lifter.getTalonCurrent());
+		
+		SmartDashboard.putBoolean("Is Cube Collected", Robot.collector.isCubeCollected());
+		SmartDashboard.putNumber("Collector Current", Robot.collector.getTalonCurrent());
 		
 		SmartDashboard.putBoolean("Red Alliance", Robot.navigation.isRedAlliance());
 		
 		SmartDashboard.putString("Alliance Switch Pos", String.valueOf(Robot.navigation.getAllianceSwitchPos()));
 		SmartDashboard.putString("Alliance Scale Pos", String.valueOf(Robot.navigation.getScalePos()));
 		SmartDashboard.putString("Opponent Switch Pos", String.valueOf(Robot.navigation.getOppenentSwitchPos()));
-		
-		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());
-		
-//		SmartDashboard.putNumber("PDP Channel Current", PDPJNI.getPDPChannelCurrent((byte) 0, 0));
 		
 		SmartDashboard.putNumber("Vision Distance", Robot.navigation.getTargetDistance());
 		SmartDashboard.putNumber("Vision Offset", Robot.navigation.getTargetOffset());
@@ -82,8 +80,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Max Pitch", maxPitch);
 		
 		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
+		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());
 		
-		SmartDashboard.putNumber("Get Drivetrain Speed", Robot.drivetrain.getSpeed());
 	}
 	
 	public void resetMaxPitch() {
