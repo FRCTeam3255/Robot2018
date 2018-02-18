@@ -47,6 +47,26 @@ public class Drivetrain extends Subsystem {
 		rightFrontTalon.setSafetyEnabled(false);
 		rightBackTalon.setSafetyEnabled(false);
 		
+//		leftFrontTalon.configContinuousCurrentLimit(10, 0);
+//		leftBackTalon.configContinuousCurrentLimit(10, 0);
+//		rightFrontTalon.configContinuousCurrentLimit(10, 0);
+//		rightBackTalon.configContinuousCurrentLimit(10, 0);
+//		
+//		leftFrontTalon.configPeakCurrentLimit(15, 0);
+//		leftBackTalon.configPeakCurrentLimit(15, 0);
+//		rightFrontTalon.configPeakCurrentLimit(15, 0);
+//		rightBackTalon.configPeakCurrentLimit(15, 0);
+//		
+//		leftFrontTalon.configPeakCurrentDuration(100, 0);
+//		leftBackTalon.configPeakCurrentDuration(100, 0);
+//		rightFrontTalon.configPeakCurrentDuration(100, 0);
+//		rightBackTalon.configPeakCurrentDuration(100, 0);
+//		
+//		leftFrontTalon.enableCurrentLimit(true);
+//		leftBackTalon.enableCurrentLimit(true);
+//		rightFrontTalon.enableCurrentLimit(true);
+//		rightBackTalon.enableCurrentLimit(true);
+//		
 		encoder = new Encoder(RobotMap.DRIVETRAIN_ENCODER_A, RobotMap.DRIVETRAIN_ENCODER_B);
 		
 		leftBackTalon.follow(leftFrontTalon);

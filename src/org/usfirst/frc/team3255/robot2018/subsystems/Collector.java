@@ -160,11 +160,16 @@ public class Collector extends Subsystem {
 		liftSolenoid.set(Value.kReverse);
 		if(!isBottomSwitchClosed()) {
 			for(int i = 0; i <1000; i++) {
-				setLiftSpeed(0.3);	
+				setUnsafeSpeed(0.3);	
 			}
 		}
 //		Timer.delay(0.5);
 		setLiftSpeed(0.0);
+	}
+	
+	protected void setUnsafeSpeed(double speed) {
+		topLiftTalon.set(speed);
+		bottomLiftTalon.set(speed);
 	}
 	
 	public double getCollectorHeight() {

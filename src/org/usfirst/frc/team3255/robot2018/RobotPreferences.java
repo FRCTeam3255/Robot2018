@@ -191,9 +191,9 @@ public class RobotPreferences {
 	
 	public static double collectorClimberSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 47.0;
+			return 45.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorClimbSetpoint", 47.0);
+		return Preferences.getInstance().getDouble("CollectorClimbSetpoint", 45.0);
 	}
 
 	public static double collectorCollectSpeed() {

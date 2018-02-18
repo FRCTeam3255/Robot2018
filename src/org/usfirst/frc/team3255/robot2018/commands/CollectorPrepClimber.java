@@ -18,6 +18,7 @@ public class CollectorPrepClimber extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.collector.unlockLift();
+    	Robot.collector.retractCollector();
     	Robot.collector.setLiftSpeed(0.7);
     }
 
