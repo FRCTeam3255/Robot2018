@@ -16,7 +16,7 @@ public class CollectorRetract extends CollectorMove {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	previousPosition = Robot.collector.getEncoderDistance();
+    	previousPosition = Robot.lifter.getEncoderDistance();
     	setPoint = RobotPreferences.collectorDeploySetpoint();
     	super.initialize();
     }

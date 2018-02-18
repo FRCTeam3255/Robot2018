@@ -18,12 +18,12 @@ public class CollectorLift extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.collector.unlockLift();
+    	Robot.lifter.unlockLift();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.setLiftSpeed(-Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS));
+    	Robot.lifter.setLiftSpeed(-Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS));
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,8 +33,8 @@ public class CollectorLift extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.collector.setLiftSpeed(0.0);
-    	Robot.collector.lockLift();
+    	Robot.lifter.setLiftSpeed(0.0);
+    	Robot.lifter.lockLift();
     }
 
     // Called when another command which requires one or more of the same
