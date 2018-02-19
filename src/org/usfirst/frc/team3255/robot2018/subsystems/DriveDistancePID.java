@@ -50,7 +50,6 @@ public abstract class DriveDistancePID extends PIDSubsystem {
     protected void usePIDOutput(double output) {
     	System.out.printf("%.2f %.2f ", previousOutput, output);
     	
-    	// don't let the PID loop change the motor output more than a certain threshold (outputMaxChange)
     	if(Math.abs(output - previousOutput) > outputMaxChange) {
     		output = output - previousOutput > 0 ? previousOutput + outputMaxChange : previousOutput - outputMaxChange;
     	}
@@ -105,9 +104,8 @@ public abstract class DriveDistancePID extends PIDSubsystem {
     	return (targetCounter >= RobotPreferences.drivetrainTargetCount());
     }
     
-	@Override
-	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
-	}
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+    }
 }

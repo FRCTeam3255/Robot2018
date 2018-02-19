@@ -20,7 +20,6 @@ public class Collector extends Subsystem {
     // here. Call these from Commands.
 	private WPI_TalonSRX leftCollectorTalon = null;
 	private WPI_TalonSRX rightCollectorTalon = null;
-	// Do I make a separate subsystem for the climber as well?
 	private WPI_TalonSRX climbTalon = null; 
 	
 	private DigitalInput intakeSwitch = null;
@@ -81,7 +80,7 @@ public class Collector extends Subsystem {
 	public void releaseCollector() {
 		clampSolenoid.set(Value.kReverse);
 	}
-// Deploy and retract collector are collector methods that require lifting methods? talk with lead/mentor. I called a method from another subsystem for this subsystem, will this work for commands?
+
 	public void deployCollector() {
 		deploySolenoid.set(Value.kForward);
 	}

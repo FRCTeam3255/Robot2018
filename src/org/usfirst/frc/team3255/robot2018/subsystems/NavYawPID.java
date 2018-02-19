@@ -118,5 +118,3 @@ public class NavYawPID extends PIDSubsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 }
-
-  

@@ -57,7 +57,6 @@ public class CollectorPID extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-//        return Robot.Lifting.getEncoderDistance();
     	return Robot.cascadeLift.getEncoderDistance();
     }
 

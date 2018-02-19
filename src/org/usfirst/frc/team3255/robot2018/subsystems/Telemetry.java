@@ -45,7 +45,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Drive Encoder Distance, Inches", Robot.drivetrain.getEncoderDistance());
 		SmartDashboard.putNumber("Drive Encoder Count", Robot.drivetrain.getEncoderCount());
 		SmartDashboard.putNumber("Get Drivetrain Speed", Robot.drivetrain.getSpeed());
-//		SmartDashboard.putNumber("Drivetrain Current", Robot.drivetrain.getTalonCurrent());
+		SmartDashboard.putNumber("Drivetrain Current", Robot.drivetrain.getTalonCurrent());
 		
 		SmartDashboard.putNumber("Collector Encoder Count", Robot.cascadeLift.getEncoderCount());
 		SmartDashboard.putNumber("Collector Encoder Distance", Robot.cascadeLift.getEncoderDistance());
@@ -95,4 +95,3 @@ public class Telemetry extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 }
-

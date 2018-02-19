@@ -16,7 +16,7 @@ public class CascadeMove extends Command {
     public CascadeMove() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.collector);
+    	requires(Robot.cascadeLift);
     	requires(Robot.collectorPID);
     }
 

@@ -13,7 +13,7 @@ public class CascadeLift extends Command {
     public CascadeLift() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.collector);
+    	requires(Robot.cascadeLift);
     }
 
     // Called just before this Command runs the first time

@@ -22,7 +22,6 @@ public class CollectorClimberManual extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	Robot.collector.setClimberSpeed(RobotPreferences.climberExtendSpeed());
     	Robot.collector.setClimberSpeed(-Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS));
     }
 

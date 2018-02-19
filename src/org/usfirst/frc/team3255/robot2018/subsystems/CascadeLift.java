@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class CascadeLift extends Subsystem {
+	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	private WPI_TalonSRX topTalon = null;
@@ -49,7 +50,6 @@ public class CascadeLift extends Subsystem {
 	public void setLiftSpeed(double speed) {
 		if((speed > 0) && isTopSwitchClosed()) {
 			speed = 0;
-//			liftSolenoid.set(Value.kReverse);
 		}
 		else if((speed < 0) && isBottomSwitchClosed()) {
 			speed = 0;
@@ -99,7 +99,6 @@ public class CascadeLift extends Subsystem {
 				setUnsafeSpeed(0.3);	
 			}
 		}
-//		Timer.delay(0.5);
 		setLiftSpeed(0.0);
 	}
 	

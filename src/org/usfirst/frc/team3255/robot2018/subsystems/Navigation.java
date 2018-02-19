@@ -26,14 +26,14 @@ public class Navigation extends Subsystem {
     // here. Call these from Commands.
 	
 	public Navigation() {
-		// NavX
+	// NavX
 		try {
 			ahrs = new AHRS(SPI.Port.kMXP);
 		} catch (RuntimeException ex) {
 			DriverStation.reportError("Error instantiating navX MXP: " + ex.getMessage(), true);
 		}
 		
-		// Vision
+	// Vision
 		visionData = NetworkTableInstance.getDefault().getTable("NURDVision");
 	}
 
@@ -175,4 +175,3 @@ public class Navigation extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 }
-

@@ -9,8 +9,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Lighting extends Subsystem {
-	
-	Spark statusLighting = null;
+
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+	private Spark statusLighting = null;
 	
 	// Color 1 is Green
 	// Color 2 is Pink
@@ -25,7 +27,6 @@ public class Lighting extends Subsystem {
 	public static final double READY_BLUE = 0.87; // Solid Blue
 	public static final double FAULT = -0.11; //Strobe Red
 	public static final double DISABLED = 0.63; //Red Orange
-
 	
 	public Lighting(){
 		statusLighting = new Spark(RobotMap.LIGHTING_STATUSLIGHTING);
@@ -36,7 +37,6 @@ public class Lighting extends Subsystem {
 	}
 	
 	public void update() {
-		
 		if(Robot.collector.isCubeCollected()) {
 			setLighting(CUBE_COLLECTED);
 		}
@@ -55,7 +55,6 @@ public class Lighting extends Subsystem {
 		else if(Robot.drivetrainDistanceVisionPID.onRawTarget()) {
 			setLighting(SWITCH_ON_TARGET);
 		}
-		
 		else {
 			if(Robot.navigation.isRedAlliance()) {
 				setLighting(READY_RED);
@@ -65,9 +64,6 @@ public class Lighting extends Subsystem {
 			}
 		}
 	}
-
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

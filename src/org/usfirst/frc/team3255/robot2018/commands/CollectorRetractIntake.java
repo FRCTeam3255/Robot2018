@@ -20,5 +20,4 @@ public class CollectorRetractIntake extends InstantCommand {
     protected void initialize() {
     	Robot.collector.retractCollector();
     }
-
 }
