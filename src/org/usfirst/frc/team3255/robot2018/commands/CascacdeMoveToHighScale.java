@@ -5,9 +5,9 @@ import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 /**
  *
  */
-public class CollectorMoveToHighScale extends CollectorMove {
+public class CascacdeMoveToHighScale extends CascadeMove {
 
-    public CollectorMoveToHighScale() {
+    public CascacdeMoveToHighScale() {
     	super();
     }
 

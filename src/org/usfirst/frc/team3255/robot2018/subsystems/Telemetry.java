@@ -16,18 +16,18 @@ public class Telemetry extends Subsystem {
 	
 	public Telemetry(){
 		SmartDashboard.putData("Reset Drive Encoder", new DrivetrainResetEncoder());
-		SmartDashboard.putData("Reset Collector Encoder", new CollectorResetEncoder());
+		SmartDashboard.putData("Reset Collector Encoder", new CascadeResetEncoder());
 		
 		SmartDashboard.putData("Retract Collector", new CollectorRetractIntake());
 		SmartDashboard.putData("Deploy Collector", new CollectorDeployIntake());
 		
-		SmartDashboard.putData("Move to High Scale", new CollectorMoveToHighScale());
-		SmartDashboard.putData("Move to Low Scale", new CollectorMoveToLowScale());
-		SmartDashboard.putData("Move to Switch", new CollectorMoveToSwitch());
-		SmartDashboard.putData("Move to Bottom", new CollectorMoveToBottom());
+		SmartDashboard.putData("Move to High Scale", new CascacdeMoveToHighScale());
+		SmartDashboard.putData("Move to Low Scale", new CascadeMoveToLowScale());
+		SmartDashboard.putData("Move to Switch", new CascadeMoveToSwitch());
+		SmartDashboard.putData("Move to Bottom", new CascadeMoveToBottom());
 		
-		SmartDashboard.putData("Collector Dogtooth Unlock", new CollectorLiftUnlock());
-		SmartDashboard.putData("Collector Dogtooth Lock", new CollectorLiftLock());
+		SmartDashboard.putData("Collector Dogtooth Unlock", new CascadeLiftUnlock());
+		SmartDashboard.putData("Collector Dogtooth Lock", new CascadeLiftLock());
 		
 		SmartDashboard.putData("Reset Yaw", new NavResetYaw());
 		SmartDashboard.putData("Reset Max Pitch", new NavResetMaxPitch());

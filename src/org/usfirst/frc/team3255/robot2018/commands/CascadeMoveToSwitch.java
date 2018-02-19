@@ -5,9 +5,9 @@ import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 /**
  *
  */
-public class CollectorMoveToSwitch extends CollectorMove {
+public class CascadeMoveToSwitch extends CascadeMove {
 
-    public CollectorMoveToSwitch() {
+    public CascadeMoveToSwitch() {
     	super();
     }
 

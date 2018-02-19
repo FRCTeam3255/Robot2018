@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CollectorClimberSetSpeedManual extends Command {
+public class CollectorClimberManual extends Command {
 
-    public CollectorClimberSetSpeedManual() {
+    public CollectorClimberManual() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.collector);

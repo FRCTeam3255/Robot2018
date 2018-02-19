@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CollectorResetEncoder extends Command {
+public class CascadeLiftLock extends Command {
 
-    public CollectorResetEncoder() {
+    public CascadeLiftLock() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.collector);
@@ -17,7 +17,7 @@ public class CollectorResetEncoder extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.cascadeLift.resetEncoder();
+    	Robot.cascadeLift.lockLift();
     }
 
     // Called repeatedly when this Command is scheduled to run

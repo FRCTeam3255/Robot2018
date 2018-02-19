@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CollectorMove extends Command {
+public class CascadeMove extends Command {
 
 	protected double setPoint = 0;
 	private double expireTime;
 	
-    public CollectorMove() {
+    public CascadeMove() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.collector);

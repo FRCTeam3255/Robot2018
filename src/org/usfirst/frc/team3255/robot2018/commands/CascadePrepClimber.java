@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CollectorLiftUnlock extends Command {
+public class CascadePrepClimber extends Command {
 
-    public CollectorLiftUnlock() {
+    public CascadePrepClimber() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.collector);
@@ -18,6 +18,8 @@ public class CollectorLiftUnlock extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.cascadeLift.unlockLift();
+    	Robot.collector.retractCollector();
+    	Robot.cascadeLift.setLiftSpeed(0.7);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,11 +28,13 @@ public class CollectorLiftUnlock extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return Robot.cascadeLift.isTopSwitchClosed();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.cascadeLift.setLiftSpeed(0.0);
+    	Robot.cascadeLift.lockLift();
     }
 
     // Called when another command which requires one or more of the same
