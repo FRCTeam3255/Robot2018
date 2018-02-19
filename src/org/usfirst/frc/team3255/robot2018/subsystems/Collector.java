@@ -1,7 +1,6 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
 import org.usfirst.frc.team3255.robot2018.AutoPreferences;
-import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotMap;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -84,12 +83,10 @@ public class Collector extends Subsystem {
 	}
 // Deploy and retract collector are collector methods that require lifting methods? talk with lead/mentor. I called a method from another subsystem for this subsystem, will this work for commands?
 	public void deployCollector() {
-		Robot.lifter.unlockLift();
 		deploySolenoid.set(Value.kForward);
 	}
 	
 	public void retractCollector() {
-		Robot.lifter.unlockLift();
 		deploySolenoid.set(Value.kReverse);
 	}
 	

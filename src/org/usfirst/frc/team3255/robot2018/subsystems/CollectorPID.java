@@ -58,7 +58,7 @@ public class CollectorPID extends PIDSubsystem {
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
 //        return Robot.Lifting.getEncoderDistance();
-    	return Robot.lifter.getEncoderDistance();
+    	return Robot.cascadeLift.getEncoderDistance();
     }
 
     protected void usePIDOutput(double output) {
@@ -105,7 +105,7 @@ public class CollectorPID extends PIDSubsystem {
     }
     
     public boolean onRawTarget() {
-    	if (Math.abs(getPIDController().getSetpoint() - Robot.lifter.getEncoderDistance()) < tolerance) {
+    	if (Math.abs(getPIDController().getSetpoint() - Robot.cascadeLift.getEncoderDistance()) < tolerance) {
     		targetCounter = targetCounter + 1;
     	}
     	else {

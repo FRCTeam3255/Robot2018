@@ -82,8 +82,8 @@ public class Drivetrain extends Subsystem {
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed, boolean squaredInputs) {
 		if(isLiftClampingEnabled() == true) {
-			double clampSpeedMove = (1.0 - (Robot.lifter.getCollectorHeight() / RobotPreferences.drivetrainClampMaxHeightMove()));
-			double clampSpeedRotate = (1.0 - (Robot.lifter.getCollectorHeight() / RobotPreferences.drivetrainClampMaxHeightRotate()));
+			double clampSpeedMove = (1.0 - (Robot.cascadeLift.getCollectorHeight() / RobotPreferences.drivetrainClampMaxHeightMove()));
+			double clampSpeedRotate = (1.0 - (Robot.cascadeLift.getCollectorHeight() / RobotPreferences.drivetrainClampMaxHeightRotate()));
 			
 			if(clampSpeedMove < 0) {
 				clampSpeedMove = 0;
@@ -166,9 +166,9 @@ public class Drivetrain extends Subsystem {
 		return pitchSafetyEnabled;
 	}
 	
-	public double getTalonCurrent() {
-		return leftFrontTalon.getOutputCurrent();
-	}
+//	public double getTalonCurrent() {
+//		return leftFrontTalon.getOutputCurrent();
+//	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

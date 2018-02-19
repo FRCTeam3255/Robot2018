@@ -18,8 +18,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Reset Drive Encoder", new DrivetrainResetEncoder());
 		SmartDashboard.putData("Reset Collector Encoder", new CollectorResetEncoder());
 		
-		SmartDashboard.putData("Retract Collector", new CollectorRetract());
-		SmartDashboard.putData("Deploy Collector", new CollectorDeploy());
+		SmartDashboard.putData("Retract Collector", new CollectorRetractIntake());
+		SmartDashboard.putData("Deploy Collector", new CollectorDeployIntake());
 		
 		SmartDashboard.putData("Move to High Scale", new CollectorMoveToHighScale());
 		SmartDashboard.putData("Move to Low Scale", new CollectorMoveToLowScale());
@@ -28,7 +28,6 @@ public class Telemetry extends Subsystem {
 		
 		SmartDashboard.putData("Collector Dogtooth Unlock", new CollectorLiftUnlock());
 		SmartDashboard.putData("Collector Dogtooth Lock", new CollectorLiftLock());
-		SmartDashboard.putData("Test Dogtooth", new CollectorTestDogtooth());
 		
 		SmartDashboard.putData("Reset Yaw", new NavResetYaw());
 		SmartDashboard.putData("Reset Max Pitch", new NavResetMaxPitch());
@@ -46,13 +45,13 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Drive Encoder Distance, Inches", Robot.drivetrain.getEncoderDistance());
 		SmartDashboard.putNumber("Drive Encoder Count", Robot.drivetrain.getEncoderCount());
 		SmartDashboard.putNumber("Get Drivetrain Speed", Robot.drivetrain.getSpeed());
-		SmartDashboard.putNumber("Drivetrain Current", Robot.drivetrain.getTalonCurrent());
+//		SmartDashboard.putNumber("Drivetrain Current", Robot.drivetrain.getTalonCurrent());
 		
-		SmartDashboard.putNumber("Collector Encoder Count", Robot.lifter.getEncoderCount());
-		SmartDashboard.putNumber("Collector Encoder Distance", Robot.lifter.getEncoderDistance());
-		SmartDashboard.putBoolean("Collector Is Top", Robot.lifter.isTopSwitchClosed());
-		SmartDashboard.putBoolean("Collector Is Bottom", Robot.lifter.isBottomSwitchClosed());
-		SmartDashboard.putNumber("Lifter Current", Robot.lifter.getTalonCurrent());
+		SmartDashboard.putNumber("Collector Encoder Count", Robot.cascadeLift.getEncoderCount());
+		SmartDashboard.putNumber("Collector Encoder Distance", Robot.cascadeLift.getEncoderDistance());
+		SmartDashboard.putBoolean("Collector Is Top", Robot.cascadeLift.isTopSwitchClosed());
+		SmartDashboard.putBoolean("Collector Is Bottom", Robot.cascadeLift.isBottomSwitchClosed());
+		SmartDashboard.putNumber("Lifter Current", Robot.cascadeLift.getTalonCurrent());
 		
 		SmartDashboard.putBoolean("Is Cube Collected", Robot.collector.isCubeCollected());
 		SmartDashboard.putNumber("Collector Current", Robot.collector.getTalonCurrent());

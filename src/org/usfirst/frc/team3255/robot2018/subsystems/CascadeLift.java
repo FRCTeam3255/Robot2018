@@ -15,11 +15,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Lifter extends Subsystem {
+public class CascadeLift extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	private WPI_TalonSRX topLiftTalon = null;
-	private WPI_TalonSRX bottomLiftTalon = null;
+	private WPI_TalonSRX topTalon = null;
+	private WPI_TalonSRX bottomTalon = null;
 	
 	private DigitalInput topSwitch = null;
 	private DigitalInput bottomSwitch = null;
@@ -28,24 +28,22 @@ public class Lifter extends Subsystem {
 	
 	private DoubleSolenoid liftSolenoid = null;
 	
-	public void Lift() {
-		topLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_TOP_LIFT_TALON);
-		bottomLiftTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_BOTTOM_LIFT_TALON);
+	public CascadeLift() {
+		topTalon = new WPI_TalonSRX(RobotMap.CASCADE_TOP_TALON);
+		bottomTalon = new WPI_TalonSRX(RobotMap.CASCADE_BOTTOM_TALON);
 		
-		topLiftTalon.setNeutralMode(NeutralMode.Brake);
-		bottomLiftTalon.setNeutralMode(NeutralMode.Brake);
+		topTalon.setNeutralMode(NeutralMode.Brake);
+		bottomTalon.setNeutralMode(NeutralMode.Brake);
 		
-		topLiftTalon.setSafetyEnabled(false);
-		bottomLiftTalon.setSafetyEnabled(false);
+		topTalon.setSafetyEnabled(false);
+		bottomTalon.setSafetyEnabled(false);
 		
-		liftEncoder = new Encoder(RobotMap.COLLECTOR_ENCODER_A, RobotMap.COLLECTOR_ENCODER_B);
+		liftEncoder = new Encoder(RobotMap.CASCADE_ENCODER_A, RobotMap.CASCADE_ENCODER_B);
 		
-		topSwitch = new DigitalInput(RobotMap.COLLECTOR_TOP_SWITCH);
-		bottomSwitch = new DigitalInput(RobotMap.COLLECTOR_BOTTOM_SWITCH);
+		topSwitch = new DigitalInput(RobotMap.CASCADE_TOP_SWITCH);
+		bottomSwitch = new DigitalInput(RobotMap.CASCADE_BOTTOM_SWITCH);
 		
-		liftSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_LIFT_SOLENOID_A, RobotMap.COLLECTOR_LIFT_SOLENOID_B);
-		
-		
+		liftSolenoid = new DoubleSolenoid(RobotMap.CASCADE_LIFT_SOLENOID_A, RobotMap.CASCADE_LIFT_SOLENOID_B);
 	}
 	
 	public void setLiftSpeed(double speed) {
@@ -65,12 +63,12 @@ public class Lifter extends Subsystem {
 			}
 		}
 		
-		topLiftTalon.set(speed);
-		bottomLiftTalon.set(speed);
+		topTalon.set(speed);
+		bottomTalon.set(speed);
 	}
 	
 	public double getEncoderCount() {
-		return liftEncoder.get(); 
+		return liftEncoder.get();
 	}
 	
 	// returns lift encoder distance in inches
@@ -106,8 +104,8 @@ public class Lifter extends Subsystem {
 	}
 	
 	protected void setUnsafeSpeed(double speed) {
-		topLiftTalon.set(speed);
-		bottomLiftTalon.set(speed);
+		topTalon.set(speed);
+		bottomTalon.set(speed);
 	}
 	
 	public double getCollectorHeight() {
@@ -115,7 +113,7 @@ public class Lifter extends Subsystem {
 	}
 	
 	public double getTalonCurrent() {
-		return topLiftTalon.getOutputCurrent();
+		return topTalon.getOutputCurrent();
 	}
 
     public void initDefaultCommand() {
@@ -123,4 +121,3 @@ public class Lifter extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 }
-

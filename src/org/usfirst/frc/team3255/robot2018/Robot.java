@@ -23,7 +23,7 @@ import org.usfirst.frc.team3255.robot2018.subsystems.NavYawPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Navigation;
 import org.usfirst.frc.team3255.robot2018.subsystems.Telemetry;
 import org.usfirst.frc.team3255.robot2018.subsystems.DrivetrainDistanceVisionPID;
-import org.usfirst.frc.team3255.robot2018.subsystems.Lifter;
+import org.usfirst.frc.team3255.robot2018.subsystems.CascadeLift;
 import org.usfirst.frc.team3255.robot2018.subsystems.VisionOffsetPID;
 
 /**
@@ -44,7 +44,7 @@ public class Robot extends TimedRobot {
 	public static DrivetrainDistanceVisionPID drivetrainDistanceVisionPID = null;
 	public static VisionOffsetPID visionOffsetPID = null;
 	public static Lighting lighting = null;
-	public static Lifter lifter = null;
+	public static CascadeLift cascadeLift = null;
 	public static Telemetry telemetry = null;
 	public static OI oi;
 
@@ -66,7 +66,7 @@ public class Robot extends TimedRobot {
 		drivetrainDistanceVisionPID = new DrivetrainDistanceVisionPID();
 		visionOffsetPID = new VisionOffsetPID();
 		lighting = new Lighting();
-		lifter = new Lifter();
+		cascadeLift = new CascadeLift();
 		telemetry = new Telemetry();
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -96,7 +96,7 @@ public class Robot extends TimedRobot {
 		
 		if(AutoPreferences.isReset()) {
 			drivetrain.resetEncoder();
-			lifter.resetEncoder();
+			cascadeLift.resetEncoder();
 			navigation.resetYaw();
 			navigation.resetPitch();
 		}

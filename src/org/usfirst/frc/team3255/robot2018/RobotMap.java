@@ -23,8 +23,8 @@ public class RobotMap {
 	
 	public static final int COLLECTOR_INTAKE_LEFT_TALON = 5;
 	public static final int COLLECTOR_INTAKE_RIGHT_TALON = 6;
-	public static final int COLLECTOR_TOP_LIFT_TALON = 7;
-	public static final int COLLECTOR_BOTTOM_LIFT_TALON = 8;
+	public static final int CASCADE_TOP_TALON = 7;
+	public static final int CASCADE_BOTTOM_TALON = 8;
 	public static final int COLLECTOR_CLIMB_TALON = 9;
 
 	
@@ -43,8 +43,8 @@ public class RobotMap {
 	public static final int COLLECTOR_ROTATE_AXIS = 0;
 	
 	//Switches
-	public static final int COLLECTOR_TOP_SWITCH = 4;
-	public static final int COLLECTOR_BOTTOM_SWITCH = 3;
+	public static final int CASCADE_TOP_SWITCH = 4;
+	public static final int CASCADE_BOTTOM_SWITCH = 3;
 	public static final int COLLECTOR_INTAKE_SWITCH = 2;
 	
 	
@@ -52,14 +52,14 @@ public class RobotMap {
 	public static final int DRIVETRAIN_ENCODER_A = 7;
 	public static final int DRIVETRAIN_ENCODER_B = 8;
 	
-	public static final int COLLECTOR_ENCODER_A = 0;
-	public static final int COLLECTOR_ENCODER_B = 1;
+	public static final int CASCADE_ENCODER_A = 0;
+	public static final int CASCADE_ENCODER_B = 1;
 	
 	//Solenoid
 	public static final int COLLECTOR_CLAMP_SOLENOID_CLAMP = 0;
 	public static final int COLLECTOR_CLAMP_SOLENOID_RELEASE = 1;
 	public static final int COLLECTOR_DEPLOY_SOLENOID_DEPLOY = 2;
 	public static final int COLLECTOR_DEPLOY_SOLENOID_RETRACT = 3;
-	public static final int COLLECTOR_LIFT_SOLENOID_A = 4;
-	public static final int COLLECTOR_LIFT_SOLENOID_B = 5;
+	public static final int CASCADE_LIFT_SOLENOID_A = 4;
+	public static final int CASCADE_LIFT_SOLENOID_B = 5;
 }
