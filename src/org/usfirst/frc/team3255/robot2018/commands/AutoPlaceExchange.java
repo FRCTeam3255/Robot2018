@@ -15,6 +15,7 @@ public class AutoPlaceExchange extends CommandGroup {
 		if(AutoPreferences.isDebug()) {
 			return RobotPreferences.autoExchangeD1();
 		}
+		
 		int lane = AutoPreferences.getLane();
 		
 		if((AutoPreferences.doExchange() == false) || (lane == 0)) {
@@ -24,7 +25,6 @@ public class AutoPlaceExchange extends CommandGroup {
 		double distance = 0.0;
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
-		//Below is for if CommandGroup has right and left data.
 			if(lane == 1) {
 				distance = 10.0;
 			}
@@ -54,6 +54,7 @@ public class AutoPlaceExchange extends CommandGroup {
 		if (AutoPreferences.isDebug()) {
 			return RobotPreferences.autoExchangeR1();
 		}
+		
 		 int lane = AutoPreferences.getLane();
 		 
 		 if((AutoPreferences.doExchange() == false) || (lane == 0)) {
@@ -62,7 +63,6 @@ public class AutoPlaceExchange extends CommandGroup {
 		 
 		 double angle = 0.0;
 		 
-		 //Below is for if CommandGroup has right and left data.
 		 if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			 if (lane == 1) {
 				 angle = 10.0;
@@ -74,7 +74,7 @@ public class AutoPlaceExchange extends CommandGroup {
 				 angle = 10.0;
 			 } 
 		 }
-
+		 else {
 			 if (lane == 1) {
 				 angle = 10.0;
 			 }
@@ -84,6 +84,7 @@ public class AutoPlaceExchange extends CommandGroup {
 			 else if(lane == 3) {
 				 angle = 10.0;
 			 }
+		 }
 		 
 		 return angle;
 	}
@@ -112,6 +113,7 @@ public class AutoPlaceExchange extends CommandGroup {
 				distance = 10.0;
 			}
 		}
+		else {
 			if (lane == 1) {
 				distance = 10.0;
 			}
@@ -121,9 +123,9 @@ public class AutoPlaceExchange extends CommandGroup {
 			else if (lane == 3) {
 				distance = 10.0;
 			}
+		}
 		
 		return distance;
-		
 	}
 	
 	public double autoExchangeR2() {
@@ -150,6 +152,7 @@ public class AutoPlaceExchange extends CommandGroup {
 				angle = 10.0;
 			}
 		}
+		else {
 			if (lane == 1) {
 				angle = 10.0;
 			}
@@ -159,6 +162,7 @@ public class AutoPlaceExchange extends CommandGroup {
 			else if (lane == 3) {
 				angle = 10.0;
 			}
+		}
 		
 		return angle;
 	}
@@ -187,6 +191,7 @@ public class AutoPlaceExchange extends CommandGroup {
 				distance = 10.0;
 			}
 		}
+		else {
 			if (lane == 1) {
 				distance = 10.0;
 			}
@@ -196,6 +201,7 @@ public class AutoPlaceExchange extends CommandGroup {
 			else if (lane == 3) {
 				distance = 10.0;
 			}
+		}
 		
 		return distance;
 	}

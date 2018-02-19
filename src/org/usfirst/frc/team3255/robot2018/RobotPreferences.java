@@ -168,13 +168,6 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CascadeLiftLowScaleSetpoint", 40.0);
 	}
 
-//	public static double collectorMedScaleSetpoint() {
-//		if(AutoPreferences.isDebug() == false) {
-//			return 30.0;
-//		}
-//		return Preferences.getInstance().getDouble("CollectorMedScaleSetpoint", 30.0);
-//	}
-
 	public static double cascadeLiftHighScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
 			return 47.0;
@@ -263,14 +256,14 @@ public class RobotPreferences {
 	
 	public static double yawPIDMin() {
 		if(AutoPreferences.isDebug() == false) {
-		return 0.0;
+			return 0.0;
 		}
 		return Preferences.getInstance().getDouble("YawPIDMin", 0.0);
 	}
 
 	public static double yawPIDMax() {
 		if(AutoPreferences.isDebug() == false) {
-		return 1.0;
+			return 1.0;
 		}
 		return Preferences.getInstance().getDouble("YawPIDMax", 1.0);
 	}
@@ -597,5 +590,4 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getInt("HighLum", 179);
 	}
-
 }

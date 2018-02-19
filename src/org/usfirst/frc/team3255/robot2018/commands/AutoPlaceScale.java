@@ -15,6 +15,7 @@ public class AutoPlaceScale extends CommandGroup {
 		if(AutoPreferences.isDebug()) {
 			return RobotPreferences.autoScaleD1();
 		}
+		
 		int lane = AutoPreferences.getLane();
 		
 		if((AutoPreferences.doScale() == false) || (lane == 0)) {
@@ -54,6 +55,7 @@ public class AutoPlaceScale extends CommandGroup {
 		if (AutoPreferences.isDebug()) {
 			return RobotPreferences.autoScaleR1();
 		}
+		
 		 int lane = AutoPreferences.getLane();
 		 
 		 if((AutoPreferences.doScale() == false) || (lane == 0)) {
@@ -125,7 +127,6 @@ public class AutoPlaceScale extends CommandGroup {
 		}
 		
 		return distance;
-		
 	}
 	
 	public double autoScaleR2() {

@@ -62,11 +62,7 @@ public class CascadeMove extends Command {
     	Robot.cascadeLift.setLiftSpeed(0.0);
     	if(!Robot.cascadeLift.isTopSwitchClosed()) {
     		Robot.cascadeLift.lockLift();
-    	}
-//    	if(Robot.collector.isBottomSwitchClosed()) {
-//    		Robot.collector.resetEncoder();
-//    	}
-    	
+    	}   	
     }
 
     // Called when another command which requires one or more of the same

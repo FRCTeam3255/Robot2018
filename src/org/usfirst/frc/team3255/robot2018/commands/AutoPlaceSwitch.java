@@ -15,6 +15,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 		if(AutoPreferences.isDebug()) {
 			return RobotPreferences.autoSwitchD1();
 		}
+		
 		int lane = AutoPreferences.getLane();
 		
 		if((AutoPreferences.doSwitch() == false) || (lane == 0)) {
@@ -54,6 +55,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 		if (AutoPreferences.isDebug()) {
 			return RobotPreferences.autoSwitchR1();
 		}
+		
 		 int lane = AutoPreferences.getLane();
 		 
 		 if((AutoPreferences.doSwitch() == false) || (lane == 0)) {
@@ -125,7 +127,6 @@ public class AutoPlaceSwitch extends CommandGroup {
 		}
 		
 		return distance;
-		
 	}
 	
 	public double autoSwitchR2() {
