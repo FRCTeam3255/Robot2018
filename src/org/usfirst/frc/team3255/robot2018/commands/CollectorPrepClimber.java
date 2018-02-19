@@ -17,9 +17,9 @@ public class CollectorPrepClimber extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.collector.unlockLift();
+    	Robot.lifter.unlockLift();
     	Robot.collector.retractCollector();
-    	Robot.collector.setLiftSpeed(0.7);
+    	Robot.lifter.setLiftSpeed(0.7);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -28,13 +28,13 @@ public class CollectorPrepClimber extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.collector.isTopSwitchClosed();
+        return Robot.lifter.isTopSwitchClosed();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.collector.setLiftSpeed(0.0);
-    	Robot.collector.lockLift();
+    	Robot.lifter.setLiftSpeed(0.0);
+    	Robot.lifter.lockLift();
     }
 
     // Called when another command which requires one or more of the same

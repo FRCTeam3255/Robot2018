@@ -17,7 +17,7 @@ public class CollectorLiftUnlock extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.collector.unlockLift();
+    	Robot.lifter.unlockLift();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -19,7 +19,7 @@ public class CollectorDeploy extends CollectorMove {
     }
     
     protected boolean isFinished() {
-    	if (Robot.collector.getEncoderDistance() >= setPoint) {
+    	if (Robot.lifter.getEncoderDistance() >= setPoint) {
     		return true;
     	}
     	else {

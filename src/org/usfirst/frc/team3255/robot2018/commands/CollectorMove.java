@@ -23,7 +23,7 @@ public class CollectorMove extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	System.out.println("Starting Collector Command");
-    	Robot.collector.unlockLift();
+    	Robot.lifter.unlockLift();
     	Robot.collectorPID.setSetpoint(setPoint);
     	Robot.collectorPID.setRawTolerance(RobotPreferences.collectorTolerance());
     	Robot.collectorPID.enable();
@@ -34,7 +34,7 @@ public class CollectorMove extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	System.out.println("Executing Collector Command");
-    	Robot.collector.setLiftSpeed(Robot.collectorPID.getOutput());
+    	Robot.lifter.setLiftSpeed(Robot.collectorPID.getOutput());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -45,10 +45,10 @@ public class CollectorMove extends Command {
     	
     	double timeNow = timeSinceInitialized();
     	
-    	if((speed >= 0) && (Robot.collector.isTopSwitchClosed())) {
+    	if((speed >= 0) && (Robot.lifter.isTopSwitchClosed())) {
     		return true;
     	}
-    	else if((speed < 0) && (Robot.collector.isBottomSwitchClosed())) {
+    	else if((speed < 0) && (Robot.lifter.isBottomSwitchClosed())) {
     		return true;
     	}
     	
@@ -59,9 +59,9 @@ public class CollectorMove extends Command {
     protected void end() {
     	System.out.println("Ending Collector Command");
     	Robot.collectorPID.disable();
-    	Robot.collector.setLiftSpeed(0.0);
-    	if(!Robot.collector.isTopSwitchClosed()) {
-    		Robot.collector.lockLift();
+    	Robot.lifter.setLiftSpeed(0.0);
+    	if(!Robot.lifter.isTopSwitchClosed()) {
+    		Robot.lifter.lockLift();
     	}
 //    	if(Robot.collector.isBottomSwitchClosed()) {
 //    		Robot.collector.resetEncoder();

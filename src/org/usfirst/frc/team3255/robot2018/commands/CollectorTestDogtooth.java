@@ -20,10 +20,10 @@ public class CollectorTestDogtooth extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.collector.unlockLift();
-    	Robot.collector.setLiftSpeed(0.3);
+    	Robot.lifter.unlockLift();
+    	Robot.lifter.setLiftSpeed(0.3);
     	Timer.delay(0.1);
-    	Robot.collector.setLiftSpeed(0.0);
+    	Robot.lifter.setLiftSpeed(0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -38,7 +38,7 @@ public class CollectorTestDogtooth extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	System.out.println("YAY");
-    	Robot.collector.setLiftSpeed(0.0);
+    	Robot.lifter.setLiftSpeed(0.0);
 //    	Robot.collectorPID.disable();
     }
 
