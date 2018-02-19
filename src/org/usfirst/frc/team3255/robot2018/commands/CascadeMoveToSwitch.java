@@ -13,7 +13,7 @@ public class CascadeMoveToSwitch extends CascadeMove {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setPoint = RobotPreferences.collectorSwitchSetpoint();
+    	setPoint = RobotPreferences.cascadeLiftSwitchSetpoint();
     	
     	super.initialize();
     }

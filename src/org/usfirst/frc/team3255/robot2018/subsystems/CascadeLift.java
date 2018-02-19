@@ -55,7 +55,7 @@ public class CascadeLift extends Subsystem {
 			speed = 0;
 		}
 		
-		double maxSpeed = RobotPreferences.collectorLiftMaxSpeed();
+		double maxSpeed = RobotPreferences.cascadeLiftMaxSpeed();
 		
 		if(speed < 0) {
 			if (speed < -maxSpeed) {
@@ -73,7 +73,7 @@ public class CascadeLift extends Subsystem {
 	
 	// returns lift encoder distance in inches
 	public double getEncoderDistance() {
-		return (liftEncoder.get() / (double) RobotPreferences.collectorPulsesPerFoot()) * 12;
+		return (liftEncoder.get() / (double) RobotPreferences.cascadeLiftPulsesPerFoot()) * 12;
 	}
 	
 	public void resetEncoder() {

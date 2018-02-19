@@ -33,14 +33,14 @@ public class CollectorPID extends PIDSubsystem {
     
     public void enable(double maxSpeed) {
     	this.getPIDController().setPID(
-    			RobotPreferences.collectorP(),
-    			RobotPreferences.collectorI(),
-    			RobotPreferences.collectorD());
+    			RobotPreferences.cascadeLiftP(),
+    			RobotPreferences.cascadeLiftI(),
+    			RobotPreferences.cascadeLiftD());
     	
-    	minPIDSpeed = RobotPreferences.collectorPIDMin();
-    	maxPIDSpeed = RobotPreferences.collectorPIDMax();
+    	minPIDSpeed = RobotPreferences.cascadeLiftPIDMin();
+    	maxPIDSpeed = RobotPreferences.cascadeLiftPIDMax();
     	
-    	outputMaxChange = RobotPreferences.collectorPIDMaxChange();
+    	outputMaxChange = RobotPreferences.cascadeLiftPIDMaxChange();
     	
     	previousOutput = 0.0;
     	
@@ -112,7 +112,7 @@ public class CollectorPID extends PIDSubsystem {
     		targetCounter = 0;
     	}
     	
-    	return (targetCounter >= RobotPreferences.collectorTargetCount());
+    	return (targetCounter >= RobotPreferences.cascadeLiftTargetCount());
     }
     
     public void initDefaultCommand() {

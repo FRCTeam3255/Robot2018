@@ -25,7 +25,7 @@ public class CascadeMove extends Command {
     	System.out.println("Starting Collector Command");
     	Robot.cascadeLift.unlockLift();
     	Robot.collectorPID.setSetpoint(setPoint);
-    	Robot.collectorPID.setRawTolerance(RobotPreferences.collectorTolerance());
+    	Robot.collectorPID.setRawTolerance(RobotPreferences.cascadeLiftTolerance());
     	Robot.collectorPID.enable();
     	
     	expireTime = timeSinceInitialized() + RobotPreferences.timeOut();

@@ -96,83 +96,76 @@ public class RobotPreferences {
 		return  Preferences.getInstance().getDouble("DrivetrainSlowSpeed", 0.75);
 	}
 	
-//	------------------------------------------------------------ COLLECTOR ------------------------------------------------------------
-	public static double collectorP() {
+//	------------------------------------------------------------ CASCADE LIFT ------------------------------------------------------------
+	public static double cascadeLiftP() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.3;
 		}
-		return Preferences.getInstance().getDouble("CollectorP", 0.3);
+		return Preferences.getInstance().getDouble("CascadeLiftP", 0.3);
 	}
 
-	public static double collectorI() {
+	public static double cascadeLiftI() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorI", 0.0);
+		return Preferences.getInstance().getDouble("CascadeLiftI", 0.0);
 	}
 
-	public static double collectorD() {
+	public static double cascadeLiftD() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.75;
 		}
-		return Preferences.getInstance().getDouble("CollectorD", 0.75);
+		return Preferences.getInstance().getDouble("CascadeLiftD", 0.75);
 	}
 	
-	public static double collectorPIDMin() {
+	public static double cascadeLiftPIDMin() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorPIDMinSpeed", 0.0);
+		return Preferences.getInstance().getDouble("CascadeLiftPIDMinSpeed", 0.0);
 	}
 	
-	public static double collectorPIDMax() {
+	public static double cascadeLiftPIDMax() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorPIDMaxSpeed", 1.0);
+		return Preferences.getInstance().getDouble("CascadeLiftPIDMaxSpeed", 1.0);
 	}
 
-	public static double collectorMaxSpeed() {
-		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
-		}
-		return Preferences.getInstance().getDouble("CollectorMaxSpeed", 1.0);
-	}
-
-	public static int collectorTargetCount() {
+	public static int cascadeLiftTargetCount() {
 		if(AutoPreferences.isDebug() == false) {
 			return 5;
 		}
-		return Preferences.getInstance().getInt("CollectorTargetCount", 5);
+		return Preferences.getInstance().getInt("CascadeLiftTargetCount", 5);
 	}
 
-	public static double collectorTolerance() {
+	public static double cascadeLiftTolerance() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
 		}
 		
-		return Preferences.getInstance().getDouble("CollectorTolerance", 1.0);
+		return Preferences.getInstance().getDouble("CascadeLiftTolerance", 1.0);
 	}
 
-	public static double collectorBottomSetpoint() {
+	public static double cascadeLiftBottomSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorBottomSetpoint", 0.0);
+		return Preferences.getInstance().getDouble("CascadeLiftBottomSetpoint", 0.0);
 	}
 	
-	public static double collectorSwitchSetpoint() {
+	public static double cascadeLiftSwitchSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
 			return 24.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorSwitchSetpoint", 24.0);
+		return Preferences.getInstance().getDouble("CascadeLiftSwitchSetpoint", 24.0);
 	}
 
-	public static double collectorLowScaleSetpoint() {
+	public static double cascadeLiftLowScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
 			return 40.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorLowScaleSetpoint", 40.0);
+		return Preferences.getInstance().getDouble("CascadeLiftLowScaleSetpoint", 40.0);
 	}
 
 //	public static double collectorMedScaleSetpoint() {
@@ -182,11 +175,40 @@ public class RobotPreferences {
 //		return Preferences.getInstance().getDouble("CollectorMedScaleSetpoint", 30.0);
 //	}
 
-	public static double collectorHighScaleSetpoint() {
+	public static double cascadeLiftHighScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
 			return 47.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorHighScaleSetpoint", 47.0);
+		return Preferences.getInstance().getDouble("CascadeLiftHighScaleSetpoint", 47.0);
+	}
+	
+	public static int cascadeLiftPulsesPerFoot() {
+		if(AutoPreferences.isDebug() == false) {
+			return 333;
+		}
+		return Preferences.getInstance().getInt("CascadeLiftPulsesPerFoot", 333);
+	}
+	
+	public static double cascadeLiftMaxSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.25;
+		}
+		return Preferences.getInstance().getDouble("CascadeLiftMaxSpeed", 0.25);
+	}
+
+	public static double cascadeLiftPIDMaxChange() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CascadeLiftPIDMaxChange", 1.0);
+	}
+	
+//	-------------------------------------------------------------- COLLECTOR --------------------------------------------------------------
+	public static double collectorMaxSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorMaxSpeed", 1.0);
 	}
 	
 	public static double collectorClimberSetpoint() {
@@ -195,33 +217,19 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("CollectorClimbSetpoint", 45.0);
 	}
-
+	
 	public static double collectorCollectSpeed() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
 		}
 		return Preferences.getInstance().getDouble("CollectorCollectSpeed", 1.0);
 	}
-
+	
 	public static double collectorEjectSpeed() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
 		}
 		return Preferences.getInstance().getDouble("CollectorEjectSpeed", 1.0);
-	}
-	
-	public static int collectorPulsesPerFoot() {
-		if(AutoPreferences.isDebug() == false) {
-			return 333;
-		}
-		return Preferences.getInstance().getInt("CollectorPulsesPerFoot", 333);
-	}
-	
-	public static double collectorLiftMaxSpeed() {
-		if(AutoPreferences.isDebug() == false) {
-			return 0.25;
-		}
-		return Preferences.getInstance().getDouble("CollectorLiftMaxSpeed", 0.25);
 	}
 	
 	public static int collectorCubeDelay() {
@@ -230,7 +238,20 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getInt("CollectorCubeDelay", 5);
 	}
-
+	
+	public static double collectorDeploySetpoint() {
+		if(AutoPreferences.isDebug() == false) {
+			return 10.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorDeploySetpoint", 10.0);
+	}
+	
+	public static double collectorClimbExtendSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorClimbExtendSpeed", 1.0);
+	}
 	
 //	-------------------------------------------------------------- NAVIGATION ----------------------------------------------------------------
 	public static double rotatePIDMaxChange() {
@@ -310,6 +331,14 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getInt("VisionTargetCount", 1);
 	}
+	
+	public static boolean showRaw() {
+		if(AutoPreferences.isDebug() == false) {
+			return true;
+		}
+		return Preferences.getInstance().getBoolean("showRaw", true);
+	}
+	
 //		-------------------------------------------------------------- VISION DISTANCE	-------------------------------------------------------------- 
 	public static double visionDistanceP() {
 		if(AutoPreferences.isDebug() == false) {
@@ -525,20 +554,6 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("AutoSwitchAfterScaleD3", 100.0);
 	}
-	
-	public static double collectorPIDMaxChange() {
-		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
-		}
-		return Preferences.getInstance().getDouble("CollectorPIDMaxChange", 1.0);
-	}
-
-	public static double collectorDeploySetpoint() {
-		if(AutoPreferences.isDebug() == false) {
-			return 10.0;
-		}
-		return Preferences.getInstance().getDouble("CollectorDeploySetpoint", 10.0);
-	}
 
 //		-------------------------------------------------------------- HSL VALUES -------------------------------------------------------------- 
 	public static int lowHue() {
@@ -583,17 +598,4 @@ public class RobotPreferences {
 		return Preferences.getInstance().getInt("HighLum", 179);
 	}
 
-	public static boolean showRaw() {
-		if(AutoPreferences.isDebug() == false) {
-			return true;
-		}
-		return Preferences.getInstance().getBoolean("showRaw", true);
-	}
-
-	public static double climberExtendSpeed() {
-		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
-		}
-		return Preferences.getInstance().getDouble("ClimberExtendSpeed", 1.0);
-	}
 }

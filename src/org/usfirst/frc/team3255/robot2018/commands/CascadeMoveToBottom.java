@@ -13,7 +13,7 @@ public class CascadeMoveToBottom extends CascadeMove {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setPoint = RobotPreferences.collectorBottomSetpoint();
+    	setPoint = RobotPreferences.cascadeLiftBottomSetpoint();
     	
     	super.initialize();
     }

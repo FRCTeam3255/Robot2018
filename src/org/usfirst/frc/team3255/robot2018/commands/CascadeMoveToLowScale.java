@@ -13,7 +13,7 @@ public class CascadeMoveToLowScale extends CascadeMove {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setPoint = RobotPreferences.collectorLowScaleSetpoint();
+    	setPoint = RobotPreferences.cascadeLiftLowScaleSetpoint();
     	
     	super.initialize();
     }

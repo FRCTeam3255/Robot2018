@@ -13,7 +13,7 @@ public class CascacdeMoveToHighScale extends CascadeMove {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setPoint = RobotPreferences.collectorHighScaleSetpoint();
+    	setPoint = RobotPreferences.cascadeLiftHighScaleSetpoint();
     	
     	super.initialize();
     }
