@@ -13,6 +13,7 @@ public class CascadePrepClimber extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.cascadeLift);
+    	requires(Robot.collector);
     }
 
     // Called just before this Command runs the first time
