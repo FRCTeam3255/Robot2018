@@ -21,30 +21,30 @@ public class RobotPreferences {
 	
 	public static double distancePIDMax() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.3;
+			return 0.7;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainPIDMaxSpeed", 0.3);
+		return Preferences.getInstance().getDouble("DrivetrainPIDMaxSpeed", 0.7);
 	}
 	
 	public static double drivetrainP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.1;
+			return 0.04;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainP", 0.1);
+		return Preferences.getInstance().getDouble("DrivetrainP", 0.04);
 	}
 
 	public static double drivetrainI() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.001;
+			return 0.00006;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainI", 0.001);
+		return Preferences.getInstance().getDouble("DrivetrainI", 0.00006);
 	}
 
 	public static double drivetrainD() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
+			return 0.9;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainD", 1.0);
+		return Preferences.getInstance().getDouble("DrivetrainD", 0.9);
 	}
 
 	public static int drivetrainTargetCount() {
@@ -270,37 +270,37 @@ public class RobotPreferences {
 
 	public static double yawTolerance() {
 		if(AutoPreferences.isDebug() == false) {
-			return 5.0;
+			return 1.0;
 		}
-		return Preferences.getInstance().getDouble("YawTolerance", 5.0);
+		return Preferences.getInstance().getDouble("YawTolerance", 1.0);
 	}
 
 	public static double navYawP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
+			return 0.06;
 		}
-		return Preferences.getInstance().getDouble("NavYawP", 1.0);
+		return Preferences.getInstance().getDouble("NavYawP", 0.06);
 	}
 
 	public static double navYawI() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 0.0006;
 		}
-		return Preferences.getInstance().getDouble("NavYawI", 0.0);
+		return Preferences.getInstance().getDouble("NavYawI", 0.0006);
 	}
 
 	public static double navYawD() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 0.82;
 		}
-		return Preferences.getInstance().getDouble("NavYawD", 0.0);
+		return Preferences.getInstance().getDouble("NavYawD", 0.82);
 	}
 
 	public static double maxYawSpeed() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
+			return 0.4;
 		}
-		return Preferences.getInstance().getDouble("MaxYawSpeed", 1.0);
+		return Preferences.getInstance().getDouble("MaxYawSpeed", 0.7);
 	}
 	
 	public static double minYawSpeed() {
@@ -312,9 +312,9 @@ public class RobotPreferences {
 	
 	public static int yawTargetCount() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1;
+			return 10;
 		}
-		return Preferences.getInstance().getInt("YawTargetCount", 1);
+		return Preferences.getInstance().getInt("YawTargetCount", 10);
 	}
 
 //		-------------------------------------------------------------- VISION -------------------------------------------------------------- 
@@ -416,23 +416,23 @@ public class RobotPreferences {
 
 	public static double autoSwitchD2() {
 		if(AutoPreferences.isDebug() == false) {
-			return 100.0;
+			return 0.0;
 			}
-		return Preferences.getInstance().getDouble("AutoSwitchD2", 100.0);	
+		return Preferences.getInstance().getDouble("AutoSwitchD2", 0.0);	
 	}
 
 	public static double autoSwitchR2() {
 		if(AutoPreferences.isDebug() == false) {
-			return -90.0;
+			return 0.0;
 			}
-		return Preferences.getInstance().getDouble("AutoSwitchR2", -90.0);	
+		return Preferences.getInstance().getDouble("AutoSwitchR2", 0.0);	
 	}
 
 	public static double autoSwitchD3() {
 		if(AutoPreferences.isDebug() == false) {
-			return 100.0;
+			return 0.0;
 			}
-		return Preferences.getInstance().getDouble("AutoSwitchD3", 100.0);	
+		return Preferences.getInstance().getDouble("AutoSwitchD3", 0.0);	
 	}
 
 	public static double timeOut() {

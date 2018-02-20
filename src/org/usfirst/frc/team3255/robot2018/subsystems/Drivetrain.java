@@ -139,7 +139,7 @@ public class Drivetrain extends Subsystem {
 	
 	// returns drivetrain encoder distance in inches
 	public double getEncoderDistance() {
-		return (encoder.get() / (double) -RobotPreferences.drivetrainPulsePerFoot()) * 12;	
+		return (encoder.get() / (double) RobotPreferences.drivetrainPulsePerFoot()) * 12;	
 	}
 	
 	public void resetEncoder() {
