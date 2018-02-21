@@ -277,23 +277,23 @@ public class RobotPreferences {
 
 	public static double navYawP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.05;
+			return 0.03;
 		}
-		return Preferences.getInstance().getDouble("NavYawP", 0.05);
+		return Preferences.getInstance().getDouble("NavYawP", 0.03);
 	}
 
 	public static double navYawI() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 0.005;
 		}
-		return Preferences.getInstance().getDouble("NavYawI", 0.0);
+		return Preferences.getInstance().getDouble("NavYawI", 0.005);
 	}
 
 	public static double navYawD() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 0.15;
 		}
-		return Preferences.getInstance().getDouble("NavYawD", 0.0);
+		return Preferences.getInstance().getDouble("NavYawD", 0.15);
 	}
 
 	public static double maxYawSpeed() {
