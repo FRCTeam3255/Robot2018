@@ -7,16 +7,16 @@ public class RobotPreferences {
 //	---------------------------------------------------------- DRIVETRAIN ----------------------------------------------------------
 	public static double movePIDMaxChange() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
+			return 0.77;
 		}
-		return Preferences.getInstance().getDouble("MovePIDMaxChange", 1.0);
+		return Preferences.getInstance().getDouble("MovePIDMaxChange", 0.77);
 	}
 
 	public static double distancePIDMin() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.15;
+			return 0.0;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainPIDMinSpeed", 0.15);
+		return Preferences.getInstance().getDouble("DrivetrainPIDMinSpeed", 0.0);
 	}
 	
 	public static double distancePIDMax() {
@@ -28,16 +28,16 @@ public class RobotPreferences {
 	
 	public static double drivetrainP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.04;
+			return 0.699;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainP", 0.04);
+		return Preferences.getInstance().getDouble("DrivetrainP", 0.699);
 	}
 
 	public static double drivetrainI() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.00006;
+			return 0.019;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainI", 0.00006);
+		return Preferences.getInstance().getDouble("DrivetrainI", 0.019);
 	}
 
 	public static double drivetrainD() {
@@ -277,23 +277,23 @@ public class RobotPreferences {
 
 	public static double navYawP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.06;
+			return 0.05;
 		}
-		return Preferences.getInstance().getDouble("NavYawP", 0.06);
+		return Preferences.getInstance().getDouble("NavYawP", 0.05);
 	}
 
 	public static double navYawI() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0006;
+			return 0.0;
 		}
-		return Preferences.getInstance().getDouble("NavYawI", 0.0006);
+		return Preferences.getInstance().getDouble("NavYawI", 0.0);
 	}
 
 	public static double navYawD() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.82;
+			return 0.0;
 		}
-		return Preferences.getInstance().getDouble("NavYawD", 0.82);
+		return Preferences.getInstance().getDouble("NavYawD", 0.0);
 	}
 
 	public static double maxYawSpeed() {

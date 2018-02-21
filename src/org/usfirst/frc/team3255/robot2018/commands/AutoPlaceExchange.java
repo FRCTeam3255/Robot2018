@@ -207,13 +207,13 @@ public class AutoPlaceExchange extends CommandGroup {
 	}
 	
 	public AutoPlaceExchange() {
-        addSequential(new DriveDistance("PlaceSwitchD1", autoExchangeD1()));
-        addSequential(new DriveRotate("PlaceSwitchR1", autoExchangeR1()));
-        addSequential(new DriveDistance("PlaceSwitchD2", autoExchangeD2()));
-        addSequential(new DriveRotate("PlaceSwitchR2", autoExchangeR2()));
+        addSequential(new DriveDistance("AutoExchangeD1", autoExchangeD1()));
+        addSequential(new DriveRotate("AutoExchangeR1", autoExchangeR1()));
+        addSequential(new DriveDistance("AutoExchangeD2", autoExchangeD2()));
+        addSequential(new DriveRotate("AutoExchangeR2", autoExchangeR2()));
         //Drivetrain PID
         //addSequential(new DriveDistance("PlaceSwitchD3", autoSwitchD3()));
         //Vision PID
-        addSequential(new DriveToTarget("PlaceSwitchD3", autoExchangeD3()));
+        addSequential(new DriveToTarget("AutoExcahngeD3", autoExchangeD3()));
     }
 }

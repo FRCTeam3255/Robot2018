@@ -14,7 +14,14 @@ public class Autonomous extends CommandGroup {
     		addSequential(new AutoPlaceScale());
     		addSequential(new AutoPlaceSwitchAfterScale());
     	}
-    	addSequential(new AutoPlaceSwitch());
-    	addSequential(new AutoPlaceExchange());
+    	else if(AutoPreferences.doSwitch()) {
+        	addSequential(new AutoPlaceSwitch());
+    	}
+    	else if (AutoPreferences.doScale()) {
+    		addSequential(new AutoPlaceScale());
+    	}
+    	else if (AutoPreferences.doExchange()) {
+        	addSequential(new AutoPlaceExchange());
+    	}
     }
 }
