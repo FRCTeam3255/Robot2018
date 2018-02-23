@@ -77,7 +77,7 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-		arcadeDrive(moveSpeed, rotateSpeed, true);
+		arcadeDrive(-moveSpeed, rotateSpeed, true);
 	}
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed, boolean squaredInputs) {
@@ -166,9 +166,9 @@ public class Drivetrain extends Subsystem {
 		return pitchSafetyEnabled;
 	}
 	
-	public double getTalonCurrent() {
-		return leftFrontTalon.getOutputCurrent();
-	}
+//	public double getTalonCurrent() {
+//		return leftFrontTalon.getOutputCurrent();
+//	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

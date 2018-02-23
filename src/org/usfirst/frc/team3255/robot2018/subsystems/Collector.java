@@ -93,9 +93,9 @@ public class Collector extends Subsystem {
 		collectorDrive.arcadeDrive(moveSpeed, rotateSpeed);
 	}
 	
-	public double getTalonCurrent() {
-		return leftCollectorTalon.getOutputCurrent();
-	}
+//	public double getTalonCurrent() {
+//		return leftCollectorTalon.getOutputCurrent();
+//	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

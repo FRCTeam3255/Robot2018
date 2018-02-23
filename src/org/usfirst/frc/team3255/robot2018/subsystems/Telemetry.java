@@ -45,16 +45,16 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Drive Encoder Distance, Inches", Robot.drivetrain.getEncoderDistance());
 		SmartDashboard.putNumber("Drive Encoder Count", Robot.drivetrain.getEncoderCount());
 		SmartDashboard.putNumber("Get Drivetrain Speed", Robot.drivetrain.getSpeed());
-		SmartDashboard.putNumber("Drivetrain Current", Robot.drivetrain.getTalonCurrent());
+//		SmartDashboard.putNumber("Drivetrain Current", Robot.drivetrain.getTalonCurrent());
 		
 		SmartDashboard.putNumber("Collector Encoder Count", Robot.cascadeLift.getEncoderCount());
 		SmartDashboard.putNumber("Collector Encoder Distance", Robot.cascadeLift.getEncoderDistance());
 		SmartDashboard.putBoolean("Collector Is Top", Robot.cascadeLift.isTopSwitchClosed());
 		SmartDashboard.putBoolean("Collector Is Bottom", Robot.cascadeLift.isBottomSwitchClosed());
-		SmartDashboard.putNumber("Lifter Current", Robot.cascadeLift.getTalonCurrent());
+//		SmartDashboard.putNumber("Lifter Current", Robot.cascadeLift.getTalonCurrent());
 		
 		SmartDashboard.putBoolean("Is Cube Collected", Robot.collector.isCubeCollected());
-		SmartDashboard.putNumber("Collector Current", Robot.collector.getTalonCurrent());
+//		SmartDashboard.putNumber("Collector Current", Robot.collector.getTalonCurrent());
 		
 		SmartDashboard.putBoolean("Red Alliance", Robot.navigation.isRedAlliance());
 		
