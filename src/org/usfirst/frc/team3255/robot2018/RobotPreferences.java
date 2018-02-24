@@ -28,23 +28,26 @@ public class RobotPreferences {
 	
 	public static double drivetrainP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.699;
+			return 0.1;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainP", 0.699);
+		return Preferences.getInstance().getDouble("DrivetrainP", 0.1);
+		//comp bot was 0.699
 	}
 
 	public static double drivetrainI() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.019;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainI", 0.019);
+		return Preferences.getInstance().getDouble("DrivetrainI", 0.0);
+		//compbot was 0.019
 	}
 
 	public static double drivetrainD() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.9;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainD", 0.9);
+		return Preferences.getInstance().getDouble("DrivetrainD", 0.0);
+		//0.9
 	}
 
 	public static int drivetrainTargetCount() {

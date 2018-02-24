@@ -77,7 +77,7 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-		arcadeDrive(-moveSpeed, rotateSpeed, true);
+		arcadeDrive(moveSpeed, rotateSpeed, true);
 	}
 	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed, boolean squaredInputs) {

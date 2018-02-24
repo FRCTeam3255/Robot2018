@@ -34,9 +34,6 @@ public class Collector extends Subsystem {
 		rightCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_RIGHT_TALON);
 		climbTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_CLIMB_TALON);
 		
-		leftCollectorTalon.setInverted(true);
-		rightCollectorTalon.setInverted(true);	
-		
 		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		climbTalon.setNeutralMode(NeutralMode.Brake);
