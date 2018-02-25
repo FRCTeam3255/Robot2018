@@ -7,9 +7,9 @@ public class RobotPreferences {
 //	---------------------------------------------------------- DRIVETRAIN ----------------------------------------------------------
 	public static double movePIDMaxChange() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.77;
+			return 1.0;
 		}
-		return Preferences.getInstance().getDouble("MovePIDMaxChange", 0.77);
+		return Preferences.getInstance().getDouble("MovePIDMaxChange", 1.0);
 	}
 
 	public static double distancePIDMin() {
@@ -21,22 +21,22 @@ public class RobotPreferences {
 	
 	public static double distancePIDMax() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.7;
+			return 0.4;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainPIDMaxSpeed", 0.7);
+		return Preferences.getInstance().getDouble("DrivetrainPIDMaxSpeed", 0.4);
 	}
 	
 	public static double drivetrainP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.1;
+			return 0.15;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainP", 0.1);
+		return Preferences.getInstance().getDouble("DrivetrainP", 0.15);
 		//comp bot was 0.699
 	}
 
 	public static double drivetrainI() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.019;
+			return 0.0;
 		}
 		return Preferences.getInstance().getDouble("DrivetrainI", 0.0);
 		//compbot was 0.019
@@ -44,9 +44,9 @@ public class RobotPreferences {
 
 	public static double drivetrainD() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.9;
+			return 1.0;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainD", 0.0);
+		return Preferences.getInstance().getDouble("DrivetrainD", 1.0);
 		//0.9
 	}
 
@@ -59,9 +59,9 @@ public class RobotPreferences {
 	
 	public static double drivetrainTolerance() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 1.0;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainTolerance", 0.0);
+		return Preferences.getInstance().getDouble("DrivetrainTolerance", 1.0);
 	}
 	
 	public static double drivetrainPulsePerFoot() {
@@ -266,51 +266,37 @@ public class RobotPreferences {
 
 	public static double yawPIDMax() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
+			return 0.6;
 		}
-		return Preferences.getInstance().getDouble("YawPIDMax", 1.0);
+		return Preferences.getInstance().getDouble("YawPIDMax", 0.6);
 	}
 
 	public static double yawTolerance() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
+			return 3.0;
 		}
-		return Preferences.getInstance().getDouble("YawTolerance", 1.0);
+		return Preferences.getInstance().getDouble("YawTolerance", 3.0);
 	}
 
 	public static double navYawP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.03;
+			return 0.15;
 		}
-		return Preferences.getInstance().getDouble("NavYawP", 0.03);
+		return Preferences.getInstance().getDouble("NavYawP", 0.15);
 	}
 
 	public static double navYawI() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.005;
+			return 0.0;
 		}
-		return Preferences.getInstance().getDouble("NavYawI", 0.005);
+		return Preferences.getInstance().getDouble("NavYawI", 0.0);
 	}
 
 	public static double navYawD() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.15;
-		}
-		return Preferences.getInstance().getDouble("NavYawD", 0.15);
-	}
-
-	public static double maxYawSpeed() {
-		if(AutoPreferences.isDebug() == false) {
-			return 0.4;
-		}
-		return Preferences.getInstance().getDouble("MaxYawSpeed", 0.7);
-	}
-	
-	public static double minYawSpeed() {
-		if(AutoPreferences.isDebug() == false) {
 			return 0.0;
 		}
-		return Preferences.getInstance().getDouble("MinYawSpeed", 0.0);
+		return Preferences.getInstance().getDouble("NavYawD", 0.0);
 	}
 	
 	public static int yawTargetCount() {
@@ -440,9 +426,9 @@ public class RobotPreferences {
 
 	public static double timeOut() {
 		if(AutoPreferences.isDebug() == false) {
-			return 5.0;
+			return 100.0;
 		}
-		return Preferences.getInstance().getDouble("TimeOut", 5.0);
+		return Preferences.getInstance().getDouble("TimeOut", 100.0);
 	}
 	
 	public static double autoScaleD1() {

@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutoPlaceSwitch extends CommandGroup {
  
-	public double autoSwitchD1() {
+	public static double autoSwitchD1() {
 		if(AutoPreferences.isDebug()) {
 			return RobotPreferences.autoSwitchD1();
 		}
@@ -27,31 +27,31 @@ public class AutoPlaceSwitch extends CommandGroup {
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			
 			if(lane == 1) {
-				distance = 10.0;
+				distance = 52.0;
 			}
 			else if(lane == 2) {
-				distance = 10.0;
+				distance = 36.0;
 			}
 			else if(lane == 3) {
-				distance = 10.0;
+				distance = 97.0;
 			}
 		}
 		else {
 			if(lane == 1) {
-				distance = 10.0;
+				distance = 97.0;
 			}
 			else if(lane == 2) {
-				distance = 10.0;
+				distance = 12.0;
 			}
 			else if(lane == 3) {
-				distance = 10.0;
+				distance = 52.0;
 			}
 		}
 		
 		return distance;
 	}
 	
-	public double autoSwitchR1() {
+	public static double autoSwitchR1() {
 		if (AutoPreferences.isDebug()) {
 			return RobotPreferences.autoSwitchR1();
 		}
@@ -66,31 +66,31 @@ public class AutoPlaceSwitch extends CommandGroup {
 		 
 		 if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			 if (lane == 1) {
-				 angle = 10.0;
+				 angle = 90.0;
 			 }
 			 else if(lane == 2) {
-				 angle = 10.0;
+				 angle = 23.0;
 			 }
 			 else if(lane == 3) {
-				 angle = 10.0;
+				 angle = 0.0;
 			 } 
 		 }
 		 else {
 			 if (lane == 1) {
-				 angle = 10.0;
+				 angle = 0.0;
 			 }
 			 else if(lane == 2) {
-				 angle = 10.0;
+				 angle = -40.0;
 			 }
 			 else if(lane == 3) {
-				 angle = 10.0;
+				 angle = -90.0;
 			 }
 		 }
 		 
 		 return angle;
 	}
 	
-	public double autoSwitchD2() {
+	public static double autoSwitchD2() {
 		if (AutoPreferences.isDebug()) {
 			return RobotPreferences.autoSwitchD2();
 		}
@@ -105,31 +105,31 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 128.0;
 			}
 			else if(lane == 2) {
-				distance = 10.0;
+				distance = 66.0;
 			}
 			else if(lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 2) {
-				distance = 10.0;
+				distance = 107.0;
 			}
 			else if (lane == 3) {
-				distance = 10.0;
+				distance = 128.0;
 			}
 		}
 		
 		return distance;
 	}
 	
-	public double autoSwitchR2() {
+	public static double autoSwitchR2() {
 		if (AutoPreferences.isDebug()) {
 			return RobotPreferences.autoSwitchR2();
 		}
@@ -144,31 +144,31 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				angle = 10.0;
+				angle = -90.0;
 			}
 			else if (lane == 2) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 			else if (lane == 3) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 			else if (lane == 2) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 			else if (lane == 3) {
-				angle = 10.0;
+				angle = 90.0;
 			}
 		}
 		
 		return angle;
 	}
 	
-	public double autoSwitchD3() {
+	public static double autoSwitchD3() {
 		if(AutoPreferences.isDebug()) {
 			return RobotPreferences.autoSwitchD3();
 		}
@@ -183,24 +183,24 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 40.0;
 			}
 			else if (lane == 2) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 2) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 3) {
-				distance = 10.0;
+				distance = 40.0;
 			}
 		}
 		

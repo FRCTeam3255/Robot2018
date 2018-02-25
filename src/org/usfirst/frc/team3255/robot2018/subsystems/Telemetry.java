@@ -35,7 +35,7 @@ public class Telemetry extends Subsystem {
 		
 		SmartDashboard.putString("Autonomous Status", "No Auto Running");
 
-		SmartDashboard.putData("Drive 5 Feet", new DriveDistance("Drive 5 Feet", 60.0));
+		SmartDashboard.putData("Drive 5 Feet", new DriveDistance("Drive 5 Feet", 61.0));
 		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 15.0));
 		SmartDashboard.putData("Rotate 90", new DriveRotate("Rotate 90", 90.0));
 		SmartDashboard.putData("Drive to Cube", new VisionMoveToCube("Drive To Cube", 40.0));
@@ -81,6 +81,13 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
 		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());
 		
+		SmartDashboard.putNumber("Auto Switch D1", AutoPlaceSwitch.autoSwitchD1());
+		SmartDashboard.putNumber("Auto Switch R1", AutoPlaceSwitch.autoSwitchR1());
+		SmartDashboard.putNumber("Auto Switch D2", AutoPlaceSwitch.autoSwitchD2());
+		SmartDashboard.putNumber("Auto Switch R2", AutoPlaceSwitch.autoSwitchR2());
+		SmartDashboard.putNumber("Auto Switch D3", AutoPlaceSwitch.autoSwitchD3());
+		
+		SmartDashboard.putNumber("Lane", AutoPreferences.getLane());
 	}
 	
 	public void resetMaxPitch() {

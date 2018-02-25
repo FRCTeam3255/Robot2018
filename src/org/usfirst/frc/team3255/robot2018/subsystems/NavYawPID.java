@@ -28,7 +28,6 @@ public class NavYawPID extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-    	setRawTolerance(RobotPreferences.yawTolerance());
     }
 
     public void enable() {
@@ -39,6 +38,8 @@ public class NavYawPID extends PIDSubsystem {
     	
     	minPIDSpeed = RobotPreferences.yawPIDMin();
     	maxPIDSpeed = RobotPreferences.yawPIDMax();
+    	
+    	setRawTolerance(RobotPreferences.yawTolerance());
     	
     	outputMaxChange = RobotPreferences.rotatePIDMaxChange();
     	
