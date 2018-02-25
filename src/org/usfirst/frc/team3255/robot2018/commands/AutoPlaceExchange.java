@@ -207,9 +207,9 @@ public class AutoPlaceExchange extends CommandGroup {
 	}
 	
 	public AutoPlaceExchange() {
-        addSequential(new DriveDistance("AutoExchangeD1", autoExchangeD1()));
+        addSequential(new DriveStraightDistance("AutoExchangeD1", autoExchangeD1()));
         addSequential(new DriveRotate("AutoExchangeR1", autoExchangeR1()));
-        addSequential(new DriveDistance("AutoExchangeD2", autoExchangeD2()));
+        addSequential(new DriveStraightDistance("AutoExchangeD2", autoExchangeD2()));
         addSequential(new DriveRotate("AutoExchangeR2", autoExchangeR2()));
         //Drivetrain PID
         //addSequential(new DriveDistance("PlaceSwitchD3", autoSwitchD3()));

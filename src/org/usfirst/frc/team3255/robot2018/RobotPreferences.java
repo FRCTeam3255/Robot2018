@@ -21,7 +21,7 @@ public class RobotPreferences {
 	
 	public static double distancePIDMax() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.4;
+			return 0.5;
 		}
 		return Preferences.getInstance().getDouble("DrivetrainPIDMaxSpeed", 0.4);
 	}
@@ -52,14 +52,14 @@ public class RobotPreferences {
 
 	public static int drivetrainTargetCount() {
 		if(AutoPreferences.isDebug() == false) {
-			return 10;
+			return 2;
 		}
-		return Preferences.getInstance().getInt("DrivetrainTargetCount", 10);
+		return Preferences.getInstance().getInt("DrivetrainTargetCount", 5);
 	}
 	
 	public static double drivetrainTolerance() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
+			return 1.5;
 		}
 		return Preferences.getInstance().getDouble("DrivetrainTolerance", 1.0);
 	}

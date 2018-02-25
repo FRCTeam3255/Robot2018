@@ -208,9 +208,9 @@ public class AutoPlaceScale extends CommandGroup {
 	}
 	
 	public AutoPlaceScale() {
-        addSequential(new DriveDistance("PlaceScaleD1", autoScaleD1()));
+        addSequential(new DriveStraightDistance("PlaceScaleD1", autoScaleD1()));
         addSequential(new DriveRotate("PlaceScaleR1", autoScaleR1()));
-        addSequential(new DriveDistance("PlaceScaleD2", autoScaleD2()));
+        addSequential(new DriveStraightDistance("PlaceScaleD2", autoScaleD2()));
         addSequential(new DriveRotate("PlaceScaleR2", autoScaleR2()));
         //Drivetrain PID
         //addSequential(new DriveDistance("PlaceScaleD3", autoSwitchD3()));

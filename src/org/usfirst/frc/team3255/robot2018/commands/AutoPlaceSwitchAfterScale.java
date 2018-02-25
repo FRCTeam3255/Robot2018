@@ -118,11 +118,11 @@ public class AutoPlaceSwitchAfterScale extends CommandGroup {
 
     public AutoPlaceSwitchAfterScale() {
     	addSequential(new DriveRotate("AutoPlaceSwitchAfterScaleR1", autoSwitchR1()));
-    	addSequential(new DriveDistance("AutoPlaceSwitchAfterScaleD1", autoSwitchD1()));
+    	addSequential(new DriveStraightDistance("AutoPlaceSwitchAfterScaleD1", autoSwitchD1()));
     	addSequential(new DriveRotate("AutoPlaceSwitchAfterScaleR2", autoSwitchR2()));
-    	addSequential(new DriveDistance("AutoPlaceSwitchAfterScaleD2", autoSwitchD2()));
+    	addSequential(new DriveStraightDistance("AutoPlaceSwitchAfterScaleD2", autoSwitchD2()));
     	//addSequential(new CollectorCollectCube());
-    	addSequential(new DriveDistance("AutoPlaceSwitchAfterScaleD3", autoSwitchD3()));
+    	addSequential(new DriveStraightDistance("AutoPlaceSwitchAfterScaleD3", autoSwitchD3()));
     	//addSequential(new CollectorEject());
     }
 }

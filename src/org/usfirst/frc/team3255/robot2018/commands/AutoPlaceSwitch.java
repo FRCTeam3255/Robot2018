@@ -27,10 +27,10 @@ public class AutoPlaceSwitch extends CommandGroup {
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			
 			if(lane == 1) {
-				distance = 52.0;
+				distance = 42.0;
 			}
 			else if(lane == 2) {
-				distance = 36.0;
+				distance = 13.0;
 			}
 			else if(lane == 3) {
 				distance = 97.0;
@@ -41,10 +41,10 @@ public class AutoPlaceSwitch extends CommandGroup {
 				distance = 97.0;
 			}
 			else if(lane == 2) {
-				distance = 12.0;
+				distance = 13.0;
 			}
 			else if(lane == 3) {
-				distance = 52.0;
+				distance = 42.0;
 			}
 		}
 		
@@ -77,10 +77,10 @@ public class AutoPlaceSwitch extends CommandGroup {
 		 }
 		 else {
 			 if (lane == 1) {
-				 angle = 0.0;
+				 angle = 16.0;
 			 }
 			 else if(lane == 2) {
-				 angle = -40.0;
+				 angle = -31.0;
 			 }
 			 else if(lane == 3) {
 				 angle = -90.0;
@@ -105,10 +105,10 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				distance = 128.0;
+				distance = 95.0;
 			}
 			else if(lane == 2) {
-				distance = 66.0;
+				distance = 94.0;
 			}
 			else if(lane == 3) {
 				distance = 0.0;
@@ -119,10 +119,10 @@ public class AutoPlaceSwitch extends CommandGroup {
 				distance = 0.0;
 			}
 			else if (lane == 2) {
-				distance = 107.0;
+				distance = 100.0;
 			}
 			else if (lane == 3) {
-				distance = 128.0;
+				distance = 81.0;
 			}
 		}
 		
@@ -144,7 +144,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				angle = -90.0;
+				angle = -64.0;
 			}
 			else if (lane == 2) {
 				angle = 0.0;
@@ -161,7 +161,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 				angle = 0.0;
 			}
 			else if (lane == 3) {
-				angle = 90.0;
+				angle = 64.0;
 			}
 		}
 		
@@ -183,7 +183,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				distance = 40.0;
+				distance = 62.0;
 			}
 			else if (lane == 2) {
 				distance = 0.0;
@@ -200,7 +200,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 				distance = 0.0;
 			}
 			else if (lane == 3) {
-				distance = 40.0;
+				distance = 64.0;
 			}
 		}
 		
@@ -208,12 +208,12 @@ public class AutoPlaceSwitch extends CommandGroup {
 	}
 	
 	public AutoPlaceSwitch() {
-        addSequential(new DriveDistance("PlaceSwitchD1", autoSwitchD1()));
+        addSequential(new DriveStraightDistance("PlaceSwitchD1", autoSwitchD1()));
         addSequential(new DriveRotate("PlaceSwitchR1", autoSwitchR1()));
-        addSequential(new DriveDistance("PlaceSwitchD2", autoSwitchD2()));
+        addSequential(new DriveStraightDistance("PlaceSwitchD2", autoSwitchD2()));
         addSequential(new DriveRotate("PlaceSwitchR2", autoSwitchR2()));
         //Drivetrain PID
-        addSequential(new DriveDistance("PlaceSwitchD3", autoSwitchD3()));
+        addSequential(new DriveStraightDistance("PlaceSwitchD3", autoSwitchD3()));
         //Vision PID
 //        addSequential(new DriveToTarget("PlaceSwitchD3", autoSwitchD3()));
         addSequential(new CollectorEject());
