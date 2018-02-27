@@ -266,9 +266,10 @@ public class RobotPreferences {
 
 	public static double yawPIDMax() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.6;
+			return 0.7;
 		}
-		return Preferences.getInstance().getDouble("YawPIDMax", 0.6);
+		return Preferences.getInstance().getDouble("YawPIDMax", 0.7);
+		//0.6
 	}
 
 	public static double yawTolerance() {
@@ -280,9 +281,10 @@ public class RobotPreferences {
 
 	public static double navYawP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.15;
+			return 0.1;
 		}
-		return Preferences.getInstance().getDouble("NavYawP", 0.15);
+		return Preferences.getInstance().getDouble("NavYawP", 0.1);
+		//0.15
 	}
 
 	public static double navYawI() {
@@ -294,9 +296,10 @@ public class RobotPreferences {
 
 	public static double navYawD() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 0.3;
 		}
-		return Preferences.getInstance().getDouble("NavYawD", 0.0);
+		return Preferences.getInstance().getDouble("NavYawD", 0.3);
+		//0.0
 	}
 	
 	public static int yawTargetCount() {
@@ -578,5 +581,12 @@ public class RobotPreferences {
 			return 179;
 		}
 		return Preferences.getInstance().getInt("HighLum", 179);
+	}
+
+	public static double moveToCubeDistance() {
+		if(AutoPreferences.isDebug() == false) {
+			return 12.0;
+		}
+		return Preferences.getInstance().getDouble("CubeDistance", 12.0);
 	}
 }

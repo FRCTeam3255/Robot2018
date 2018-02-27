@@ -183,7 +183,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				distance = 62.0;
+				distance = 66.0;
 			}
 			else if (lane == 2) {
 				distance = 0.0;

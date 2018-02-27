@@ -33,18 +33,18 @@ public class AutoPlaceScale extends CommandGroup {
 				distance = 10.0;
 			}
 			else if(lane == 3) {
-				distance = 10.0;
+				distance = 275.0;
 			}
 		}
 		else {
 			if(lane == 1) {
-				distance = 10.0;
+				distance = 275.0;
 			}
 			else if(lane == 2) {
 				distance = 10.0;
 			}
 			else if(lane == 3) {
-				distance = 10.0;
+				distance = 198.0;
 			}
 		}
 		
@@ -72,18 +72,18 @@ public class AutoPlaceScale extends CommandGroup {
 				 angle = 10.0;
 			 }
 			 else if(lane == 3) {
-				 angle = 10.0;
+				 angle = -58.0;
 			 } 
 		 }
 		 else {
 			 if (lane == 1) {
-				 angle = 10.0;
+				 angle = 58.0;
 			 }
 			 else if(lane == 2) {
 				 angle = 10.0;
 			 }
 			 else if(lane == 3) {
-				 angle = 10.0;
+				 angle = -90.0;
 			 }
 		 }
 		 
@@ -111,18 +111,18 @@ public class AutoPlaceScale extends CommandGroup {
 				distance = 10.0;
 			}
 			else if(lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 2) {
 				distance = 10.0;
 			}
 			else if (lane == 3) {
-				distance = 10.0;
+				distance = 183.0;
 			}
 		}
 		
@@ -150,18 +150,18 @@ public class AutoPlaceScale extends CommandGroup {
 				angle = 10.0;
 			}
 			else if (lane == 3) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 			else if (lane == 2) {
 				angle = 10.0;
 			}
 			else if (lane == 3) {
-				angle = 10.0;
+				angle = 90.0;
 			}
 		}
 		
@@ -189,18 +189,18 @@ public class AutoPlaceScale extends CommandGroup {
 				distance = 10.0;
 			}
 			else if (lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 2) {
 				distance = 10.0;
 			}
 			else if (lane == 3) {
-				distance = 10.0;
+				distance = 15.0;
 			}
 		}
 		
@@ -213,8 +213,12 @@ public class AutoPlaceScale extends CommandGroup {
         addSequential(new DriveStraightDistance("PlaceScaleD2", autoScaleD2()));
         addSequential(new DriveRotate("PlaceScaleR2", autoScaleR2()));
         //Drivetrain PID
-        //addSequential(new DriveDistance("PlaceScaleD3", autoSwitchD3()));
+        addSequential(new DriveDistance("PlaceScaleD3", autoScaleD3()));
         //Vision PID
-        addSequential(new DriveToTarget("PlaceScaleD3", autoScaleD3()));
+        //addSequential(new DriveToTarget("PlaceScaleD3", autoScaleD3()));
+        addSequential(new CascacdeMoveToHighScale());
+        addSequential(new CollectorDeployIntake());
+        addSequential(new DoDelay(0.5));
+        addSequential(new CollectorEject());
     }
 }

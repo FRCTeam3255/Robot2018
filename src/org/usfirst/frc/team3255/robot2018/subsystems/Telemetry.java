@@ -2,6 +2,7 @@ package org.usfirst.frc.team3255.robot2018.subsystems;
 
 import org.usfirst.frc.team3255.robot2018.AutoPreferences;
 import org.usfirst.frc.team3255.robot2018.Robot;
+import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 import org.usfirst.frc.team3255.robot2018.commands.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 //import edu.wpi.first.wpilibj.hal.PDPJNI;
@@ -38,7 +39,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive 5 Feet", new DriveStraightDistance("Drive 5 Feet", 61.0));
 		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 15.0));
 		SmartDashboard.putData("Rotate 90", new DriveRotate("Rotate 90", 90.0));
-		SmartDashboard.putData("Drive to Cube", new VisionMoveToCube("Drive To Cube", 40.0));
+		SmartDashboard.putData("Drive to Cube", new VisionMoveToCube("Drive To Cube", RobotPreferences.moveToCubeDistance()));
 	}
 	
 	public void update() {
@@ -72,6 +73,9 @@ public class Telemetry extends Subsystem {
 		
 		double pitch = Robot.navigation.getPitch();
 		SmartDashboard.putNumber("Nav Pitch", pitch);
+		
+		SmartDashboard.putNumber("CubeDistance", Robot.navigation.getCubeDistance());
+		SmartDashboard.putNumber("CubeOffset", Robot.navigation.getCubeOffset());
 		
 		if(pitch > maxPitch) {
 			maxPitch = pitch;
