@@ -1,6 +1,5 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
-import org.usfirst.frc.team3255.robot2018.AutoPreferences;
 import org.usfirst.frc.team3255.robot2018.RobotMap;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -53,11 +52,6 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setClimberSpeed(double speed) {
-		if(!AutoPreferences.isDebug()) {
-			if(speed < 0) {
-				speed = 0;
-			}
-		}
 		climbTalon.set(speed);
 	}
 	
