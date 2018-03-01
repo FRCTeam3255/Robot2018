@@ -61,7 +61,7 @@ public class Collector extends Subsystem {
 	}
 	
 	public boolean isCubeCollected() {
-		return intakeSwitch.get();
+		return !intakeSwitch.get();
 	}
 	
 	public void clampCollector() {

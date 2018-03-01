@@ -426,6 +426,13 @@ public class RobotPreferences {
 			}
 		return Preferences.getInstance().getDouble("AutoSwitchD3", 0.0);	
 	}
+	
+	public static double autoSwitchR3() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+			}
+		return Preferences.getInstance().getDouble("AutoSwitchR3", 0.0);
+	}
 
 	public static double timeOut() {
 		if(AutoPreferences.isDebug() == false) {

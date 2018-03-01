@@ -33,15 +33,18 @@ public class AutoPlaceSwitch extends CommandGroup {
 				distance = 13.0;
 			}
 			else if(lane == 3) {
-				distance = 97.0;
+				distance = 0.0;
+				//97.0
 			}
 		}
 		else {
 			if(lane == 1) {
-				distance = 97.0;
+//				distance = 97.0;
+				distance = 0.0;
 			}
 			else if(lane == 2) {
-				distance = 13.0;
+//				distance = 13.0;
+				distance = 0.0;
 			}
 			else if(lane == 3) {
 				distance = 42.0;
@@ -69,7 +72,8 @@ public class AutoPlaceSwitch extends CommandGroup {
 				 angle = 90.0;
 			 }
 			 else if(lane == 2) {
-				 angle = 23.0;
+//				 angle = 23.0;
+				 angle = 0.0;
 			 }
 			 else if(lane == 3) {
 				 angle = 0.0;
@@ -77,10 +81,12 @@ public class AutoPlaceSwitch extends CommandGroup {
 		 }
 		 else {
 			 if (lane == 1) {
-				 angle = 16.0;
+//				 angle = 16.0;
+				 angle = 0.0;
 			 }
 			 else if(lane == 2) {
-				 angle = -31.0;
+//				 angle = -31.0;
+				 angle = 0.0;
 			 }
 			 else if(lane == 3) {
 				 angle = -90.0;
@@ -105,10 +111,11 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				distance = 95.0;
+				distance = 96.0;
 			}
 			else if(lane == 2) {
-				distance = 94.0;
+				distance = 0.0;
+				//94.0
 			}
 			else if(lane == 3) {
 				distance = 0.0;
@@ -119,10 +126,11 @@ public class AutoPlaceSwitch extends CommandGroup {
 				distance = 0.0;
 			}
 			else if (lane == 2) {
-				distance = 100.0;
+				distance = 11.0;
+				//100
 			}
 			else if (lane == 3) {
-				distance = 81.0;
+				distance = 82.0;
 			}
 		}
 		
@@ -147,7 +155,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 				angle = -64.0;
 			}
 			else if (lane == 2) {
-				angle = 0.0;
+				angle = 23.0;
 			}
 			else if (lane == 3) {
 				angle = 0.0;
@@ -158,7 +166,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 				angle = 0.0;
 			}
 			else if (lane == 2) {
-				angle = 0.0;
+				angle = -31.0;
 			}
 			else if (lane == 3) {
 				angle = 64.0;
@@ -183,28 +191,68 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				distance = 66.0;
+				distance = 67.0;
+				//66.0
 			}
 			else if (lane == 2) {
-				distance = 0.0;
+				distance = 94.0;
 			}
 			else if (lane == 3) {
-				distance = 0.0;
+				distance = 104.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				distance = 0.0;
+				distance = 104.0;
 			}
 			else if (lane == 2) {
-				distance = 0.0;
+				distance = 105.0;
 			}
 			else if (lane == 3) {
-				distance = 64.0;
+				distance = 66.0;
 			}
 		}
 		
 		return distance;
+	}
+	
+	public static double autoSwitchR3() {
+		if (AutoPreferences.isDebug()) {
+			return RobotPreferences.autoSwitchR3();
+		}
+		
+		int lane = AutoPreferences.getLane();
+		
+		if((AutoPreferences.doSwitch() == false) || (lane == 0)) {
+			return 0.0;
+		}
+		
+		double angle = 0.0;
+		
+		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
+			if (lane == 1) {
+				angle = 0.0;
+			}
+			else if (lane == 2) {
+				angle = 0.0;
+			}
+			else if (lane == 3) {
+				angle = 0.0;
+			}
+		}
+		else {
+			if (lane == 1) {
+				angle = 16.0;
+			}
+			else if (lane == 2) {
+				angle = 0.0;
+			}
+			else if (lane == 3) {
+				angle = 0.0;
+			}
+		}
+		
+		return angle;
 	}
 	
 	public AutoPlaceSwitch() {
@@ -213,9 +261,12 @@ public class AutoPlaceSwitch extends CommandGroup {
         addSequential(new DriveStraightDistance("PlaceSwitchD2", autoSwitchD2()));
         addSequential(new DriveRotate("PlaceSwitchR2", autoSwitchR2()));
         //Drivetrain PID
+        addParallel(new CascadeMoveToSwitch());
+        addParallel(new CollectorDeployIntake());
         addSequential(new DriveStraightDistance("PlaceSwitchD3", autoSwitchD3()));
+        addSequential(new DriveRotate("PlaceSwitchR3", autoSwitchR3()));
         //Vision PID
 //        addSequential(new DriveToTarget("PlaceSwitchD3", autoSwitchD3()));
-        addSequential(new CollectorEject());
+        addSequential(new CollectorEject(), 2.0);
     }
 }

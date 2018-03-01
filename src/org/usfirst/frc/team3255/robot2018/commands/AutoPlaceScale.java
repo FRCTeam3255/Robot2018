@@ -44,7 +44,8 @@ public class AutoPlaceScale extends CommandGroup {
 				distance = 10.0;
 			}
 			else if(lane == 3) {
-				distance = 198.0;
+//				distance = 198.0;
+				distance = 206.0;
 			}
 		}
 		
@@ -122,7 +123,8 @@ public class AutoPlaceScale extends CommandGroup {
 				distance = 10.0;
 			}
 			else if (lane == 3) {
-				distance = 183.0;
+//				distance = 183.0;
+				distance = 198.0;
 			}
 		}
 		
@@ -200,7 +202,8 @@ public class AutoPlaceScale extends CommandGroup {
 				distance = 10.0;
 			}
 			else if (lane == 3) {
-				distance = 15.0;
+//				distance = 15.0;
+				distance = 27.0;
 			}
 		}
 		
