@@ -23,7 +23,7 @@ public class RobotPreferences {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.5;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainPIDMaxSpeed", 0.4);
+		return Preferences.getInstance().getDouble("DrivetrainPIDMaxSpeed", 0.5);
 	}
 	
 	public static double drivetrainP() {
@@ -54,14 +54,14 @@ public class RobotPreferences {
 		if(AutoPreferences.isDebug() == false) {
 			return 2;
 		}
-		return Preferences.getInstance().getInt("DrivetrainTargetCount", 5);
+		return Preferences.getInstance().getInt("DrivetrainTargetCount", 2);
 	}
 	
 	public static double drivetrainTolerance() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.5;
 		}
-		return Preferences.getInstance().getDouble("DrivetrainTolerance", 1.0);
+		return Preferences.getInstance().getDouble("DrivetrainTolerance", 1.5);
 	}
 	
 	public static double drivetrainPulsePerFoot() {
@@ -94,9 +94,9 @@ public class RobotPreferences {
 	
 	public static double drivetrainSlowSpeed() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.75;	
+			return 0.5;	
 		}
-		return  Preferences.getInstance().getDouble("DrivetrainSlowSpeed", 0.75);
+		return  Preferences.getInstance().getDouble("DrivetrainSlowSpeed", 0.5);
 	}
 	
 //	------------------------------------------------------------ CASCADE LIFT ------------------------------------------------------------
@@ -274,9 +274,9 @@ public class RobotPreferences {
 
 	public static double yawTolerance() {
 		if(AutoPreferences.isDebug() == false) {
-			return 3.0;
+			return 1.5;
 		}
-		return Preferences.getInstance().getDouble("YawTolerance", 3.0);
+		return Preferences.getInstance().getDouble("YawTolerance", 1.5);
 	}
 
 	public static double navYawP() {
@@ -296,9 +296,9 @@ public class RobotPreferences {
 
 	public static double navYawD() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.3;
+			return 0.2;
 		}
-		return Preferences.getInstance().getDouble("NavYawD", 0.3);
+		return Preferences.getInstance().getDouble("NavYawD", 0.2);
 		//0.0
 	}
 	
@@ -501,21 +501,21 @@ public class RobotPreferences {
 		if(AutoPreferences.isDebug() == false) {
 			return 100.0;
 		}
-		return Preferences.getInstance().getDouble("AutoExchangeR1", 90.0);
+		return Preferences.getInstance().getDouble("AutoExchangeR1", 100.0);
 	}
 
 	public static double autoExchangeR2() {
 		if(AutoPreferences.isDebug() == false) {
 			return 100.0;
 		}
-		return Preferences.getInstance().getDouble("AutoExchangeR2", 90.0);
+		return Preferences.getInstance().getDouble("AutoExchangeR2", 100.0);
 	}
 	
 	public static double autoSwitchAfterScaleR1() {
 		if(AutoPreferences.isDebug() == false) {
 			return 10.0;
 		}
-		return Preferences.getInstance().getDouble("AutoSwitchAfterScaleR1", 90.0);
+		return Preferences.getInstance().getDouble("AutoSwitchAfterScaleR1", 10.0);
 	}
 
 	public static double autoSwitchAfterScaleD1() {

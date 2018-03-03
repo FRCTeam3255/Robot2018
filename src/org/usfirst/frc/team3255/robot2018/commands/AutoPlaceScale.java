@@ -27,7 +27,7 @@ public class AutoPlaceScale extends CommandGroup {
 		if(Robot.navigation.getScalePos() == 'R') {
 			
 			if(lane == 1) {
-				distance = 10.0;
+				distance = 206.0;
 			}
 			else if(lane == 2) {
 				distance = 10.0;
@@ -67,7 +67,7 @@ public class AutoPlaceScale extends CommandGroup {
 		 
 		 if(Robot.navigation.getScalePos() == 'R') {
 			 if (lane == 1) {
-				 angle = 10.0;
+				 angle = 90.0;
 			 }
 			 else if(lane == 2) {
 				 angle = 10.0;
@@ -106,7 +106,7 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		if(Robot.navigation.getScalePos() == 'R') {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 201.0;
 			}
 			else if(lane == 2) {
 				distance = 10.0;
@@ -124,7 +124,7 @@ public class AutoPlaceScale extends CommandGroup {
 			}
 			else if (lane == 3) {
 //				distance = 183.0;
-				distance = 198.0;
+				distance = 201.0;
 			}
 		}
 		
@@ -146,7 +146,7 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		if(Robot.navigation.getScalePos() == 'R') {
 			if (lane == 1) {
-				angle = 10.0;
+				angle = -90.0;
 			}
 			else if (lane == 2) {
 				angle = 10.0;
@@ -185,7 +185,7 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		if(Robot.navigation.getScalePos() == 'R') {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 38.0;
 			}
 			else if (lane == 2) {
 				distance = 10.0;
@@ -203,7 +203,7 @@ public class AutoPlaceScale extends CommandGroup {
 			}
 			else if (lane == 3) {
 //				distance = 15.0;
-				distance = 27.0;
+				distance = 35.0;
 			}
 		}
 		
@@ -216,12 +216,12 @@ public class AutoPlaceScale extends CommandGroup {
         addSequential(new DriveStraightDistance("PlaceScaleD2", autoScaleD2()));
         addSequential(new DriveRotate("PlaceScaleR2", autoScaleR2()));
         //Drivetrain PID
-        addSequential(new DriveDistance("PlaceScaleD3", autoScaleD3()));
+        addParallel(new DriveDistance("PlaceScaleD3", autoScaleD3()));
         //Vision PID
         //addSequential(new DriveToTarget("PlaceScaleD3", autoScaleD3()));
         addSequential(new CascacdeMoveToHighScale());
         addSequential(new CollectorDeployIntake());
         addSequential(new DoDelay(0.5));
-        addSequential(new CollectorEject());
+        addSequential(new CollectorEject(), 2.0);
     }
 }
