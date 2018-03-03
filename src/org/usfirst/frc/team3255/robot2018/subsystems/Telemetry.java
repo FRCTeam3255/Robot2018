@@ -36,7 +36,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putString("Autonomous Status", "No Auto Running");
 
 		SmartDashboard.putData("Drive 5 Feet", new DriveStraightDistance("Drive 5 Feet", 61.0));
-		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 15.0));
+		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 30.0));
 		SmartDashboard.putData("Rotate 90", new DriveRotate("Rotate 90", 90.0));
 		SmartDashboard.putData("Drive to Cube", new VisionMoveToCube("Drive To Cube", RobotPreferences.moveToCubeDistance()));
 	}

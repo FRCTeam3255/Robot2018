@@ -550,44 +550,44 @@ public class RobotPreferences {
 //		-------------------------------------------------------------- HSL VALUES -------------------------------------------------------------- 
 	public static int lowHue() {
 		if(AutoPreferences.isDebug() == false) {
-			return 45;
+			return 47;
 		}
-		return Preferences.getInstance().getInt("LowHue", 45);	
+		return Preferences.getInstance().getInt("LowHue", 47);	
 	}
 
 	public static int highHue() {
 		if(AutoPreferences.isDebug() == false) {
-			return 89;
+			return 75;
 		}
-		return Preferences.getInstance().getInt("HighHue", 89);	
+		return Preferences.getInstance().getInt("HighHue", 75);	
 	}
 
 	public static int lowSat() {
 		if(AutoPreferences.isDebug() == false) {
-			return 73;
+			return 112;
 		}
-		return Preferences.getInstance().getInt("LowSat", 73);	
+		return Preferences.getInstance().getInt("LowSat", 112);	
 	}
 
 	public static int highSat() {
 		if(AutoPreferences.isDebug() == false) {
-			return 207;
+			return 255;
 		}
-		return Preferences.getInstance().getInt("HighSat", 207);	
+		return Preferences.getInstance().getInt("HighSat", 255);	
 	}
 
 	public static int lowLum() {
 		if(AutoPreferences.isDebug() == false) {
-			return 73;
+			return 21;
 		}
-		return Preferences.getInstance().getInt("LowLum", 73);	
+		return Preferences.getInstance().getInt("LowLum", 21);	
 	}
 
 	public static int highLum() {
 		if(AutoPreferences.isDebug() == false) {
-			return 179;
+			return 112;
 		}
-		return Preferences.getInstance().getInt("HighLum", 179);
+		return Preferences.getInstance().getInt("HighLum", 112);
 	}
 
 	public static double moveToCubeDistance() {

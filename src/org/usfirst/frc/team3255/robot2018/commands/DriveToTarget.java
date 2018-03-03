@@ -43,7 +43,7 @@ public class DriveToTarget extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.telemetry.setAutonomousStatus("Running " + commandName + ": " + distance);
-    	Robot.drivetrain.arcadeDrive(-Robot.drivetrainDistanceVisionPID.getOutput(), Robot.visionOffsetPID.getOutput(), false);
+    	Robot.drivetrain.arcadeDrive(-Robot.drivetrainDistanceVisionPID.getOutput(), 0.0, false);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -53,14 +53,7 @@ public class DriveToTarget extends Command {
     	
     	double timeNow = timeSinceInitialized();
 
-    	if(offsetTarget) {
-    		Robot.lighting.setLighting(Lighting.SWITCH_ALIGNED);
-    	}
-    	else if(Robot.navigation.isTargetFound()) {
-    		Robot.lighting.setLighting(Lighting.SWITCH_IDENTIFIED);
-    	}
-    	
-    	return((distanceTarget && offsetTarget) || (timeNow >= expireTime));
+    	return((distanceTarget) || (timeNow >= expireTime));
     }
 
     // Called once after isFinished returns true
@@ -69,7 +62,6 @@ public class DriveToTarget extends Command {
     	Robot.drivetrainDistanceVisionPID.disable();
     	Robot.visionOffsetPID.disable();
     	Robot.drivetrain.arcadeDrive(0.0, 0.0);
-    	Robot.lighting.setLighting(Lighting.SWITCH_ON_TARGET);
     }
 
     // Called when another command which requires one or more of the same

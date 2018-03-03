@@ -45,7 +45,7 @@ public class AutoPlaceScale extends CommandGroup {
 			}
 			else if(lane == 3) {
 //				distance = 198.0;
-				distance = 206.0;
+				distance = 218.0;
 			}
 		}
 		
@@ -219,9 +219,8 @@ public class AutoPlaceScale extends CommandGroup {
         addParallel(new DriveDistance("PlaceScaleD3", autoScaleD3()));
         //Vision PID
         //addSequential(new DriveToTarget("PlaceScaleD3", autoScaleD3()));
+        addParallel(new CollectorDeployIntake());
         addSequential(new CascacdeMoveToHighScale());
-        addSequential(new CollectorDeployIntake());
-        addSequential(new DoDelay(0.5));
         addSequential(new CollectorEject(), 2.0);
     }
 }
