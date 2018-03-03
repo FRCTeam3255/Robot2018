@@ -16,17 +16,13 @@ public class AutoPlaceSwitchAfterScale extends CommandGroup {
 			return RobotPreferences.autoSwitchAfterScaleR1();
 		}
 		
-		if((AutoPreferences.doSwitch() == false) || (AutoPreferences.doScale() == false)) {
-			return 0.0;
-		}
-		
 		double angle = 0.0;
 		
 		if(Robot.navigation.getScalePos() == 'R') {
-			angle = 90.0;
+			angle = 0.0;
 		}
 		else {
-			angle = 90.0;
+			angle = 0.0;
 		}
 		
 		return angle;
@@ -37,17 +33,13 @@ public class AutoPlaceSwitchAfterScale extends CommandGroup {
 			return RobotPreferences.autoSwitchAfterScaleD1();
 		}
 		
-		if((AutoPreferences.doSwitch() == false) || (AutoPreferences.doScale() == false)) {
-			return 0.0;
-		}
-		
 		double distance = 0.0;
 		
 		if(Robot.navigation.getScalePos() == 'R') {
-			distance = 100.0;
+			distance = 0.0;
 		}
 		else {
-			distance = 100.0;
+			distance = 0.0;
 		}
 		
 		return distance;
@@ -58,17 +50,13 @@ public class AutoPlaceSwitchAfterScale extends CommandGroup {
 			return RobotPreferences.autoSwitchAfterScaleR2();
 		}
 		
-		if((AutoPreferences.doSwitch() == false) || (AutoPreferences.doScale() == false)) {
-			return 0.0;
-		}
-		
 		double angle = 0.0;
 		
 		if(Robot.navigation.getScalePos() == 'R') {
-			angle = 90.0;
+			angle = 0.0;
 		}
 		else {
-			angle = 9.0;
+			angle = 0.0;
 		}
 		
 		return angle;
@@ -79,17 +67,13 @@ public class AutoPlaceSwitchAfterScale extends CommandGroup {
 			return RobotPreferences.autoSwitchAfterScaleD2();
 		}
 		
-		if((AutoPreferences.doSwitch() == false) || (AutoPreferences.doScale() == false)) {
-			return 0.0;
-		}
-		
 		double distance = 0.0;
 		
 		if(Robot.navigation.getScalePos() == 'R') {
-			distance = 100.0;
+			distance = 0.0;
 		}
 		else {
-			distance = 100.0;
+			distance = 0.0;
 		}
 		
 		return distance;
@@ -100,17 +84,13 @@ public class AutoPlaceSwitchAfterScale extends CommandGroup {
 			return RobotPreferences.autoSwitchAfterScaleD3();
 		}
 		
-		if((AutoPreferences.doSwitch() == false) || (AutoPreferences.doScale() == false)) {
-			return 0.0;
-		}
-		
 		double distance = 0.0;
 		
 		if(Robot.navigation.getScalePos() == 'R') {
-			distance = 100.0;
+			distance = 0.0;
 		}
 		else {
-			distance = 100.0;
+			distance = 0.0;
 		}
 		
 		return distance;

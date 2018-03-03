@@ -1,7 +1,6 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
 import org.usfirst.frc.team3255.robot2018.Robot;
-import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 
 /**
  *

@@ -18,32 +18,28 @@ public class AutoPlaceExchange extends CommandGroup {
 		
 		int lane = AutoPreferences.getLane();
 		
-		if((AutoPreferences.doExchange() == false) || (lane == 0)) {
-			return 0.0;
-		}
-		
 		double distance = 0.0;
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if(lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if(lane == 2) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if(lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		else {
 			if(lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if(lane == 2) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if(lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		
@@ -57,32 +53,28 @@ public class AutoPlaceExchange extends CommandGroup {
 		
 		 int lane = AutoPreferences.getLane();
 		 
-		 if((AutoPreferences.doExchange() == false) || (lane == 0)) {
-			 return 0.0;
-		 }
-		 
 		 double angle = 0.0;
 		 
 		 if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			 if (lane == 1) {
-				 angle = 10.0;
+				 angle = 0.0;
 			 }
 			 else if(lane == 2) {
-				 angle = 10.0;
+				 angle = 0.0;
 			 }
 			 else if(lane == 3) {
-				 angle = 10.0;
+				 angle = 0.0;
 			 } 
 		 }
 		 else {
 			 if (lane == 1) {
-				 angle = 10.0;
+				 angle = 0.0;
 			 }
 			 else if(lane == 2) {
-				 angle = 10.0;
+				 angle = 0.0;
 			 }
 			 else if(lane == 3) {
-				 angle = 10.0;
+				 angle = 0.0;
 			 }
 		 }
 		 
@@ -96,32 +88,28 @@ public class AutoPlaceExchange extends CommandGroup {
 		
 		int lane = AutoPreferences.getLane();
 		
-		if((AutoPreferences.doExchange() == false) || (lane == 0)) {
-			return 0.0;
-		}
-		
 		double distance = 0.0;
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if(lane == 2) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if(lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 2) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		
@@ -135,32 +123,28 @@ public class AutoPlaceExchange extends CommandGroup {
 		
 		int lane = AutoPreferences.getLane();
 		
-		if((AutoPreferences.doExchange() == false) || (lane == 0)) {
-			return 0.0;
-		}
-		
 		double angle = 0.0;
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 			else if (lane == 2) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 			else if (lane == 3) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 			else if (lane == 2) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 			else if (lane == 3) {
-				angle = 10.0;
+				angle = 0.0;
 			}
 		}
 		
@@ -174,32 +158,28 @@ public class AutoPlaceExchange extends CommandGroup {
 		
 		int lane = AutoPreferences.getLane();
 		
-		if((AutoPreferences.doExchange() == false) || (lane == 0)) {
-			return 0.0;	
-		}
-		
 		double distance = 0.0;
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 2) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 2) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 			else if (lane == 3) {
-				distance = 10.0;
+				distance = 0.0;
 			}
 		}
 		

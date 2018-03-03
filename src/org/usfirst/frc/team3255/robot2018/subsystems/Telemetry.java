@@ -39,6 +39,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 30.0));
 		SmartDashboard.putData("Rotate 90", new DriveRotate("Rotate 90", 90.0));
 		SmartDashboard.putData("Drive to Cube", new VisionMoveToCube("Drive To Cube", RobotPreferences.moveToCubeDistance()));
+		
+		SmartDashboard.putNumber("Default Lane", 2);
 	}
 	
 	public void update() {
@@ -95,6 +97,10 @@ public class Telemetry extends Subsystem {
 	
 	public void resetMaxPitch() {
 		maxPitch = 0;
+	}
+	
+	public int getDefaultLane() {
+		return (int) SmartDashboard.getNumber("Default Lane", 2);
 	}
 	
 	public void setAutonomousStatus(String statusText) {

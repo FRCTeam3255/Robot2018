@@ -47,7 +47,7 @@ public class OI {
 		M2.whenPressed(new CollectorRelease());
 		M2.whenReleased(new CollectorClamp());
 		M3.whenPressed(new CollectorCollect());
-		M4.whileHeld(new CascadeLift());
+		M4.whileHeld(new CascadeManualMove());
 		M5.whileHeld(new CollectorArcade());
 		M6.whileHeld(new CollectorClimberManual());	
 		

@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CascadeLift extends Command {
+public class CascadeManualMove extends Command {
 
-    public CascadeLift() {
+    public CascadeManualMove() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.cascadeLift);

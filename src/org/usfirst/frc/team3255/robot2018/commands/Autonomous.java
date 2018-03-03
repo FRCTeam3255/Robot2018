@@ -23,5 +23,8 @@ public class Autonomous extends CommandGroup {
     	else if (AutoPreferences.doExchange()) {
         	addSequential(new AutoPlaceExchange());
     	}
+    	else {
+    		addSequential(new AutoPlaceSwitch());
+    	}
     }
 }

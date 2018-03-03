@@ -18,10 +18,6 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		int lane = AutoPreferences.getLane();
 		
-		if((AutoPreferences.doScale() == false) || (lane == 0)) {
-			return 0.0;
-		}
-		
 		double distance = 0.0;
 		
 		if(Robot.navigation.getScalePos() == 'R') {
@@ -59,10 +55,6 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		 int lane = AutoPreferences.getLane();
 		 
-		 if((AutoPreferences.doScale() == false) || (lane == 0)) {
-			 return 0.0;
-		 }
-		 
 		 double angle = 0.0;
 		 
 		 if(Robot.navigation.getScalePos() == 'R') {
@@ -97,10 +89,6 @@ public class AutoPlaceScale extends CommandGroup {
 		}
 		
 		int lane = AutoPreferences.getLane();
-		
-		if((AutoPreferences.doScale() == false) || (lane == 0)) {
-			return 0.0;
-		}
 		
 		double distance = 0.0;
 		
@@ -138,10 +126,6 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		int lane = AutoPreferences.getLane();
 		
-		if((AutoPreferences.doScale() == false) || (lane == 0)) {
-			return 0.0;
-		}
-		
 		double angle = 0.0;
 		
 		if(Robot.navigation.getScalePos() == 'R') {
@@ -176,10 +160,6 @@ public class AutoPlaceScale extends CommandGroup {
 		}
 		
 		int lane = AutoPreferences.getLane();
-		
-		if((AutoPreferences.doScale() == false) || (lane == 0)) {
-			return 0.0;	
-		}
 		
 		double distance = 0.0;
 		

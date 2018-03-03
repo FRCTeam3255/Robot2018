@@ -34,6 +34,9 @@ public class AutoPreferences {
 		else if(preferencesStick.getRawButton(3)) {
 			lane = 3;
 		}
+		else {
+			lane = (Robot.telemetry.getDefaultLane());
+		}
 		
 		return lane;
 	}	

@@ -18,10 +18,6 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		int lane = AutoPreferences.getLane();
 		
-		if((AutoPreferences.doSwitch() == false) || (lane == 0)) {
-			return 0.0;
-		}
-		
 		double distance = 0.0;
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
@@ -61,10 +57,6 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		 int lane = AutoPreferences.getLane();
 		 
-		 if((AutoPreferences.doSwitch() == false) || (lane == 0)) {
-			 return 0.0;
-		 }
-		 
 		 double angle = 0.0;
 		 
 		 if(Robot.navigation.getAllianceSwitchPos() == 'R') {
@@ -103,10 +95,6 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		int lane = AutoPreferences.getLane();
 		
-		if((AutoPreferences.doSwitch() == false) || (lane == 0)) {
-			return 0.0;
-		}
-		
 		double distance = 0.0;
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
@@ -144,10 +132,6 @@ public class AutoPlaceSwitch extends CommandGroup {
 		
 		int lane = AutoPreferences.getLane();
 		
-		if((AutoPreferences.doSwitch() == false) || (lane == 0)) {
-			return 0.0;
-		}
-		
 		double angle = 0.0;
 		
 		if(Robot.navigation.getAllianceSwitchPos() == 'R') {
@@ -182,10 +166,6 @@ public class AutoPlaceSwitch extends CommandGroup {
 		}
 		
 		int lane = AutoPreferences.getLane();
-		
-		if((AutoPreferences.doSwitch() == false) || (lane == 0)) {
-			return 0.0;	
-		}
 		
 		double distance = 0.0;
 		
@@ -222,10 +202,6 @@ public class AutoPlaceSwitch extends CommandGroup {
 		}
 		
 		int lane = AutoPreferences.getLane();
-		
-		if((AutoPreferences.doSwitch() == false) || (lane == 0)) {
-			return 0.0;
-		}
 		
 		double angle = 0.0;
 		
