@@ -36,8 +36,9 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putString("Autonomous Status", "No Auto Running");
 
 		SmartDashboard.putData("Drive 5 Feet", new DriveStraightDistance("Drive 5 Feet", 61.0));
-		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 30.0));
 		SmartDashboard.putData("Rotate 90", new DriveRotate("Rotate 90", 90.0));
+		
+		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 30.0));
 		SmartDashboard.putData("Drive to Cube", new VisionMoveToCube("Drive To Cube", RobotPreferences.moveToCubeDistance()));
 		
 		SmartDashboard.putNumber("Default Lane", 2);
@@ -47,16 +48,16 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Drive Encoder Distance, Inches", Robot.drivetrain.getEncoderDistance());
 		SmartDashboard.putNumber("Drive Encoder Count", Robot.drivetrain.getEncoderCount());
 		SmartDashboard.putNumber("Get Drivetrain Speed", Robot.drivetrain.getSpeed());
-//		SmartDashboard.putNumber("Drivetrain Current", Robot.drivetrain.getTalonCurrent());
 		
 		SmartDashboard.putNumber("Collector Encoder Count", Robot.cascadeLift.getEncoderCount());
 		SmartDashboard.putNumber("Collector Encoder Distance", Robot.cascadeLift.getEncoderDistance());
+		
 		SmartDashboard.putBoolean("Collector Is Top", Robot.cascadeLift.isTopSwitchClosed());
 		SmartDashboard.putBoolean("Collector Is Bottom", Robot.cascadeLift.isBottomSwitchClosed());
-//		SmartDashboard.putNumber("Lifter Current", Robot.cascadeLift.getTalonCurrent());
-		
 		SmartDashboard.putBoolean("Is Cube Collected", Robot.collector.isCubeCollected());
-//		SmartDashboard.putNumber("Collector Current", Robot.collector.getTalonCurrent());
+		
+		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
+		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());
 		
 		SmartDashboard.putBoolean("Red Alliance", Robot.navigation.isRedAlliance());
 		
@@ -64,16 +65,15 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putString("Alliance Scale Pos", String.valueOf(Robot.navigation.getScalePos()));
 		SmartDashboard.putString("Opponent Switch Pos", String.valueOf(Robot.navigation.getOppenentSwitchPos()));
 		
+		SmartDashboard.putNumber("Nav Yaw", Robot.navigation.getYaw());
+		SmartDashboard.putNumber("Nav Roll", Robot.navigation.getRoll());
+		double pitch = Robot.navigation.getPitch();
+		SmartDashboard.putNumber("Nav Pitch", pitch);
+
 		SmartDashboard.putNumber("Vision Distance", Robot.navigation.getTargetDistance());
 		SmartDashboard.putNumber("Vision Offset", Robot.navigation.getTargetOffset());
 		SmartDashboard.putNumber("Vision Angle", Robot.navigation.getTargetAngle());
 		SmartDashboard.putBoolean("Vision Target Found", Robot.navigation.isTargetFound());
-		
-		SmartDashboard.putNumber("Nav Yaw", Robot.navigation.getYaw());
-		SmartDashboard.putNumber("Nav Roll", Robot.navigation.getRoll());
-		
-		double pitch = Robot.navigation.getPitch();
-		SmartDashboard.putNumber("Nav Pitch", pitch);
 		
 		SmartDashboard.putNumber("CubeDistance", Robot.navigation.getCubeDistance());
 		SmartDashboard.putNumber("CubeOffset", Robot.navigation.getCubeOffset());
@@ -82,9 +82,6 @@ public class Telemetry extends Subsystem {
 			maxPitch = pitch;
 		}
 		SmartDashboard.putNumber("Max Pitch", maxPitch);
-		
-		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
-		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());
 		
 		SmartDashboard.putNumber("Auto Switch D1", AutoPlaceSwitch.autoSwitchD1());
 		SmartDashboard.putNumber("Auto Switch R1", AutoPlaceSwitch.autoSwitchR1());
