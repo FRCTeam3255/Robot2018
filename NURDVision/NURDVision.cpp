@@ -1,5 +1,5 @@
 // ===========================================================
-// NURDVision - FRC Team 3255 SuperNURD 2017 Vision Processing
+// NURDVision - FRC Team 3255 SuperNURD 2018 Vision Processing
 // written by Mike and Tayler
 // ===========================================================
 
@@ -12,13 +12,7 @@
 #include <stdio.h>
 #include <cmath>
 
-
-
 using namespace cs;
-
-
-
-
 
 // ============== GLOBAL VARIABLES ============== //
 // Initalizes targetDistance, targetAngle, and targetOffset to 0.0;
@@ -251,7 +245,7 @@ bool quit(){
 
 // Displays welcome messages and debug info
 void greetings(){
-	cout << "\e[1mRunning \e[34mNURD\e[31mVision\e[0m \tFRCTeam 3255 SuperNURD 2017 Vision Processing\n" << 
+	cout << "\e[1mRunning \e[34mNURD\e[31mVision\e[0m \tFRCTeam 3255 SuperNURD 2018 Vision Processing\n" << 
 		"\t\t\tCreated by Mike Smith & Tayler Uva\n\n";
 	
 	cout << "Debug: " << (debug ? "\e[32mtrue\e[0m" : "\e[31mfalse\e[0m") << endl;
