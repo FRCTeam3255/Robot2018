@@ -52,6 +52,10 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setClimberSpeed(double speed) {
+		if(speed < 0) {
+			speed = 0;
+		}
+		
 		climbTalon.set(speed);
 	}
 	

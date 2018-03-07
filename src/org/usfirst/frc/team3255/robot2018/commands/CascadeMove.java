@@ -22,7 +22,6 @@ public class CascadeMove extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println("Starting Collector Command");
     	Robot.cascadeLift.unlockLift();
     	Robot.collectorPID.setSetpoint(setPoint);
     	Robot.collectorPID.setRawTolerance(RobotPreferences.cascadeLiftTolerance());
@@ -33,7 +32,6 @@ public class CascadeMove extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Executing Collector Command");
     	Robot.cascadeLift.setLiftSpeed(Robot.collectorPID.getOutput());
     }
 
@@ -57,7 +55,6 @@ public class CascadeMove extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	System.out.println("Ending Collector Command");
     	Robot.collectorPID.disable();
     	Robot.cascadeLift.setLiftSpeed(0.0);
     	if(!Robot.cascadeLift.isTopSwitchClosed()) {
