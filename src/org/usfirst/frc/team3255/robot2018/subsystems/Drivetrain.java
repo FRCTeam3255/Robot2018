@@ -30,6 +30,7 @@ public class Drivetrain extends Subsystem {
 	
 	private boolean liftClampingEnabled = true;
 	private boolean pitchSafetyEnabled = true;
+	private boolean slowSpeedEnabled = false;
  
 	public Drivetrain() {
 		leftFrontTalon = new WPI_TalonSRX(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
@@ -94,8 +95,7 @@ public class Drivetrain extends Subsystem {
 				}
 			}
 		}
-		
-		if(Robot.oi.driverStick.getRawButton(6)) {
+		if(isSlowSpeedEnabled()) {
 			moveSpeed = moveSpeed * RobotPreferences.drivetrainSlowSpeed();
 			rotateSpeed = rotateSpeed * RobotPreferences.drivetrainSlowSpeed();
 		}
@@ -144,6 +144,14 @@ public class Drivetrain extends Subsystem {
 	
 	public boolean isPitchSafetyEnabled() {
 		return pitchSafetyEnabled;
+	}
+	
+	public void setSlowSpeedEnabled(boolean enabled) {
+		slowSpeedEnabled = enabled;
+	}
+	
+	public boolean isSlowSpeedEnabled() {
+		return slowSpeedEnabled;
 	}
 	
 //	public double getTalonCurrent() {

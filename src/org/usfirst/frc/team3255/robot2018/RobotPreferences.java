@@ -80,16 +80,16 @@ public class RobotPreferences {
 	
 	public static double drivetrainClampMaxHeightMove() {
 		if(AutoPreferences.isDebug() == false) {
-			return 80.0;
+			return 100.0;
 		}
-		return  Preferences.getInstance().getDouble("DrivetrainClampMaxHeightMove", 80.0);
+		return  Preferences.getInstance().getDouble("DrivetrainClampMaxHeightMove", 100.0);
 	}
 	
 	public static double drivetrainClampMaxHeightRotate() {
 		if(AutoPreferences.isDebug() == false) {
-			return 92.0;
+			return 100.0;
 		}
-		return  Preferences.getInstance().getDouble("DrivetrainClampMaxHeightRotate", 92.0);
+		return  Preferences.getInstance().getDouble("DrivetrainClampMaxHeightRotate", 100.0);
 	}
 	
 	public static double drivetrainSlowSpeed() {
@@ -159,23 +159,24 @@ public class RobotPreferences {
 	
 	public static double cascadeLiftSwitchSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 24.0;
+//			return 24.0;
+			return 28.0;
 		}
-		return Preferences.getInstance().getDouble("CascadeLiftSwitchSetpoint", 24.0);
+		return Preferences.getInstance().getDouble("CascadeLiftSwitchSetpoint", 28.0);
 	}
 
 	public static double cascadeLiftLowScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 40.0;
+			return 48.0;
 		}
-		return Preferences.getInstance().getDouble("CascadeLiftLowScaleSetpoint", 40.0);
+		return Preferences.getInstance().getDouble("CascadeLiftLowScaleSetpoint", 48.0);
 	}
 
 	public static double cascadeLiftHighScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 47.0;
+			return 59.0;
 		}
-		return Preferences.getInstance().getDouble("CascadeLiftHighScaleSetpoint", 47.0);
+		return Preferences.getInstance().getDouble("CascadeLiftHighScaleSetpoint", 59.0);
 	}
 	
 	public static int cascadeLiftPulsesPerFoot() {
@@ -266,9 +267,9 @@ public class RobotPreferences {
 
 	public static double yawPIDMax() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.7;
+			return 0.6;
 		}
-		return Preferences.getInstance().getDouble("YawPIDMax", 0.7);
+		return Preferences.getInstance().getDouble("YawPIDMax", 0.6);
 		//0.6
 	}
 

@@ -70,7 +70,7 @@ public class AutoPlaceScale extends CommandGroup {
 		 }
 		 else {
 			 if (lane == 1) {
-				 angle = 30.0;
+				 angle = 33.0;
 			 }
 			 else if(lane == 2) {
 				 angle = 0.0;
@@ -165,25 +165,25 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		if(Robot.navigation.getScalePos() == 'R') {
 			if (lane == 1) {
-				distance = 53.0;
+				distance = 44.0;
 			}
 			else if (lane == 2) {
 				distance = 0.0;
 			}
 			else if (lane == 3) {
-				distance = 56.0;
+				distance = 47.0;
 			}
 		}
 		else {
 			if (lane == 1) {
-				distance = 56.0;
+				distance = 47.0;
 			}
 			else if (lane == 2) {
 				distance = 0.0;
 			}
 			else if (lane == 3) {
 //				distance = 15.0;
-				distance = 53.0;
+				distance = 38.0;
 			}
 		}
 		
@@ -201,6 +201,6 @@ public class AutoPlaceScale extends CommandGroup {
         addSequential(new CollectorDeployIntake());
         //Vision PID
         //addSequential(new DriveToTarget("PlaceScaleD3", autoScaleD3()));
-        addSequential(new CollectorRelease(), 2.0);
+        addSequential(new CollectorEject(), 2.0);
     }
 }

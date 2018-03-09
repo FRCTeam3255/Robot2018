@@ -61,9 +61,11 @@ public class OI {
 		M9.whenPressed(new CascadeMoveToSwitch());
 		M11.whenPressed(new CascadeMoveToBottom());
 		
-		D5.whenPressed(new DrivetrainSafetyDisable());
-		D5.whenReleased(new DrivetrainSafetyEnable());
-//		D6 multiply MoveSpeed and RotateSpeed by RobotPreferences.drivetrainSlowSpeed 
+		D5.whenPressed(new DrivetrainSlowSpeedEnable());
+		D5.whenReleased(new DrivetrainSlowSpeedDisable());	
+		D6.whenPressed(new DrivetrainSafetyDisable());
+		D6.whenReleased(new DrivetrainSafetyEnable());
+//		D5 multiply MoveSpeed and RotateSpeed by RobotPreferences.drivetrainSlowSpeed 
 		D7.whenPressed(new CollectorRetractIntake());
 		D8.whenPressed(new CollectorDeployIntake());
 	}
