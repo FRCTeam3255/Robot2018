@@ -18,7 +18,7 @@ public class AutoPreferences {
 		return preferencesStick.getRawButton(7);
 	}
 	
-	public static boolean doExchange() {
+	public static boolean doDelay() {
 		return preferencesStick.getRawButton(8);
 	}
 

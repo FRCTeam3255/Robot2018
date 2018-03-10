@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Autonomous extends CommandGroup {
 
     public Autonomous() {
+    	
     	if(AutoPreferences.doScale() && AutoPreferences.doSwitch()) {
     		addSequential(new AutoPlaceScale());
     		addSequential(new AutoPlaceSwitchAfterScale());
@@ -20,9 +21,9 @@ public class Autonomous extends CommandGroup {
     	else if (AutoPreferences.doScale()) {
     		addSequential(new AutoPlaceScale());
     	}
-    	else if (AutoPreferences.doExchange()) {
-        	addSequential(new AutoPlaceExchange());
-    	}
+//    	else if (AutoPreferences.doExchange()) {
+//        	addSequential(new AutoPlaceExchange());
+//    	}
     	else {
     		addSequential(new AutoPlaceSwitch());
     	}

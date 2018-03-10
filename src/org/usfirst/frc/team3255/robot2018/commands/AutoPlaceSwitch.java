@@ -234,7 +234,15 @@ public class AutoPlaceSwitch extends CommandGroup {
 		return angle;
 	}
 	
+	public static double delay() {
+		if(AutoPreferences.doDelay()) {
+			return 2.0;
+		}
+		return 0.0;
+	}
+	
 	public AutoPlaceSwitch() {
+		addSequential(new DoDelay(delay()));
         addSequential(new DriveStraightDistance("PlaceSwitchD1", autoSwitchD1()));
         addSequential(new DriveRotate("PlaceSwitchR1", autoSwitchR1()));
         addSequential(new DriveStraightDistance("PlaceSwitchD2", autoSwitchD2()));

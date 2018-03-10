@@ -160,9 +160,9 @@ public class RobotPreferences {
 	public static double cascadeLiftSwitchSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
 //			return 24.0;
-			return 28.0;
+			return 30.0;
 		}
-		return Preferences.getInstance().getDouble("CascadeLiftSwitchSetpoint", 28.0);
+		return Preferences.getInstance().getDouble("CascadeLiftSwitchSetpoint", 30.0);
 	}
 
 	public static double cascadeLiftLowScaleSetpoint() {
