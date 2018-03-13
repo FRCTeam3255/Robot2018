@@ -1,15 +1,16 @@
 package org.usfirst.frc.team3255.robot2018.commands;
 
 import org.usfirst.frc.team3255.robot2018.Robot;
-import org.usfirst.frc.team3255.robot2018.RobotMap;
+import org.usfirst.frc.team3255.robot2018.RobotPreferences;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class CollectorEject extends Command {
+public class CollectorSlowEject extends Command {
 
-    public CollectorEject() {
+    public CollectorSlowEject() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.collector);
@@ -18,11 +19,13 @@ public class CollectorEject extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.collector.clampCollector();
+
+    	double speed = RobotPreferences.collectorSlowEjectSpeed();
+    	Robot.collector.setCollectorSpeed(-speed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.setCollectorSpeed(-Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_SPEED_AXIS));
     }
 
     // Make this return true when this Command no longer needs to run execute()

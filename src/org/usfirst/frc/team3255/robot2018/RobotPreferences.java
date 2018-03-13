@@ -222,11 +222,11 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CollectorCollectSpeed", 1.0);
 	}
 	
-	public static double collectorEjectSpeed() {
+	public static double collectorSlowEjectSpeed() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
+			return 0.5;
 		}
-		return Preferences.getInstance().getDouble("CollectorEjectSpeed", 1.0);
+		return Preferences.getInstance().getDouble("CollectorEjectSpeed", 0.5);
 	}
 	
 	public static int collectorCubeDelay() {
