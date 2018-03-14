@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class CollectorEject extends Command {
+	
+	double speed = 0.0;
 
     public CollectorEject() {
         // Use requires() here to declare subsystem dependencies
@@ -22,7 +24,13 @@ public class CollectorEject extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.setCollectorSpeed(-Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_SPEED_AXIS));
+    	this.speed = -((Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_SPEED_AXIS) -1) / 2);
+    	
+    	if (speed == 0.0) {
+    		speed = 0.25;
+    	}
+    	
+    	Robot.collector.setCollectorSpeed(-speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

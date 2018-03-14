@@ -41,7 +41,7 @@ public class RobotMap {
 	
 	public static final int COLLECTOR_MOVE_AXIS = 1;
 	public static final int COLLECTOR_ROTATE_AXIS = 0;
-	public static final int COLLECTOR_SPEED_AXIS = 2;
+	public static final int COLLECTOR_SPEED_AXIS = 3;
 	
 	//Switches
 	public static final int CASCADE_TOP_SWITCH = 4;

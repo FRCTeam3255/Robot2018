@@ -174,9 +174,9 @@ public class RobotPreferences {
 
 	public static double cascadeLiftHighScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 59.0;
+			return 60.0;
 		}
-		return Preferences.getInstance().getDouble("CascadeLiftHighScaleSetpoint", 59.0);
+		return Preferences.getInstance().getDouble("CascadeLiftHighScaleSetpoint", 60.0);
 	}
 	
 	public static int cascadeLiftPulsesPerFoot() {
