@@ -91,6 +91,11 @@ void showCrosshairs(Mat &input){
 	line(input, Point(0, input.rows / 2), Point(input.cols, input.rows / 2), WHITE, 1);
 }
 
+Point2f centerPoint(Rect rect) {
+	return Point2f(rect.x + (rect.width / 2), rect.y + (rect.height / 2));
+}
+
+
 // Finds our cube in the contours
 void cubeFindTargets(Mat &imageInput, vector<vector<Point> > &input, Mat &output){	
 	// Readys Output mat for contour use
@@ -118,7 +123,25 @@ void cubeFindTargets(Mat &imageInput, vector<vector<Point> > &input, Mat &output
 		rectangle(output, cube, PURPLE, 2);
 		
     cubeDistance = 13*620/cube.width;
-    cubeOffset = -1 * (320-(cube.x + cube.width*0.5)) ;
+
+
+
+
+
+
+
+		Point2f centerPoint1 = centerPoint(cube);	
+		// Distance, angle, and offset calculation
+		double cubeWidth = cube.width;
+		double cubeB = (centerPoint1.x - (imageInput.cols/2)) * 1/(cubeWidth/1);
+		double cubeC = cubeDistance;
+		double cubeA = sqrt(abs(pow(cubeC,2)-pow(cubeB,2)));
+		double cubeRads = atan(cubeB/cubeA);
+		cubeOffset = 57.3 * cubeRads;
+		if ((imageInput.cols/2)>centerPoint1.x){
+			cubeOffset = -cubeOffset;
+
+		}
 
 		putText(output, "Offset: "+ to_string(cubeOffset), Point2f(30,2*15), cv::FONT_HERSHEY_PLAIN, 0.8, WHITE, 1);
 		putText(output, "Distance: "+ to_string(cubeDistance), Point2f(30,3*15), FONT_HERSHEY_PLAIN, 0.8, WHITE, 1);
