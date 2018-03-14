@@ -254,6 +254,6 @@ public class AutoPlaceSwitch extends CommandGroup {
         addSequential(new DriveRotate("PlaceSwitchR3", autoSwitchR3()));
         //Vision PID
 //        addSequential(new DriveToTarget("PlaceSwitchD3", autoSwitchD3()));
-        addSequential(new CollectorEject(), 2.0);
+        addSequential(new CollectorSlowEject(), 2.0);
     }
 }

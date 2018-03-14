@@ -201,6 +201,6 @@ public class AutoPlaceScale extends CommandGroup {
         addSequential(new CollectorDeployIntake());
         //Vision PID
         //addSequential(new DriveToTarget("PlaceScaleD3", autoScaleD3()));
-        addSequential(new CollectorEject(), 2.0);
+        addSequential(new CollectorFastEject(), 2.0);
     }
 }
