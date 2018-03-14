@@ -9,7 +9,7 @@
 
 // ============== Basic Settings ============== //
 const int teamNumber = 3255;	// FIRST Robotics Competition team number
-const int cameraInput = 0;		// Camera input (default is 0 for jetson use)
+const int cameraInput = 1;		// Camera input (default is 0 for jetson use)
 const int streamPort = 1180;	// Port number of the video stream
 								// 	(on jetson available at tegra-ubuntu.local:"streamPort" being the port below)
 								// 	should be on the ip address of the device thats doing the processing, in our case the Jetson.
@@ -25,11 +25,7 @@ const bool showRawStream = false;				// By default (yes or no) show the raw, unp
 // This can be changed live and overriden using RobotPreferences or NetworkTables. 
 // ============================================ //
 
-// ======== Tracking Tape Caliberation ======== //
-const double OBJECT_WIDTH = 2; 	// Width (inches) of the tracking tape in real life
-const double BASE_DISTANCE = 36;// Distance (inches) from camera to use as base for calucation
-const double PIXEL_WIDTH = 40; 	// Width (inches) of the pixels at base distance
-	
+
 // ========= Contour Filter Threshold ========= //
 // Lower and upper bound (in that respective order) threshold for contour filtering
 int contourWidth[] = {6, 1000000};
@@ -43,9 +39,11 @@ int minContourArcLength = 100;
 // Use these if you would like to code the values on the image processor rather than receive them from the RoboRIO
 // Store a double vector for both lower and upper bounds (in that respective order) of the hsl filter
 //	decides what color you're looking for in the first mask
-vector<double> hue = {47, 75};
-vector<double> saturation = {112, 255};
-vector<double> luminance = {21, 112};
+
+
+vector<double> cubeHue = {10, 55};
+vector<double> cubeSaturation = {238, 255};
+vector<double> cubeLuminance = {14, 45};
 // ============================================ //
 
 
