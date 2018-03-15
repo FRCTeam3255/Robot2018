@@ -20,8 +20,11 @@ public class Collector extends Subsystem {
 	private WPI_TalonSRX leftCollectorTalon = null;
 	private WPI_TalonSRX rightCollectorTalon = null;
 	private WPI_TalonSRX climbTalon = null; 
+	private WPI_TalonSRX armTalon = null;
 	
 	private DigitalInput intakeSwitch = null;
+	private DigitalInput frontArmSwitch = null;
+	private DigitalInput backArmSwitch = null;
 	
 	private DoubleSolenoid clampSolenoid = null;
 	private DoubleSolenoid deploySolenoid = null;
@@ -32,16 +35,21 @@ public class Collector extends Subsystem {
 		leftCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_LEFT_TALON);
 		rightCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_RIGHT_TALON);
 		climbTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_CLIMB_TALON);
+		armTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_ARM_TALON);
 		
 		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		climbTalon.setNeutralMode(NeutralMode.Brake);
+		armTalon.setNeutralMode(NeutralMode.Brake);
 		
 		leftCollectorTalon.setSafetyEnabled(false);
 		rightCollectorTalon.setSafetyEnabled(false);
 		climbTalon.setSafetyEnabled(false);
+		armTalon.setSafetyEnabled(false);
 		
 		intakeSwitch = new DigitalInput(RobotMap.COLLECTOR_INTAKE_SWITCH);
+		frontArmSwitch = new DigitalInput(RobotMap.COLLECTOR_FRONT_ARM_SWITCH);
+		backArmSwitch = new DigitalInput(RobotMap.COLLECTOR_BACK_ARM_SWITCH);
 		
 		clampSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_CLAMP_SOLENOID_CLAMP, RobotMap.COLLECTOR_CLAMP_SOLENOID_RELEASE);
 		deploySolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_DEPLOY_SOLENOID_DEPLOY, RobotMap.COLLECTOR_DEPLOY_SOLENOID_RETRACT);
@@ -64,8 +72,20 @@ public class Collector extends Subsystem {
 		rightCollectorTalon.set(-speed);
 	}
 	
+	public void setArmSpeed(double speed) {
+		armTalon.set(speed);
+	}
+	
 	public boolean isCubeCollected() {
 		return !intakeSwitch.get();
+	}
+	
+	public boolean isFrontArmSwitch() {
+		return frontArmSwitch.get();
+	}
+	
+	public boolean isBackArmSwitch() {
+		return backArmSwitch.get();
 	}
 	
 	public void clampCollector() {

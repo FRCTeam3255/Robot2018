@@ -26,6 +26,7 @@ public class RobotMap {
 	public static final int CASCADE_TOP_TALON = 7;
 	public static final int CASCADE_BOTTOM_TALON = 8;
 	public static final int COLLECTOR_CLIMB_TALON = 9;
+	public static final int COLLECTOR_ARM_TALON = 10;
 
 	
 	//Lighting
@@ -47,6 +48,8 @@ public class RobotMap {
 	public static final int CASCADE_TOP_SWITCH = 4;
 	public static final int CASCADE_BOTTOM_SWITCH = 3;
 	public static final int COLLECTOR_INTAKE_SWITCH = 2;
+	public static final int COLLECTOR_FRONT_ARM_SWITCH = 5;
+	public static final int COLLECTOR_BACK_ARM_SWITCH = 6;
 	
 	
 	//Encoder

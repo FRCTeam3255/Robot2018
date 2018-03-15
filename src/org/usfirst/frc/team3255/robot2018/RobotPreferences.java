@@ -597,4 +597,11 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("CubeDistance", 12.0);
 	}
+
+	public static double collectorArmSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorArmSpeed", 1.0);
+	}
 }

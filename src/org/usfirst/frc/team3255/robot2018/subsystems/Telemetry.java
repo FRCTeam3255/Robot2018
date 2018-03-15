@@ -55,6 +55,8 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Collector Is Top", Robot.cascadeLift.isTopSwitchClosed());
 		SmartDashboard.putBoolean("Collector Is Bottom", Robot.cascadeLift.isBottomSwitchClosed());
 		SmartDashboard.putBoolean("Is Cube Collected", Robot.collector.isCubeCollected());
+		SmartDashboard.putBoolean("Arm Is Front", Robot.collector.isFrontArmSwitch());
+		SmartDashboard.putBoolean("Arm Is Back", Robot.collector.isBackArmSwitch());
 		
 		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
 		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());
