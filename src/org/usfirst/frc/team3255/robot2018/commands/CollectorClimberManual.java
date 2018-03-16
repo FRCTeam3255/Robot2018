@@ -12,17 +12,18 @@ public class CollectorClimberManual extends Command {
     public CollectorClimberManual() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.collector);
+    	requires(Robot.cascadeLift);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.cascadeLift.shiftToClimber();
     	Robot.cascadeLift.unlockLift();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.setClimberSpeed(-Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS));
+    	Robot.cascadeLift.setClimberSpeed(-Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS));
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,7 +33,7 @@ public class CollectorClimberManual extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.collector.setClimberSpeed(0.0);
+    	Robot.cascadeLift.setClimberSpeed(0.0);
     }
 
     // Called when another command which requires one or more of the same

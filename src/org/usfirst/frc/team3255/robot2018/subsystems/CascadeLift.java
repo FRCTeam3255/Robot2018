@@ -28,6 +28,7 @@ public class CascadeLift extends Subsystem {
 	private Encoder liftEncoder = null;
 	
 	private DoubleSolenoid liftSolenoid = null;
+	private DoubleSolenoid climbShifterSolenoid = null;
 	
 	public CascadeLift() {
 		topTalon = new WPI_TalonSRX(RobotMap.CASCADE_TOP_TALON);
@@ -45,6 +46,12 @@ public class CascadeLift extends Subsystem {
 		bottomSwitch = new DigitalInput(RobotMap.CASCADE_BOTTOM_SWITCH);
 		
 		liftSolenoid = new DoubleSolenoid(RobotMap.CASCADE_LIFT_SOLENOID_A, RobotMap.CASCADE_LIFT_SOLENOID_B);
+		climbShifterSolenoid = new DoubleSolenoid(RobotMap.CASCADE_CLIMB_SHIFTER_SOLENOID_A, RobotMap.CASCADE_CLIMB_SHIFTER_SOLENOID_B);
+	}
+	
+	public void setClimberSpeed(double speed) {
+		shiftToClimber();
+		setLiftSpeed(speed);
 	}
 	
 	public void setLiftSpeed(double speed) {
@@ -100,6 +107,14 @@ public class CascadeLift extends Subsystem {
 			}
 		}
 		setLiftSpeed(0.0);
+	}
+	
+	public void shiftToClimber() {
+		climbShifterSolenoid.set(Value.kForward);
+	}
+	
+	public void shiftToCascade() {
+		climbShifterSolenoid.set(Value.kReverse);
 	}
 	
 	protected void setUnsafeSpeed(double speed) {

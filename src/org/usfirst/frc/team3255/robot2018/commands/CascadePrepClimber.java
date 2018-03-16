@@ -19,7 +19,6 @@ public class CascadePrepClimber extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.cascadeLift.unlockLift();
-    	Robot.collector.retractCollector();
     	Robot.cascadeLift.setLiftSpeed(0.7);
     }
 
@@ -36,6 +35,7 @@ public class CascadePrepClimber extends Command {
     protected void end() {
     	Robot.cascadeLift.setLiftSpeed(0.0);
     	Robot.cascadeLift.lockLift();
+    	Robot.cascadeLift.shiftToClimber();
     }
 
     // Called when another command which requires one or more of the same

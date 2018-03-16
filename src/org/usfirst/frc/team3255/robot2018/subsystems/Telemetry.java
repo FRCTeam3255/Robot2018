@@ -17,9 +17,9 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Reset Drive Encoder", new DrivetrainResetEncoder());
 		SmartDashboard.putData("Reset Collector Encoder", new CascadeResetEncoder());
 		
-		SmartDashboard.putData("Retract Collector", new CollectorRetractIntake());
-		SmartDashboard.putData("Deploy Collector", new CollectorDeployIntake());
-		
+		SmartDashboard.putData("Collector Front", new CollectorArmFront());
+		SmartDashboard.putData("Collector Back", new CollectorArmBack());
+
 		SmartDashboard.putData("Move to High Scale", new CascacdeMoveToHighScale());
 		SmartDashboard.putData("Move to Low Scale", new CascadeMoveToLowScale());
 		SmartDashboard.putData("Move to Switch", new CascadeMoveToSwitch());

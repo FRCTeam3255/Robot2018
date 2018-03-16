@@ -71,8 +71,7 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
-		
-		collector.retractCollector();
+		cascadeLift.shiftToCascade();
 	}
 
 	/**

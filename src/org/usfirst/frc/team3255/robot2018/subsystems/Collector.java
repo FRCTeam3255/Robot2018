@@ -18,8 +18,7 @@ public class Collector extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	private WPI_TalonSRX leftCollectorTalon = null;
-	private WPI_TalonSRX rightCollectorTalon = null;
-	private WPI_TalonSRX climbTalon = null; 
+	private WPI_TalonSRX rightCollectorTalon = null; 
 	private WPI_TalonSRX armTalon = null;
 	
 	private DigitalInput intakeSwitch = null;
@@ -27,24 +26,20 @@ public class Collector extends Subsystem {
 	private DigitalInput backArmSwitch = null;
 	
 	private DoubleSolenoid clampSolenoid = null;
-	private DoubleSolenoid deploySolenoid = null;
 
 	private DifferentialDrive collectorDrive = null;
 	
 	public Collector() {
 		leftCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_LEFT_TALON);
 		rightCollectorTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_INTAKE_RIGHT_TALON);
-		climbTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_CLIMB_TALON);
 		armTalon = new WPI_TalonSRX(RobotMap.COLLECTOR_ARM_TALON);
 		
 		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
-		climbTalon.setNeutralMode(NeutralMode.Brake);
 		armTalon.setNeutralMode(NeutralMode.Brake);
 		
 		leftCollectorTalon.setSafetyEnabled(false);
 		rightCollectorTalon.setSafetyEnabled(false);
-		climbTalon.setSafetyEnabled(false);
 		armTalon.setSafetyEnabled(false);
 		
 		intakeSwitch = new DigitalInput(RobotMap.COLLECTOR_INTAKE_SWITCH);
@@ -52,19 +47,9 @@ public class Collector extends Subsystem {
 		backArmSwitch = new DigitalInput(RobotMap.COLLECTOR_BACK_ARM_SWITCH);
 		
 		clampSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_CLAMP_SOLENOID_CLAMP, RobotMap.COLLECTOR_CLAMP_SOLENOID_RELEASE);
-		deploySolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_DEPLOY_SOLENOID_DEPLOY, RobotMap.COLLECTOR_DEPLOY_SOLENOID_RETRACT);
-
 		
 		collectorDrive = new DifferentialDrive(leftCollectorTalon, rightCollectorTalon);
 		collectorDrive.setSafetyEnabled(false);
-	}
-	
-	public void setClimberSpeed(double speed) {
-		if(speed < 0) {
-			speed = 0;
-		}
-		
-		climbTalon.set(speed);
 	}
 	
 	public void setCollectorSpeed(double speed) {
@@ -73,6 +58,13 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setArmSpeed(double speed) {
+		if((speed > 0) && isFrontArmSwitch()) {
+			speed = 0;
+		}
+		else if((speed < 0) && isBackArmSwitch()) {
+			speed = 0;
+		}
+		
 		armTalon.set(speed);
 	}
 	
@@ -94,14 +86,6 @@ public class Collector extends Subsystem {
 	
 	public void releaseCollector() {
 		clampSolenoid.set(Value.kReverse);
-	}
-
-	public void deployCollector() {
-		deploySolenoid.set(Value.kForward);
-	}
-	
-	public void retractCollector() {
-		deploySolenoid.set(Value.kReverse);
 	}
 	
 	public void arcadeCollect(double moveSpeed, double rotateSpeed) {

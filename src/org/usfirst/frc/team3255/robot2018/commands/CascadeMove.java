@@ -22,6 +22,7 @@ public class CascadeMove extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.cascadeLift.shiftToCascade();
     	Robot.cascadeLift.unlockLift();
     	Robot.collectorPID.setSetpoint(setPoint);
     	Robot.collectorPID.setRawTolerance(RobotPreferences.cascadeLiftTolerance());

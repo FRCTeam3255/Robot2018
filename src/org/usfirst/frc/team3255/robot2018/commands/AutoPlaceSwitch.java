@@ -248,8 +248,7 @@ public class AutoPlaceSwitch extends CommandGroup {
         addSequential(new DriveStraightDistance("PlaceSwitchD2", autoSwitchD2()));
         addSequential(new DriveRotate("PlaceSwitchR2", autoSwitchR2()));
         //Drivetrain PID
-        addParallel(new CascadeMoveToSwitch());
-        addParallel(new CollectorDeployIntake());
+        addParallel(new CascadeSwitch());
         addSequential(new DriveStraightDistance("PlaceSwitchD3", autoSwitchD3()));
         addSequential(new DriveRotate("PlaceSwitchR3", autoSwitchR3()));
         //Vision PID

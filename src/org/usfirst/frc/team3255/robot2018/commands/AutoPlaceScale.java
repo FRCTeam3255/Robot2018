@@ -198,7 +198,7 @@ public class AutoPlaceScale extends CommandGroup {
         //Drivetrain PID
         addParallel(new CascacdeMoveToHighScale());
         addSequential(new DriveDistance("PlaceScaleD3", autoScaleD3()));
-        addSequential(new CollectorDeployIntake());
+        addSequential(new CollectorArmFront());
         //Vision PID
         //addSequential(new DriveToTarget("PlaceScaleD3", autoScaleD3()));
         addSequential(new CollectorFastEject(), 2.0);
