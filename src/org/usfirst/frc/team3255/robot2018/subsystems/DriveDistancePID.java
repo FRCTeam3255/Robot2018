@@ -35,8 +35,8 @@ public abstract class DriveDistancePID extends PIDSubsystem {
     		RobotPreferences.drivetrainI(),
     		RobotPreferences.drivetrainD());
     	
-    	minPIDSpeed = RobotPreferences.distancePIDMin();
-    	maxPIDSpeed = RobotPreferences.distancePIDMax();
+    	minPIDSpeed = RobotPreferences.distancePIDMinSpeed();
+    	maxPIDSpeed = RobotPreferences.distancePIDMaxSpeed();
     	
     	outputMaxChange = RobotPreferences.movePIDMaxChange();
     	

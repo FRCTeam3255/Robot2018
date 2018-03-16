@@ -13,7 +13,7 @@ public class DrivetrainDistanceVisionPID extends DriveDistancePID {
     }
    
     protected double returnPIDInput() {
-        return Robot.navigation.getTargetDistance();
+        return Robot.navigation.getCubeDistance();
     }
     
     public boolean onRawTarget() {

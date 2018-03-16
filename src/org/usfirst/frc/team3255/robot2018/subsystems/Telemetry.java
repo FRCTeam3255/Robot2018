@@ -2,7 +2,6 @@ package org.usfirst.frc.team3255.robot2018.subsystems;
 
 import org.usfirst.frc.team3255.robot2018.AutoPreferences;
 import org.usfirst.frc.team3255.robot2018.Robot;
-import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 import org.usfirst.frc.team3255.robot2018.commands.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -39,7 +38,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Rotate 90", new DriveRotate("Rotate 90", 90.0));
 		
 		SmartDashboard.putData("Drive To Target", new DriveToTarget("Drive To Target", 30.0));
-		SmartDashboard.putData("Drive to Cube", new VisionMoveToCube("Drive To Cube", RobotPreferences.moveToCubeDistance()));
+		SmartDashboard.putData("Drive to Cube", new VisionDriveCubeCollected("Drive To Cube"));
 		
 		SmartDashboard.putNumber("Default Lane", 2);
 	}

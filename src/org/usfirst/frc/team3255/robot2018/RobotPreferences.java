@@ -12,14 +12,14 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("MovePIDMaxChange", 1.0);
 	}
 
-	public static double distancePIDMin() {
+	public static double distancePIDMinSpeed() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.0;
 		}
 		return Preferences.getInstance().getDouble("DrivetrainPIDMinSpeed", 0.0);
 	}
 	
-	public static double distancePIDMax() {
+	public static double distancePIDMaxSpeed() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.5;
 		}

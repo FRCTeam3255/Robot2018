@@ -2,37 +2,33 @@ package org.usfirst.frc.team3255.robot2018.commands;
 
 import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
-import org.usfirst.frc.team3255.robot2018.subsystems.Lighting;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class VisionMoveToCube extends Command {
+public class VisionDriveCubeCollected extends Command {
 	
 	String commandName;
-	double distance;
 	private double expireTime;
+	int held = 0;
 
-    public VisionMoveToCube(String name, double distance) {
+    public VisionDriveCubeCollected(String name) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivetrain);
+    	requires(Robot.collector);
     	requires(Robot.drivetrainDistanceVisionPID);
     	requires(Robot.visionOffsetPID);
     	
-    	this.distance = distance;
     	commandName = name;
 
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + distance );
-    	Robot.drivetrainDistanceVisionPID.setSetpoint(distance);
-    	Robot.drivetrainDistanceVisionPID.setRawTolerance(RobotPreferences.visionDistanceTolerance());
-    	Robot.drivetrainDistanceVisionPID.enable();
+    	Robot.telemetry.setAutonomousStatus("Starting " + commandName);
+    	Robot.collector.setCollectorSpeed(RobotPreferences.collectorCollectSpeed());
     	
     	Robot.visionOffsetPID.setSetpoint(0.0);
     	Robot.visionOffsetPID.setRawTolerance(RobotPreferences.visionOffsetTolerance());
@@ -43,31 +39,29 @@ public class VisionMoveToCube extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.telemetry.setAutonomousStatus("Running " + commandName + ": " + distance);
-    	Robot.drivetrain.arcadeDrive(Robot.drivetrainDistanceVisionPID.getOutput(), 0.0);
+    	Robot.telemetry.setAutonomousStatus("Running " + commandName);
+    	Robot.drivetrain.arcadeDrive(RobotPreferences.distancePIDMaxSpeed(), Robot.visionOffsetPID.getOutput());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        boolean distanceTarget = Robot.drivetrainDistanceVisionPID.onRawTarget();
-        boolean offsetTarget = Robot.visionOffsetPID.onRawTarget();
-        
+        boolean cubeCollected = Robot.collector.isCubeCollected();
         double timeNow = timeSinceInitialized();
         
-        if(offsetTarget) {
-        	Robot.lighting.setLighting(Lighting.CUBE_ALIGNED);
+        if (cubeCollected) {
+        	held = held + 1;
         }
-        else if(Robot.navigation.isTargetFound()) {
-        	Robot.lighting.setLighting(Lighting.CUBE_IDENTIFIED);
+        else {
+        	held = 0;
         }
-        
-        return((distanceTarget && offsetTarget) || (timeNow >= expireTime));
+       
+        return(held > RobotPreferences.collectorCubeDelay() || (timeNow >= expireTime));
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.telemetry.setAutonomousStatus("Finishing " + commandName + ": " + distance);
-    	Robot.drivetrainDistanceVisionPID.disable();
+    	Robot.telemetry.setAutonomousStatus("Finishing " + commandName);
+    	Robot.collector.setCollectorSpeed(0.0);
     	Robot.visionOffsetPID.disable();
     	Robot.drivetrain.arcadeDrive(0.0, 0.0);
     }

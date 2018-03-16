@@ -52,7 +52,7 @@ public class VisionOffsetPID extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return Robot.navigation.getTargetOffset();
+        return Robot.navigation.getCubeOffset();
     }
 
     protected void usePIDOutput(double output) {
