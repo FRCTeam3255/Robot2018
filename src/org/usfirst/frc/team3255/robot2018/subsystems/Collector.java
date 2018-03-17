@@ -4,11 +4,13 @@ import org.usfirst.frc.team3255.robot2018.RobotMap;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 
 /**
  *
@@ -21,12 +23,12 @@ public class Collector extends Subsystem {
 	private WPI_TalonSRX rightCollectorTalon = null; 
 	private WPI_TalonSRX armTalon = null;
 	
-	private DigitalInput intakeSwitch = null;
-	private DigitalInput frontArmSwitch = null;
-	private DigitalInput backArmSwitch = null;
+	private DigitalInput cubeIntakeSwitch = null;
 	private DigitalInput topIntakeSwitch = null;
 
 	private DoubleSolenoid clampSolenoid = null;
+	
+	private Potentiometer armPot = null;
 
 	private DifferentialDrive collectorDrive = null;
 	
@@ -43,12 +45,12 @@ public class Collector extends Subsystem {
 		rightCollectorTalon.setSafetyEnabled(false);
 		armTalon.setSafetyEnabled(false);
 		
-		intakeSwitch = new DigitalInput(RobotMap.COLLECTOR_INTAKE_SWITCH);
-		frontArmSwitch = new DigitalInput(RobotMap.COLLECTOR_FRONT_ARM_SWITCH);
-		backArmSwitch = new DigitalInput(RobotMap.COLLECTOR_BACK_ARM_SWITCH);
+		cubeIntakeSwitch = new DigitalInput(RobotMap.COLLECTOR_CUBE_INTAKE_SWITCH);
 		topIntakeSwitch = new DigitalInput(RobotMap.COLLECTOR_TOP_INTAKE_SWITCH);
 		
 		clampSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_CLAMP_SOLENOID_CLAMP, RobotMap.COLLECTOR_CLAMP_SOLENOID_RELEASE);
+		
+		armPot = new AnalogPotentiometer(RobotMap.COLLECTOR_ARM_POT, 300, -60);
 		
 		collectorDrive = new DifferentialDrive(leftCollectorTalon, rightCollectorTalon);
 		collectorDrive.setSafetyEnabled(false);
@@ -74,15 +76,19 @@ public class Collector extends Subsystem {
 	}
 	
 	public boolean isCubeCollected() {
-		return !intakeSwitch.get();
+		return !cubeIntakeSwitch.get();
 	}
 	
 	public boolean isFrontArmSwitch() {
-		return frontArmSwitch.get();
+		return getArmPosition() <= 0; 
 	}
 	
 	public boolean isBackArmSwitch() {
-		return backArmSwitch.get();
+		return getArmPosition() >= 180;
+	}
+	
+	public double getArmPosition() {
+		return armPot.get();
 	}
 	
 	public boolean isTopIntakeSwitchClosed() {

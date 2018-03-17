@@ -23,7 +23,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putData("Move to High Scale", new CascacdeMoveToHighScale());
 		SmartDashboard.putData("Move to Low Scale", new CascadeMoveToLowScale());
 		SmartDashboard.putData("Move to Switch", new CascadeMoveToSwitch());
-		SmartDashboard.putData("Move to Bottom", new CascadeMoveToBottom());
+		SmartDashboard.putData("Move to Bottom", new CascadeBottom());
 		
 		SmartDashboard.putData("Collector Dogtooth Unlock", new CascadeLiftUnlock());
 		SmartDashboard.putData("Collector Dogtooth Lock", new CascadeLiftLock());
@@ -58,6 +58,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Is Cube Collected", Robot.collector.isCubeCollected());
 		SmartDashboard.putBoolean("Arm Is Front", Robot.collector.isFrontArmSwitch());
 		SmartDashboard.putBoolean("Arm Is Back", Robot.collector.isBackArmSwitch());
+		SmartDashboard.putNumber("Arm Position", Robot.collector.getArmPosition());
 		
 		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
 		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());

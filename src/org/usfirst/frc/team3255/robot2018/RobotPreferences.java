@@ -219,7 +219,7 @@ public class RobotPreferences {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.5;
 		}
-		return Preferences.getInstance().getDouble("CollectorEjectSpeed", 0.5);
+		return Preferences.getInstance().getDouble("CollectorSlowEjectSpeed", 0.5);
 	}
 	
 	public static int collectorCubeDelay() {
@@ -241,6 +241,20 @@ public class RobotPreferences {
 			return 1.0;
 		}
 		return Preferences.getInstance().getDouble("CollectorClimbExtendSpeed", 1.0);
+	}
+	
+	public static double collectorArmSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorArmSpeed", 1.0);
+	}
+	
+	public static double collectorArmSafetyvalue() {
+		if(AutoPreferences.isDebug() == false) {
+			return 90.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorArmSafetyValue", 90.0);
 	}
 	
 //	-------------------------------------------------------------- NAVIGATION ----------------------------------------------------------------
@@ -532,7 +546,6 @@ public class RobotPreferences {
 		}
 		return Preferences.getInstance().getDouble("AutoSwitchAfterScaleD2", 100.0);
 	}
-	
 
 	public static double autoSwitchAfterScaleD3() {
 		if(AutoPreferences.isDebug() == false) {
@@ -589,12 +602,5 @@ public class RobotPreferences {
 			return 12.0;
 		}
 		return Preferences.getInstance().getDouble("CubeDistance", 12.0);
-	}
-
-	public static double collectorArmSpeed() {
-		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
-		}
-		return Preferences.getInstance().getDouble("CollectorArmSpeed", 1.0);
 	}
 }

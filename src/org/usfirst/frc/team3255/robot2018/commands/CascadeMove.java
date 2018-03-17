@@ -33,6 +33,9 @@ public class CascadeMove extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if (Robot.collector.getArmPosition() >= RobotPreferences.collectorArmSafetyvalue()) {
+    		Robot.cascadeLift.setLiftSpeed(0.0);
+    	}
     	Robot.cascadeLift.setLiftSpeed(Robot.collectorPID.getOutput());
     }
 

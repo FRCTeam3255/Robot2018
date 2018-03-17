@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
+import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotMap;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
 import org.usfirst.frc.team3255.robot2018.commands.CascadeCheckForBottom;
@@ -62,11 +63,21 @@ public class CascadeLift extends Subsystem {
 	}
 	
 	public void setLiftSpeed(double speed) {
-		if((speed > 0) && isTopSwitchClosed()) {
-			speed = 0;
+		if(speed > 0) {
+			if(isTopSwitchClosed()) {
+				speed = 0;
+			}
+//			else if(/* pot > x */) {
+//				speed = 0;
+//			}
 		}
-		else if((speed < 0) && isBottomIntakeSwitchClosed()) {
-			speed = 0;
+		else if(speed < 0) {
+			if(isBottomIntakeSwitchClosed()) {
+				speed = 0;
+			}
+			else if(Robot.collector.isBackArmSwitch() && Robot.cascadeLift.isBottomSwitchClosed()) {
+				speed = 0;
+			}
 		}
 		
 		topTalon.set(speed);
@@ -96,7 +107,13 @@ public class CascadeLift extends Subsystem {
 	}
 	
 	public boolean isBottomIntakeSwitchClosed() {
-		return !bottomIntakeSwitch.get();
+		boolean closed = !bottomIntakeSwitch.get();
+		
+		if(closed) {
+			resetEncoder();
+		}
+		
+		return closed;
 	}
 	
 	public void lockLift() {

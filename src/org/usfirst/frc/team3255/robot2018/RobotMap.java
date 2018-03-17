@@ -45,21 +45,22 @@ public class RobotMap {
 	public static final int COLLECTOR_ROTATE_AXIS = 0;
 	public static final int COLLECTOR_SPEED_AXIS = 3;
 	
+	//Encoder
+	public static final int DRIVETRAIN_ENCODER_A = 0;
+	public static final int DRIVETRAIN_ENCODER_B = 1;
+		
+	public static final int CASCADE_ENCODER_A = 2;
+	public static final int CASCADE_ENCODER_B = 3;
+		
 	//Switches
 	public static final int CASCADE_TOP_SWITCH = 4;
-	public static final int CASCADE_BOTTOM_SWITCH = 3;
-	public static final int CASCADE_BOTTOM_INTAKE_SWITCH = 9;
-	public static final int COLLECTOR_INTAKE_SWITCH = 2;
-	public static final int COLLECTOR_FRONT_ARM_SWITCH = 5;
-	public static final int COLLECTOR_BACK_ARM_SWITCH = 6;
-	public static final int COLLECTOR_TOP_INTAKE_SWITCH = 10;
+	public static final int CASCADE_BOTTOM_SWITCH = 5;
+	public static final int COLLECTOR_TOP_INTAKE_SWITCH = 6;
+	public static final int CASCADE_BOTTOM_INTAKE_SWITCH = 7;
+	public static final int COLLECTOR_CUBE_INTAKE_SWITCH = 9;
 	
-	//Encoder
-	public static final int DRIVETRAIN_ENCODER_A = 7;
-	public static final int DRIVETRAIN_ENCODER_B = 8;
-	
-	public static final int CASCADE_ENCODER_A = 0;
-	public static final int CASCADE_ENCODER_B = 1;
+	//Pots
+	public static final int COLLECTOR_ARM_POT = 0;
 	
 	//Solenoid
 	public static final int COLLECTOR_CLAMP_SOLENOID_CLAMP = 0;

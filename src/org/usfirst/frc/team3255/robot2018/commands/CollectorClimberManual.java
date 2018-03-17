@@ -34,6 +34,7 @@ public class CollectorClimberManual extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.cascadeLift.setClimberSpeed(0.0);
+    	Robot.cascadeLift.lockLift();
     }
 
     // Called when another command which requires one or more of the same
