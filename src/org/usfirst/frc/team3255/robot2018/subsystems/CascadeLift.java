@@ -96,7 +96,7 @@ public class CascadeLift extends Subsystem {
 	}
 	
 	public boolean isBottomIntakeSwitchClosed() {
-		return bottomIntakeSwitch.get();
+		return !bottomIntakeSwitch.get();
 	}
 	
 	public void lockLift() {

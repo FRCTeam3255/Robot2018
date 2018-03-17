@@ -86,7 +86,7 @@ public class Collector extends Subsystem {
 	}
 	
 	public boolean isTopIntakeSwitchClosed() {
-		return topIntakeSwitch.get();
+		return !topIntakeSwitch.get();
 	}
 	
 	public void clampCollector() {

@@ -48,11 +48,11 @@ public class RobotMap {
 	//Switches
 	public static final int CASCADE_TOP_SWITCH = 4;
 	public static final int CASCADE_BOTTOM_SWITCH = 3;
-	public static final int CASCADE_BOTTOM_INTAKE_SWITCH = 10;
+	public static final int CASCADE_BOTTOM_INTAKE_SWITCH = 9;
 	public static final int COLLECTOR_INTAKE_SWITCH = 2;
 	public static final int COLLECTOR_FRONT_ARM_SWITCH = 5;
 	public static final int COLLECTOR_BACK_ARM_SWITCH = 6;
-	public static final int COLLECTOR_TOP_INTAKE_SWITCH = 9;
+	public static final int COLLECTOR_TOP_INTAKE_SWITCH = 10;
 	
 	//Encoder
 	public static final int DRIVETRAIN_ENCODER_A = 7;
