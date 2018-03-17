@@ -2,6 +2,7 @@ package org.usfirst.frc.team3255.robot2018.subsystems;
 
 import org.usfirst.frc.team3255.robot2018.RobotMap;
 import org.usfirst.frc.team3255.robot2018.RobotPreferences;
+import org.usfirst.frc.team3255.robot2018.commands.CascadeCheckForBottom;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -20,10 +21,12 @@ public class CascadeLift extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	private WPI_TalonSRX topTalon = null;
+	private WPI_TalonSRX midTalon = null;
 	private WPI_TalonSRX bottomTalon = null;
 	
 	private DigitalInput topSwitch = null;
 	private DigitalInput bottomSwitch = null;
+	private DigitalInput bottomIntakeSwitch = null;
 	
 	private Encoder liftEncoder = null;
 	
@@ -32,18 +35,22 @@ public class CascadeLift extends Subsystem {
 	
 	public CascadeLift() {
 		topTalon = new WPI_TalonSRX(RobotMap.CASCADE_TOP_TALON);
+		midTalon = new WPI_TalonSRX(RobotMap.CASCADE_MID_TALON);
 		bottomTalon = new WPI_TalonSRX(RobotMap.CASCADE_BOTTOM_TALON);
 		
 		topTalon.setNeutralMode(NeutralMode.Brake);
+		midTalon.setNeutralMode(NeutralMode.Brake);
 		bottomTalon.setNeutralMode(NeutralMode.Brake);
 		
 		topTalon.setSafetyEnabled(false);
+		midTalon.setSafetyEnabled(false);
 		bottomTalon.setSafetyEnabled(false);
 		
 		liftEncoder = new Encoder(RobotMap.CASCADE_ENCODER_A, RobotMap.CASCADE_ENCODER_B);
 		
 		topSwitch = new DigitalInput(RobotMap.CASCADE_TOP_SWITCH);
 		bottomSwitch = new DigitalInput(RobotMap.CASCADE_BOTTOM_SWITCH);
+		bottomIntakeSwitch = new DigitalInput(RobotMap.CASCADE_BOTTOM_INTAKE_SWITCH);
 		
 		liftSolenoid = new DoubleSolenoid(RobotMap.CASCADE_LIFT_SOLENOID_A, RobotMap.CASCADE_LIFT_SOLENOID_B);
 		climbShifterSolenoid = new DoubleSolenoid(RobotMap.CASCADE_CLIMB_SHIFTER_SOLENOID_A, RobotMap.CASCADE_CLIMB_SHIFTER_SOLENOID_B);
@@ -58,19 +65,12 @@ public class CascadeLift extends Subsystem {
 		if((speed > 0) && isTopSwitchClosed()) {
 			speed = 0;
 		}
-		else if((speed < 0) && isBottomSwitchClosed()) {
+		else if((speed < 0) && isBottomIntakeSwitchClosed()) {
 			speed = 0;
 		}
 		
-		double maxSpeed = RobotPreferences.cascadeLiftMaxSpeed();
-		
-		if(speed < 0) {
-			if (speed < -maxSpeed) {
-				speed = -maxSpeed;
-			}
-		}
-		
 		topTalon.set(speed);
+		midTalon.set(speed);
 		bottomTalon.set(speed);
 	}
 	
@@ -93,6 +93,10 @@ public class CascadeLift extends Subsystem {
 	
 	public boolean isBottomSwitchClosed() {
 		return !bottomSwitch.get();
+	}
+	
+	public boolean isBottomIntakeSwitchClosed() {
+		return bottomIntakeSwitch.get();
 	}
 	
 	public void lockLift() {
@@ -119,6 +123,7 @@ public class CascadeLift extends Subsystem {
 	
 	protected void setUnsafeSpeed(double speed) {
 		topTalon.set(speed);
+		midTalon.set(speed);
 		bottomTalon.set(speed);
 	}
 	
@@ -133,5 +138,6 @@ public class CascadeLift extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new CascadeCheckForBottom());
     }
 }

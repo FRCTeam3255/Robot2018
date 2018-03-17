@@ -25,8 +25,7 @@ public class Collector extends Subsystem {
 	private DigitalInput frontArmSwitch = null;
 	private DigitalInput backArmSwitch = null;
 	private DigitalInput topIntakeSwitch = null;
-	private DigitalInput bottomIntakeSwitch = null;
-	
+
 	private DoubleSolenoid clampSolenoid = null;
 
 	private DifferentialDrive collectorDrive = null;
@@ -48,7 +47,6 @@ public class Collector extends Subsystem {
 		frontArmSwitch = new DigitalInput(RobotMap.COLLECTOR_FRONT_ARM_SWITCH);
 		backArmSwitch = new DigitalInput(RobotMap.COLLECTOR_BACK_ARM_SWITCH);
 		topIntakeSwitch = new DigitalInput(RobotMap.COLLECTOR_TOP_INTAKE_SWITCH);
-		bottomIntakeSwitch = new DigitalInput(RobotMap.COLLECTOR_BOTTOM_INTAKE_SWITCH);
 		
 		clampSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_CLAMP_SOLENOID_CLAMP, RobotMap.COLLECTOR_CLAMP_SOLENOID_RELEASE);
 		
@@ -62,7 +60,7 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setArmSpeed(double speed) {
-		if(!isTopIntakeSwitch() && (speed < 0)) {
+		if(!isTopIntakeSwitchClosed() && (speed < 0)) {
 			speed = 0;
 		}
 		else if((speed > 0) && isFrontArmSwitch()) {
@@ -87,12 +85,8 @@ public class Collector extends Subsystem {
 		return backArmSwitch.get();
 	}
 	
-	public boolean isTopIntakeSwitch() {
+	public boolean isTopIntakeSwitchClosed() {
 		return topIntakeSwitch.get();
-	}
-	
-	public boolean isBottomIntakeSwitch() {
-		return bottomIntakeSwitch.get();
 	}
 	
 	public void clampCollector() {

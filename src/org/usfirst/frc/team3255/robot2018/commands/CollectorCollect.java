@@ -10,6 +10,5 @@ public class CollectorCollect extends CommandGroup {
     public CollectorCollect() {	
     	addSequential(new CascadeBottom());
     	addSequential(new CollectorCollectCube());
-    	addSequential(new CascadeResetEncoder());
     }
 }

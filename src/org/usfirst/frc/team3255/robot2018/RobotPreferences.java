@@ -186,13 +186,6 @@ public class RobotPreferences {
 		return Preferences.getInstance().getInt("CascadeLiftPulsesPerFoot", 333);
 	}
 	
-	public static double cascadeLiftMaxSpeed() {
-		if(AutoPreferences.isDebug() == false) {
-			return 0.25;
-		}
-		return Preferences.getInstance().getDouble("CascadeLiftMaxSpeed", 0.25);
-	}
-
 	public static double cascadeLiftPIDMaxChange() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
