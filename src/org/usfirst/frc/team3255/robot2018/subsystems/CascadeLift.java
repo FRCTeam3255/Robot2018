@@ -25,9 +25,10 @@ public class CascadeLift extends Subsystem {
 	private WPI_TalonSRX midTalon = null;
 	private WPI_TalonSRX bottomTalon = null;
 	
-	private DigitalInput topSwitch = null;
-	private DigitalInput bottomSwitch = null;
+	private DigitalInput topCascadeSwitch = null;
+	private DigitalInput bottomCascadeSwitch = null;
 	private DigitalInput bottomIntakeSwitch = null;
+	private DigitalInput topIntakeSwitch = null;
 	
 	private Encoder liftEncoder = null;
 	
@@ -49,9 +50,10 @@ public class CascadeLift extends Subsystem {
 		
 		liftEncoder = new Encoder(RobotMap.CASCADE_ENCODER_A, RobotMap.CASCADE_ENCODER_B);
 		
-		topSwitch = new DigitalInput(RobotMap.CASCADE_TOP_SWITCH);
-		bottomSwitch = new DigitalInput(RobotMap.CASCADE_BOTTOM_SWITCH);
+		topCascadeSwitch = new DigitalInput(RobotMap.CASCADE_TOP_CASCADE_SWITCH);
+		bottomCascadeSwitch = new DigitalInput(RobotMap.CASCADE_BOTTOM_CASCADE_SWITCH);
 		bottomIntakeSwitch = new DigitalInput(RobotMap.CASCADE_BOTTOM_INTAKE_SWITCH);
+		topIntakeSwitch = new DigitalInput(RobotMap.CASCADE_TOP_INTAKE_SWITCH);
 		
 		liftSolenoid = new DoubleSolenoid(RobotMap.CASCADE_LIFT_SOLENOID_A, RobotMap.CASCADE_LIFT_SOLENOID_B);
 		climbShifterSolenoid = new DoubleSolenoid(RobotMap.CASCADE_CLIMB_SHIFTER_SOLENOID_A, RobotMap.CASCADE_CLIMB_SHIFTER_SOLENOID_B);
@@ -64,18 +66,21 @@ public class CascadeLift extends Subsystem {
 	
 	public void setLiftSpeed(double speed) {
 		if(speed > 0) {
-			if(isTopSwitchClosed()) {
+			if(isCascadeTop()) {
 				speed = 0;
 			}
-//			else if(/* pot > x */) {
-//				speed = 0;
-//			}
+			else if(!isIntakeTop()) {
+				if (!Robot.collector.isArmSafe()) {
+					speed = 0;
+		    	}
+			}
 		}
+		
 		else if(speed < 0) {
-			if(isBottomIntakeSwitchClosed()) {
+			if(isIntakeBottom()) {
 				speed = 0;
 			}
-			else if(Robot.collector.isBackArmSwitch() && Robot.cascadeLift.isBottomSwitchClosed()) {
+			else if(Robot.collector.isArmBack() && isCascadeBottom()) {
 				speed = 0;
 			}
 		}
@@ -98,15 +103,19 @@ public class CascadeLift extends Subsystem {
 		liftEncoder.reset();
 	}
 
-	public boolean isTopSwitchClosed() {
-		return !topSwitch.get();
+	public boolean isCascadeTop() {
+		return !topCascadeSwitch.get();
 	}
 	
-	public boolean isBottomSwitchClosed() {
-		return !bottomSwitch.get();
+	public boolean isCascadeBottom() {
+		return !bottomCascadeSwitch.get();
 	}
 	
-	public boolean isBottomIntakeSwitchClosed() {
+	public boolean isIntakeTop() {
+		return !topIntakeSwitch.get();
+	}
+	
+	public boolean isIntakeBottom() {
 		boolean closed = !bottomIntakeSwitch.get();
 		
 		if(closed) {
@@ -122,7 +131,7 @@ public class CascadeLift extends Subsystem {
 	
 	public void unlockLift() {
 		liftSolenoid.set(Value.kReverse);
-		if(!isBottomSwitchClosed()) {
+		if(!isCascadeBottom()) {
 			for(int i = 0; i <1000; i++) {
 				setUnsafeSpeed(0.3);	
 			}

@@ -51,13 +51,13 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putNumber("Collector Encoder Count", Robot.cascadeLift.getEncoderCount());
 		SmartDashboard.putNumber("Collector Encoder Distance", Robot.cascadeLift.getEncoderDistance());
 		
-		SmartDashboard.putBoolean("Collector Is Top", Robot.cascadeLift.isTopSwitchClosed());
-		SmartDashboard.putBoolean("Collector Is Bottom", Robot.cascadeLift.isBottomSwitchClosed());
-		SmartDashboard.putBoolean("Intake Is Top", Robot.collector.isTopIntakeSwitchClosed());
-		SmartDashboard.putBoolean("Intake Is Bottom", Robot.cascadeLift.isBottomIntakeSwitchClosed());
+		SmartDashboard.putBoolean("Cascade Is Top", Robot.cascadeLift.isCascadeTop());
+		SmartDashboard.putBoolean("Cascade Is Bottom", Robot.cascadeLift.isCascadeBottom());
+		SmartDashboard.putBoolean("Intake Is Top", Robot.cascadeLift.isIntakeTop());
+		SmartDashboard.putBoolean("Intake Is Bottom", Robot.cascadeLift.isIntakeBottom());
 		SmartDashboard.putBoolean("Is Cube Collected", Robot.collector.isCubeCollected());
-		SmartDashboard.putBoolean("Arm Is Front", Robot.collector.isFrontArmSwitch());
-		SmartDashboard.putBoolean("Arm Is Back", Robot.collector.isBackArmSwitch());
+		SmartDashboard.putBoolean("Arm Is Front", Robot.collector.isArmFront());
+		SmartDashboard.putBoolean("Arm Is Back", Robot.collector.isArmBack());
 		SmartDashboard.putNumber("Arm Position", Robot.collector.getArmPosition());
 		
 		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());

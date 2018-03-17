@@ -1,6 +1,9 @@
 package org.usfirst.frc.team3255.robot2018.subsystems;
 
+import org.usfirst.frc.team3255.robot2018.Robot;
 import org.usfirst.frc.team3255.robot2018.RobotMap;
+import org.usfirst.frc.team3255.robot2018.RobotPreferences;
+
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -24,7 +27,6 @@ public class Collector extends Subsystem {
 	private WPI_TalonSRX armTalon = null;
 	
 	private DigitalInput cubeIntakeSwitch = null;
-	private DigitalInput topIntakeSwitch = null;
 
 	private DoubleSolenoid clampSolenoid = null;
 	
@@ -46,7 +48,6 @@ public class Collector extends Subsystem {
 		armTalon.setSafetyEnabled(false);
 		
 		cubeIntakeSwitch = new DigitalInput(RobotMap.COLLECTOR_CUBE_INTAKE_SWITCH);
-		topIntakeSwitch = new DigitalInput(RobotMap.COLLECTOR_TOP_INTAKE_SWITCH);
 		
 		clampSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_CLAMP_SOLENOID_CLAMP, RobotMap.COLLECTOR_CLAMP_SOLENOID_RELEASE);
 		
@@ -62,13 +63,13 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setArmSpeed(double speed) {
-		if(!isTopIntakeSwitchClosed() && (speed < 0)) {
+		if(!Robot.cascadeLift.isIntakeTop() && (speed < 0)) {
 			speed = 0;
 		}
-		else if((speed > 0) && isFrontArmSwitch()) {
+		else if((speed > 0) && isArmFront()) {
 			speed = 0;
 		}
-		else if((speed < 0) && isBackArmSwitch()) {
+		else if((speed < 0) && isArmBack()) {
 			speed = 0;
 		}
 		
@@ -79,20 +80,20 @@ public class Collector extends Subsystem {
 		return !cubeIntakeSwitch.get();
 	}
 	
-	public boolean isFrontArmSwitch() {
-		return getArmPosition() <= 0; 
+	public boolean isArmFront() {
+		return getArmPosition() <= RobotPreferences.collectorArmFront(); 
 	}
 	
-	public boolean isBackArmSwitch() {
-		return getArmPosition() >= 180;
+	public boolean isArmBack() {
+		return getArmPosition() >= RobotPreferences.collectorArmBack();
 	}
 	
 	public double getArmPosition() {
 		return armPot.get();
 	}
 	
-	public boolean isTopIntakeSwitchClosed() {
-		return !topIntakeSwitch.get();
+	public boolean isArmSafe() {
+		return Robot.collector.getArmPosition() < RobotPreferences.collectorArmSafetyValue();
 	}
 	
 	public void clampCollector() {

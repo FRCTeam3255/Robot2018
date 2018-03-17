@@ -250,7 +250,21 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CollectorArmSpeed", 1.0);
 	}
 	
-	public static double collectorArmSafetyvalue() {
+	public static double collectorArmFront() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorArmFront", 0.0);
+	}
+
+	public static double collectorArmBack() {
+		if(AutoPreferences.isDebug() == false) {
+			return 180.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorArmBack", 180.0);
+	}
+	
+	public static double collectorArmSafetyValue() {
 		if(AutoPreferences.isDebug() == false) {
 			return 90.0;
 		}

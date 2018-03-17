@@ -27,7 +27,7 @@ public class CollectorArmBack extends Command {
     
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.collector.isBackArmSwitch();
+    	return Robot.collector.isArmBack();
     }
     
     // Called once after isFinished returns true

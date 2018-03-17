@@ -33,9 +33,6 @@ public class CascadeMove extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.collector.getArmPosition() >= RobotPreferences.collectorArmSafetyvalue()) {
-    		Robot.cascadeLift.setLiftSpeed(0.0);
-    	}
     	Robot.cascadeLift.setLiftSpeed(Robot.collectorPID.getOutput());
     }
 
@@ -47,10 +44,10 @@ public class CascadeMove extends Command {
     	
     	double timeNow = timeSinceInitialized();
     	
-    	if((speed >= 0) && (Robot.cascadeLift.isTopSwitchClosed())) {
+    	if((speed >= 0) && (Robot.cascadeLift.isCascadeTop())) {
     		return true;
     	}
-    	else if((speed < 0) && (Robot.cascadeLift.isBottomIntakeSwitchClosed())) {
+    	else if((speed < 0) && (Robot.cascadeLift.isIntakeBottom())) {
     		return true;
     	}
     	
@@ -61,7 +58,7 @@ public class CascadeMove extends Command {
     protected void end() {
     	Robot.collectorPID.disable();
     	Robot.cascadeLift.setLiftSpeed(0.0);
-    	if(!Robot.cascadeLift.isTopSwitchClosed()) {
+    	if(!Robot.cascadeLift.isCascadeTop()) {
     		Robot.cascadeLift.lockLift();
     	}   	
     }
