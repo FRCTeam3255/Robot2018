@@ -49,6 +49,8 @@ public class RobotMap {
 	public static final int COLLECTOR_INTAKE_SWITCH = 2;
 	public static final int COLLECTOR_FRONT_ARM_SWITCH = 5;
 	public static final int COLLECTOR_BACK_ARM_SWITCH = 6;
+	public static final int COLLECTOR_TOP_INTAKE_SWITCH = 9;
+	public static final int COLLECTOR_BOTTOM_INTAKE_SWITCH = 10;
 	
 	
 	//Encoder

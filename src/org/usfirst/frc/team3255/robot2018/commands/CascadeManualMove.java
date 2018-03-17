@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class CascadeManualMove extends Command {
 
+	double speed = 0;
+	
     public CascadeManualMove() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -18,17 +20,25 @@ public class CascadeManualMove extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	speed = 0;
+    	Robot.cascadeLift.shiftToCascade();
     	Robot.cascadeLift.unlockLift();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.cascadeLift.setLiftSpeed(-Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS));
+    	if (Robot.collector.isBackArmSwitch() && Robot.cascadeLift.isBottomSwitchClosed()) {
+    		speed = 0;
+    	}
+    	else {
+    		speed = -Robot.oi.manipulatorStick.getRawAxis(RobotMap.COLLECTOR_MOVE_AXIS);
+    	}
+    	Robot.cascadeLift.setLiftSpeed(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (Robot.collector.isBackArmSwitch() && Robot.cascadeLift.isBottomSwitchClosed());
     }
 
     // Called once after isFinished returns true
