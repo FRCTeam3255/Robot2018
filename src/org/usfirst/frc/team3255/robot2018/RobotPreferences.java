@@ -243,6 +243,20 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CollectorClimbExtendSpeed", 1.0);
 	}
 	
+	public static double collectorArmScale() {
+		if(AutoPreferences.isDebug() == false) {
+			return 285.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorArmScale", 285.0);
+	}
+	
+	public static double collectorArmOffset() {
+		if(AutoPreferences.isDebug() == false) {
+			return -85.0;
+		}
+		return Preferences.getInstance().getDouble("CollectorArmOffset", -80.0);
+	}
+	
 	public static double collectorArmSpeed() {
 		if(AutoPreferences.isDebug() == false) {
 			return 1.0;
@@ -250,18 +264,18 @@ public class RobotPreferences {
 		return Preferences.getInstance().getDouble("CollectorArmSpeed", 1.0);
 	}
 	
-	public static double collectorArmFront() {
+	public static double collectorArmBack() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorArmFront", 0.0);
+		return Preferences.getInstance().getDouble("CollectorArmBack", 0.0);
 	}
 
-	public static double collectorArmBack() {
+	public static double collectorArmFront() {
 		if(AutoPreferences.isDebug() == false) {
 			return 180.0;
 		}
-		return Preferences.getInstance().getDouble("CollectorArmBack", 180.0);
+		return Preferences.getInstance().getDouble("CollectorArmFront", 180.0);
 	}
 	
 	public static double collectorArmSafetyValue() {

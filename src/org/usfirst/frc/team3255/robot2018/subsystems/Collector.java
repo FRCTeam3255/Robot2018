@@ -51,7 +51,7 @@ public class Collector extends Subsystem {
 		
 		clampSolenoid = new DoubleSolenoid(RobotMap.COLLECTOR_CLAMP_SOLENOID_CLAMP, RobotMap.COLLECTOR_CLAMP_SOLENOID_RELEASE);
 		
-		armPot = new AnalogPotentiometer(RobotMap.COLLECTOR_ARM_POT, 300, -60);
+		armPot = new AnalogPotentiometer(RobotMap.COLLECTOR_ARM_POT, RobotPreferences.collectorArmScale(), RobotPreferences.collectorArmOffset());
 		
 		collectorDrive = new DifferentialDrive(leftCollectorTalon, rightCollectorTalon);
 		collectorDrive.setSafetyEnabled(false);
@@ -80,12 +80,12 @@ public class Collector extends Subsystem {
 		return !cubeIntakeSwitch.get();
 	}
 	
-	public boolean isArmFront() {
-		return getArmPosition() <= RobotPreferences.collectorArmFront(); 
+	public boolean isArmBack() {
+		return getArmPosition() <= RobotPreferences.collectorArmBack(); 
 	}
 	
-	public boolean isArmBack() {
-		return getArmPosition() >= RobotPreferences.collectorArmBack();
+	public boolean isArmFront() {
+		return getArmPosition() >= RobotPreferences.collectorArmFront();
 	}
 	
 	public double getArmPosition() {
@@ -93,7 +93,7 @@ public class Collector extends Subsystem {
 	}
 	
 	public boolean isArmSafe() {
-		return Robot.collector.getArmPosition() < RobotPreferences.collectorArmSafetyValue();
+		return Robot.collector.getArmPosition() > RobotPreferences.collectorArmSafetyValue();
 	}
 	
 	public void clampCollector() {

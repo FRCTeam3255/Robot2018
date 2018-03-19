@@ -59,6 +59,7 @@ public class Telemetry extends Subsystem {
 		SmartDashboard.putBoolean("Arm Is Front", Robot.collector.isArmFront());
 		SmartDashboard.putBoolean("Arm Is Back", Robot.collector.isArmBack());
 		SmartDashboard.putNumber("Arm Position", Robot.collector.getArmPosition());
+		SmartDashboard.putBoolean("Arm is Safe", Robot.collector.isArmSafe());
 		
 		SmartDashboard.putBoolean("Do Switch", AutoPreferences.doSwitch());
 		SmartDashboard.putBoolean("Is Debug", AutoPreferences.isDebug());
