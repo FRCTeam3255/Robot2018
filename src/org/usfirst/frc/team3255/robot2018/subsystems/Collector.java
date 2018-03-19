@@ -41,7 +41,7 @@ public class Collector extends Subsystem {
 		
 		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
-		armTalon.setNeutralMode(NeutralMode.Brake);
+		armTalon.setNeutralMode(NeutralMode.Coast);
 		
 		leftCollectorTalon.setSafetyEnabled(false);
 		rightCollectorTalon.setSafetyEnabled(false);
