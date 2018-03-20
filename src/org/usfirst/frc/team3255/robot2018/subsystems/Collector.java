@@ -41,11 +41,13 @@ public class Collector extends Subsystem {
 		
 		leftCollectorTalon.setNeutralMode(NeutralMode.Brake);
 		rightCollectorTalon.setNeutralMode(NeutralMode.Brake);
-		armTalon.setNeutralMode(NeutralMode.Coast);
+		armTalon.setNeutralMode(NeutralMode.Brake);
 		
 		leftCollectorTalon.setSafetyEnabled(false);
 		rightCollectorTalon.setSafetyEnabled(false);
 		armTalon.setSafetyEnabled(false);
+		
+		armTalon.setInverted(true);
 		
 		cubeIntakeSwitch = new DigitalInput(RobotMap.COLLECTOR_CUBE_INTAKE_SWITCH);
 		
