@@ -23,11 +23,11 @@ public class RobotMap {
 	
 	public static final int COLLECTOR_INTAKE_RIGHT_TALON = 5;
 	public static final int COLLECTOR_INTAKE_LEFT_TALON = 6;
-	public static final int COLLECTOR_ARM_TALON = 9;
+	public static final int COLLECTOR_ARM_TALON = 7;
 	
-	public static final int CASCADE_TOP_TALON = 7;
-	public static final int CASCADE_MID_TALON = 10;
-	public static final int CASCADE_BOTTOM_TALON = 8;
+	public static final int CASCADE_TOP_TALON = 8;
+	public static final int CASCADE_MID_TALON = 9;
+	public static final int CASCADE_BOTTOM_TALON = 10;
 
 	
 	//Lighting
