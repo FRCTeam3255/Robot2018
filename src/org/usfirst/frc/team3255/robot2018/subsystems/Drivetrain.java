@@ -57,6 +57,17 @@ public class Drivetrain extends Subsystem {
 		differentialDrive.setSafetyEnabled(false);
 	}
 	
+	public void enableRamping() {
+		leftFrontTalon.configOpenloopRamp(2, 3);
+		rightFrontTalon.configOpenloopRamp(2, 3);
+	}
+	
+	public void disableRamping() {
+		leftFrontTalon.configOpenloopRamp(0, 0);
+		rightFrontTalon.configOpenloopRamp(0, 0);
+	}
+	
+	
 	public void arcadeDrive(double moveSpeed, double rotateSpeed) {
 		arcadeDrive(moveSpeed, rotateSpeed, true);
 	}

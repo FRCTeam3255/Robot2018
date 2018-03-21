@@ -26,6 +26,7 @@ public class DriveRotate extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.drivetrain.disableRamping();
     	Robot.telemetry.setAutonomousStatus("Starting " + commandName + ": " + angle);
     	Robot.navigation.resetYaw();
     	
