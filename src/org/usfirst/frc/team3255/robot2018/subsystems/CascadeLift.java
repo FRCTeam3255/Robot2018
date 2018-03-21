@@ -55,11 +55,11 @@ public class CascadeLift extends Subsystem {
 			speed = 0;
 		}
 		
-		double maxSpeed = RobotPreferences.cascadeLiftMaxSpeed();
+		double maxDownSpeed = RobotPreferences.cascadeLiftMaxDownSpeed();
 		
 		if(speed < 0) {
-			if (speed < -maxSpeed) {
-				speed = -maxSpeed;
+			if (speed < -maxDownSpeed) {
+				speed = -maxDownSpeed;
 			}
 		}
 		

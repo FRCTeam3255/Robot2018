@@ -43,7 +43,7 @@ public class OI {
 	
 	public OI() {		
 		// Stick Manipulator
-		M1.whileHeld(new CollectorEject());
+		M1.whileHeld(new CollectorVariableEject());
 		M2.whenPressed(new CollectorRelease());
 		M2.whenReleased(new CollectorClamp());
 		M3.whenPressed(new CollectorCollect());
@@ -65,7 +65,6 @@ public class OI {
 		D5.whenReleased(new DrivetrainSlowSpeedDisable());	
 		D6.whenPressed(new DrivetrainSafetyDisable());
 		D6.whenReleased(new DrivetrainSafetyEnable());
-//		D5 multiply MoveSpeed and RotateSpeed by RobotPreferences.drivetrainSlowSpeed 
 		D7.whenPressed(new CollectorRetractIntake());
 		D8.whenPressed(new CollectorDeployIntake());
 	}
