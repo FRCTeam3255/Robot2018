@@ -188,9 +188,9 @@ public class RobotPreferences {
 	
 	public static double cascadeLiftMaxDownSpeed() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.25;
+			return 0.5;
 		}
-		return Preferences.getInstance().getDouble("CascadeLiftMaxDownSpeed", 0.25);
+		return Preferences.getInstance().getDouble("CascadeLiftMaxDownSpeed", 0.5);
 	}
 
 	public static double cascadeLiftPIDMaxChange() {
