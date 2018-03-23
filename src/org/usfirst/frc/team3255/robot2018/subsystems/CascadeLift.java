@@ -89,23 +89,27 @@ public class CascadeLift extends Subsystem {
 	}
 	
 	public void lockLift() {
-		liftSolenoid.set(Value.kForward);
+		if (getEncoderDistance() < (RobotPreferences.cascadeLiftHighScaleSetpoint() + 5)) {
+			liftSolenoid.set(Value.kForward);
+		}
 	}
 	
 	public void unlockLift() {
 		liftSolenoid.set(Value.kReverse);
 		if(!isBottomSwitchClosed()) {
 			for(int i = 0; i <1000; i++) {
-				setUnsafeSpeed(0.3);	
+				setLiftSpeed(0.3);	
 			}
 		}
 		setLiftSpeed(0.0);
 	}
 	
+/*
 	protected void setUnsafeSpeed(double speed) {
 		topTalon.set(speed);
 		bottomTalon.set(speed);
 	}
+*/
 	
 	public double getCollectorHeight() {
 		return getEncoderDistance();

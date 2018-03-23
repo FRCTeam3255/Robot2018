@@ -57,7 +57,7 @@ public class OI {
 		M12.whenPressed(new CascadeMoveToLowScale());
 		
 		// Bottom Row Manipulator
-		M7.whenPressed(new CascadePrepClimber());
+		M7.whenPressed(new CollectorRetractIntake());
 		M9.whenPressed(new CascadeMoveToSwitch());
 		M11.whenPressed(new CascadeMoveToBottom());
 		
