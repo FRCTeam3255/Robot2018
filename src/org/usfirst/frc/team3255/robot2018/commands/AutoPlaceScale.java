@@ -94,7 +94,7 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		if(Robot.navigation.getScalePos() == 'R') {
 			if (lane == 1) {
-				distance = 197.0;
+				distance = 199.0;
 			}
 			else if(lane == 2) {
 				distance = 0;
@@ -165,7 +165,7 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		if(Robot.navigation.getScalePos() == 'R') {
 			if (lane == 1) {
-				distance = 44.0;
+				distance = 43.0;
 			}
 			else if (lane == 2) {
 				distance = 0.0;
@@ -198,9 +198,10 @@ public class AutoPlaceScale extends CommandGroup {
         //Drivetrain PID
         addParallel(new CascacdeMoveToHighScale());
         addSequential(new DriveDistance("PlaceScaleD3", autoScaleD3()));
-        addSequential(new CollectorDeployIntake());
         //Vision PID
         //addSequential(new DriveToTarget("PlaceScaleD3", autoScaleD3()));
-        addSequential(new CollectorEject(), 2.0);
+        addSequential(new CollectorDeployIntake());
+        addSequential(new DoDelay(0.5));
+        addSequential(new CollectorSlowEject(), 4.0);
     }
 }

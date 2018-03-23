@@ -53,7 +53,7 @@ public class OI {
 		
 		// Top Row Manipulator
 		M8.whenPressed(new CascacdeMoveToHighScale());
-		//M10 free
+		M10.whenPressed(new CollectorRetractIntake());
 		M12.whenPressed(new CascadeMoveToLowScale());
 		
 		// Bottom Row Manipulator
