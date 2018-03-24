@@ -94,9 +94,9 @@ public class RobotPreferences {
 	
 	public static double drivetrainSlowSpeed() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.5;	
+			return 0.6;	
 		}
-		return  Preferences.getInstance().getDouble("DrivetrainSlowSpeed", 0.5);
+		return  Preferences.getInstance().getDouble("DrivetrainSlowSpeed", 0.6);
 	}
 	
 //	------------------------------------------------------------ CASCADE LIFT ------------------------------------------------------------
