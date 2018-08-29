@@ -56,8 +56,7 @@ public class RobotMap {
 	public static final int CASCADE_TOP_CASCADE_SWITCH = 4;
 	public static final int CASCADE_BOTTOM_CASCADE_SWITCH = 5;
 	public static final int CASCADE_TOP_INTAKE_SWITCH = 6;
-	public static final int CASCADE_BOTTOM_INTAKE_SWITCH = 7;
-	public static final int COLLECTOR_CUBE_INTAKE_SWITCH = 9;
+	public static final int COLLECTOR_CUBE_INTAKE_SWITCH = 7;
 	
 	//Pots
 	public static final int COLLECTOR_ARM_POT = 0;

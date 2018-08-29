@@ -52,7 +52,6 @@ public class CascadeLift extends Subsystem {
 		
 		topCascadeSwitch = new DigitalInput(RobotMap.CASCADE_TOP_CASCADE_SWITCH);
 		bottomCascadeSwitch = new DigitalInput(RobotMap.CASCADE_BOTTOM_CASCADE_SWITCH);
-		bottomIntakeSwitch = new DigitalInput(RobotMap.CASCADE_BOTTOM_INTAKE_SWITCH);
 		topIntakeSwitch = new DigitalInput(RobotMap.CASCADE_TOP_INTAKE_SWITCH);
 		
 		liftSolenoid = new DoubleSolenoid(RobotMap.CASCADE_LIFT_SOLENOID_A, RobotMap.CASCADE_LIFT_SOLENOID_B);
