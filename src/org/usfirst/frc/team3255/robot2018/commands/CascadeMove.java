@@ -47,7 +47,7 @@ public class CascadeMove extends Command {
     	if((speed >= 0) && (Robot.cascadeLift.isCascadeTop())) {
     		return true;
     	}
-    	else if((speed < 0) && (Robot.cascadeLift.isIntakeBottom())) {
+    	else if((speed < 0) && (Robot.cascadeLift.isCascadeBottom())) {
     		return true;
     	}
     	

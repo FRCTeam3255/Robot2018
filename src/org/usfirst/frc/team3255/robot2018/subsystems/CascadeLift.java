@@ -27,7 +27,6 @@ public class CascadeLift extends Subsystem {
 	
 	private DigitalInput topCascadeSwitch = null;
 	private DigitalInput bottomCascadeSwitch = null;
-	private DigitalInput bottomIntakeSwitch = null;
 	private DigitalInput topIntakeSwitch = null;
 	
 	private Encoder liftEncoder = null;
@@ -68,18 +67,16 @@ public class CascadeLift extends Subsystem {
 			if(isCascadeTop()) {
 				speed = 0;
 			}
-			else if(!isIntakeTop()) {
-				if (!Robot.collector.isArmSafe()) {
-					speed = 0;
-		    	}
+			else if(!isIntakeTop() && !Robot.collector.isArmSafe()) {
+				speed = 0;
 			}
 		}
 		
 		else if(speed < 0) {
-			if(isIntakeBottom()) {
+			if(isCascadeBottom()) {
 				speed = 0;
 			}
-			else if(Robot.collector.isArmBack() && isCascadeBottom()) {
+			else if(!Robot.collector.isArmSafe() && isCascadeBottom()) {
 				speed = 0;
 			}
 		}
@@ -106,16 +103,12 @@ public class CascadeLift extends Subsystem {
 		return !topCascadeSwitch.get();
 	}
 	
-	public boolean isCascadeBottom() {
-		return !bottomCascadeSwitch.get();
-	}
-	
 	public boolean isIntakeTop() {
 		return !topIntakeSwitch.get();
 	}
 	
-	public boolean isIntakeBottom() {
-		boolean closed = !bottomIntakeSwitch.get();
+	public boolean isCascadeBottom() {
+		boolean closed = !bottomCascadeSwitch.get();
 		
 		if(closed) {
 			resetEncoder();
