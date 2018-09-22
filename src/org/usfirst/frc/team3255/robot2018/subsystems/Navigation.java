@@ -75,7 +75,11 @@ public class Navigation extends Subsystem {
 		
 	// Field Data
 	private String getFieldData() {
-		return DriverStation.getInstance().getGameSpecificMessage();
+//		return DriverStation.getInstance().getGameSpecificMessage();
+		//odd:
+		return "RLR";
+		//even:
+//		return "LRL";
 	}
 	
 	public char getAllianceSwitchPos() {

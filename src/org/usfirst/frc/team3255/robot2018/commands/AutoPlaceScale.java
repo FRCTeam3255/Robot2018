@@ -65,7 +65,7 @@ public class AutoPlaceScale extends CommandGroup {
 				 angle = 0.0;
 			 }
 			 else if(lane == 3) {
-				 angle = -30.0;
+				 angle = -26.0;
 			 } 
 		 }
 		 else {
@@ -94,7 +94,7 @@ public class AutoPlaceScale extends CommandGroup {
 		
 		if(Robot.navigation.getScalePos() == 'R') {
 			if (lane == 1) {
-				distance = 199.0;
+				distance = 211.0;
 			}
 			else if(lane == 2) {
 				distance = 0;
@@ -176,7 +176,7 @@ public class AutoPlaceScale extends CommandGroup {
 		}
 		else {
 			if (lane == 1) {
-				distance = 47.0;
+				distance = 52.0;
 			}
 			else if (lane == 2) {
 				distance = 0.0;
