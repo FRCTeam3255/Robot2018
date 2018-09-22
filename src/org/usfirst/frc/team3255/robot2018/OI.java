@@ -53,12 +53,13 @@ public class OI {
 		
 		// Top Row Manipulator
 		M8.whenPressed(new CascacdeMoveToHighScale());
-		M10.whenPressed(new CollectorRetractIntake());
-		M12.whenPressed(new CascadeMoveToLowScale());
+//		M10.whenPressed(new CollectorRetractIntake());
+		M10.whenPressed(new CascadeMoveToLowScale());
+		M12.whenPressed(new CascadeMoveToSwitch());
 		
 		// Bottom Row Manipulator
 		M7.whenPressed(new CollectorRetractIntake());
-		M9.whenPressed(new CascadeMoveToSwitch());
+		M9.whenPressed(new CollectorDeployIntake());
 		M11.whenPressed(new CascadeMoveToBottom());
 		
 		D5.whenPressed(new DrivetrainSlowSpeedEnable());
