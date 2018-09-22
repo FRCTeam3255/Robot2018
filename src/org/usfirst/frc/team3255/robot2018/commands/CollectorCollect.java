@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class CollectorCollect extends CommandGroup {
 
     public CollectorCollect() {	
-//    	addSequential(new CascadeBottom());
+    	addSequential(new CascadeBottom());
     	addSequential(new CollectorCollectCube());
     }
 }

@@ -65,15 +65,15 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setArmSpeed(double speed) {
-//		if(!Robot.cascadeLift.isIntakeTop() && (speed < 0)) {
-//			speed = 0;
-//		}
-//		else if((speed > 0) && isArmFront()) {
-//			speed = 0;
-//		}
-//		else if((speed < 0) && isArmBack()) {
-//			speed = 0;
-//		}
+		if(!Robot.cascadeLift.isIntakeTop() && (speed < 0)) {
+			speed = 0;
+		}
+		else if((speed > 0) && isArmFront()) {
+			speed = 0;
+		}
+		else if((speed < 0) && isArmBack()) {
+			speed = 0;
+		}
 		
 		armTalon.set(speed);
 	}
@@ -99,11 +99,11 @@ public class Collector extends Subsystem {
 	}
 	
 	public void clampCollector() {
-		clampSolenoid.set(Value.kReverse);		
+		clampSolenoid.set(Value.kForward);
 	}
 	
 	public void releaseCollector() {
-		clampSolenoid.set(Value.kForward);
+		clampSolenoid.set(Value.kReverse);
 	}
 	
 	public void arcadeCollect(double moveSpeed, double rotateSpeed) {

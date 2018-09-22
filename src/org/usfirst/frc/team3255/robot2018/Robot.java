@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-//import org.usfirst.frc.team3255.robot2018.commands.Autonomous;
+import org.usfirst.frc.team3255.robot2018.commands.Autonomous;
 import org.usfirst.frc.team3255.robot2018.subsystems.Collector;
 import org.usfirst.frc.team3255.robot2018.subsystems.CollectorPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Drivetrain;
@@ -23,7 +23,6 @@ import org.usfirst.frc.team3255.robot2018.subsystems.NavYawPID;
 import org.usfirst.frc.team3255.robot2018.subsystems.Navigation;
 import org.usfirst.frc.team3255.robot2018.subsystems.Telemetry;
 import org.usfirst.frc.team3255.robot2018.subsystems.DrivetrainDistanceVisionPID;
-import org.usfirst.frc.team3255.robot2018.commands.Autonomous;
 import org.usfirst.frc.team3255.robot2018.subsystems.CascadeLift;
 import org.usfirst.frc.team3255.robot2018.subsystems.VisionOffsetPID;
 
@@ -122,7 +121,6 @@ public class Robot extends TimedRobot {
 //		m_autonomousCommand = m_chooser.getSelected();
 
 		m_autonomousCommand = new Autonomous();
-//		m_autonomousCommand = null;
 
 		// schedule the autonomous command (example)
 		if (m_autonomousCommand != null) {
