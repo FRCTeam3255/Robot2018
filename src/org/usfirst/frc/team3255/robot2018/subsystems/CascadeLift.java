@@ -47,6 +47,10 @@ public class CascadeLift extends Subsystem {
 		midTalon.setSafetyEnabled(false);
 		bottomTalon.setSafetyEnabled(false);
 		
+		topTalon.setInverted(true);
+		midTalon.setInverted(true);
+		bottomTalon.setInverted(true);
+		
 		liftEncoder = new Encoder(RobotMap.CASCADE_ENCODER_A, RobotMap.CASCADE_ENCODER_B);
 		
 		topCascadeSwitch = new DigitalInput(RobotMap.CASCADE_TOP_CASCADE_SWITCH);
@@ -67,18 +71,18 @@ public class CascadeLift extends Subsystem {
 			if(isCascadeTop()) {
 				speed = 0;
 			}
-			else if(!isIntakeTop() && !Robot.collector.isArmSafe()) {
-				speed = 0;
-			}
+//			else if(!isIntakeTop() && !Robot.collector.isArmSafe()) {
+//				speed = 0;
+//			}
 		}
 		
 		else if(speed < 0) {
 			if(isCascadeBottom()) {
 				speed = 0;
 			}
-			else if(!Robot.collector.isArmSafe() && isCascadeBottom()) {
-				speed = 0;
-			}
+//			else if(!Robot.collector.isArmSafe() && isCascadeBottom()) {
+//				speed = 0;
+//			}
 		}
 		
 		topTalon.set(speed);
