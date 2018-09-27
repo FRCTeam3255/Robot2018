@@ -102,7 +102,7 @@ public class RobotPreferences {
 //	------------------------------------------------------------ CASCADE LIFT ------------------------------------------------------------
 	public static double cascadeLiftP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.3;
+			return 0.1;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftP", 0.3);
 	}
@@ -116,7 +116,8 @@ public class RobotPreferences {
 
 	public static double cascadeLiftD() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.75;
+//			return 0.75;
+			return 0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftD", 0.75);
 	}
@@ -130,7 +131,7 @@ public class RobotPreferences {
 	
 	public static double cascadeLiftPIDMax() {
 		if(AutoPreferences.isDebug() == false) {
-			return 1.0;
+			return 0.75;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftPIDMaxSpeed", 1.0);
 	}
@@ -159,8 +160,8 @@ public class RobotPreferences {
 	
 	public static double cascadeLiftSwitchSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-//			return 24.0;
-			return 30.0;
+			return 24.0;
+//			return 30.0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftSwitchSetpoint", 30.0);
 	}
@@ -181,7 +182,7 @@ public class RobotPreferences {
 	
 	public static int cascadeLiftPulsesPerFoot() {
 		if(AutoPreferences.isDebug() == false) {
-			return 333;
+			return 2750;
 		}
 		return Preferences.getInstance().getInt("CascadeLiftPulsesPerFoot", 333);
 	}
@@ -245,14 +246,16 @@ public class RobotPreferences {
 	
 	public static double collectorArmScale() {
 		if(AutoPreferences.isDebug() == false) {
-			return 285.0;
+//			return 285.0;
+			return 0;
 		}
 		return Preferences.getInstance().getDouble("CollectorArmScale", 285.0);
 	}
 	
 	public static double collectorArmOffset() {
 		if(AutoPreferences.isDebug() == false) {
-			return -132.0;
+//			return -132.0;
+			return 0;
 		}
 		return Preferences.getInstance().getDouble("CollectorArmOffset", -132.0);
 	}

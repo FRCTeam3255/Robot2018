@@ -10,5 +10,6 @@ public class CascadeBottom extends CommandGroup {
     public CascadeBottom() {
     	addSequential(new CollectorArmFront());
         addSequential(new CascadeMoveToBottom());
+        addSequential(new CascadeLiftUnlock());
     }
 }

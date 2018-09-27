@@ -79,6 +79,7 @@ public class CascadeLift extends Subsystem {
 		else if(speed < 0) {
 			if(isCascadeBottom()) {
 				speed = 0;
+				resetEncoder();
 			}
 //			else if(!Robot.collector.isArmSafe() && isCascadeBottom()) {
 //				speed = 0;
@@ -112,13 +113,7 @@ public class CascadeLift extends Subsystem {
 	}
 	
 	public boolean isCascadeBottom() {
-		boolean closed = !bottomCascadeSwitch.get();
-		
-		if(closed) {
-			resetEncoder();
-		}
-		
-		return closed;
+		return !bottomCascadeSwitch.get();
 	}
 	
 	public void lockLift() {
@@ -136,11 +131,11 @@ public class CascadeLift extends Subsystem {
 	}
 	
 	public void shiftToClimber() {
-		climbShifterSolenoid.set(Value.kForward);
+		climbShifterSolenoid.set(Value.kReverse);
 	}
 	
 	public void shiftToCascade() {
-		climbShifterSolenoid.set(Value.kReverse);
+		climbShifterSolenoid.set(Value.kForward);
 	}
 	
 	protected void setUnsafeSpeed(double speed) {
