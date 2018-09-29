@@ -19,6 +19,7 @@ public class CollectorPID extends PIDSubsystem {
 	
 	double minPIDSpeed = 0.0;
 	double maxPIDSpeed = 1.0;
+	double maxDownPIDSpeed = 1.0;
 	
 
     // Initialize your subsystem here
@@ -39,6 +40,7 @@ public class CollectorPID extends PIDSubsystem {
     	
     	minPIDSpeed = RobotPreferences.cascadeLiftPIDMin();
     	maxPIDSpeed = RobotPreferences.cascadeLiftPIDMax();
+    	maxDownPIDSpeed = RobotPreferences.cascadeLiftDownMax();
     	
     	outputMaxChange = RobotPreferences.cascadeLiftPIDMaxChange();
     	
@@ -80,8 +82,8 @@ public class CollectorPID extends PIDSubsystem {
     		if(output > -minPIDSpeed) {
     			output = -minPIDSpeed;
     		}
-    		else if(output < -maxPIDSpeed) {
-    			output = -maxPIDSpeed;
+    		else if(output < -maxDownPIDSpeed) {
+    			output = -maxDownPIDSpeed;
     		}
     	}
     	

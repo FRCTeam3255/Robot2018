@@ -131,9 +131,16 @@ public class RobotPreferences {
 	
 	public static double cascadeLiftPIDMax() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.75;
+			return 1.0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftPIDMaxSpeed", 1.0);
+	}
+	
+	public static double cascadeLiftDownMax() {
+		if(AutoPreferences.isDebug() == false) {
+			return 0.5;
+		}
+		return Preferences.getInstance().getDouble("CascadeLiftDownMaxSpeed", 0.75);
 	}
 
 	public static int cascadeLiftTargetCount() {
@@ -168,14 +175,14 @@ public class RobotPreferences {
 
 	public static double cascadeLiftLowScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 48.0;
+			return 63.0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftLowScaleSetpoint", 48.0);
 	}
 
 	public static double cascadeLiftHighScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 60.0;
+			return 65.0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftHighScaleSetpoint", 60.0);
 	}
@@ -247,29 +254,28 @@ public class RobotPreferences {
 	public static double collectorArmScale() {
 		if(AutoPreferences.isDebug() == false) {
 //			return 285.0;
-			return 0;
-		}
-		return Preferences.getInstance().getDouble("CollectorArmScale", 285.0);
+			return 251.4;		}
+		return Preferences.getInstance().getDouble("CollectorArmScale", 1);
 	}
 	
 	public static double collectorArmOffset() {
 		if(AutoPreferences.isDebug() == false) {
 //			return -132.0;
-			return 0;
+			return -2.0;
 		}
 		return Preferences.getInstance().getDouble("CollectorArmOffset", -132.0);
 	}
 	
 	public static double collectorArmSpeed() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.1;
+			return 0.5;
 		}
 		return Preferences.getInstance().getDouble("CollectorArmSpeed", 0.1);
 	}
 	
 	public static double collectorArmBack() {
 		if(AutoPreferences.isDebug() == false) {
-			return -90.0;
+			return 3.0;
 //			return -84.0;
 		}
 		return Preferences.getInstance()
@@ -278,7 +284,7 @@ public class RobotPreferences {
 
 	public static double collectorArmFront() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.0;
+			return 25.0;
 //			return -35.0;
 		}
 		return Preferences.getInstance().getDouble("CollectorArmFront", 0.0);

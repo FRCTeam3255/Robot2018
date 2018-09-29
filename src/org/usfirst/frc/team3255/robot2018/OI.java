@@ -48,23 +48,25 @@ public class OI {
 		M2.whenReleased(new CollectorClamp());
 		M3.whenPressed(new CollectorCollect());
 		M4.whileHeld(new CascadeManualMove());
-//		M5.whenPressed(new CollectorArmBack());
-//		M6.whenPressed(new CollectorArmFront());	
+		M5.whenPressed(new CollectorArmBack());
+		M6.whenPressed(new CollectorArmFront());	
 		
 		// Top Row Manipulator
-//		M8.whenPressed(new CascacdeMoveToHighScale());
+		M8.whenPressed(new CascacdeMoveToHighScale());
 		M10.whileHeld(new CollectorClimberManual());
-//		M12.whenPressed(new CascadeMoveToLowScale());
+		M12.whenPressed(new CascadeMoveToLowScale());
 		
 		// Bottom Row Manipulator
 //		M7.whenPressed(new CascadePrepClimber());
-//		M9.whenPressed(new CascadeSwitch());
-//		M11.whenPressed(new CascadeBottom());
+		M9.whenPressed(new CascadeSwitch());
+		M11.whenPressed(new CascadeBottom());
 		
 		D5.whenPressed(new DrivetrainSlowSpeedEnable());
 		D5.whenReleased(new DrivetrainSlowSpeedDisable());	
 		D6.whenPressed(new DrivetrainSafetyDisable());
 		D6.whenReleased(new DrivetrainSafetyEnable());
 //		D5 multiply MoveSpeed and RotateSpeed by RobotPreferences.drivetrainSlowSpeed
+		D7.whenPressed(new CollectorArmBack());
+		D8.whenPressed(new CollectorArmFront());
 	}
 }

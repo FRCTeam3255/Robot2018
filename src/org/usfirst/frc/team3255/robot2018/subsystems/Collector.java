@@ -47,7 +47,7 @@ public class Collector extends Subsystem {
 		rightCollectorTalon.setSafetyEnabled(false);
 		armTalon.setSafetyEnabled(false);
 		
-		armTalon.setInverted(true);
+//		armTalon.setInverted(true);
 		
 		cubeIntakeSwitch = new DigitalInput(RobotMap.COLLECTOR_CUBE_INTAKE_SWITCH);
 		
@@ -65,10 +65,7 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setArmSpeed(double speed) {
-		if(!Robot.cascadeLift.isIntakeTop() && (speed < 0)) {
-			speed = 0;
-		}
-		else if((speed > 0) && isArmFront()) {
+		if((speed > 0) && isArmFront()) {
 			speed = 0;
 		}
 		else if((speed < 0) && isArmBack()) {
