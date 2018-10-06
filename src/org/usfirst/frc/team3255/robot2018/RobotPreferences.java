@@ -80,14 +80,14 @@ public class RobotPreferences {
 	
 	public static double drivetrainClampMaxHeightMove() {
 		if(AutoPreferences.isDebug() == false) {
-			return 100.0;
+			return 110.0;
 		}
 		return  Preferences.getInstance().getDouble("DrivetrainClampMaxHeightMove", 100.0);
 	}
 	
 	public static double drivetrainClampMaxHeightRotate() {
 		if(AutoPreferences.isDebug() == false) {
-			return 100.0;
+			return 110.0;
 		}
 		return  Preferences.getInstance().getDouble("DrivetrainClampMaxHeightRotate", 100.0);
 	}
@@ -175,14 +175,14 @@ public class RobotPreferences {
 
 	public static double cascadeLiftLowScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 63.0;
+			return 60.0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftLowScaleSetpoint", 48.0);
 	}
 
 	public static double cascadeLiftHighScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 65.0;
+			return 68.0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftHighScaleSetpoint", 60.0);
 	}
@@ -275,7 +275,7 @@ public class RobotPreferences {
 	
 	public static double collectorArmBack() {
 		if(AutoPreferences.isDebug() == false) {
-			return 3.0;
+			return 20.0;
 //			return -84.0;
 		}
 		return Preferences.getInstance()
