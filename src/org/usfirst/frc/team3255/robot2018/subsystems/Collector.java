@@ -68,10 +68,10 @@ public class Collector extends Subsystem {
 		if((speed > 0) && isArmFront()) {
 			speed = 0;
 		}
-		else if((speed < 0) && isArmBack()) {
-			speed = 0;
-		}
-		
+//		else if((speed < 0) && isArmBack()) {
+//			speed = 0;
+//		}
+//		
 		armTalon.set(speed);
 	}
 	

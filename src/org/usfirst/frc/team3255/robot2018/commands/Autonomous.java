@@ -12,7 +12,9 @@ public class Autonomous extends CommandGroup {
     public Autonomous() {
     	
     	if(AutoPreferences.doScale() && AutoPreferences.doSwitch()) {
+    		System.out.println("Doing Scale & Switch");
     		addSequential(new AutoPlaceScale());
+    		System.out.println("Doing Switch After Scale");
     		addSequential(new AutoPlaceSwitchAfterScale());
     	}
     	else if(AutoPreferences.doSwitch()) {

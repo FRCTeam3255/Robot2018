@@ -268,14 +268,14 @@ public class RobotPreferences {
 	
 	public static double collectorArmSpeed() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.5;
+			return 0.40;
 		}
 		return Preferences.getInstance().getDouble("CollectorArmSpeed", 0.1);
 	}
 	
 	public static double collectorArmBack() {
 		if(AutoPreferences.isDebug() == false) {
-			return 20.0;
+			return 3.0;
 //			return -84.0;
 		}
 		return Preferences.getInstance()

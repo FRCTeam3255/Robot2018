@@ -56,7 +56,7 @@ public class AutoPlaceSwitchAfterScale extends CommandGroup {
 			angle = 0.0;
 		}
 		else {
-			angle = 0.0;
+			angle = 135.0;
 		}
 		
 		return angle;
@@ -73,7 +73,7 @@ public class AutoPlaceSwitchAfterScale extends CommandGroup {
 			distance = 0.0;
 		}
 		else {
-			distance = 0.0;
+			distance = 155.0;
 		}
 		
 		return distance;
@@ -90,19 +90,24 @@ public class AutoPlaceSwitchAfterScale extends CommandGroup {
 			distance = 0.0;
 		}
 		else {
-			distance = 0.0;
+			distance = 13.0;
 		}
 		
 		return distance;
 	}
 
     public AutoPlaceSwitchAfterScale() {
+    	System.out.println("Starting Auto Place Switch After Scale");
     	addSequential(new DriveRotate("AutoPlaceSwitchAfterScaleR1", autoSwitchR1()));
     	addSequential(new DriveStraightDistance("AutoPlaceSwitchAfterScaleD1", autoSwitchD1()));
+    	addSequential(new CollectorArmBack());
+    	addParallel(new CascadeBottom());
     	addSequential(new DriveRotate("AutoPlaceSwitchAfterScaleR2", autoSwitchR2()));
     	addSequential(new DriveStraightDistance("AutoPlaceSwitchAfterScaleD2", autoSwitchD2()));
+    	addParallel(new CollectorCollect());
     	//addSequential(new CollectorCollectCube());
     	addSequential(new DriveStraightDistance("AutoPlaceSwitchAfterScaleD3", autoSwitchD3()));
-    	//addSequential(new CollectorEject());
+    	addParallel(new CascadeMoveToSwitch());
+    	addSequential(new CollectorFastEject(), 2.0);
     }
 }
