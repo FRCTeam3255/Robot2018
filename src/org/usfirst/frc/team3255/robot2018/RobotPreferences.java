@@ -268,7 +268,7 @@ public class RobotPreferences {
 	
 	public static double collectorArmSpeed() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.40;
+			return 0.60;
 		}
 		return Preferences.getInstance().getDouble("CollectorArmSpeed", 0.1);
 	}
