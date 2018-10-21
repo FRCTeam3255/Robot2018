@@ -48,8 +48,8 @@ public class OI {
 		M2.whenReleased(new CollectorClamp());
 		M3.whenPressed(new CollectorCollect());
 		M4.whileHeld(new CascadeManualMove());
-		M5.whenPressed(new CollectorArmBack());
-		M6.whenPressed(new CollectorArmFront());	
+		M5.whenPressed(new CollectorCollectCube());	
+		M6.whenPressed(new CollectorArmBack());
 		
 		// Top Row Manipulator
 		M8.whenPressed(new CascacdeMoveToHighScale());

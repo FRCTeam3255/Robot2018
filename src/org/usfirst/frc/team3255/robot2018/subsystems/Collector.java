@@ -65,9 +65,9 @@ public class Collector extends Subsystem {
 	}
 	
 	public void setArmSpeed(double speed) {
-		if((speed > 0) && isArmFront()) {
-			speed = 0;
-		}
+//		if((speed > 0) && isArmFront()) {
+//			speed = 0;
+//		}
 //		else if((speed < 0) && isArmBack()) {
 //			speed = 0;
 //		}

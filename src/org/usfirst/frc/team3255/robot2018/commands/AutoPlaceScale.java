@@ -195,8 +195,7 @@ public class AutoPlaceScale extends CommandGroup {
         addSequential(new DriveRotate("PlaceScaleR1", autoScaleR1()));
         addSequential(new DriveDualStraightDistance("PlaceScaleD2", autoScaleD2()));
         addSequential(new DriveRotate("PlaceScaleR2", autoScaleR2()));
-//        addSequential(new CollectorArmFront());
-        addSequential(new CollectorArmBack());
+        addSequential(new CollectorArmFront());
         addParallel(new CascacdeMoveToHighScale());
         addSequential(new DriveDistance("PlaceScaleD3", autoScaleD3()));
         addSequential(new CollectorFastEject(), 2.0);

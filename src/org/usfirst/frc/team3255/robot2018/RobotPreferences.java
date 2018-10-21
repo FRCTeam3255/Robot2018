@@ -102,7 +102,7 @@ public class RobotPreferences {
 //	------------------------------------------------------------ CASCADE LIFT ------------------------------------------------------------
 	public static double cascadeLiftP() {
 		if(AutoPreferences.isDebug() == false) {
-			return 0.1;
+			return 0.2;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftP", 0.3);
 	}
@@ -116,8 +116,7 @@ public class RobotPreferences {
 
 	public static double cascadeLiftD() {
 		if(AutoPreferences.isDebug() == false) {
-//			return 0.75;
-			return 0;
+			return 0.0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftD", 0.75);
 	}
@@ -175,14 +174,14 @@ public class RobotPreferences {
 
 	public static double cascadeLiftLowScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 60.0;
+			return 50.0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftLowScaleSetpoint", 48.0);
 	}
 
 	public static double cascadeLiftHighScaleSetpoint() {
 		if(AutoPreferences.isDebug() == false) {
-			return 68.0;
+			return 60.0;
 		}
 		return Preferences.getInstance().getDouble("CascadeLiftHighScaleSetpoint", 60.0);
 	}
@@ -269,6 +268,13 @@ public class RobotPreferences {
 	public static double collectorArmSpeed() {
 		if(AutoPreferences.isDebug() == false) {
 			return 0.60;
+		}
+		return Preferences.getInstance().getDouble("CollectorArmSpeed", 0.1);
+	}
+	
+	public static double collectorArmFrontSpeed() {
+		if(AutoPreferences.isDebug() == false) {
+			return 1.0;
 		}
 		return Preferences.getInstance().getDouble("CollectorArmSpeed", 0.1);
 	}
@@ -484,7 +490,8 @@ public class RobotPreferences {
 
 	public static double timeOut() {
 		if(AutoPreferences.isDebug() == false) {
-			return 100.0;
+//In seconds
+			return 5.0;
 		}
 		return Preferences.getInstance().getDouble("TimeOut", 100.0);
 	}

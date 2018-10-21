@@ -187,7 +187,7 @@ public class AutoPlaceSwitch extends CommandGroup {
 				distance = 104.0;
 			}
 			else if (lane == 2) {
-				distance = 105.0;
+				distance = 98.0;
 				//103
 			}
 			else if (lane == 3) {
