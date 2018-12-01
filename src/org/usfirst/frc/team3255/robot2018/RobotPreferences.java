@@ -80,7 +80,7 @@ public class RobotPreferences {
 	
 	public static double drivetrainClampMaxHeightMove() {
 		if(AutoPreferences.isDebug() == false) {
-			return 110.0;
+			return 90.0;
 		}
 		return  Preferences.getInstance().getDouble("DrivetrainClampMaxHeightMove", 100.0);
 	}
